@@ -1,25 +1,24 @@
 title: All about light
 author: Zen
-
 execute:
-  execute_notebooks: off
-
+  execute_notebooks: false
 repository:
   url: https://github.com/z-labo/zen-optics-binder-book
   branch: main
-
 launch_buttons:
   binderhub_url: https://mybinder.org
   notebook_interface: jupyterlab
   thebe: true
-
 html:
   use_repository_button: true
   use_issues_button: true
-
+  extra_css:
+  - _static/language-switcher.css
+  extra_js:
+  - _static/language-switcher.js
 sphinx:
   config:
     html_js_files:
-      - https://cdn.plot.ly/plotly-2.30.0.min.js
-      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
-      - https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js
+    - https://cdn.plot.ly/plotly-2.30.0.min.js
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    - https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js
