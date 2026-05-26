@@ -1,1 +1,55 @@
-[data-lang] { display: none; }
+/* 기본: 모든 언어 블록 숨김 - JS가 선택된 언어만 표시 */
+[data-lang] {
+  display: none;
+}
+
+/* 언어 전환 버튼 */
+#zen-lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  margin-right: 8px;
+  background: var(--pst-color-surface, #f8f9fa);
+  border: 1px solid var(--pst-color-border, #dee2e6);
+  border-radius: 6px;
+}
+
+.zen-lang-btn {
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--pst-color-text-muted, #6c757d);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.zen-lang-btn:hover {
+  background: #e9ecef;
+  color: var(--pst-color-primary, #0d6efd);
+}
+
+.zen-lang-btn.active {
+  background: var(--pst-color-primary, #0d6efd);
+  color: #fff;
+  border-color: var(--pst-color-primary, #0d6efd);
+}
+
+/* fallback: bd-content 안에 삽입된 경우 */
+.bd-content > #zen-lang-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 6px 12px;
+  background: var(--pst-color-background, #fff);
+  border: none;
+  border-bottom: 1px solid var(--pst-color-border, #dee2e6);
+  border-radius: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}

@@ -1,4 +1,6 @@
 (function () {
+  'use strict';
+
   const LANGS = [
     { code: 'ja', label: '日本語' },
     { code: 'en', label: 'English' },
@@ -8,67 +10,62 @@
   const STORAGE_KEY = 'zen-book-lang';
 
   function normalizeLang(lang) {
-    return LANGS.some((l) => l.code === lang) ? lang : DEFAULT_LANG;
+    return LANGS.some(function (l) { return l.code === lang; }) ? lang : DEFAULT_LANG;
   }
 
   function applyLanguage(lang) {
-    const normalized = normalizeLang(lang);
-    document.querySelectorAll('[data-lang]').forEach((el) => {
-      const isSelected = el.getAttribute('data-lang') === normalized;
-      el.style.display = isSelected ? '' : 'none';
-      el.setAttribute('aria-hidden', isSelected ? 'false' : 'true');
-    });
-    localStorage.setItem(STORAGE_KEY, normalized);
+    var normalized = normalizeLang(lang);
 
-    const select = document.querySelector('#language-switcher select');
-    if (select && select.value !== normalized) {
-      select.value = normalized;
-    }
+    // 모든 [data-lang] div를 숨기거나 표시
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      var elLang = el.getAttribute('data-lang');
+      el.style.display = (elLang === normalized) ? '' : 'none';
+    });
+
+    // 선택된 언어 버튼 활성화
+    document.querySelectorAll('.zen-lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.langCode === normalized);
+    });
+
+    localStorage.setItem(STORAGE_KEY, normalized);
   }
 
   function createSwitcher() {
-    if (document.getElementById('language-switcher')) return;
+    if (document.getElementById('zen-lang-switcher')) return;
 
-    const searchBtn = document.querySelector('.search-button__button') || document.querySelector('button.search-button-field');
-    const headerButtons = document.querySelector('.article-header-buttons') || document.querySelector('.navbar-btn-group');
-    const mountPoint = headerButtons || searchBtn?.parentElement;
-    if (!mountPoint) return;
+    var wrapper = document.createElement('div');
+    wrapper.id = 'zen-lang-switcher';
 
-    const wrapper = document.createElement('div');
-    wrapper.id = 'language-switcher';
-    wrapper.style.display = 'inline-flex';
-    wrapper.style.alignItems = 'center';
-    wrapper.style.marginRight = '8px';
-
-    const select = document.createElement('select');
-    select.setAttribute('aria-label', 'Language selector');
-    select.className = 'form-select form-select-sm';
-    select.style.width = '110px';
-
-    LANGS.forEach((l) => {
-      const opt = document.createElement('option');
-      opt.value = l.code;
-      opt.textContent = l.label;
-      select.appendChild(opt);
+    LANGS.forEach(function (l) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = l.label;
+      btn.dataset.langCode = l.code;
+      btn.className = 'zen-lang-btn';
+      btn.addEventListener('click', function () { applyLanguage(l.code); });
+      wrapper.appendChild(btn);
     });
 
-    const saved = normalizeLang(localStorage.getItem(STORAGE_KEY));
-    select.value = saved;
-    applyLanguage(saved);
-
-    select.addEventListener('change', (e) => applyLanguage(e.target.value));
-    wrapper.appendChild(select);
-
-    if (headerButtons) {
-      headerButtons.prepend(wrapper);
+    // .article-header-buttons (우상단 툴바) 에 삽입
+    var mount = document.querySelector('.article-header-buttons');
+    if (mount) {
+      mount.prepend(wrapper);
     } else {
-      mountPoint.insertBefore(wrapper, mountPoint.firstChild);
+      // 없으면 콘텐츠 맨 위에 sticky bar로
+      var content = document.querySelector('.bd-content') || document.body;
+      content.insertBefore(wrapper, content.firstChild);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function init() {
+    var saved = normalizeLang(localStorage.getItem(STORAGE_KEY));
     createSwitcher();
-    const saved = normalizeLang(localStorage.getItem(STORAGE_KEY));
     applyLanguage(saved);
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
