@@ -3,5 +3,7 @@ root: intro
 
 chapters:
   - file: exit
-  - file: PIM
+  - file: en/PIM_en
+  - file: ja/PIM_ja
+  - file: ko/PIM_ko
 

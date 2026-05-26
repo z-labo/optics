@@ -17,9 +17,13 @@
     var normalized = normalizeLang(lang);
 
     // 모든 [data-lang] div를 숨기거나 표시
-    document.querySelectorAll('[data-lang]').forEach(function (el) {
+    document.querySelectorAll('.lang-block').forEach(function (el) {
       var elLang = el.getAttribute('data-lang');
-      el.style.display = (elLang === normalized) ? 'block' : 'none';
+      if (elLang === normalized) {
+        el.hidden = false;
+      } else {
+        el.hidden = true;
+      }
     });
 
     // 선택된 언어 버튼 활성화
@@ -63,9 +67,5 @@
     applyLanguage(saved);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  window.addEventListener('load', init);
 })();
