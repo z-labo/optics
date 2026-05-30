@@ -1,9 +1,14 @@
-/* 기본: 모든 언어 블록 숨김 - JS가 선택된 언어만 표시 */
-[data-lang] {
-  display: none; 
-}
+/*
+ * Language switcher styles.
+ *
+ * NOTE: We intentionally do NOT hide every [data-lang] element by default.
+ * Each chapter page in this book is single-language (only one
+ * `<div class="lang-block" data-lang="..">` block is present), so a blanket
+ * `display:none` rule would hide all of the content. The JS only toggles
+ * visibility when more than one language block exists on the same page.
+ */
 
-/* 언어 전환 버튼 */
+/* Language switch buttons */
 #zen-lang-switcher {
   display: inline-flex;
   align-items: center;
@@ -38,7 +43,8 @@
   border-color: var(--pst-color-primary, #0d6efd);
 }
 
-/* fallback: bd-content 안에 삽입된 경우 */
+/* Fallback: when injected directly into the article body instead of the
+   header toolbar, render the switcher as a sticky bar across the top. */
 .bd-content > #zen-lang-switcher {
   position: sticky;
   top: 0;

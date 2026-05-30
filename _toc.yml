@@ -4,4 +4,4 @@ root: intro
 chapters:
   - file: en/PIM_en
   - file: ja/PIM_ja
-  - file: ko/PIM_ko
+  - file: kr/PIM_kr
