@@ -27,5 +27,8 @@ jobs:
         run: |
           ghp-import -n -p -f _build/html
           
-
+      - name: Add helper files
+        run: |
+          touch _build/html/.nojekyll
+          
           
