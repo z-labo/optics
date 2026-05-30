@@ -1,5 +1,9 @@
 title: All about light
 author: Zen
+exclude_patterns:
+  - temp/*
+  - "**.ipynb_checkpoints"
+  - _build
 execute:
   execute_notebooks: false
 repository:
