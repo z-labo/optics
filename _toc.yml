@@ -1,2 +1,5 @@
 format: jb-book
-root: en/PIM_en
+root: intro
+
+chapters:
+  - file: en/PIM_en

@@ -116,7 +116,7 @@
 
   function removeHiddenNavigationItems() {
     var hiddenTargets = ['/ja/PIM_ja', '/kr/PIM_kr', 'ja/PIM_ja.html', 'kr/PIM_kr.html'];
-    document.querySelectorAll('.bd-sidebar-primary a, nav a').forEach(function (link) {
+    document.querySelectorAll('.bd-sidebar-primary a').forEach(function (link) {
       var href = link.getAttribute('href') || '';
       var shouldHide = hiddenTargets.some(function (target) { return href.indexOf(target) !== -1; });
       if (!shouldHide) return;

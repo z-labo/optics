@@ -80,39 +80,6 @@ nav[aria-label="Page navigation"] {
   display: none !important;
 }
 
-/* Put the detailed in-page table of contents on the left on desktop layouts
-   and avoid showing the book-level navigation there. */
-@media (min-width: 960px) {
-  .bd-sidebar-primary {
-    display: none !important;
-  }
-
-  .bd-main {
-    display: grid !important;
-    grid-template-columns: minmax(13rem, 18rem) minmax(0, 1fr) !important;
-    grid-template-areas: "zen-page-toc zen-content" !important;
-    gap: 1.5rem !important;
-  }
-
-  .bd-main .bd-content {
-    grid-area: zen-content !important;
-    min-width: 0;
-  }
-
-  .bd-main .bd-sidebar-secondary,
-  .bd-main .bd-toc {
-    grid-area: zen-page-toc !important;
-    display: block !important;
-    visibility: visible !important;
-    order: -1 !important;
-    width: auto !important;
-    max-width: 18rem !important;
-    margin: 0 !important;
-  }
-
-  .bd-sidebar-secondary .sidebar-secondary-item,
-  .bd-sidebar-secondary nav,
-  .bd-toc nav {
-    display: block !important;
-  }
-}
+/* The detailed in-page table of contents belongs in the theme's secondary
+   sidebar (right side on desktop). Do not reflow it into the primary/book
+   sidebar; only the previous/next controls are removed above. */
