@@ -59,3 +59,27 @@
   margin-right: 0;
   box-sizing: border-box;
 }
+
+/* Keep the site navigation focused on the single public PIM entry. The
+   Japanese and Korean notebook pages are still built and reachable through
+   the language switcher, but they should not appear as separate book entries. */
+.bd-sidebar-primary a[href*="/ja/PIM_ja"],
+.bd-sidebar-primary a[href*="/kr/PIM_kr"],
+.bd-sidebar-primary a[href$="ja/PIM_ja.html"],
+.bd-sidebar-primary a[href$="kr/PIM_kr.html"] {
+  display: none !important;
+}
+
+/* Remove previous/next navigation from the content and sidebars. */
+.prev-next-area,
+.prev-next-footer,
+.footer-prev-next,
+.article-footer-prev-next,
+nav.prev-next,
+nav[aria-label="Page navigation"] {
+  display: none !important;
+}
+
+/* The detailed in-page table of contents belongs in the theme's secondary
+   sidebar (right side on desktop). Do not reflow it into the primary/book
+   sidebar; only the previous/next controls are removed above. */
