@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Propagation indipendent modes (PIM) &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ja/PIM_ja';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/ja/PIM_ja.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fja/PIM_ja.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ja/PIM_ja.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Propagation indipendent modes (PIM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1 — 伝搬定数 β とは何か？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">β の物理的意味</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2 — 横方向波数の定義</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kappa">コア内部の横方向波数 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma">クラッド内部の減衰定数 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">複素屈折率 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-uw">STEP 3 — 規格化横方向波数 <span class="math notranslate nohighlight">\(u\)</span>、<span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-bessel">STEP 4 — Bessel 関数の導関数表記</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-n-dn-s">STEP 5 — 非対称パラメーター <span class="math notranslate nohighlight">\(n_d\)</span>、<span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-r-beta">STEP 6 — 補正項 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7 — 超越方程式と β の決定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eh">EH モードの超越方程式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he">HE モードの超越方程式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">二つの方程式の違い</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">β の数値的決定方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8 — モード命名規則</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-beta-lm">STEP 9 — 理想状態における <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> に対する各モードの空間分布を求める</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-c-d">モード別振幅係数の求め方 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">領域別電磁場の式</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="propagation-indipendent-modes-pim">
+<h1>Propagation indipendent modes (PIM)<a class="headerlink" href="#propagation-indipendent-modes-pim" title="Permalink to this heading">#</a></h1>
+<section id="condition">
+<h2>CONDITION<a class="headerlink" href="#condition" title="Permalink to this heading">#</a></h2>
+<p>D=25um, <span class="math notranslate nohighlight">\(\lambda\)</span> =1550nm, NA=0.22
+<br />
+<img alt="Fig. 4" src="../_images/fig4.jpg" /></p>
+</section>
+<section id="step-1">
+<h2>STEP 1 — 伝搬定数 β とは何か？<a class="headerlink" href="#step-1" title="Permalink to this heading">#</a></h2>
+<p>光ファイバーの中では、光は<strong>モード</strong>(mode) と呼ばれる特定の空間パターンで伝搬する。<br />
+各モードは固有の**伝搬定数 <span class="math notranslate nohighlight">\(\beta\)</span>**を持ち、これは軸方向（z 方向、または縦方向）に距離 <span class="math notranslate nohighlight">\(z\)</span> だけ進んだとき、位相が <span class="math notranslate nohighlight">\(e^{i\beta z}\)</span> だけ付加されることを意味する。</p>
+<section id="id1">
+<h3>β の物理的意味<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>自由空間での波数は <span class="math notranslate nohighlight">\(k_0 = \omega/c\)</span> である。<br />
+屈折率 <span class="math notranslate nohighlight">\(n\)</span> の一様媒質中では <span class="math notranslate nohighlight">\(n k_0\)</span> になる。<br />
+しかし光ファイバーは、コア（屈折率 <span class="math notranslate nohighlight">\(n_\text{core}\)</span>）とクラッド（屈折率 <span class="math notranslate nohighlight">\(n_\text{clad}\)</span>、<span class="math notranslate nohighlight">\(n_\text{clad} &lt; n_\text{core}\)</span>）からなる<strong>導波構造</strong>であるため、光はその中間の有効屈折率で伝搬しているかのように振る舞う。</p>
+<div class="math notranslate nohighlight">
+\[
+n_\text{clad} k_0 &lt; \beta &lt; n_\text{core} k_0
+\]</div>
+<p>この範囲の外ではモードは存在しない。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta \geq n_\text{core} k_0\)</span> の場合、コア全体の位相が同じになってしまい、伝搬解は存在しない。</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta \leq n_\text{clad} k_0\)</span> の場合、クラッド側で減衰せず、エネルギーが無限に漏れ出す<strong>放射モード</strong>(radiation mode) になる。</p></li>
+</ul>
+<p>また STEP 7 で説明するように、両側の境界条件を同時に満たす <span class="math notranslate nohighlight">\(\beta\)</span> は離散的にしか存在せず、それによって構成される横方向電磁場の分布が<strong>導波モード</strong>(guided mode) である。</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-2">
+<h2>STEP 2 — 横方向波数の定義<a class="headerlink" href="#step-2" title="Permalink to this heading">#</a></h2>
+<p>伝搬定数 <span class="math notranslate nohighlight">\(\beta\)</span> が決まると、コア内とクラッド内での<strong>横方向</strong>（x-y 平面内の振動）の振る舞いを記述する二つの波数を定義できる。</p>
+<section id="kappa">
+<h3>コア内部の横方向波数 <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#kappa" title="Permalink to this heading">#</a></h3>
+<p>コアの中では、光は横断面方向に<strong>振動</strong>(oscillation) する。</p>
+<div class="math notranslate nohighlight">
+\[
+\kappa = \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(k_0 n_\text{core}\)</span> はコア内での全波数であり、そこから軸方向成分 <span class="math notranslate nohighlight">\(\beta\)</span> を差し引くと、残りが横断面方向成分になる（ピタゴラス的なベクトル分解）。<span class="math notranslate nohighlight">\(\kappa\)</span> が実数になるには <span class="math notranslate nohighlight">\(\beta &lt; k_0 n_\text{core}\)</span> である必要があり、これは前述の上限条件と一致する。</p>
+</section>
+<section id="sigma">
+<h3>クラッド内部の減衰定数 <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#sigma" title="Permalink to this heading">#</a></h3>
+<p>クラッドの中では、光は振動する代わりに<strong>指数関数的に減衰</strong>(evanescent) する。</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> が実数になるには <span class="math notranslate nohighlight">\(\beta &gt; k_0 n_\text{clad}\)</span> である必要があり、これは下限条件と一致する。<br />
+この二つの条件をともに満たす <span class="math notranslate nohighlight">\(\beta\)</span> の範囲でのみ、完全な導波モードが存在する。</p>
+</section>
+<section id="complex-refractive-index-n-n-ik">
+<h3>複素屈折率 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik\)</span><a class="headerlink" href="#complex-refractive-index-n-n-ik" title="Permalink to this heading">#</a></h3>
+<p>平面波の波動関数を <span class="math notranslate nohighlight">\(\psi(x) = Ae^{ikx}\)</span> と書くと、<span class="math notranslate nohighlight">\(k = Nk_0\)</span> であるため、</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{i(k_0n+ik_0k)x} = Ae^{-k_0kx}e^{ik_0nx}
+\]</div>
+<p>すなわち、<span class="math notranslate nohighlight">\(e^{-k_0kx}\)</span> は <span class="math notranslate nohighlight">\(x\)</span> に応じて振幅が減衰定数 <span class="math notranslate nohighlight">\(k_0k\)</span> で急速に減衰する<strong>減衰項</strong>、<span class="math notranslate nohighlight">\(e^{ik_0nx}\)</span> は波数 <span class="math notranslate nohighlight">\(k_0n\)</span> で損失なく振動する<strong>振動項</strong>と見なすことができる。これが上で述べたコア内部の横方向波数 <span class="math notranslate nohighlight">\(\kappa\)</span> とクラッド内部の横方向減衰定数 <span class="math notranslate nohighlight">\(\sigma\)</span> に数学的にどのように整合するかは、後で議論する。</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-uw">
+<h2>STEP 3 — 規格化横方向波数 <span class="math notranslate nohighlight">\(u\)</span>、<span class="math notranslate nohighlight">\(w\)</span><a class="headerlink" href="#step-3-uw" title="Permalink to this heading">#</a></h2>
+<p>数式を扱いやすくするため、コア半径 <span class="math notranslate nohighlight">\(a\)</span> で規格化した無次元波数を導入する。</p>
+<div class="math notranslate nohighlight">
+\[
+u = \kappa a = a \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+w = \sigma a = a \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p>この二つの量は次の関係を満たす。</p>
+<div class="math notranslate nohighlight">
+\[
+u^2 + w^2 = a^2 k_0^2 (n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2) \equiv V^2
+\]</div>
+<p>ここで <span class="math notranslate nohighlight">\(V\)</span> は<strong>開口数</strong>(numerical aperture) とコア半径を合わせた<strong>V パラメーター</strong>または<strong>V 数</strong>であり、光ファイバーのモード数を決定する重要な量である。<br />
+<span class="math notranslate nohighlight">\(V &lt; 2.405\)</span> の場合、基本モード <span class="math notranslate nohighlight">\(HE_{11}\)</span> のみが伝搬可能な<strong>シングルモードファイバー</strong>となる。</p>
+</section>
+<hr class="docutils" />
+<section id="step-4-bessel">
+<h2>STEP 4 — Bessel 関数の導関数表記<a class="headerlink" href="#step-4-bessel" title="Permalink to this heading">#</a></h2>
+<p>境界条件を書くとき、Bessel 関数 <span class="math notranslate nohighlight">\(J_l(r)\)</span>、<span class="math notranslate nohighlight">\(K_l(r)\)</span> の導関数が頻繁に現れる。<br />
+これを簡潔に表記するため、次の記号を導入する。</p>
+<ol class="arabic simple">
+<li><p><strong>第一種 Bessel 関数の微分 <span class="math notranslate nohighlight">\(J_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J_d(l, r) = J_{l-1}(r) - \frac{l}{r} J_l(r)\)</span></p></li>
+<li><p>この定義は第一種 Bessel 関数の微分公式と同じである。</p></li>
+<li><p>シミュレーションでは <span class="math notranslate nohighlight">\(J_d(l, r) = J_l'(r)\)</span> とする。</p></li>
+</ul>
+</li>
+<li><p><strong>第二種変形 Bessel 関数の微分 <span class="math notranslate nohighlight">\(K_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_d(l, r) = \frac{l}{r} K_l(r) - K_{l+1}(r)\)</span></p></li>
+<li><p>この定義は第二種変形 Bessel 関数の微分公式と同じである。</p></li>
+<li><p>シミュレーションでは <span class="math notranslate nohighlight">\(K_d(l, r) = K_l'(r)\)</span> とする。</p></li>
+</ul>
+</li>
+</ol>
+<p>この表記を導入すると、超越方程式中の導関数を <span class="math notranslate nohighlight">\(J_l\)</span>、<span class="math notranslate nohighlight">\(K_l\)</span> および次数が一つ異なる <span class="math notranslate nohighlight">\(J_{l\pm1}\)</span>、<span class="math notranslate nohighlight">\(K_{l\pm1}\)</span> の<strong>線形結合</strong>(Linear Combination) として簡潔に変換できるため、数値計算およびコード実装が非常に便利になる。</p>
+</section>
+<hr class="docutils" />
+<section id="step-5-n-dn-s">
+<h2>STEP 5 — 非対称パラメーター <span class="math notranslate nohighlight">\(n_d\)</span>、<span class="math notranslate nohighlight">\(n_s\)</span><a class="headerlink" href="#step-5-n-dn-s" title="Permalink to this heading">#</a></h2>
+<p>コアとクラッドの屈折率差を、二つの組み合わせで定義する。</p>
+<div class="math notranslate nohighlight">
+\[
+n_d = \frac{n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+n_s = \frac{n_{\mathrm{core}}^2 + n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_d\)</span> はコアとクラッドの屈折率の<strong>差</strong>を表す非対称パラメーターであり、境界条件において電場と磁場の接線成分がどの程度異なって結合するかを反映する。<br />
+弱導波近似 (<span class="math notranslate nohighlight">\(n_\text{core} \approx n_\text{clad}\)</span>) では <span class="math notranslate nohighlight">\(n_d \approx 0\)</span> となり、式が単純化される。</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_s\)</span> は屈折率の<strong>平均</strong>に近い値であり、境界での境界条件のスケールを調整する役割を持つ。</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-6-r-beta">
+<h2>STEP 6 — 補正項 <span class="math notranslate nohighlight">\(R(\beta)\)</span><a class="headerlink" href="#step-6-r-beta" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> はベクトル波動方程式から生じる<strong>偏光補正項</strong>であり、EH モードと HE モードを区別する核心的な役割を果たす。</p>
+<div class="math notranslate nohighlight">
+\[
+R(\beta) = \sqrt{
+  n_d^2 \left[\frac{K_l'(w)}{w\,K_l(w)}\right]^2
+  + \left(\frac{l\,\beta}{n_{\mathrm{core}}\,k_0}\right)^2
+  \left(\frac{1}{w^2} + \frac{1}{u^2}\right)^2
+}
+\]</div>
+<ul class="simple">
+<li><p><strong>第一項</strong> <span class="math notranslate nohighlight">\(n_d^2[\cdots]^2\)</span>: 屈折率の不連続による偏光混合効果を表す。<span class="math notranslate nohighlight">\(n_d\)</span> が大きいほど（屈折率差が大きいほど）、この項は大きくなる。</p></li>
+<li><p><strong>第二項</strong>: 方位角次数 <span class="math notranslate nohighlight">\(l\)</span> と伝搬定数 <span class="math notranslate nohighlight">\(\beta\)</span> に依存する。<span class="math notranslate nohighlight">\(l = 0\)</span> の場合、この項は消え、TE/TM モードだけが残る。</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> は常に正の実数であり、この値の<strong>符号</strong>を変えて取ることで、EH モードと HE モードの超越方程式を統一的に記述できる。</p>
+</section>
+<hr class="docutils" />
+<section id="step-7">
+<h2>STEP 7 — 超越方程式と β の決定<a class="headerlink" href="#step-7" title="Permalink to this heading">#</a></h2>
+<section id="eh">
+<h3>EH モードの超越方程式<a class="headerlink" href="#eh" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{EH}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} - R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="he">
+<h3>HE モードの超越方程式<a class="headerlink" href="#he" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{HE}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} + R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="id2">
+<h3>二つの方程式の違い<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>二つの超越方程式の<strong>唯一の違い</strong>は、最後の項における <span class="math notranslate nohighlight">\(R(\beta)\)</span> の符号である。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>モード</p></th>
+<th class="head"><p>最後の項</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EH</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} - R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> を<strong>引く</strong>方向への偏光補正</p></td>
+</tr>
+<tr class="row-odd"><td><p>HE</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} + R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> を<strong>足す</strong>方向への偏光補正</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>この符号の違いは、境界条件において電場の横方向成分がコアとクラッドの境界でどのように接続されるかに由来し、<strong>電場が支配的なモード (EH)</strong> と<strong>磁場が支配的なモード (HE)</strong> の構造差を反映している。</p>
+</section>
+<section id="id3">
+<h3>β の数値的決定方法<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>各 <span class="math notranslate nohighlight">\(l\)</span> について、<span class="math notranslate nohighlight">\(\beta \in (n_\text{clad} k_0,\; n_\text{core} k_0)\)</span> の範囲を離散的に探索する。</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\mathrm{EH}}(\beta)\)</span> または <span class="math notranslate nohighlight">\(f_{\mathrm{HE}}(\beta)\)</span> が 0 になる点を<strong>符号変化</strong>(sign change) によって見つける。</p></li>
+<li><p>二分法 (bisection) または Brent 法などで精密に収束させる。</p></li>
+<li><p>各解 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span>（方位角次数 <span class="math notranslate nohighlight">\(l\)</span>、その方位角次数に対する複数の解をインデックス付けした半径方向次数 <span class="math notranslate nohighlight">\(m\)</span>）に対応するモードプロファイルを構成する。</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-8">
+<h2>STEP 8 — モード命名規則<a class="headerlink" href="#step-8" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>モード種類</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>存在条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(TE_{0m}\)</span></p></td>
+<td><p>電場が横断面内にのみ存在、<span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>EH 方程式 <span class="math notranslate nohighlight">\(l=0\)</span> の特殊解</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(TM_{0m}\)</span></p></td>
+<td><p>磁場が横断面内にのみ存在、<span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>HE 方程式 <span class="math notranslate nohighlight">\(l=0\)</span> の特殊解</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(HE_{lm}\)</span></p></td>
+<td><p>磁場成分が優勢な混合モード</p></td>
+<td><p>HE 方程式 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(EH_{lm}\)</span></p></td>
+<td><p>電場成分が優勢な混合モード</p></td>
+<td><p>EH 方程式 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>基本モード <span class="math notranslate nohighlight">\(HE_{11}\)</span> は <span class="math notranslate nohighlight">\(l=1\)</span> の HE 方程式で <span class="math notranslate nohighlight">\(m=1\)</span> に対応する最初の解であり、<strong>遮断周波数が 0</strong> であるため、どの V 数でも常に存在する。</p>
+<p><strong>TE モード</strong> ベクトル波動方程式で <span class="math notranslate nohighlight">\(E_z = 0\)</span> となるモード<br>
+<strong>TM モード</strong> ベクトル波動方程式で <span class="math notranslate nohighlight">\(H_z = 0\)</span> となるモード</p>
+</section>
+<section id="step-9-beta-lm">
+<h2>STEP 9 — 理想状態における <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> に対する各モードの空間分布を求める<a class="headerlink" href="#step-9-beta-lm" title="Permalink to this heading">#</a></h2>
+<p>円筒形誘電体光ファイバー (Optical Fiber) 内部を伝搬する<strong>ハイブリッドモードの電磁場</strong>を、円筒座標系 (<span class="math notranslate nohighlight">\(\rho, \theta, z\)</span>) で計算する式として実装する。</p>
+<section id="a-b-c-d">
+<h3>モード別振幅係数の求め方 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)<a class="headerlink" href="#a-b-c-d" title="Permalink to this heading">#</a></h3>
+<p>光ファイバー電磁場の z 軸成分の振幅を決定する定数である。<span class="math notranslate nohighlight">\(l\)</span> の値（方位角次数）に応じて式が変わる。</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(l = 0\)</span> の場合</p>
+<ul class="simple">
+<li><p><strong>EH mode</strong> (TM-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 1, B = 0, C = \frac{J_0(u)}{K_0(w)}, D = 0\)</span></p></li>
+<li><p><strong>HE mode</strong> (TE-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 0, B = 1, C = 0, D = \frac{J_0(u)}{K_0(w)}\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(l \neq 0\)</span> の場合（ハイブリッドモード）</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = \frac{il\beta}{\omega\mu_0} \left( \frac{1}{(w)^2} + \frac{1}{(u)^2} \right) \left[ \frac{J_l'(u)}{u J_l(u)} + \frac{K_l'(w)}{w K_l(w)} \right]^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C = \frac{J_l(u)}{K_l(w)}A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D = B \cdot C\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id4">
+<h3>領域別電磁場の式<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>共通位相項 (Phase term):</strong> <span class="math notranslate nohighlight">\(\Phi = e^{i(l\theta - \beta z)}\)</span></p></li>
+<li><p>実際のシミュレーションでは、コア領域での <span class="math notranslate nohighlight">\(E_r, E_\theta\)</span> のみを使用する。</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>コア領域 (<span class="math notranslate nohighlight">\(\rho &lt; a\)</span>)：導波（振動）成分</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= -\frac{i\beta}{\kappa^2} \left[ A \kappa J_l'(\kappa\rho) + \frac{i\omega\mu_0 l}{\beta\rho} B J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} A J_l(\kappa\rho) - \frac{\omega\mu_0}{\beta} B \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= A J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= -\frac{i\beta}{\kappa^2} \left[ B \kappa J_l'(\kappa\rho) - \frac{i\omega\epsilon_{\text{core}} l}{\beta\rho} A J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} B J_l(\kappa\rho) + \frac{\omega\epsilon_{\text{core}}}{\beta} A \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= B J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<ol class="arabic simple" start="2">
+<li><p>クラッド領域 (<span class="math notranslate nohighlight">\(\rho &gt; a\)</span>)：減衰（エバネッセント）成分</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= \frac{i\beta}{\sigma^2} \left[ C \sigma K_l'(\sigma\rho) + \frac{i\omega\mu_0 l}{\beta\rho} D K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} C K_l(\sigma\rho) - \frac{\omega\mu_0}{\beta} D \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= C K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= \frac{i\beta}{\sigma^2} \left[ D \sigma K_l'(\sigma\rho) - \frac{i\omega\epsilon_{\text{clad}} l}{\beta\rho} C K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} D K_l(\sigma\rho) + \frac{\omega\epsilon_{\text{clad}}}{\beta} C \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= D K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1 — 伝搬定数 β とは何か？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">β の物理的意味</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2 — 横方向波数の定義</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kappa">コア内部の横方向波数 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma">クラッド内部の減衰定数 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">複素屈折率 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-uw">STEP 3 — 規格化横方向波数 <span class="math notranslate nohighlight">\(u\)</span>、<span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-bessel">STEP 4 — Bessel 関数の導関数表記</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-n-dn-s">STEP 5 — 非対称パラメーター <span class="math notranslate nohighlight">\(n_d\)</span>、<span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-r-beta">STEP 6 — 補正項 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7 — 超越方程式と β の決定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eh">EH モードの超越方程式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he">HE モードの超越方程式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">二つの方程式の違い</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">β の数値的決定方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8 — モード命名規則</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-beta-lm">STEP 9 — 理想状態における <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> に対する各モードの空間分布を求める</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-c-d">モード別振幅係数の求め方 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">領域別電磁場の式</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Zen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
