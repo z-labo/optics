@@ -2,6 +2,7 @@
 
 This is where I share knowledge. 
 The contensts are not organized, nor have a unified concepts.
+And many of them still under revision.
 
 This is a fully interactive site.
 
