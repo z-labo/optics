@@ -80,6 +80,16 @@
   display: none !important;
 }
 
+/* Keep the site navigation focused on the single public PIM entry. The
+   Japanese and Korean notebook pages are still built and reachable through
+   the language switcher, but they should not appear as separate book entries. */
+.bd-sidebar-primary a[href*="/ja/prop_ja"],
+.bd-sidebar-primary a[href*="/kr/prop_kr"],
+.bd-sidebar-primary a[href$="ja/prop_ja.html"],
+.bd-sidebar-primary a[href$="kr/prop_kr.html"] {
+  display: none !important;
+}
+
 /* Remove previous/next navigation from the content and sidebars. */
 .prev-next-area,
 .prev-next-footer,
