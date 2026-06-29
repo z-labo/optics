@@ -4,4 +4,4 @@ root: intro
 chapters:
   - file: en/PIM_en
   - file: en/TE_en
-  - file: en/prop
+  - file: en/prop_en
