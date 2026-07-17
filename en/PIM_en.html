@@ -1,0 +1,886 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Propagation indipendent modes (PIM) &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'en/PIM_en';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TE mode and Bessel functions" href="TE_en.html" />
+    <link rel="prev" title="Basics of optics" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exit_en.html">Exit angle from a Optical fiber</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/en/PIM_en.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fen/PIM_en.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/en/PIM_en.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Propagation indipendent modes (PIM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-what-is-the-propagation-constant">STEP 1 — What Is the Propagation Constant β?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-of">Physical Meaning of β</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-definition-of-transverse-wave-numbers">STEP 2 — Definition of Transverse Wave Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-wave-number-in-the-core-kappa">Transverse Wave Number in the Core: <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-decay-constant-in-the-cladding-sigma">Transverse Decay Constant in the Cladding: <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">Complex Refractive Index <span class="math notranslate nohighlight">\(N = n + ik\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-normalized-transverse-wave-numbers-u-and-w">STEP 3 — Normalized Transverse Wave Numbers <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-derivative-notation-for-bessel-functions">STEP 4 — Derivative Notation for Bessel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-asymmetry-parameters-n-d-and-n-s">STEP 5 — Asymmetry Parameters <span class="math notranslate nohighlight">\(n_d\)</span> and <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-correction-term-r-beta">STEP 6 — Correction Term <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-transcendental-equations-and-determination-of">STEP 7 — Transcendental Equations and Determination of β</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcendental-equation-for-eh-modes">Transcendental Equation for EH Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcendental-equation-for-he-modes">Transcendental Equation for HE Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-the-two-equations">Difference Between the Two Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-procedure-for-determining">Numerical Procedure for Determining β</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-mode-naming-rules">STEP 8 — Mode Naming Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-finding-the-spatial-distribution-of-each-mode-for-beta-lm-in-the-ideal-case">STEP 9 — Finding the Spatial Distribution of Each Mode for <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> in the Ideal Case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-mode-specific-amplitude-coefficients-a-b-c-d">Finding Mode-Specific Amplitude Coefficients (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electromagnetic-field-formulas-by-region">Electromagnetic-Field Formulas by Region</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="propagation-indipendent-modes-pim">
+<h1>Propagation indipendent modes (PIM)<a class="headerlink" href="#propagation-indipendent-modes-pim" title="Permalink to this heading">#</a></h1>
+<section id="condition">
+<h2>CONDITION<a class="headerlink" href="#condition" title="Permalink to this heading">#</a></h2>
+<p>D=25um, <span class="math notranslate nohighlight">\(\lambda\)</span> =1550nm, NA=0.22
+<br />
+<img alt="Fig. 4" src="../_images/fig4.jpg" /></p>
+</section>
+<section id="step-1-what-is-the-propagation-constant">
+<h2>STEP 1 — What Is the Propagation Constant β?<a class="headerlink" href="#step-1-what-is-the-propagation-constant" title="Permalink to this heading">#</a></h2>
+<p>Inside an optical fiber, light propagates in specific spatial patterns called <strong>modes</strong>.<br />
+Each mode has its own <strong>propagation constant <span class="math notranslate nohighlight">\(\beta\)</span></strong>, which means that when the mode travels a distance <span class="math notranslate nohighlight">\(z\)</span> along the axial direction (the z direction, also called the longitudinal direction), its phase is additionally shifted by <span class="math notranslate nohighlight">\(e^{i\beta z}\)</span>.</p>
+<section id="physical-meaning-of">
+<h3>Physical Meaning of β<a class="headerlink" href="#physical-meaning-of" title="Permalink to this heading">#</a></h3>
+<p>In free space, the wave number is <span class="math notranslate nohighlight">\(k_0 = \omega/c\)</span>.<br />
+In a homogeneous medium with refractive index <span class="math notranslate nohighlight">\(n\)</span>, it becomes <span class="math notranslate nohighlight">\(n k_0\)</span>.<br />
+However, an optical fiber is a <strong>waveguiding structure</strong> made of a core (refractive index <span class="math notranslate nohighlight">\(n_\text{core}\)</span>) and a cladding (refractive index <span class="math notranslate nohighlight">\(n_\text{clad}\)</span>, with <span class="math notranslate nohighlight">\(n_\text{clad} &lt; n_\text{core}\)</span>), so light behaves as if it propagates with an effective refractive index between the two.</p>
+<div class="math notranslate nohighlight">
+\[
+n_\text{clad} k_0 &lt; \beta &lt; n_\text{core} k_0
+\]</div>
+<p>Outside this range, the mode cannot exist.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\beta \geq n_\text{core} k_0\)</span>, the entire core would effectively have the same phase, so no propagating solution exists.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\beta \leq n_\text{clad} k_0\)</span>, the field does not decay in the cladding and becomes a <strong>radiation mode</strong>, with energy leaking away without bound.</p></li>
+</ul>
+<p>As described later in STEP 7, only discrete values of <span class="math notranslate nohighlight">\(\beta\)</span> can satisfy both boundary conditions simultaneously, and the corresponding transverse electromagnetic-field distributions are the <strong>guided modes</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-2-definition-of-transverse-wave-numbers">
+<h2>STEP 2 — Definition of Transverse Wave Numbers<a class="headerlink" href="#step-2-definition-of-transverse-wave-numbers" title="Permalink to this heading">#</a></h2>
+<p>Once the propagation constant <span class="math notranslate nohighlight">\(\beta\)</span> is fixed, two wave numbers can be defined to describe the <strong>transverse</strong> behavior (oscillation in the x-y plane) inside the core and the cladding.</p>
+<section id="transverse-wave-number-in-the-core-kappa">
+<h3>Transverse Wave Number in the Core: <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#transverse-wave-number-in-the-core-kappa" title="Permalink to this heading">#</a></h3>
+<p>Inside the core, light <strong>oscillates</strong> in the transverse direction.</p>
+<div class="math notranslate nohighlight">
+\[
+\kappa = \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(k_0 n_\text{core}\)</span> is the total wave number inside the core. After subtracting the axial component <span class="math notranslate nohighlight">\(\beta\)</span>, the remaining component is the transverse component (a Pythagorean vector decomposition). For <span class="math notranslate nohighlight">\(\kappa\)</span> to be real, <span class="math notranslate nohighlight">\(\beta &lt; k_0 n_\text{core}\)</span> must hold, which matches the upper-bound condition above.</p>
+</section>
+<section id="transverse-decay-constant-in-the-cladding-sigma">
+<h3>Transverse Decay Constant in the Cladding: <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#transverse-decay-constant-in-the-cladding-sigma" title="Permalink to this heading">#</a></h3>
+<p>In the cladding, light <strong>decays exponentially</strong> (evanescently) instead of oscillating.</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(\sigma\)</span> to be real, <span class="math notranslate nohighlight">\(\beta &gt; k_0 n_\text{clad}\)</span> must hold, which matches the lower-bound condition.<br />
+Only within the range of <span class="math notranslate nohighlight">\(\beta\)</span> satisfying both conditions can a fully guided mode exist.</p>
+</section>
+<section id="complex-refractive-index-n-n-ik">
+<h3>Complex Refractive Index <span class="math notranslate nohighlight">\(N = n + ik\)</span><a class="headerlink" href="#complex-refractive-index-n-n-ik" title="Permalink to this heading">#</a></h3>
+<p>If the plane-wave wavefunction is written as <span class="math notranslate nohighlight">\(\psi(x) = Ae^{ikx}\)</span>, then <span class="math notranslate nohighlight">\(k = Nk_0\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{i(k_0n+ik_0k)x} = Ae^{-k_0kx}e^{ik_0nx}
+\]</div>
+<p>Thus, <span class="math notranslate nohighlight">\(e^{-k_0kx}\)</span> can be regarded as a <strong>decay term</strong>, whose amplitude rapidly decays with <span class="math notranslate nohighlight">\(x\)</span> with decay constant <span class="math notranslate nohighlight">\(k_0k\)</span>, while <span class="math notranslate nohighlight">\(e^{ik_0nx}\)</span> can be regarded as an <strong>oscillation term</strong>, which oscillates without loss with wave number <span class="math notranslate nohighlight">\(k_0n\)</span>. How this mathematically matches the core transverse wave number <span class="math notranslate nohighlight">\(\kappa\)</span> and the cladding transverse decay constant <span class="math notranslate nohighlight">\(\sigma\)</span> described above will be discussed later.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-normalized-transverse-wave-numbers-u-and-w">
+<h2>STEP 3 — Normalized Transverse Wave Numbers <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(w\)</span><a class="headerlink" href="#step-3-normalized-transverse-wave-numbers-u-and-w" title="Permalink to this heading">#</a></h2>
+<p>To make the equations easier to handle, introduce dimensionless wave numbers normalized by the core radius <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+u = \kappa a = a \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+w = \sigma a = a \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p>These two quantities satisfy the following relation.</p>
+<div class="math notranslate nohighlight">
+\[
+u^2 + w^2 = a^2 k_0^2 (n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2) \equiv V^2
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(V\)</span> is the <strong>V-parameter</strong>, or <strong>V-number</strong>, combining the <strong>numerical aperture</strong> and the core radius. It is a key quantity that determines the number of modes in an optical fiber.<br />
+If <span class="math notranslate nohighlight">\(V &lt; 2.405\)</span>, only the fundamental mode <span class="math notranslate nohighlight">\(HE_{11}\)</span> can propagate, and the fiber is a <strong>single-mode fiber</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="step-4-derivative-notation-for-bessel-functions">
+<h2>STEP 4 — Derivative Notation for Bessel Functions<a class="headerlink" href="#step-4-derivative-notation-for-bessel-functions" title="Permalink to this heading">#</a></h2>
+<p>When writing boundary conditions, derivatives of the Bessel functions <span class="math notranslate nohighlight">\(J_l(r)\)</span> and <span class="math notranslate nohighlight">\(K_l(r)\)</span> frequently appear.<br />
+To write them compactly, introduce the following notation.</p>
+<ol class="arabic simple">
+<li><p><strong>Derivative of the Bessel function of the first kind <span class="math notranslate nohighlight">\(J_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J_d(l, r) = J_{l-1}(r) - \frac{l}{r} J_l(r)\)</span></p></li>
+<li><p>This definition is identical to the derivative formula for the Bessel function of the first kind.</p></li>
+<li><p>In the simulation, <span class="math notranslate nohighlight">\(J_d(l, r) = J_l'(r)\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Derivative of the modified Bessel function of the second kind <span class="math notranslate nohighlight">\(K_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_d(l, r) = \frac{l}{r} K_l(r) - K_{l+1}(r)\)</span></p></li>
+<li><p>This definition is identical to the derivative formula for the modified Bessel function of the second kind.</p></li>
+<li><p>In the simulation, <span class="math notranslate nohighlight">\(K_d(l, r) = K_l'(r)\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p>With this notation, the derivatives in the transcendental equations can be compactly converted into <strong>linear combinations</strong> of <span class="math notranslate nohighlight">\(J_l\)</span>, <span class="math notranslate nohighlight">\(K_l\)</span>, and the neighboring orders <span class="math notranslate nohighlight">\(J_{l\pm1}\)</span> and <span class="math notranslate nohighlight">\(K_{l\pm1}\)</span>, making numerical calculation and code implementation much more convenient.</p>
+</section>
+<hr class="docutils" />
+<section id="step-5-asymmetry-parameters-n-d-and-n-s">
+<h2>STEP 5 — Asymmetry Parameters <span class="math notranslate nohighlight">\(n_d\)</span> and <span class="math notranslate nohighlight">\(n_s\)</span><a class="headerlink" href="#step-5-asymmetry-parameters-n-d-and-n-s" title="Permalink to this heading">#</a></h2>
+<p>Define the refractive-index difference between the core and cladding using two combinations.</p>
+<div class="math notranslate nohighlight">
+\[
+n_d = \frac{n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+n_s = \frac{n_{\mathrm{core}}^2 + n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_d\)</span> is an asymmetry parameter representing the refractive-index <strong>difference</strong> between the core and cladding. It reflects how differently the tangential components of the electric and magnetic fields are coupled at the boundary.<br />
+Under the weak-guidance approximation (<span class="math notranslate nohighlight">\(n_\text{core} \approx n_\text{clad}\)</span>), <span class="math notranslate nohighlight">\(n_d \approx 0\)</span>, which simplifies the equations.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_s\)</span> is close to the <strong>average</strong> of the refractive indices and controls the scale of the boundary conditions at the interface.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-6-correction-term-r-beta">
+<h2>STEP 6 — Correction Term <span class="math notranslate nohighlight">\(R(\beta)\)</span><a class="headerlink" href="#step-6-correction-term-r-beta" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> is a <strong>polarization correction term</strong> arising from the vector wave equation, and it plays a central role in distinguishing EH modes from HE modes.</p>
+<div class="math notranslate nohighlight">
+\[
+R(\beta) = \sqrt{
+  n_d^2 \left[\frac{K_l'(w)}{w\,K_l(w)}\right]^2
+  + \left(\frac{l\,\beta}{n_{\mathrm{core}}\,k_0}\right)^2
+  \left(\frac{1}{w^2} + \frac{1}{u^2}\right)^2
+}
+\]</div>
+<ul class="simple">
+<li><p><strong>First term</strong> <span class="math notranslate nohighlight">\(n_d^2[\cdots]^2\)</span>: represents the polarization-mixing effect caused by the refractive-index discontinuity. The larger <span class="math notranslate nohighlight">\(n_d\)</span> is (that is, the larger the refractive-index difference is), the larger this term becomes.</p></li>
+<li><p><strong>Second term</strong>: depends on the azimuthal order <span class="math notranslate nohighlight">\(l\)</span> and the propagation constant <span class="math notranslate nohighlight">\(\beta\)</span>. When <span class="math notranslate nohighlight">\(l = 0\)</span>, this term vanishes, leaving only TE/TM modes.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> is always a positive real number, and by choosing the <strong>sign</strong> of this quantity differently, the transcendental equations for EH and HE modes can be described in a unified way.</p>
+</section>
+<hr class="docutils" />
+<section id="step-7-transcendental-equations-and-determination-of">
+<h2>STEP 7 — Transcendental Equations and Determination of β<a class="headerlink" href="#step-7-transcendental-equations-and-determination-of" title="Permalink to this heading">#</a></h2>
+<section id="transcendental-equation-for-eh-modes">
+<h3>Transcendental Equation for EH Modes<a class="headerlink" href="#transcendental-equation-for-eh-modes" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{EH}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} - R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="transcendental-equation-for-he-modes">
+<h3>Transcendental Equation for HE Modes<a class="headerlink" href="#transcendental-equation-for-he-modes" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{HE}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} + R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="difference-between-the-two-equations">
+<h3>Difference Between the Two Equations<a class="headerlink" href="#difference-between-the-two-equations" title="Permalink to this heading">#</a></h3>
+<p>The <strong>only difference</strong> between the two transcendental equations is the sign of <span class="math notranslate nohighlight">\(R(\beta)\)</span> in the final term.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Final term</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EH</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} - R(\beta)\)</span></p></td>
+<td><p>Polarization correction in the direction of <strong>subtracting</strong> <span class="math notranslate nohighlight">\(R(\beta)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>HE</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} + R(\beta)\)</span></p></td>
+<td><p>Polarization correction in the direction of <strong>adding</strong> <span class="math notranslate nohighlight">\(R(\beta)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This sign difference comes from how the transverse electric-field components connect at the core-cladding boundary, and it reflects the structural difference between <strong>electric-field-dominant modes (EH)</strong> and <strong>magnetic-field-dominant modes (HE)</strong>.</p>
+</section>
+<section id="numerical-procedure-for-determining">
+<h3>Numerical Procedure for Determining β<a class="headerlink" href="#numerical-procedure-for-determining" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>For each <span class="math notranslate nohighlight">\(l\)</span>, discretely search the range <span class="math notranslate nohighlight">\(\beta \in (n_\text{clad} k_0,\; n_\text{core} k_0)\)</span>.</p></li>
+<li><p>Find where <span class="math notranslate nohighlight">\(f_{\mathrm{EH}}(\beta)\)</span> or <span class="math notranslate nohighlight">\(f_{\mathrm{HE}}(\beta)\)</span> becomes zero by detecting a <strong>sign change</strong>.</p></li>
+<li><p>Refine the root using bisection, Brent’s method, or another root-finding method.</p></li>
+<li><p>Construct the mode profile corresponding to each solution <span class="math notranslate nohighlight">\(\beta_{lm}\)</span>, where <span class="math notranslate nohighlight">\(l\)</span> is the azimuthal order and <span class="math notranslate nohighlight">\(m\)</span> is the radial-order index that labels multiple solutions for that azimuthal order.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-8-mode-naming-rules">
+<h2>STEP 8 — Mode Naming Rules<a class="headerlink" href="#step-8-mode-naming-rules" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Existence condition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(TE_{0m}\)</span></p></td>
+<td><p>Electric field exists only in the transverse plane, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>Special solution of the EH equation for <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(TM_{0m}\)</span></p></td>
+<td><p>Magnetic field exists only in the transverse plane, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>Special solution of the HE equation for <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(HE_{lm}\)</span></p></td>
+<td><p>Hybrid mode with dominant magnetic-field components</p></td>
+<td><p>HE equation with <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(EH_{lm}\)</span></p></td>
+<td><p>Hybrid mode with dominant electric-field components</p></td>
+<td><p>EH equation with <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The fundamental mode <span class="math notranslate nohighlight">\(HE_{11}\)</span> is the first solution corresponding to <span class="math notranslate nohighlight">\(m=1\)</span> in the HE equation for <span class="math notranslate nohighlight">\(l=1\)</span>, and because its <strong>cutoff frequency is zero</strong>, it always exists for any V-number.</p>
+<p><strong>TE mode</strong>: a mode with <span class="math notranslate nohighlight">\(E_z = 0\)</span> in the vector wave equation<br>
+<strong>TM mode</strong>: a mode with <span class="math notranslate nohighlight">\(H_z = 0\)</span> in the vector wave equation</p>
+</section>
+<section id="step-9-finding-the-spatial-distribution-of-each-mode-for-beta-lm-in-the-ideal-case">
+<h2>STEP 9 — Finding the Spatial Distribution of Each Mode for <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> in the Ideal Case<a class="headerlink" href="#step-9-finding-the-spatial-distribution-of-each-mode-for-beta-lm-in-the-ideal-case" title="Permalink to this heading">#</a></h2>
+<p>Implemented using formulas that calculate the <strong>electromagnetic fields of hybrid modes</strong> propagating inside a cylindrical dielectric optical fiber in cylindrical coordinates (<span class="math notranslate nohighlight">\(\rho, \theta, z\)</span>).</p>
+<section id="finding-mode-specific-amplitude-coefficients-a-b-c-d">
+<h3>Finding Mode-Specific Amplitude Coefficients (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)<a class="headerlink" href="#finding-mode-specific-amplitude-coefficients-a-b-c-d" title="Permalink to this heading">#</a></h3>
+<p>These are constants that determine the amplitudes of the z-axis components of the optical-fiber electromagnetic field. The formulas differ depending on the value of <span class="math notranslate nohighlight">\(l\)</span> (azimuthal order).</p>
+<ol class="arabic simple">
+<li><p>For <span class="math notranslate nohighlight">\(l = 0\)</span></p>
+<ul class="simple">
+<li><p><strong>EH mode</strong> (TM-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 1, B = 0, C = \frac{J_0(u)}{K_0(w)}, D = 0\)</span></p></li>
+<li><p><strong>HE mode</strong> (TE-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 0, B = 1, C = 0, D = \frac{J_0(u)}{K_0(w)}\)</span></p></li>
+</ul>
+</li>
+<li><p>For <span class="math notranslate nohighlight">\(l \neq 0\)</span> (hybrid modes)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = \frac{il\beta}{\omega\mu_0} \left( \frac{1}{(w)^2} + \frac{1}{(u)^2} \right) \left[ \frac{J_l'(u)}{u J_l(u)} + \frac{K_l'(w)}{w K_l(w)} \right]^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C = \frac{J_l(u)}{K_l(w)}A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D = B \cdot C\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="electromagnetic-field-formulas-by-region">
+<h3>Electromagnetic-Field Formulas by Region<a class="headerlink" href="#electromagnetic-field-formulas-by-region" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Common phase term:</strong> <span class="math notranslate nohighlight">\(\Phi = e^{i(l\theta - \beta z)}\)</span></p></li>
+<li><p>In the actual simulation, only <span class="math notranslate nohighlight">\(E_r\)</span> and <span class="math notranslate nohighlight">\(E_\theta\)</span> in the core region are used.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Core region (<span class="math notranslate nohighlight">\(\rho &lt; a\)</span>): guided (oscillating) components</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= -\frac{i\beta}{\kappa^2} \left[ A \kappa J_l'(\kappa\rho) + \frac{i\omega\mu_0 l}{\beta\rho} B J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} A J_l(\kappa\rho) - \frac{\omega\mu_0}{\beta} B \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= A J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= -\frac{i\beta}{\kappa^2} \left[ B \kappa J_l'(\kappa\rho) - \frac{i\omega\epsilon_{\text{core}} l}{\beta\rho} A J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} B J_l(\kappa\rho) + \frac{\omega\epsilon_{\text{core}}}{\beta} A \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= B J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<ol class="arabic simple" start="2">
+<li><p>Cladding region (<span class="math notranslate nohighlight">\(\rho &gt; a\)</span>): evanescent components</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= \frac{i\beta}{\sigma^2} \left[ C \sigma K_l'(\sigma\rho) + \frac{i\omega\mu_0 l}{\beta\rho} D K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} C K_l(\sigma\rho) - \frac{\omega\mu_0}{\beta} D \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= C K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= \frac{i\beta}{\sigma^2} \left[ D \sigma K_l'(\sigma\rho) - \frac{i\omega\epsilon_{\text{clad}} l}{\beta\rho} C K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} D K_l(\sigma\rho) + \frac{\omega\epsilon_{\text{clad}}}{\beta} C \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= D K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./en"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Basics of optics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TE_en.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TE mode and Bessel functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-what-is-the-propagation-constant">STEP 1 — What Is the Propagation Constant β?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-of">Physical Meaning of β</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-definition-of-transverse-wave-numbers">STEP 2 — Definition of Transverse Wave Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-wave-number-in-the-core-kappa">Transverse Wave Number in the Core: <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-decay-constant-in-the-cladding-sigma">Transverse Decay Constant in the Cladding: <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">Complex Refractive Index <span class="math notranslate nohighlight">\(N = n + ik\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-normalized-transverse-wave-numbers-u-and-w">STEP 3 — Normalized Transverse Wave Numbers <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-derivative-notation-for-bessel-functions">STEP 4 — Derivative Notation for Bessel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-asymmetry-parameters-n-d-and-n-s">STEP 5 — Asymmetry Parameters <span class="math notranslate nohighlight">\(n_d\)</span> and <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-correction-term-r-beta">STEP 6 — Correction Term <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-transcendental-equations-and-determination-of">STEP 7 — Transcendental Equations and Determination of β</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcendental-equation-for-eh-modes">Transcendental Equation for EH Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transcendental-equation-for-he-modes">Transcendental Equation for HE Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-the-two-equations">Difference Between the Two Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-procedure-for-determining">Numerical Procedure for Determining β</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-mode-naming-rules">STEP 8 — Mode Naming Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-finding-the-spatial-distribution-of-each-mode-for-beta-lm-in-the-ideal-case">STEP 9 — Finding the Spatial Distribution of Each Mode for <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> in the Ideal Case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-mode-specific-amplitude-coefficients-a-b-c-d">Finding Mode-Specific Amplitude Coefficients (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electromagnetic-field-formulas-by-region">Electromagnetic-Field Formulas by Region</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,826 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TE mode and Bessel functions &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'en/TE_en';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wave propagation: Fresnel and Fraunhofer diffraction" href="prop_en.html" />
+    <link rel="prev" title="Propagation indipendent modes (PIM)" href="PIM_en.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exit_en.html">Exit angle from a Optical fiber</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/en/TE_en.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fen/TE_en.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/en/TE_en.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TE mode and Bessel functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-and-wave-vector">1. Coordinate System and Wave Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-a-te-mode">2. Meaning of a TE Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition-superposition-of-reflected-plane-waves">3. Intuition: Superposition of Reflected Plane Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cylindrical-symmetry-and-the-emergence-of-bessel-functions">4. Cylindrical Symmetry and the Emergence of Bessel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-te-modes-in-a-circular-waveguide">5. General Form of TE Modes in a Circular Waveguide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-e-phi-propto-j-1-appear-in-te-0m">6. Why Does <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> Appear in <span class="math notranslate nohighlight">\(TE_{0m}\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-the-azimuthal-index-l">7. Meaning of the Azimuthal Index <span class="math notranslate nohighlight">\(l\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="te-mode-and-bessel-functions">
+<h1>TE mode and Bessel functions<a class="headerlink" href="#te-mode-and-bessel-functions" title="Permalink to this heading">#</a></h1>
+<p><img alt="Fig. 6" src="../_images/fig6.jpg" /></p>
+<section id="coordinate-system-and-wave-vector">
+<h2>1. Coordinate System and Wave Vector<a class="headerlink" href="#coordinate-system-and-wave-vector" title="Permalink to this heading">#</a></h2>
+<p>Consider cylindrical coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\phi,z)
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: axis of the waveguide</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span>: radial distance from the axis</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span>: azimuthal angle in the transverse plane</p></li>
+</ul>
+<p>For a wave propagating along the <span class="math notranslate nohighlight">\(z\)</span> direction inside a waveguide, the wave vector can be decomposed into axial and transverse components:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>For a cylindrically symmetric discussion, the magnitude of the transverse wave number is denoted by <span class="math notranslate nohighlight">\(k_r\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[
+k_r=nk_0\sin\theta,\qquad
+\beta=nk_0\cos\theta
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> and the <span class="math notranslate nohighlight">\(z\)</span> axis. Thus, <span class="math notranslate nohighlight">\(\theta\)</span> represents how strongly the wave is tilted relative to the waveguide axis.</p>
+</section>
+<hr class="docutils" />
+<section id="meaning-of-a-te-mode">
+<h2>2. Meaning of a TE Mode<a class="headerlink" href="#meaning-of-a-te-mode" title="Permalink to this heading">#</a></h2>
+<p>A TE (Transverse Electric) mode is defined by the condition</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0
+\]</div>
+<p>meaning that the electric field has no axial component.</p>
+<p>However, this does <strong>not</strong> mean that the wave does not propagate along the <span class="math notranslate nohighlight">\(z\)</span> direction. The fields generally have a dependence of the form</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-i\beta z}
+\]</div>
+<p>and as long as <span class="math notranslate nohighlight">\(\beta\neq 0\)</span>, the wave propagates along the axis.</p>
+<p>Therefore, TE means that the electric field is entirely transverse, not that the propagation direction is transverse. In a circular waveguide, the remaining longitudinal component is typically <span class="math notranslate nohighlight">\(H_z\)</span>, from which the transverse electric and magnetic fields are derived.</p>
+</section>
+<hr class="docutils" />
+<section id="intuition-superposition-of-reflected-plane-waves">
+<h2>3. Intuition: Superposition of Reflected Plane Waves<a class="headerlink" href="#intuition-superposition-of-reflected-plane-waves" title="Permalink to this heading">#</a></h2>
+<p>A waveguide mode can be intuitively understood as a superposition of plane-wave components that share the same axial propagation constant <span class="math notranslate nohighlight">\(\beta\)</span> but have different transverse directions.</p>
+<p>For a single component,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=k_r\hat r+\beta \hat z
+\]</div>
+<p>and in a homogeneous medium,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}\cdot \mathbf{k}=0.
+\]</div>
+<p>Thus, the electric field must be perpendicular to <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>. In cylindrical coordinates, a field polarized along <span class="math notranslate nohighlight">\(\hat\phi\)</span> is orthogonal to both <span class="math notranslate nohighlight">\(\hat r\)</span> and <span class="math notranslate nohighlight">\(\hat z\)</span>, making it a useful visualization of TE-like polarization.</p>
+<p>When the wave reflects from the wall, the transverse component changes sign,</p>
+<div class="math notranslate nohighlight">
+\[
+k_r\rightarrow -k_r,
+\]</div>
+<p>while <span class="math notranslate nohighlight">\(\beta\)</span> remains unchanged. In a one-dimensional analogy,</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i(k_r r+\beta z)}+e^{i(-k_r r+\beta z)}
+=
+2\cos(k_r r)e^{i\beta z}.
+\]</div>
+<p>The superposition of <span class="math notranslate nohighlight">\(\pm k_r\)</span> components therefore produces a standing-wave structure in the transverse direction.</p>
+<p>In this sense,</p>
+<div class="math notranslate nohighlight">
+\[
+\langle k_r\rangle=0,\qquad k_r\neq 0.
+\]</div>
+<p>That is, there is no net transverse momentum flow, but a transverse spatial scale remains, producing a transverse mode structure.</p>
+<p>Strictly speaking, however, the radial dependence in a circular waveguide is not <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span> but a Bessel function <span class="math notranslate nohighlight">\(J_l(k_r r)\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="cylindrical-symmetry-and-the-emergence-of-bessel-functions">
+<h2>4. Cylindrical Symmetry and the Emergence of Bessel Functions<a class="headerlink" href="#cylindrical-symmetry-and-the-emergence-of-bessel-functions" title="Permalink to this heading">#</a></h2>
+<p>For a plane-wave component whose transverse wave vector points in the azimuthal direction <span class="math notranslate nohighlight">\(\psi\)</span>, the phase factor at an observation point <span class="math notranslate nohighlight">\((r,\phi)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i k_r r\cos(\phi-\psi)}.
+\]</div>
+<p>Summing all such plane waves with equal weight over every direction gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi} e^{i k_r r\cos(\phi-\psi)}\,d\psi.
+\]</div>
+<p>Using the integral representation of the Bessel function,</p>
+<div class="math notranslate nohighlight">
+\[
+J_0(k_r r)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi,
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+=
+2\pi J_0(k_r r).
+\]</div>
+<p>Thus, a cylindrically symmetric superposition of plane waves naturally produces the radial profile <span class="math notranslate nohighlight">\(J_0\)</span>.</p>
+<p>To generate an azimuthal mode of order <span class="math notranslate nohighlight">\(l\)</span>, we assign an azimuth-dependent phase weight</p>
+<div class="math notranslate nohighlight">
+\[
+e^{il\psi}
+\]</div>
+<p>to each plane-wave component. Then</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi}
+e^{il\psi}
+e^{i k_r r\cos(\phi-\psi)}
+\,d\psi
+=
+2\pi i^l J_l(k_r r)e^{il\phi}.
+\]</div>
+<p>This follows directly from the Jacobi–Anger expansion,</p>
+<div class="math notranslate nohighlight">
+\[
+e^{iz\cos\theta}
+=
+\sum_{m=-\infty}^{\infty}
+i^m J_m(z)e^{im\theta},
+\]</div>
+<p>showing that a superposition of plane waves generates the cylindrical wave</p>
+<div class="math notranslate nohighlight">
+\[
+J_l(k_r r)e^{il\phi}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="general-form-of-te-modes-in-a-circular-waveguide">
+<h2>5. General Form of TE Modes in a Circular Waveguide<a class="headerlink" href="#general-form-of-te-modes-in-a-circular-waveguide" title="Permalink to this heading">#</a></h2>
+<p>For a circular waveguide, TE modes satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0,
+\]</div>
+<p>and the longitudinal magnetic field is the fundamental quantity.</p>
+<p>In general,</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)
+=
+H_0\,J_l(k_c r)\,[A\cos(l\phi)+B\sin(l\phi)]\,e^{-i\beta z}.
+\]</div>
+<p>Using a complex representation,</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_c r)e^{il\phi}e^{-i\beta z}.
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(k_c\)</span> is the transverse eigenvalue determined by the boundary conditions.</p>
+<p>For a perfectly conducting wall at <span class="math notranslate nohighlight">\(r=a\)</span>, the tangential electric field must vanish, leading to</p>
+<div class="math notranslate nohighlight">
+\[
+J_l'(k_c a)=0.
+\]</div>
+<p>Therefore, the TE eigenvalues are determined by the zeros of the derivative of the Bessel function rather than by the zeros of the Bessel function itself.</p>
+<p>The dominant mode of a circular waveguide, i.e., the mode with the lowest cutoff frequency, is <span class="math notranslate nohighlight">\(TE_{11}\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="why-does-e-phi-propto-j-1-appear-in-te-0m">
+<h2>6. Why Does <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> Appear in <span class="math notranslate nohighlight">\(TE_{0m}\)</span>?<a class="headerlink" href="#why-does-e-phi-propto-j-1-appear-in-te-0m" title="Permalink to this heading">#</a></h2>
+<p>For an axisymmetric TE mode, <span class="math notranslate nohighlight">\(l=0\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,z)\propto J_0(k_c r)e^{-i\beta z}.
+\]</div>
+<p>The transverse electric field is obtained from Maxwell’s equations. In the axisymmetric case,</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi \propto -\frac{\partial H_z}{\partial r}.
+\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi
+\propto
+-\frac{\partial}{\partial r}J_0(k_c r).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ_0(x)}{dx}=-J_1(x),
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1(k_c r).
+\]</div>
+<p>Therefore, although the longitudinal magnetic field has a <span class="math notranslate nohighlight">\(J_0\)</span> profile, the transverse electric field follows a <span class="math notranslate nohighlight">\(J_1\)</span> profile.</p>
+</section>
+<hr class="docutils" />
+<section id="meaning-of-the-azimuthal-index-l">
+<h2>7. Meaning of the Azimuthal Index <span class="math notranslate nohighlight">\(l\)</span><a class="headerlink" href="#meaning-of-the-azimuthal-index-l" title="Permalink to this heading">#</a></h2>
+<p>In the complex representation</p>
+<div class="math notranslate nohighlight">
+\[
+E(r,\phi,z)\propto J_l(k_r r)e^{il\phi}e^{-i\beta z},
+\]</div>
+<p>the integer <span class="math notranslate nohighlight">\(l\)</span> is the azimuthal mode number.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l=0\)</span>: no azimuthal dependence.</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=1\)</span>: the phase changes by <span class="math notranslate nohighlight">\(2\pi\)</span> after one full revolution.</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=2\)</span>: the phase changes by <span class="math notranslate nohighlight">\(4\pi\)</span> after one full revolution.</p></li>
+</ul>
+<p>In this sense, <span class="math notranslate nohighlight">\(l\)</span> corresponds to the phase winding number in the complex representation.</p>
+<p>However, conventional circular-waveguide TE and TM modes are often written using real-valued functions,</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(l\phi),\qquad \sin(l\phi),
+\]</div>
+<p>so the most precise interpretation of <span class="math notranslate nohighlight">\(l\)</span> is that it is the azimuthal mode number describing the angular dependence of the mode.</p>
+<p>It does <strong>not</strong> represent polarization direction.</p>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>8. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>Circular-waveguide TE modes satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0,\qquad H_z\neq0.
+\]</div>
+<p>Their transverse structure can be understood as a superposition of plane-wave components. Owing to cylindrical symmetry, the radial dependence is described by Bessel functions <span class="math notranslate nohighlight">\(J_l\)</span>.</p>
+<p>An equal-weight superposition over all azimuthal directions produces <span class="math notranslate nohighlight">\(J_0\)</span>, while introducing a phase weight <span class="math notranslate nohighlight">\(e^{il\psi}\)</span> generates the cylindrical mode</p>
+<div class="math notranslate nohighlight">
+\[
+J_l(k_r r)e^{il\phi}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(TE_{0m}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+H_z\propto J_0,
+\]</div>
+<p>and the corresponding transverse electric field becomes</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1.
+\]</div>
+<p>Thus, the index <span class="math notranslate nohighlight">\(l\)</span> characterizes the azimuthal dependence of the mode rather than its polarization.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./en"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PIM_en.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Propagation indipendent modes (PIM)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="prop_en.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wave propagation: Fresnel and Fraunhofer diffraction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-system-and-wave-vector">1. Coordinate System and Wave Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-a-te-mode">2. Meaning of a TE Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition-superposition-of-reflected-plane-waves">3. Intuition: Superposition of Reflected Plane Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cylindrical-symmetry-and-the-emergence-of-bessel-functions">4. Cylindrical Symmetry and the Emergence of Bessel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form-of-te-modes-in-a-circular-waveguide">5. General Form of TE Modes in a Circular Waveguide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-e-phi-propto-j-1-appear-in-te-0m">6. Why Does <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> Appear in <span class="math notranslate nohighlight">\(TE_{0m}\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meaning-of-the-azimuthal-index-l">7. Meaning of the Azimuthal Index <span class="math notranslate nohighlight">\(l\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

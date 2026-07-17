@@ -1,0 +1,1187 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Propagation indipendent modes (PIM) &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/PIM_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/PIM_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/PIM_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/PIM_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Propagation indipendent modes (PIM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1 — 전파 상수 β란 무엇인가?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">β의 물리적 의미</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2 — 횡방향 파수의 정의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kappa">코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma">클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-u-w">STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-bessel">STEP 4 — Bessel 함수의 도함수 표기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-n-d-n-s">STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-r-beta">STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7 — 초월 방정식과 β의 결정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eh">EH 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he">HE 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">두 방정식의 차이</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">β의 수치적 결정 방법</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8 — 모드 명명 규칙</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-beta-lm">STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-c-d">모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">영역별 전자기장 수식</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">STEP 1 — 전파 상수 β란 무엇인가?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">β의 물리적 의미</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">STEP 2 — 횡방향 파수의 정의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">STEP 4 — Bessel 함수의 도함수 표기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">STEP 7 — 초월 방정식과 β의 결정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">EH 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">HE 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">두 방정식의 차이</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">β의 수치적 결정 방법</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">STEP 8 — 모드 명명 규칙</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">영역별 전자기장 수식</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="propagation-indipendent-modes-pim">
+<h1>Propagation indipendent modes (PIM)<a class="headerlink" href="#propagation-indipendent-modes-pim" title="Permalink to this heading">#</a></h1>
+<section id="condition">
+<h2>CONDITION<a class="headerlink" href="#condition" title="Permalink to this heading">#</a></h2>
+<p>D=25um, <span class="math notranslate nohighlight">\(\lambda\)</span> =1550nm, NA=0.22
+<br />
+<img alt="Fig. 4" src="../_images/fig4.jpg" /></p>
+</section>
+<section id="step-1">
+<h2>STEP 1 — 전파 상수 β란 무엇인가?<a class="headerlink" href="#step-1" title="Permalink to this heading">#</a></h2>
+<p>광섬유 안에서 빛은 <strong>모드</strong>(mode) 라는 특정한 공간 패턴으로 전파된다.<br />
+각 모드는 고유한 <strong>전파상수 <span class="math notranslate nohighlight">\(\beta\)</span></strong> 를 가지며, 이는 축 방향(z 방향, 혹은 종 방향이라고도 부름)으로 거리 <span class="math notranslate nohighlight">\(z\)</span> 만큼 진행했을 때 위상이 <span class="math notranslate nohighlight">\(e^{i\beta z}\)</span> 만큼 추가됨을 의미한다.</p>
+<section id="id1">
+<h3>β의 물리적 의미<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>자유 공간에서 파수는 <span class="math notranslate nohighlight">\(k_0 = \omega/c\)</span> 이다.<br />
+굴절률 <span class="math notranslate nohighlight">\(n\)</span> 인 균질 매질 안에서라면 <span class="math notranslate nohighlight">\(n k_0\)</span> 가 된다.<br />
+그런데 광섬유는 코어(굴절률 <span class="math notranslate nohighlight">\(n_\text{core}\)</span>)와 클래드(굴절률 <span class="math notranslate nohighlight">\(n_\text{clad}\)</span>, <span class="math notranslate nohighlight">\(n_\text{clad} &lt; n_\text{core}\)</span>)로 이루어진 <strong>도파구조</strong>이므로, 빛은 그 중간 유효 굴절률로 전파하는 것처럼 행동한다.</p>
+<div class="math notranslate nohighlight">
+\[
+n_\text{clad} k_0 &lt; \beta &lt; n_\text{core} k_0
+\]</div>
+<p>이 범위 밖이면 모드는 존재하지 않는다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta \geq n_\text{core} k_0\)</span> 이면 코어 전체가 위상이 같아 버려 전파 해가 없다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta \leq n_\text{clad} k_0\)</span> 이면 클래드 쪽이 감쇠하지 않아 에너지가 무한히 빠져나가는 <strong>방사 모드</strong>(radiation mode) 가 된다.</p></li>
+</ul>
+<p>또한 STEP 7 에서 설명하겠지만, 양쪽 경계 조건을 동시에 만족하는 <span class="math notranslate nohighlight">\(\beta\)</span> 는 이산적으로만 존재하고, 이것이 구성하는 횡방향 전자기장의 분포가 <strong>전파 모드</strong>(guided mode) 다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-2">
+<h2>STEP 2 — 횡방향 파수의 정의<a class="headerlink" href="#step-2" title="Permalink to this heading">#</a></h2>
+<p>전파 상수 <span class="math notranslate nohighlight">\(\beta\)</span> 가 정해지면, 코어 안과 클래드 안에서의 <strong>횡방향</strong>(x-y평면에서의 진동) 거동을 기술하는 두 가지 파수를 정의할 수 있다.</p>
+<section id="kappa">
+<h3>코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#kappa" title="Permalink to this heading">#</a></h3>
+<p>코어 안에서 빛은 횡단면 방향으로 <strong>진동</strong>(oscillation) 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\kappa = \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(k_0 n_\text{core}\)</span> 는 코어 안에서의 전체 파수이고, 그것에서 축 방향 성분 <span class="math notranslate nohighlight">\(\beta\)</span> 를 빼면 나머지가 횡단면 방향 성분이다(피타고라스적으로 벡터 분해). <span class="math notranslate nohighlight">\(\kappa\)</span> 가 실수가 되려면 <span class="math notranslate nohighlight">\(\beta &lt; k_0 n_\text{core}\)</span> 이어야 하며, 이는 앞서 나온 상한 조건과 일치한다.</p>
+</section>
+<section id="sigma">
+<h3>클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#sigma" title="Permalink to this heading">#</a></h3>
+<p>클래드 안에서 빛은 진동하는 대신 <strong>지수 함수적으로 감쇠</strong>(evanescent) 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> 가 실수가 되려면 <span class="math notranslate nohighlight">\(\beta &gt; k_0 n_\text{clad}\)</span> 이어야 하며, 이는 하한 조건과 일치한다.<br />
+이 두 조건을 모두 만족하는 <span class="math notranslate nohighlight">\(\beta\)</span> 구간에서만 완전 도파 모드가 존재한다.</p>
+</section>
+<section id="complex-refractive-index-n-n-ik">
+<h3>복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span><a class="headerlink" href="#complex-refractive-index-n-n-ik" title="Permalink to this heading">#</a></h3>
+<p>평면파 파동함수를 <span class="math notranslate nohighlight">\(\psi(x) = Ae^{ikx}\)</span> 라고 한다면  <span class="math notranslate nohighlight">\(k = Nk_0\)</span> 이므로</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{i(k_0n+ik_0k)x} = Ae^{-k_0kx}e^{ik_0nx}
+\]</div>
+<p>즉, <span class="math notranslate nohighlight">\(e^{-k_0kx}\)</span> 는 <span class="math notranslate nohighlight">\(x\)</span> 에 따라서 진폭이 감쇄상수 <span class="math notranslate nohighlight">\(k_0k\)</span>로 급속도로 감쇠하는 <strong>감쇠항</strong>, <span class="math notranslate nohighlight">\(e^{ik_0nx}\)</span> 는 파수 <span class="math notranslate nohighlight">\(k_0n\)</span> 로 손실없이 진동하는 <strong>진동항</strong>으로 볼수있다.  이것을 위에서 서술한 코어내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span> 와 클래드 내부의 횡방향 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span> 와 수학적으로 정합할지는 추후에 논의하겠다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-u-w">
+<h2>STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span><a class="headerlink" href="#step-3-u-w" title="Permalink to this heading">#</a></h2>
+<p>수식을 다루기 편하게 코어 반경 <span class="math notranslate nohighlight">\(a\)</span> 로 정규화한 무차원 파수를 도입한다.</p>
+<div class="math notranslate nohighlight">
+\[
+u = \kappa a = a \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+w = \sigma a = a \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p>이 두 양은 다음과 같은 관계를 만족한다.</p>
+<div class="math notranslate nohighlight">
+\[
+u^2 + w^2 = a^2 k_0^2 (n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2) \equiv V^2
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(V\)</span> 는 <strong>수치 개구</strong>(numerical aperture) 와 코어 반경을 합친 <strong>V-파라미터</strong> 혹은 <strong>V-수</strong>라 하며, 광섬유의 모드 수를 결정하는 핵심 양이다.<br />
+<span class="math notranslate nohighlight">\(V &lt; 2.405\)</span> 이면 오직 기본 모드 <span class="math notranslate nohighlight">\(HE_{11}\)</span>만 전파 가능한 <strong>단일 모드 섬유</strong>가 된다.</p>
+</section>
+<hr class="docutils" />
+<section id="step-4-bessel">
+<h2>STEP 4 — Bessel 함수의 도함수 표기<a class="headerlink" href="#step-4-bessel" title="Permalink to this heading">#</a></h2>
+<p>경계 조건을 쓸 때 변형 Bessel 함수 <span class="math notranslate nohighlight">\(J_l(r)\)</span>, <span class="math notranslate nohighlight">\(K_l(r)\)</span> 의 도함수가 자주 등장한다.<br />
+이를 간결하게 표기하기 위해 다음 기호를 도입한다.</p>
+<ol class="arabic simple">
+<li><p><strong>제1종 베셀 함수 미분 <span class="math notranslate nohighlight">\(J_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J_d(l, r) = J_{l-1}(r) - \frac{l}{r} J_l(r)\)</span></p></li>
+<li><p>이 정의는 제1종 베셀 함수의 미분 공식과 같다.</p></li>
+<li><p>시뮬레이션에서는 <span class="math notranslate nohighlight">\(J_d(l, r) = J_l'(r)\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>제2종 변형 베셀 함수 미분 <span class="math notranslate nohighlight">\(K_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_d(l, r) = \frac{l}{r} K_l(r) - K_{l+1}(r)\)</span></p></li>
+<li><p>이 정의는 제2종 변형 베셀 함수의 미분 공식과 같다.</p></li>
+<li><p>시뮬레이션에서는 <span class="math notranslate nohighlight">\(K_d(l, r) = K_l'(r)\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>이러한 표기법을 도입하면 초월 방정식 내의 도함수들을 <span class="math notranslate nohighlight">\(J_l, K_l\)</span> 및 차수가 하나 다른 <span class="math notranslate nohighlight">\(J_{l\pm1}, K_{l\pm1}\)</span> 들의 선형 결합(Linear Combination) 형태로 간결하게 변환할 수 있어 수치 계산 및 코드 구현이 매우 편리해진다.</p>
+</section>
+<hr class="docutils" />
+<section id="step-5-n-d-n-s">
+<h2>STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span><a class="headerlink" href="#step-5-n-d-n-s" title="Permalink to this heading">#</a></h2>
+<p>코어와 클래드의 굴절률 차이를 두 가지 조합으로 정의한다.</p>
+<div class="math notranslate nohighlight">
+\[
+n_d = \frac{n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+n_s = \frac{n_{\mathrm{core}}^2 + n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_d\)</span> 는 코어와 클래드의 굴절률 <strong>차이</strong>를 나타내는 비대칭 파라미터로, 경계 조건에서 전계와 자계의 탄젠트 성분이 얼마나 다르게 결합하는지를 반영한다.<br />
+약 도파(weak guidance) 근사(<span class="math notranslate nohighlight">\(n_\text{core} \approx n_\text{clad}\)</span>)에서는 <span class="math notranslate nohighlight">\(n_d \approx 0\)</span> 이 되어 수식이 단순해진다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_s\)</span> 는 굴절률의 <strong>평균</strong>에 가까운 값으로, 경계에서 경계 조건의 스케일을 조절하는 역할을 한다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-6-r-beta">
+<h2>STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span><a class="headerlink" href="#step-6-r-beta" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 는 벡터 파동 방정식에서 발생하는 <strong>편광 보정 항</strong>으로, EH 모드와 HE 모드를 구분하는 핵심 역할을 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+R(\beta) = \sqrt{
+  n_d^2 \left[\frac{K_l'(w)}{w\,K_l(w)}\right]^2
+  + \left(\frac{l\,\beta}{n_{\mathrm{core}}\,k_0}\right)^2
+  \left(\frac{1}{w^2} + \frac{1}{u^2}\right)^2
+}
+\]</div>
+<ul class="simple">
+<li><p><strong>첫 번째 항</strong> <span class="math notranslate nohighlight">\(n_d^2[\cdots]^2\)</span>: 굴절률 불연속에 의한 편광 혼합 효과를 나타낸다. <span class="math notranslate nohighlight">\(n_d\)</span> 가 클수록(굴절률 차이가 클수록) 이 항이 커진다.</p></li>
+<li><p><strong>두 번째 항</strong>: 각 방위각 차수 <span class="math notranslate nohighlight">\(l\)</span> 과 전파 상수 <span class="math notranslate nohighlight">\(\beta\)</span> 에 의존한다. <span class="math notranslate nohighlight">\(l = 0\)</span> 이면 이 항은 사라져 TE/TM 모드만 남는다.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 는 항상 양의 실수이며, 이 값의 <strong>부호</strong>를 달리 취함으로써 EH 모드와 HE 모드의 초월 방정식을 통일적으로 기술할 수 있다.</p>
+</section>
+<hr class="docutils" />
+<section id="step-7">
+<h2>STEP 7 — 초월 방정식과 β의 결정<a class="headerlink" href="#step-7" title="Permalink to this heading">#</a></h2>
+<section id="eh">
+<h3>EH 모드의 초월 방정식<a class="headerlink" href="#eh" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{EH}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} - R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="he">
+<h3>HE 모드의 초월 방정식<a class="headerlink" href="#he" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{HE}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} + R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="id2">
+<h3>두 방정식의 차이<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>두 초월 방정식의 <strong>유일한 차이</strong>는 마지막 항의 <span class="math notranslate nohighlight">\(R(\beta)\)</span> 의 부호다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>모드</p></th>
+<th class="head"><p>마지막 항</p></th>
+<th class="head"><p>의미</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EH</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} - R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 를 <strong>빼는</strong> 방향으로 편광 보정</p></td>
+</tr>
+<tr class="row-odd"><td><p>HE</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} + R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 를 <strong>더하는</strong> 방향으로 편광 보정</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>이 부호 차이는 경계 조건에서 전계의 횡방향 성분이 코어와 클래드 경계에서 어떻게 이어지느냐에 따른 것으로, **전계가 주도하는 모드(EH)**와 **자계가 주도하는 모드(HE)**의 구조 차이를 반영한다.</p>
+</section>
+<section id="id3">
+<h3>β의 수치적 결정 방법<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>각 <span class="math notranslate nohighlight">\(l\)</span> 에 대하여 <span class="math notranslate nohighlight">\(\beta \in (n_\text{clad} k_0,\; n_\text{core} k_0)\)</span> 범위를 이산적으로 탐색한다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\mathrm{EH}}(\beta)\)</span> 또는 <span class="math notranslate nohighlight">\(f_{\mathrm{HE}}(\beta)\)</span> 가 0이 되는 점을 <strong>부호 변환(sign change)</strong> 으로 찾는다.</p></li>
+<li><p>이분법(bisection) 또는 Brent’s method 등으로 정밀하게 수렴시킨다.</p></li>
+<li><p>각 해 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> (방위각 차수 <span class="math notranslate nohighlight">\(l\)</span>, 해당 방위각 차수에 대한 여러개의 해를 인덱싱한 반경 방향 차수 <span class="math notranslate nohighlight">\(m\)</span>)에 대응하는 모드 프로파일을 구성한다.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-8">
+<h2>STEP 8 — 모드 명명 규칙<a class="headerlink" href="#step-8" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>모드 종류</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>존재 조건</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(TE_{0m}\)</span></p></td>
+<td><p>전계가 횡단면 내에만 있음, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>EH 방정식 <span class="math notranslate nohighlight">\(l=0\)</span> 특수해</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(TM_{0m}\)</span></p></td>
+<td><p>자계가 횡단면 내에만 있음, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>HE 방정식 <span class="math notranslate nohighlight">\(l=0\)</span> 특수해</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(HE_{lm}\)</span></p></td>
+<td><p>자계 성분이 우세한 혼합 모드</p></td>
+<td><p>HE 방정식 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(EH_{lm}\)</span></p></td>
+<td><p>전계 성분이 우세한 혼합 모드</p></td>
+<td><p>EH 방정식 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>기본 모드 <span class="math notranslate nohighlight">\(HE_{11}\)</span> 은 <span class="math notranslate nohighlight">\(l=1\)</span> 의 HE 방정식에서 <span class="math notranslate nohighlight">\(m=1\)</span> 에 해당하는 첫 번째 해이며, <strong>차단 주파수가 0</strong>이므로 어떤 V수에서도 항상 존재한다.</p>
+<p><strong>TE 모드</strong> 벡터파동방정식에서 <span class="math notranslate nohighlight">\(E_z = 0\)</span> 인 모드<br>
+<strong>TM 모드</strong> 벡터파동방정식에서 <span class="math notranslate nohighlight">\(H_z = 0\)</span> 인 모드</p>
+</section>
+<section id="step-9-beta-lm">
+<h2>STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기<a class="headerlink" href="#step-9-beta-lm" title="Permalink to this heading">#</a></h2>
+<p>원통형 유전체 광섬유(Optical Fiber) 내부에서 전파되는 <strong>하이브리드 모드의 전자기장</strong>을 원통좌표계 (<span class="math notranslate nohighlight">\(\rho, \theta, z\)</span>)에서 계산하는 수식들로 구현</p>
+<section id="a-b-c-d">
+<h3>모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)<a class="headerlink" href="#a-b-c-d" title="Permalink to this heading">#</a></h3>
+<p>광섬유 전자기장의 <span class="math notranslate nohighlight">\(z\)</span>축 성분 진폭을 결정하는 상수들입니다. <span class="math notranslate nohighlight">\(l\)</span>값(방위각 차수)에 따라 수식이 달라집니다.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(l = 0\)</span> 인 경우</p>
+<ul class="simple">
+<li><p><strong>EH mode</strong> (TM-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 1, B = 0, C = \frac{J_0(u)}{K_0(w)}, D = 0\)</span></p></li>
+<li><p><strong>HE mode</strong> (TE-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 0, B = 1, C = 0, D = \frac{J_0(u)}{K_0(w)}\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(l \neq 0\)</span> 인 경우 (하이브리드 모드)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = \frac{il\beta}{\omega\mu_0} \left( \frac{1}{(w)^2} + \frac{1}{(u)^2} \right) \left[ \frac{J_l'(u)}{u J_l(u)} + \frac{K_l'(w)}{w K_l(w)} \right]^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C = \frac{J_l(u)}{K_l(w)}A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D = B \cdot C\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id4">
+<h3>영역별 전자기장 수식<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>공통 위상항 (Phase term):</strong> <span class="math notranslate nohighlight">\(\Phi = e^{i(l\theta - \beta z)}\)</span></p></li>
+<li><p>실제 시뮬레이션에서는 코어 영역에서의 <span class="math notranslate nohighlight">\(E_r, E_\theta\)</span> 만 사용.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>코어 영역 (<span class="math notranslate nohighlight">\(\rho &lt; a\)</span>) : 도파(Oscillating) 성분</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= -\frac{i\beta}{\kappa^2} \left[ A \kappa J_l'(\kappa\rho) + \frac{i\omega\mu_0 l}{\beta\rho} B J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} A J_l(\kappa\rho) - \frac{\omega\mu_0}{\beta} B \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= A J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= -\frac{i\beta}{\kappa^2} \left[ B \kappa J_l'(\kappa\rho) - \frac{i\omega\epsilon_{\text{core}} l}{\beta\rho} A J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} B J_l(\kappa\rho) + \frac{\omega\epsilon_{\text{core}}}{\beta} A \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= B J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<ol class="arabic simple" start="2">
+<li><p>클래딩 영역 (<span class="math notranslate nohighlight">\(\rho &gt; a\)</span>) : 감쇠(Evanescent) 성분</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= \frac{i\beta}{\sigma^2} \left[ C \sigma K_l'(\sigma\rho) + \frac{i\omega\mu_0 l}{\beta\rho} D K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} C K_l(\sigma\rho) - \frac{\omega\mu_0}{\beta} D \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= C K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= \frac{i\beta}{\sigma^2} \left[ D \sigma K_l'(\sigma\rho) - \frac{i\omega\epsilon_{\text{clad}} l}{\beta\rho} C K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} D K_l(\sigma\rho) + \frac{\omega\epsilon_{\text{clad}}}{\beta} C \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= D K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+</section>
+</section>
+<section id="id5">
+<h2>STEP 1 — 전파 상수 β란 무엇인가?<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>광섬유 안에서 빛은 <strong>모드</strong>(mode) 라는 특정한 공간 패턴으로 전파된다.<br />
+각 모드는 고유한 <strong>전파상수 <span class="math notranslate nohighlight">\(\beta\)</span></strong> 를 가지며, 이는 축 방향(z 방향, 혹은 종 방향이라고도 부름)으로 거리 <span class="math notranslate nohighlight">\(z\)</span> 만큼 진행했을 때 위상이 <span class="math notranslate nohighlight">\(e^{i\beta z}\)</span> 만큼 추가됨을 의미한다.</p>
+<section id="id6">
+<h3>β의 물리적 의미<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<p>자유 공간에서 파수는 <span class="math notranslate nohighlight">\(k_0 = \omega/c\)</span> 이다.<br />
+굴절률 <span class="math notranslate nohighlight">\(n\)</span> 인 균질 매질 안에서라면 <span class="math notranslate nohighlight">\(n k_0\)</span> 가 된다.<br />
+그런데 광섬유는 코어(굴절률 <span class="math notranslate nohighlight">\(n_\text{core}\)</span>)와 클래드(굴절률 <span class="math notranslate nohighlight">\(n_\text{clad}\)</span>, <span class="math notranslate nohighlight">\(n_\text{clad} &lt; n_\text{core}\)</span>)로 이루어진 <strong>도파구조</strong>이므로, 빛은 그 중간 유효 굴절률로 전파하는 것처럼 행동한다.</p>
+<div class="math notranslate nohighlight">
+\[
+n_\text{clad} k_0 &lt; \beta &lt; n_\text{core} k_0
+\]</div>
+<p>이 범위 밖이면 모드는 존재하지 않는다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta \geq n_\text{core} k_0\)</span> 이면 코어 전체가 위상이 같아 버려 전파 해가 없다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta \leq n_\text{clad} k_0\)</span> 이면 클래드 쪽이 감쇠하지 않아 에너지가 무한히 빠져나가는 <strong>방사 모드</strong>(radiation mode) 가 된다.</p></li>
+</ul>
+<p>또한 STEP 7 에서 설명하겠지만, 양쪽 경계 조건을 동시에 만족하는 <span class="math notranslate nohighlight">\(\beta\)</span> 는 이산적으로만 존재하고, 이것이 구성하는 횡방향 전자기장의 분포가 <strong>전파 모드</strong>(guided mode) 다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h2>STEP 2 — 횡방향 파수의 정의<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>전파 상수 <span class="math notranslate nohighlight">\(\beta\)</span> 가 정해지면, 코어 안과 클래드 안에서의 <strong>횡방향</strong>(x-y평면에서의 진동) 거동을 기술하는 두 가지 파수를 정의할 수 있다.</p>
+<section id="id8">
+<h3>코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span><a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>코어 안에서 빛은 횡단면 방향으로 <strong>진동</strong>(oscillation) 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\kappa = \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(k_0 n_\text{core}\)</span> 는 코어 안에서의 전체 파수이고, 그것에서 축 방향 성분 <span class="math notranslate nohighlight">\(\beta\)</span> 를 빼면 나머지가 횡단면 방향 성분이다(피타고라스적으로 벡터 분해). <span class="math notranslate nohighlight">\(\kappa\)</span> 가 실수가 되려면 <span class="math notranslate nohighlight">\(\beta &lt; k_0 n_\text{core}\)</span> 이어야 하며, 이는 앞서 나온 상한 조건과 일치한다.</p>
+</section>
+<section id="id9">
+<h3>클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<p>클래드 안에서 빛은 진동하는 대신 <strong>지수 함수적으로 감쇠</strong>(evanescent) 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> 가 실수가 되려면 <span class="math notranslate nohighlight">\(\beta &gt; k_0 n_\text{clad}\)</span> 이어야 하며, 이는 하한 조건과 일치한다.<br />
+이 두 조건을 모두 만족하는 <span class="math notranslate nohighlight">\(\beta\)</span> 구간에서만 완전 도파 모드가 존재한다.</p>
+</section>
+<section id="id10">
+<h3>복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span><a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<p>평면파 파동함수를 <span class="math notranslate nohighlight">\(\psi(x) = Ae^{ikx}\)</span> 라고 한다면  <span class="math notranslate nohighlight">\(k = Nk_0\)</span> 이므로</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{i(k_0n+ik_0k)x} = Ae^{-k_0kx}e^{ik_0nx}
+\]</div>
+<p>즉, <span class="math notranslate nohighlight">\(e^{-k_0kx}\)</span> 는 <span class="math notranslate nohighlight">\(x\)</span> 에 따라서 진폭이 감쇄상수 <span class="math notranslate nohighlight">\(k_0k\)</span>로 급속도로 감쇠하는 <strong>감쇠항</strong>, <span class="math notranslate nohighlight">\(e^{ik_0nx}\)</span> 는 파수 <span class="math notranslate nohighlight">\(k_0n\)</span> 로 손실없이 진동하는 <strong>진동항</strong>으로 볼수있다.  이것을 위에서 서술한 코어내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span> 와 클래드 내부의 횡방향 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span> 와 수학적으로 정합할지는 추후에 논의하겠다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id11">
+<h2>STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span><a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p>수식을 다루기 편하게 코어 반경 <span class="math notranslate nohighlight">\(a\)</span> 로 정규화한 무차원 파수를 도입한다.</p>
+<div class="math notranslate nohighlight">
+\[
+u = \kappa a = a \sqrt{k_0^2 n_{\mathrm{core}}^2 - \beta^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+w = \sigma a = a \sqrt{\beta^2 - k_0^2 n_{\mathrm{clad}}^2}
+\]</div>
+<p>이 두 양은 다음과 같은 관계를 만족한다.</p>
+<div class="math notranslate nohighlight">
+\[
+u^2 + w^2 = a^2 k_0^2 (n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2) \equiv V^2
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(V\)</span> 는 <strong>수치 개구</strong>(numerical aperture) 와 코어 반경을 합친 <strong>V-파라미터</strong> 혹은 <strong>V-수</strong>라 하며, 광섬유의 모드 수를 결정하는 핵심 양이다.<br />
+<span class="math notranslate nohighlight">\(V &lt; 2.405\)</span> 이면 오직 기본 모드 <span class="math notranslate nohighlight">\(HE_{11}\)</span>만 전파 가능한 <strong>단일 모드 섬유</strong>가 된다.</p>
+</section>
+<hr class="docutils" />
+<section id="id12">
+<h2>STEP 4 — Bessel 함수의 도함수 표기<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<p>경계 조건을 쓸 때 변형 Bessel 함수 <span class="math notranslate nohighlight">\(J_l(r)\)</span>, <span class="math notranslate nohighlight">\(K_l(r)\)</span> 의 도함수가 자주 등장한다.<br />
+이를 간결하게 표기하기 위해 다음 기호를 도입한다.</p>
+<ol class="arabic simple">
+<li><p><strong>제1종 베셀 함수 미분 <span class="math notranslate nohighlight">\(J_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J_d(l, r) = J_{l-1}(r) - \frac{l}{r} J_l(r)\)</span></p></li>
+<li><p>이 정의는 제1종 베셀 함수의 미분 공식과 같다.</p></li>
+<li><p>시뮬레이션에서는 <span class="math notranslate nohighlight">\(J_d(l, r) = J_l'(r)\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>제2종 변형 베셀 함수 미분 <span class="math notranslate nohighlight">\(K_l'(r)\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_d(l, r) = \frac{l}{r} K_l(r) - K_{l+1}(r)\)</span></p></li>
+<li><p>이 정의는 제2종 변형 베셀 함수의 미분 공식과 같다.</p></li>
+<li><p>시뮬레이션에서는 <span class="math notranslate nohighlight">\(K_d(l, r) = K_l'(r)\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>이러한 표기법을 도입하면 초월 방정식 내의 도함수들을 <span class="math notranslate nohighlight">\(J_l, K_l\)</span> 및 차수가 하나 다른 <span class="math notranslate nohighlight">\(J_{l\pm1}, K_{l\pm1}\)</span> 들의 선형 결합(Linear Combination) 형태로 간결하게 변환할 수 있어 수치 계산 및 코드 구현이 매우 편리해진다.</p>
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h2>STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span><a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<p>코어와 클래드의 굴절률 차이를 두 가지 조합으로 정의한다.</p>
+<div class="math notranslate nohighlight">
+\[
+n_d = \frac{n_{\mathrm{core}}^2 - n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+n_s = \frac{n_{\mathrm{core}}^2 + n_{\mathrm{clad}}^2}{2\,n_{\mathrm{core}}^2}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_d\)</span> 는 코어와 클래드의 굴절률 <strong>차이</strong>를 나타내는 비대칭 파라미터로, 경계 조건에서 전계와 자계의 탄젠트 성분이 얼마나 다르게 결합하는지를 반영한다.<br />
+약 도파(weak guidance) 근사(<span class="math notranslate nohighlight">\(n_\text{core} \approx n_\text{clad}\)</span>)에서는 <span class="math notranslate nohighlight">\(n_d \approx 0\)</span> 이 되어 수식이 단순해진다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_s\)</span> 는 굴절률의 <strong>평균</strong>에 가까운 값으로, 경계에서 경계 조건의 스케일을 조절하는 역할을 한다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id14">
+<h2>STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span><a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 는 벡터 파동 방정식에서 발생하는 <strong>편광 보정 항</strong>으로, EH 모드와 HE 모드를 구분하는 핵심 역할을 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+R(\beta) = \sqrt{
+  n_d^2 \left[\frac{K_l'(w)}{w\,K_l(w)}\right]^2
+  + \left(\frac{l\,\beta}{n_{\mathrm{core}}\,k_0}\right)^2
+  \left(\frac{1}{w^2} + \frac{1}{u^2}\right)^2
+}
+\]</div>
+<ul class="simple">
+<li><p><strong>첫 번째 항</strong> <span class="math notranslate nohighlight">\(n_d^2[\cdots]^2\)</span>: 굴절률 불연속에 의한 편광 혼합 효과를 나타낸다. <span class="math notranslate nohighlight">\(n_d\)</span> 가 클수록(굴절률 차이가 클수록) 이 항이 커진다.</p></li>
+<li><p><strong>두 번째 항</strong>: 각 방위각 차수 <span class="math notranslate nohighlight">\(l\)</span> 과 전파 상수 <span class="math notranslate nohighlight">\(\beta\)</span> 에 의존한다. <span class="math notranslate nohighlight">\(l = 0\)</span> 이면 이 항은 사라져 TE/TM 모드만 남는다.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 는 항상 양의 실수이며, 이 값의 <strong>부호</strong>를 달리 취함으로써 EH 모드와 HE 모드의 초월 방정식을 통일적으로 기술할 수 있다.</p>
+</section>
+<hr class="docutils" />
+<section id="id15">
+<h2>STEP 7 — 초월 방정식과 β의 결정<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
+<section id="id16">
+<h3>EH 모드의 초월 방정식<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{EH}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} - R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="id17">
+<h3>HE 모드의 초월 방정식<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+f_{\mathrm{HE}}(\beta) = \frac{J_{l+1}(u)}{u\,J_l(u)} - n_s\,\frac{K_l'(w)}{w\,K_l(w)} - \left(\frac{l}{u^2} + R(\beta)\right) = 0
+\]</div>
+</section>
+<section id="id18">
+<h3>두 방정식의 차이<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
+<p>두 초월 방정식의 <strong>유일한 차이</strong>는 마지막 항의 <span class="math notranslate nohighlight">\(R(\beta)\)</span> 의 부호다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>모드</p></th>
+<th class="head"><p>마지막 항</p></th>
+<th class="head"><p>의미</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EH</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} - R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 를 <strong>빼는</strong> 방향으로 편광 보정</p></td>
+</tr>
+<tr class="row-odd"><td><p>HE</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{l}{u^2} + R(\beta)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R(\beta)\)</span> 를 <strong>더하는</strong> 방향으로 편광 보정</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>이 부호 차이는 경계 조건에서 전계의 횡방향 성분이 코어와 클래드 경계에서 어떻게 이어지느냐에 따른 것으로, **전계가 주도하는 모드(EH)**와 **자계가 주도하는 모드(HE)**의 구조 차이를 반영한다.</p>
+</section>
+<section id="id19">
+<h3>β의 수치적 결정 방법<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>각 <span class="math notranslate nohighlight">\(l\)</span> 에 대하여 <span class="math notranslate nohighlight">\(\beta \in (n_\text{clad} k_0,\; n_\text{core} k_0)\)</span> 범위를 이산적으로 탐색한다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\mathrm{EH}}(\beta)\)</span> 또는 <span class="math notranslate nohighlight">\(f_{\mathrm{HE}}(\beta)\)</span> 가 0이 되는 점을 <strong>부호 변환(sign change)</strong> 으로 찾는다.</p></li>
+<li><p>이분법(bisection) 또는 Brent’s method 등으로 정밀하게 수렴시킨다.</p></li>
+<li><p>각 해 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> (방위각 차수 <span class="math notranslate nohighlight">\(l\)</span>, 해당 방위각 차수에 대한 여러개의 해를 인덱싱한 반경 방향 차수 <span class="math notranslate nohighlight">\(m\)</span>)에 대응하는 모드 프로파일을 구성한다.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id20">
+<h2>STEP 8 — 모드 명명 규칙<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>모드 종류</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>존재 조건</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(TE_{0m}\)</span></p></td>
+<td><p>전계가 횡단면 내에만 있음, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>EH 방정식 <span class="math notranslate nohighlight">\(l=0\)</span> 특수해</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(TM_{0m}\)</span></p></td>
+<td><p>자계가 횡단면 내에만 있음, <span class="math notranslate nohighlight">\(l=0\)</span></p></td>
+<td><p>HE 방정식 <span class="math notranslate nohighlight">\(l=0\)</span> 특수해</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(HE_{lm}\)</span></p></td>
+<td><p>자계 성분이 우세한 혼합 모드</p></td>
+<td><p>HE 방정식 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(EH_{lm}\)</span></p></td>
+<td><p>전계 성분이 우세한 혼합 모드</p></td>
+<td><p>EH 방정식 <span class="math notranslate nohighlight">\(l \geq 1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>기본 모드 <span class="math notranslate nohighlight">\(HE_{11}\)</span> 은 <span class="math notranslate nohighlight">\(l=1\)</span> 의 HE 방정식에서 <span class="math notranslate nohighlight">\(m=1\)</span> 에 해당하는 첫 번째 해이며, <strong>차단 주파수가 0</strong>이므로 어떤 V수에서도 항상 존재한다.</p>
+<p><strong>TE 모드</strong> 벡터파동방정식에서 <span class="math notranslate nohighlight">\(E_z = 0\)</span> 인 모드<br>
+<strong>TM 모드</strong> 벡터파동방정식에서 <span class="math notranslate nohighlight">\(H_z = 0\)</span> 인 모드</p>
+</section>
+<section id="id21">
+<h2>STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h2>
+<p>원통형 유전체 광섬유(Optical Fiber) 내부에서 전파되는 <strong>하이브리드 모드의 전자기장</strong>을 원통좌표계 (<span class="math notranslate nohighlight">\(\rho, \theta, z\)</span>)에서 계산하는 수식들로 구현</p>
+<section id="id22">
+<h3>모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
+<p>광섬유 전자기장의 <span class="math notranslate nohighlight">\(z\)</span>축 성분 진폭을 결정하는 상수들입니다. <span class="math notranslate nohighlight">\(l\)</span>값(방위각 차수)에 따라 수식이 달라집니다.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(l = 0\)</span> 인 경우</p>
+<ul class="simple">
+<li><p><strong>EH mode</strong> (TM-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 1, B = 0, C = \frac{J_0(u)}{K_0(w)}, D = 0\)</span></p></li>
+<li><p><strong>HE mode</strong> (TE-like)
+<span class="math notranslate nohighlight">\(\displaystyle A = 0, B = 1, C = 0, D = \frac{J_0(u)}{K_0(w)}\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(l \neq 0\)</span> 인 경우 (하이브리드 모드)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = \frac{il\beta}{\omega\mu_0} \left( \frac{1}{(w)^2} + \frac{1}{(u)^2} \right) \left[ \frac{J_l'(u)}{u J_l(u)} + \frac{K_l'(w)}{w K_l(w)} \right]^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C = \frac{J_l(u)}{K_l(w)}A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D = B \cdot C\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id23">
+<h3>영역별 전자기장 수식<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>공통 위상항 (Phase term):</strong> <span class="math notranslate nohighlight">\(\Phi = e^{i(l\theta - \beta z)}\)</span></p></li>
+<li><p>실제 시뮬레이션에서는 코어 영역에서의 <span class="math notranslate nohighlight">\(E_r, E_\theta\)</span> 만 사용.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>코어 영역 (<span class="math notranslate nohighlight">\(\rho &lt; a\)</span>) : 도파(Oscillating) 성분</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= -\frac{i\beta}{\kappa^2} \left[ A \kappa J_l'(\kappa\rho) + \frac{i\omega\mu_0 l}{\beta\rho} B J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} A J_l(\kappa\rho) - \frac{\omega\mu_0}{\beta} B \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= A J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= -\frac{i\beta}{\kappa^2} \left[ B \kappa J_l'(\kappa\rho) - \frac{i\omega\epsilon_{\text{core}} l}{\beta\rho} A J_l(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= -\frac{i\beta}{\kappa^2} \left[ \frac{il}{\rho} B J_l(\kappa\rho) + \frac{\omega\epsilon_{\text{core}}}{\beta} A \kappa J_l'(\kappa\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= B J_l(\kappa\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<ol class="arabic simple" start="2">
+<li><p>클래딩 영역 (<span class="math notranslate nohighlight">\(\rho &gt; a\)</span>) : 감쇠(Evanescent) 성분</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E_r &amp;= \frac{i\beta}{\sigma^2} \left[ C \sigma K_l'(\sigma\rho) + \frac{i\omega\mu_0 l}{\beta\rho} D K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} C K_l(\sigma\rho) - \frac{\omega\mu_0}{\beta} D \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}E_z &amp;= C K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\begin{split}H_r &amp;= \frac{i\beta}{\sigma^2} \left[ D \sigma K_l'(\sigma\rho) - \frac{i\omega\epsilon_{\text{clad}} l}{\beta\rho} C K_l(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_\theta &amp;= \frac{i\beta}{\sigma^2} \left[ \frac{il}{\rho} D K_l(\sigma\rho) + \frac{\omega\epsilon_{\text{clad}}}{\beta} C \sigma K_l'(\sigma\rho) \right] \Phi \\\end{split}\\\begin{split}H_z &amp;= D K_l(\sigma\rho) \Phi \\\end{split}\\\begin{split}\\\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">CONDITION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1 — 전파 상수 β란 무엇인가?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">β의 물리적 의미</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2 — 횡방향 파수의 정의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kappa">코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma">클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-refractive-index-n-n-ik">복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-u-w">STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-bessel">STEP 4 — Bessel 함수의 도함수 표기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-n-d-n-s">STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-r-beta">STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7 — 초월 방정식과 β의 결정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eh">EH 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he">HE 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">두 방정식의 차이</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">β의 수치적 결정 방법</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8 — 모드 명명 규칙</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-beta-lm">STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-c-d">모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">영역별 전자기장 수식</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">STEP 1 — 전파 상수 β란 무엇인가?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">β의 물리적 의미</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">STEP 2 — 횡방향 파수의 정의</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">코어 내부의 횡방향 파수 <span class="math notranslate nohighlight">\(\kappa\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">클래드 내부의 감쇠 상수 <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">복소 굴절율 (Complex refractive index) <span class="math notranslate nohighlight">\(N = n + ik \)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">STEP 3 — 정규화된 횡방향 파수 <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">STEP 4 — Bessel 함수의 도함수 표기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">STEP 5 — 비대칭 파라미터 <span class="math notranslate nohighlight">\(n_d\)</span>, <span class="math notranslate nohighlight">\(n_s\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">STEP 6 — 보정 항 <span class="math notranslate nohighlight">\(R(\beta)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">STEP 7 — 초월 방정식과 β의 결정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">EH 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">HE 모드의 초월 방정식</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">두 방정식의 차이</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">β의 수치적 결정 방법</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">STEP 8 — 모드 명명 규칙</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">STEP 9 — 이상적인 상태에서 <span class="math notranslate nohighlight">\(\beta_{lm}\)</span> 에 대한 각 모드의 공간적 분포 구하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">모드별 진폭계수 구하기 (<span class="math notranslate nohighlight">\(A, B, C, D\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">영역별 전자기장 수식</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

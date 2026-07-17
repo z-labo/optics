@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Wave propagation: Fresnel and Fraunhofer diffraction &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/prop_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/prop_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/prop_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/prop_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wave propagation: Fresnel and Fraunhofer diffraction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 좌표계와 기본 개념</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huygens-kirchhoff-integral">2. Huygens-Kirchhoff integral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-taylor-expansion">3. 거리 <span class="math notranslate nohighlight">\(r\)</span>의 Taylor expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fresnel-diffraction-integral-fourier-transform">4. Fresnel diffraction integral의 Fourier transform 형태</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fraunhofer-diffraction">5. Fraunhofer diffraction</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wave-propagation-fresnel-and-fraunhofer-diffraction">
+<h1>Wave propagation: Fresnel and Fraunhofer diffraction<a class="headerlink" href="#wave-propagation-fresnel-and-fraunhofer-diffraction" title="Permalink to this heading">#</a></h1>
+<p><img alt="Fig. 8" src="../_images/fig8.jpg" /></p>
+<section id="id1">
+<h2>1. 좌표계와 기본 개념<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>파동의 자유공간 전파를 생각한다. 개구면(aperture plane)을 <span class="math notranslate nohighlight">\(z=0\)</span> 평면으로 두고, 그 위의 좌표를</p>
+<div class="math notranslate nohighlight">
+\[
+(\xi,\eta)
+\]</div>
+<p>라고 하자. 관측면(observation plane)은 개구면으로부터 <span class="math notranslate nohighlight">\(z\)</span>만큼 떨어진 평면이며, 그 위의 좌표를</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>라고 둔다.</p>
+<p>개구면 직후의 복소수 진폭을</p>
+<div class="math notranslate nohighlight">
+\[
+u_0(\xi,\eta)
+\]</div>
+<p>라고 하고, 거리 <span class="math notranslate nohighlight">\(z\)</span>만큼 전파한 뒤 점 <span class="math notranslate nohighlight">\(P\)</span> 에서의 복소수 진폭을</p>
+<div class="math notranslate nohighlight">
+\[
+u_P(x,y;z)
+\]</div>
+<p>라고 쓴다.</p>
+<p>스칼라로 표시한 파수는 <span class="math notranslate nohighlight">\(k=\frac{2\pi}{\lambda}\)</span> 이다. 여기서 <span class="math notranslate nohighlight">\(\lambda\)</span>는 파장이다.</p>
+<p>개구면 위의 한 점 <span class="math notranslate nohighlight">\((\xi,\eta,0)\)</span>에서 관측점 <span class="math notranslate nohighlight">\(P(x,y,z)\)</span>까지의 거리는</p>
+<div class="math notranslate nohighlight">
+\[
+r=\sqrt{z^2+(x-\xi)^2+(y-\eta)^2}
+\]</div>
+<p>이다.</p>
+<p>Huygens의 원리에 따르면, 개구면 위의 각 점은 2차 구면파를 방출하는 점광원처럼 작용한다. 따라서 관측면의 장은 개구면 위 모든 점에서 나온 구면파들의 중첩으로 주어진다.</p>
+<p>다만 다음과 같이 구분해서 이해하는 것이 정확하다.</p>
+<ul class="simple">
+<li><p>가까운 거리에서는 각 점광원에서 나온 구면파들의 위상 차이를 그대로 고려해야 한다. 이 영역이 Fresnel diffraction 영역이다.</p></li>
+<li><p>충분히 먼 거리에서는 점광원이 이루는 파면을 평면파로 보고, 각 점광원들이 형성하는 평면파들이 관측 방향별로 위상 변화가 거의 선형적으로 정리된다. 이 영역이 Fraunhofer diffraction 영역이다.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1절: 수치 격자, 개구면 장, 물리 상수</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mf">633e-9</span>          <span class="c1"># 파장 [m]</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">wavelength</span>   <span class="c1"># 파수 [rad/m]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">512</span>                      <span class="c1"># 각 차원의 격자 샘플 수</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">5.0e-3</span>                   <span class="c1"># 개구면 창의 한 변 길이 [m]</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">N</span>                   <span class="c1"># 개구면 샘플 간격 [m]</span>
+
+<span class="n">aperture_axis</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+<span class="n">XI</span><span class="p">,</span> <span class="n">ETA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">aperture_axis</span><span class="p">,</span> <span class="n">aperture_axis</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
+
+<span class="c1"># 입력 장의 예: 약한 가우스형 위상 물체를 가진 정사각형 개구.</span>
+<span class="n">aperture_width</span> <span class="o">=</span> <span class="mf">0.2e-3</span>
+<span class="n">u0</span> <span class="o">=</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">XI</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">aperture_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ETA</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">aperture_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">phase_object</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">XI</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ETA</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.18e-3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">u0</span> <span class="o">*=</span> <span class="n">phase_object</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;격자: </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">, dx = </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;파장 = </span><span class="si">{</span><span class="n">wavelength</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;개구 내부의 0이 아닌 샘플 수 = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u0</span><span class="p">),</span>
+    <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">aperture_axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">aperture_axis</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">aperture_axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">aperture_axis</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">],</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [mm]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y [mm]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Aperture amplitude |u0|&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;amplitude&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="huygens-kirchhoff-integral">
+<h2>2. Huygens-Kirchhoff integral<a class="headerlink" href="#huygens-kirchhoff-integral" title="Permalink to this heading">#</a></h2>
+<p>개구면 이전의 파동 형성 과정은 고려하지 않고, 개구면 직후의 복소수 진폭 <span class="math notranslate nohighlight">\(u_0(\xi,\eta)\)</span>가 주어졌다고 하자.</p>
+<p>Huygens-Kirchhoff diffraction integral의 한 형태는 다음과 같이 쓸 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+=
+-\frac{ik}{4\pi}
+\iint
+u_0(\xi,\eta)
+\frac{e^{ikr}}{r}
+\left(1+\cos\theta\right)
+\,d\xi d\eta .
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\theta\)</span>는 개구면의 법선 방향과 관측 방향이 이루는 각도이다. 또한</p>
+<div class="math notranslate nohighlight">
+\[
+k=\frac{2\pi}{\lambda}
+\]</div>
+<p>이므로 위 식은</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+=
+-\frac{i}{2\lambda}
+\iint
+u_0(\xi,\eta)
+\frac{e^{ikr}}{r}
+\left(1+\cos\theta\right)
+\,d\xi d\eta
+\]</div>
+<p>로 쓸 수 있다.</p>
+<p>경사인자(obliquity factor)를</p>
+<div class="math notranslate nohighlight">
+\[
+K(\theta)=\frac{1+\cos\theta}{2}
+\]</div>
+<p>라고 두면,</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+=
+-\frac{i}{\lambda}
+\iint
+u_0(\xi,\eta)
+\frac{e^{ikr}}{r}
+K(\theta)
+\,d\xi d\eta .
+\]</div>
+<p>paraxial approximation, 즉 관측각 <span class="math notranslate nohighlight">\(\theta\)</span>가 충분히 작은 경우에는</p>
+<div class="math notranslate nohighlight">
+\[
+\cos\theta \approx 1
+\]</div>
+<p>이므로</p>
+<div class="math notranslate nohighlight">
+\[
+K(\theta)\approx 1
+\]</div>
+<p>이다. 따라서</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+-\frac{i}{\lambda}
+\iint
+u_0(\xi,\eta)
+\frac{e^{ikr}}{r}
+\,d\xi d\eta .
+\]</div>
+<p>또한 진폭 항에 들어 있는 <span class="math notranslate nohighlight">\(r\)</span>은 위상항 <span class="math notranslate nohighlight">\(e^{ikr}\)</span>에 비해 변화가 느리므로</p>
+<div class="math notranslate nohighlight">
+\[
+r \approx z
+\]</div>
+<p>로 둘 수 있다. 그러면</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+-\frac{i}{\lambda z}
+\iint
+u_0(\xi,\eta)
+e^{ikr}
+\,d\xi d\eta .
+\]</div>
+<p>여기서 중요한 점은 다음과 같다.</p>
+<p>진폭에 해당하는 분모의 <span class="math notranslate nohighlight">\(r\)</span>은 <span class="math notranslate nohighlight">\(z\)</span>로 근사할 수 있지만, 지수함수 안에 있는 <span class="math notranslate nohighlight">\(r\)</span>은 함부로 <span class="math notranslate nohighlight">\(z\)</span>로 바꾸면 안 된다. 왜냐하면 광학에서는 <span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span>가 매우 크기 때문에, 아주 작은 거리 차이도 큰 위상 차이를 만들 수 있기 때문이다.</p>
+</section>
+<hr class="docutils" />
+<section id="r-taylor-expansion">
+<h2>3. 거리 <span class="math notranslate nohighlight">\(r\)</span>의 Taylor expansion<a class="headerlink" href="#r-taylor-expansion" title="Permalink to this heading">#</a></h2>
+<p>이제 지수함수 안에 있는</p>
+<div class="math notranslate nohighlight">
+\[
+r=\sqrt{z^2+(x-\xi)^2+(y-\eta)^2}
+\]</div>
+<p>를 근사해 보자.</p>
+<p>먼저</p>
+<div class="math notranslate nohighlight">
+\[
+r
+=
+z
+\sqrt{
+1+
+\frac{(x-\xi)^2+(y-\eta)^2}{z^2}
+}
+\]</div>
+<p>로 쓸 수 있다.</p>
+<p>여기서</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{1+s}
+=
+1+\frac{s}{2}-\frac{s^2}{8}+\cdots
+\]</div>
+<p>를 사용하면,</p>
+<div class="math notranslate nohighlight">
+\[
+r
+=
+z
+\left[
+1
++
+\frac{1}{2}
+\frac{(x-\xi)^2+(y-\eta)^2}{z^2}
+-
+\frac{1}{8}
+\left(
+\frac{(x-\xi)^2+(y-\eta)^2}{z^2}
+\right)^2
++
+\cdots
+\right].
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+r
+\approx
+z
++
+\frac{(x-\xi)^2+(y-\eta)^2}{2z}
+\]</div>
+<p>가 된다.</p>
+<p>주의할 점은, 단순히 Taylor expansion의 뒤쪽 항이 작아 보인다고 해서 바로 버릴 수 있는 것은 아니라는 점이다. 실제로 버려지는 항이 만드는 위상 오차</p>
+<div class="math notranslate nohighlight">
+\[
+k\Delta r
+\]</div>
+<p>가 충분히 작아야 Fresnel approximation이 성립한다.</p>
+<p>이 근사를 Huygens-Kirchhoff integral에 대입하면,</p>
+<div class="math notranslate nohighlight">
+\[
+e^{ikr}
+\approx
+e^{ikz}
+\exp
+\left[
+i\frac{k}{2z}
+\left\{
+(x-\xi)^2+(y-\eta)^2
+\right\}
+\right].
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+-\frac{i e^{ikz}}{\lambda z}
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{k}{2z}
+\left\{
+(x-\xi)^2+(y-\eta)^2
+\right\}
+\right]
+\,d\xi d\eta .
+\]</div>
+<p><span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span>이므로,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{k}{2z}
+=
+\frac{\pi}{\lambda z}
+\]</div>
+<p>이다. 따라서 Fresnel diffraction integral은</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+-\frac{i e^{ikz}}{\lambda z}
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+\left\{
+(x-\xi)^2+(y-\eta)^2
+\right\}
+\right]
+\,d\xi d\eta .
+\]</div>
+<p>또는</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{i}=-i
+\]</div>
+<p>를 이용하여</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+\frac{e^{ikz}}{i\lambda z}
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+\left\{
+(x-\xi)^2+(y-\eta)^2
+\right\}
+\right]
+\,d\xi d\eta
+\]</div>
+<p>라고 써도 같은 식이다.</p>
+</section>
+<hr class="docutils" />
+<section id="fresnel-diffraction-integral-fourier-transform">
+<h2>4. Fresnel diffraction integral의 Fourier transform 형태<a class="headerlink" href="#fresnel-diffraction-integral-fourier-transform" title="Permalink to this heading">#</a></h2>
+<p>이제 지수항 안의 제곱을 전개한다.</p>
+<div class="math notranslate nohighlight">
+\[
+(x-\xi)^2+(y-\eta)^2
+=
+x^2+y^2+\xi^2+\eta^2-2x\xi-2y\eta .
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+\frac{e^{ikz}}{i\lambda z}
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+\left(
+x^2+y^2+\xi^2+\eta^2-2x\xi-2y\eta
+\right)
+\right]
+\,d\xi d\eta .
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(x\)</span>와 <span class="math notranslate nohighlight">\(y\)</span>만 포함하는 항은 적분 변수 <span class="math notranslate nohighlight">\(\xi,\eta\)</span>와 무관하므로 적분 밖으로 꺼낼 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+u(x,y;z)
+\approx
+\frac{e^{ikz}}{i\lambda z}
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(x^2+y^2)
+\right]
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(\xi^2+\eta^2)
+\right]
+\exp
+\left[
+-i\frac{2\pi}{\lambda z}
+(x\xi+y\eta)
+\right]
+\,d\xi d\eta .
+\]</div>
+<p>이 식이 Fresnel diffraction integral의 중요한 형태이다.</p>
+<p>임의의 함수 <span class="math notranslate nohighlight">\(g(\xi,\eta)\)</span>의 Fourier transform을 다음과 같이 정의하자.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}\{g(\xi,\eta)\}(f_x,f_y)
+=
+\iint
+g(\xi,\eta)
+e^{-i2\pi(f_x\xi+f_y\eta)}
+\,d\xi d\eta .
+\]</div>
+<p>그러면 Fresnel diffraction은</p>
+<div class="math notranslate nohighlight">
+\[
+g(\xi,\eta)
+=
+u_0(\xi,\eta)
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(\xi^2+\eta^2)
+\right]
+\]</div>
+<p>의 Fourier transform으로 볼 수 있다. 이때 Fourier transform의 spatial frequency는</p>
+<div class="math notranslate nohighlight">
+\[
+f_x=\frac{x}{\lambda z},
+\qquad
+f_y=\frac{y}{\lambda z}
+\]</div>
+<p>이다.</p>
+<p>따라서 Fresnel diffraction은 단순한 Fourier transform이 아니라,</p>
+<div class="math notranslate nohighlight">
+\[
+u_0(\xi,\eta)
+\]</div>
+<p>에 2차 위상항(chirp phase)</p>
+<div class="math notranslate nohighlight">
+\[
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(\xi^2+\eta^2)
+\right]
+\]</div>
+<p>을 곱한 뒤 Fourier transform한 형태이다.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4절: Fresnel 회절의 Fourier 변환 형태</span>
+<span class="c1"># 이 셀에는 Fresnel의 Fourier 형태 전파에 필요한 보조 함수를 모아 두었다.</span>
+<span class="k">def</span> <span class="nf">fft2c</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;표시용 배열에 맞춘 광학 관례의 중심화 2차원 FFT.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">field</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">fresnel_fourier_form</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fresnel 회절 적분을 Fourier 변환 형태로 계산한다.</span>
+
+<span class="sd">    샘플링된 Fourier 주파수 (fx, fy) は、x = wavelength * z * fx および</span>
+<span class="sd">    y = wavelength * z * fy によって물리적인 관측 좌표로 변환된다.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_y</span><span class="p">,</span> <span class="n">n_x</span> <span class="o">=</span> <span class="n">u0</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="n">n_x</span> <span class="o">!=</span> <span class="n">n_y</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;이 교육 예제에서는 정사각형 입력 배열을 가정합니다.&quot;</span><span class="p">)</span>
+
+    <span class="n">aperture_axis</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_x</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+    <span class="n">XI</span><span class="p">,</span> <span class="n">ETA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">aperture_axis</span><span class="p">,</span> <span class="n">aperture_axis</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
+
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n_x</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
+    <span class="n">observation_axis</span> <span class="o">=</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">frequencies</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">observation_axis</span><span class="p">,</span> <span class="n">observation_axis</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">wavelength</span>
+    <span class="n">input_chirp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">XI</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ETA</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
+    <span class="n">output_chirp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
+    <span class="n">prefactor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="n">fft2c</span><span class="p">(</span><span class="n">u0</span> <span class="o">*</span> <span class="n">input_chirp</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">propagated_field</span> <span class="o">=</span> <span class="n">prefactor</span> <span class="o">*</span> <span class="n">output_chirp</span> <span class="o">*</span> <span class="n">spectrum</span>
+    <span class="k">return</span> <span class="n">propagated_field</span><span class="p">,</span> <span class="n">observation_axis</span>
+
+<span class="n">z_fresnel</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">u_fresnel</span><span class="p">,</span> <span class="n">x_fresnel</span> <span class="o">=</span> <span class="n">fresnel_fourier_form</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">z_fresnel</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">)</span>
+<span class="n">I_fresnel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_fresnel</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">I_fresnel</span> <span class="o">/=</span> <span class="n">I_fresnel</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fresnel 전파 거리 z = </span><span class="si">{</span><span class="n">z_fresnel</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fresnel 관측 창 = </span><span class="si">{</span><span class="n">x_fresnel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> 부터 </span><span class="si">{</span><span class="n">x_fresnel</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fresnel 정규화 강도: min = </span><span class="si">{</span><span class="n">I_fresnel</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, max = </span><span class="si">{</span><span class="n">I_fresnel</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fresnel 중심선 샘플:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">I_fresnel</span><span class="p">[</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="p">:</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="p">],</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">I_fresnel</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x_fresnel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_fresnel</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_fresnel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_fresnel</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">],</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fresnel intensity, z=</span><span class="si">{</span><span class="n">z_fresnel</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;normalized intensity&quot;</span><span class="p">)</span>
+
+<span class="n">center</span> <span class="o">=</span> <span class="n">I_fresnel</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fresnel</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">I_fresnel</span><span class="p">[</span><span class="n">center</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;normalized intensity&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;center line&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fraunhofer-diffraction">
+<h2>5. Fraunhofer diffraction<a class="headerlink" href="#fraunhofer-diffraction" title="Permalink to this heading">#</a></h2>
+<p>Fraunhofer diffraction은 Fresnel diffraction에서 한 단계 더 근사한 것이다.</p>
+<p>Fresnel integral 안에는 다음과 같은 개구면 쪽 2차 위상항이 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(\xi^2+\eta^2)
+\right].
+\]</div>
+<p>Fraunhofer approximation에서는 이 항의 위상 변화가 개구면 전체에서 충분히 작다고 가정한다.</p>
+<p>즉,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\pi}{\lambda z}(\xi^2+\eta^2) \ll 1
+\]</div>
+<p>이면</p>
+<div class="math notranslate nohighlight">
+\[
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(\xi^2+\eta^2)
+\right]
+\approx 1
+\]</div>
+<p>로 둘 수 있다.</p>
+<p>개구의 대표적인 크기를 <span class="math notranslate nohighlight">\(D\)</span>라고 하면, 대략적으로</p>
+<div class="math notranslate nohighlight">
+\[
+z \gg \frac{D^2}{\lambda}
+\]</div>
+<p>일 때 Fraunhofer approximation이 잘 성립한다.</p>
+<p>이 근사를 적용하면,</p>
+<div class="math notranslate nohighlight">
+\[
+u_F(x,y;z)
+\approx
+\frac{e^{ikz}}{i\lambda z}
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(x^2+y^2)
+\right]
+\iint
+u_0(\xi,\eta)
+\exp
+\left[
+-i\frac{2\pi}{\lambda z}
+(x\xi+y\eta)
+\right]
+\,d\xi d\eta .
+\]</div>
+<p>Fourier transform의 정의와 비교하면,</p>
+<div class="math notranslate nohighlight">
+\[
+u_F(x,y;z)
+\approx
+\frac{e^{ikz}}{i\lambda z}
+\exp
+\left[
+i\frac{\pi}{\lambda z}
+(x^2+y^2)
+\right]
+\mathcal{F}\{u_0(\xi,\eta)\}
+\left(
+\frac{x}{\lambda z},
+\frac{y}{\lambda z}
+\right).
+\]</div>
+<p>즉, Fraunhofer diffraction에서 관측면의 복소수 진폭은 개구면 복소수 진폭의 Fourier transform에 비례한다.</p>
+<p>관측되는 세기는</p>
+<div class="math notranslate nohighlight">
+\[
+I_F(x,y;z)
+=
+|u_F(x,y;z)|^2
+\]</div>
+<p>이므로, 앞에 곱해진 순수 위상항은 세기에 영향을 주지 않는다. 따라서 Fraunhofer 영역의 intensity pattern은</p>
+<div class="math notranslate nohighlight">
+\[
+I_F(x,y;z)
+\propto
+\left|
+\mathcal{F}\{u_0(\xi,\eta)\}
+\left(
+\frac{x}{\lambda z},
+\frac{y}{\lambda z}
+\right)
+\right|^2
+\]</div>
+<p>로 주어진다.</p>
+<p>단, 이 관계에서 Fourier transform의 좌표는 물리적 관측 좌표 <span class="math notranslate nohighlight">\((x,y)\)</span>가 아니라</p>
+<div class="math notranslate nohighlight">
+\[
+\left(
+\frac{x}{\lambda z},
+\frac{y}{\lambda z}
+\right)
+\]</div>
+<p>로 스케일된 spatial frequency 좌표이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5절: Fraunhofer 회절</span>
+<span class="c1"># Fraunhofer 전파에서는 4절의 중심화 FFT 보조 함수를 재사용한다.</span>
+<span class="k">def</span> <span class="nf">fraunhofer_propagate</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;개구면 장의 Fraunhofer 회절 패턴을 계산한다.&quot;&quot;&quot;</span>
+    <span class="n">n_y</span><span class="p">,</span> <span class="n">n_x</span> <span class="o">=</span> <span class="n">u0</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="n">n_x</span> <span class="o">!=</span> <span class="n">n_y</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;이 교육 예제에서는 정사각형 입력 배열을 가정합니다.&quot;</span><span class="p">)</span>
+
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n_x</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dx</span><span class="p">))</span>
+    <span class="n">observation_axis</span> <span class="o">=</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">frequencies</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">observation_axis</span><span class="p">,</span> <span class="n">observation_axis</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">wavelength</span>
+    <span class="n">aperture_transform</span> <span class="o">=</span> <span class="n">fft2c</span><span class="p">(</span><span class="n">u0</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">prefactor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">output_chirp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span>
+
+    <span class="n">propagated_field</span> <span class="o">=</span> <span class="n">prefactor</span> <span class="o">*</span> <span class="n">output_chirp</span> <span class="o">*</span> <span class="n">aperture_transform</span>
+    <span class="k">return</span> <span class="n">propagated_field</span><span class="p">,</span> <span class="n">observation_axis</span>
+
+<span class="n">z_far</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">u_fraunhofer</span><span class="p">,</span> <span class="n">x_far</span> <span class="o">=</span> <span class="n">fraunhofer_propagate</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">z_far</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">)</span>
+<span class="n">I_fraunhofer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_fraunhofer</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">I_fraunhofer</span> <span class="o">/=</span> <span class="n">I_fraunhofer</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">fraunhofer_distance</span> <span class="o">=</span> <span class="n">aperture_width</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">wavelength</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;D^2/lambda = </span><span class="si">{</span><span class="n">fraunhofer_distance</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m; 선택한 z = </span><span class="si">{</span><span class="n">z_far</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fraunhofer 관측 창 = </span><span class="si">{</span><span class="n">x_far</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> 부터 </span><span class="si">{</span><span class="n">x_far</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fraunhofer 정규화 강도: min = </span><span class="si">{</span><span class="n">I_fraunhofer</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, max = </span><span class="si">{</span><span class="n">I_fraunhofer</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fraunhofer 중심선 샘플:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">I_fraunhofer</span><span class="p">[</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="p">:</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="p">],</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">I_fraunhofer</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x_far</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_far</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_far</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">x_far</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">],</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fraunhofer intensity, z=</span><span class="si">{</span><span class="n">z_far</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;normalized intensity&quot;</span><span class="p">)</span>
+
+<span class="n">center</span> <span class="o">=</span> <span class="n">I_fraunhofer</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_far</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">I_fraunhofer</span><span class="p">[</span><span class="n">center</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [mm]&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;normalized intensity&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;center line&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 좌표계와 기본 개념</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huygens-kirchhoff-integral">2. Huygens-Kirchhoff integral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-taylor-expansion">3. 거리 <span class="math notranslate nohighlight">\(r\)</span>의 Taylor expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fresnel-diffraction-integral-fourier-transform">4. Fresnel diffraction integral의 Fourier transform 형태</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fraunhofer-diffraction">5. Fraunhofer diffraction</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

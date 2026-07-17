@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TE mode and Bessel functions &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ja/TE_ja';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/ja/TE_ja.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fja/TE_ja.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ja/TE_ja.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TE mode and Bessel functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 座標系と波数ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te">2. TE モードの意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. 「反射する平面波の重ね合わせ」としての直感</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 円筒対称性とベッセル関数の出現</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 円形導波管の TE モードの一般形</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> において <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span> の意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8. まとめ</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="te-mode-and-bessel-functions">
+<h1>TE mode and Bessel functions<a class="headerlink" href="#te-mode-and-bessel-functions" title="Permalink to this heading">#</a></h1>
+<p><img alt="Fig. 6" src="../_images/fig6.jpg" /></p>
+<section id="id1">
+<h2>1. 座標系と波数ベクトル<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>円筒座標を</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\phi,z)
+\]</div>
+<p>とする。ここで</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>：導波管の軸方向</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span>：軸からの距離</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span>：横断面内の方位角</p></li>
+</ul>
+<p>である。</p>
+<p>導波管内を <span class="math notranslate nohighlight">\(z\)</span> 方向へ伝搬する波では、波数ベクトルは軸方向成分と横方向成分に分けて</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>と書ける。円筒対称な議論では、横波数の大きさを <span class="math notranslate nohighlight">\(k_r\)</span> と書き、</p>
+<div class="math notranslate nohighlight">
+\[
+k_r=nk_0\sin\theta,\qquad
+\beta=nk_0\cos\theta
+\]</div>
+<p>とおくことができる。ここで <span class="math notranslate nohighlight">\(\theta\)</span> は波数ベクトル <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> と <span class="math notranslate nohighlight">\(z\)</span> 軸とのなす角である。したがって <span class="math notranslate nohighlight">\(\theta\)</span> は、「波が導波管軸に対してどれだけ傾いているか」を表す。</p>
+</section>
+<hr class="docutils" />
+<section id="te">
+<h2>2. TE モードの意味<a class="headerlink" href="#te" title="Permalink to this heading">#</a></h2>
+<p>TE モードとは、軸方向電場成分がゼロであるモード、すなわち</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0
+\]</div>
+<p>を満たすモードである。ただし、これは「<span class="math notranslate nohighlight">\(z\)</span> 方向に伝搬しない」という意味ではない。実際には場は</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-i\beta z}
+\]</div>
+<p>のような <span class="math notranslate nohighlight">\(z\)</span> 依存性を持ち、<span class="math notranslate nohighlight">\(\beta\neq 0\)</span> ならば波は軸方向へ伝搬する。</p>
+<p>したがって TE とは、「電場が完全に横方向だけを向いている」という意味であり、「伝搬方向が横方向だけである」という意味ではない。円形導波管では TE モードにおいて縦成分として残るのは一般に <span class="math notranslate nohighlight">\(H_z\)</span> であり、この <span class="math notranslate nohighlight">\(H_z\)</span> から横電場・横磁場が決まる。</p>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>3. 「反射する平面波の重ね合わせ」としての直感<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>導波管内のモードは、軸方向成分 <span class="math notranslate nohighlight">\(\beta\)</span> を共有しつつ、横方向に異なる向きをもつ平面波成分の重ね合わせとして直感的に理解できる。1つの成分だけを見れば、たとえば</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=k_r\hat r+\beta \hat z
+\]</div>
+<p>のように書ける。均一媒質中の平面波では</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}\cdot \mathbf{k}=0
+\]</div>
+<p>であるため、電場は <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> に垂直でなければならない。円筒座標の直感では、そのような横方向成分として <span class="math notranslate nohighlight">\(\hat\phi\)</span> 方向の電場を考えると、<span class="math notranslate nohighlight">\(\hat r\)</span> にも <span class="math notranslate nohighlight">\(\hat z\)</span> にも直交するので、TE 的な偏光をイメージしやすい。</p>
+<p>さらに壁で反射すると、横波数成分の符号は反転して</p>
+<div class="math notranslate nohighlight">
+\[
+k_r\rightarrow -k_r
+\]</div>
+<p>となるが、<span class="math notranslate nohighlight">\(\beta\)</span> は変わらない。したがって、1次元的な直感では</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i(k_r r+\beta z)}+e^{i(-k_r r+\beta z)}
+=
+2\cos(k_r r)e^{i\beta z}
+\]</div>
+<p>のように、<span class="math notranslate nohighlight">\(\pm k_r\)</span> 成分の重ね合わせから横方向の定在波構造が生じる。この意味で</p>
+<div class="math notranslate nohighlight">
+\[
+\langle k_r\rangle=0,\qquad k_r\neq 0
+\]</div>
+<p>である。すなわち、<strong>平均として横方向へ流れてはいないが、横方向スケールそのものは残っており、その結果として横断面モード構造が形成される</strong>。</p>
+<p>ただし、これはあくまで 1 次元的直感であり、円筒導波管の厳密な半径方向関数は <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span> ではなく、最終的にはベッセル関数 <span class="math notranslate nohighlight">\(J_l(k_r r)\)</span> になる。</p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>4. 円筒対称性とベッセル関数の出現<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>円筒系では、ある方位角 <span class="math notranslate nohighlight">\(\psi\)</span> の方向を向く横波数ベクトルをもつ平面波成分は、観測点 <span class="math notranslate nohighlight">\((r,\phi)\)</span> において</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i k_r r\cos(\phi-\psi)}
+\]</div>
+<p>という位相因子を与える。これを全方位について等重みで重ね合わせると</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi} e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>となる。</p>
+<p>ベッセル関数の積分表示</p>
+<div class="math notranslate nohighlight">
+\[
+J_0(k_r r)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>より、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+=
+2\pi J_0(k_r r)
+}
+\]</div>
+<p>が得られる。したがって、<strong>円筒対称な平面波重ね合わせから <span class="math notranslate nohighlight">\(J_0\)</span> が自然に現れる</strong>。
+さらに、方位角モード数 <span class="math notranslate nohighlight">\(l\)</span> をもつ成分を作るには、各平面波成分に対して方位角 <span class="math notranslate nohighlight">\(\psi\)</span> に依存する位相重み</p>
+<div class="math notranslate nohighlight">
+\[
+e^{il\psi}
+\]</div>
+<p>を掛けて重ね合わせればよい。その結果、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{il\psi}
+e^{i k_r r\cos(\phi-\psi)}
+\,d\psi
+=
+2\pi i^l J_l(k_r r)e^{il\phi}
+}
+\]</div>
+<p>となる。これは Jacobi–Anger 展開</p>
+<div class="math notranslate nohighlight">
+\[
+e^{iz\cos\theta}
+=
+\sum_{m=-\infty}^{\infty}
+i^m J_m(z)e^{im\theta}
+\]</div>
+<p>の直接の帰結であり、<strong>平面波の重ね合わせが円筒波 <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span> を生む</strong>ことを示している。</p>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h2>5. 円形導波管の TE モードの一般形<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>円形導波管の TE モードでは <span class="math notranslate nohighlight">\(E_z=0\)</span> であり、縦磁場 <span class="math notranslate nohighlight">\(H_z\)</span> が基本となる。一般に TE モードの縦磁場は</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)
+=
+H_0\,J_l(k_c r)\,[A\cos(l\phi)+B\sin(l\phi)]\,e^{-i\beta z}
+\]</div>
+<p>の形で書ける。複素表示を用いれば</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_c r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>と書いてもよい。ここで <span class="math notranslate nohighlight">\(k_c\)</span> は横方向の固有波数であり、境界条件によって量子化される。</p>
+<p>TE モードでは導体壁 <span class="math notranslate nohighlight">\(r=a\)</span> において接線電場がゼロでなければならないため、境界条件は</p>
+<div class="math notranslate nohighlight">
+\[
+J_l'(k_c a)=0
+\]</div>
+<p>となる。したがって TE モードの固有値は、ベッセル関数そのものの零点ではなく、<strong>その導関数の零点</strong>によって決まる。
+なお、円形導波管の支配モード（最も低い遮断周波数をもつモード）は <span class="math notranslate nohighlight">\(TE_{11}\)</span> である。</p>
+</section>
+<hr class="docutils" />
+<section id="te-0m-e-phi-propto-j-1">
+<h2>6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> において <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由<a class="headerlink" href="#te-0m-e-phi-propto-j-1" title="Permalink to this heading">#</a></h2>
+<p>軸対称な TE モードでは <span class="math notranslate nohighlight">\(l=0\)</span> であるから、縦磁場は</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,z)\propto J_0(k_c r)e^{-i\beta z}
+\]</div>
+<p>となる。</p>
+<p>TE モードの横電場成分は Maxwell 方程式から <span class="math notranslate nohighlight">\(H_z\)</span> の半径方向微分で決まり、特に軸対称の場合には</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi \propto -\frac{\partial H_z}{\partial r}
+\]</div>
+<p>となる。したがって</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi
+\propto
+-\frac{\partial}{\partial r}J_0(k_c r)
+\]</div>
+<p>である。ここでベッセル関数の微分公式</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ_0(x)}{dx}=-J_1(x)
+\]</div>
+<p>を使うと</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1(k_c r)
+\]</div>
+<p>を得る。ゆえに、<span class="math notranslate nohighlight">\(TE_{0m}\)</span> では縦磁場が <span class="math notranslate nohighlight">\(J_0\)</span> 型であっても、横電場 <span class="math notranslate nohighlight">\(E_\phi\)</span> は <span class="math notranslate nohighlight">\(J_1\)</span> 型になる。</p>
+</section>
+<hr class="docutils" />
+<section id="l">
+<h2>7. <span class="math notranslate nohighlight">\(l\)</span> の意味<a class="headerlink" href="#l" title="Permalink to this heading">#</a></h2>
+<p>モードの複素表示</p>
+<div class="math notranslate nohighlight">
+\[
+E(r,\phi,z)\propto J_l(k_r r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>において、<span class="math notranslate nohighlight">\(l\)</span> は <strong>方位角モード数</strong>である。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l=0\)</span> なら <span class="math notranslate nohighlight">\(e^{i0\phi}=1\)</span> であり、場は方位角 <span class="math notranslate nohighlight">\(\phi\)</span> に依存しない。</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=1\)</span> なら <span class="math notranslate nohighlight">\(e^{i\phi}\)</span> であり、<span class="math notranslate nohighlight">\(\phi\)</span> を <span class="math notranslate nohighlight">\(2\pi\)</span> だけ回すと複素位相は <span class="math notranslate nohighlight">\(2\pi\)</span> 変化する。</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=2\)</span> なら <span class="math notranslate nohighlight">\(e^{i2\phi}\)</span> であり、1周で複素位相は <span class="math notranslate nohighlight">\(4\pi\)</span> 変化する。</p></li>
+</ul>
+<p>この意味で、<span class="math notranslate nohighlight">\(l\)</span> は複素表示では「位相の巻き数」に対応して見える。しかし、円形導波管の通常の TE/TM モードでは、しばしば</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(l\phi),\qquad \sin(l\phi)
+\]</div>
+<p>という実関数表示で書かれるので、最も安全な呼び方は <strong>方位角モード数</strong>である。すなわち、<span class="math notranslate nohighlight">\(l\)</span> は<strong>偏光方向</strong>を表す量ではなく、<strong>横断面内での角度依存の次数</strong>を表す量である。</p>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2>8. まとめ<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>以上をまとめると、円形導波管の TE モードは</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0,\qquad H_z\neq 0
+\]</div>
+<p>を満たすモードであり、横方向構造は平面波成分の重ね合わせとして理解できる。その円筒対称な重ね合わせの結果として、半径方向依存はベッセル関数 <span class="math notranslate nohighlight">\(J_l\)</span> で表される。特に、等方位重ね合わせからは <span class="math notranslate nohighlight">\(J_0\)</span> が現れ、方位角に位相重み <span class="math notranslate nohighlight">\(e^{il\psi}\)</span> を与えると <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span> が現れる。円形導波管の TE モードでは縦磁場 <span class="math notranslate nohighlight">\(H_z\)</span> が基本となり、<span class="math notranslate nohighlight">\(TE_{0m}\)</span> では <span class="math notranslate nohighlight">\(H_z\propto J_0\)</span>、そこから導かれる横電場は</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1
+\]</div>
+<p>となる。したがって、<span class="math notranslate nohighlight">\(l\)</span> は偏光を表すのではなく、<strong>モードの方位角依存性を表す指標</strong>である。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 座標系と波数ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te">2. TE モードの意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. 「反射する平面波の重ね合わせ」としての直感</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. 円筒対称性とベッセル関数の出現</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. 円形導波管の TE モードの一般形</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> において <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span> の意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8. まとめ</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
