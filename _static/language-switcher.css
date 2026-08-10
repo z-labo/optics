@@ -113,6 +113,16 @@
 /* Keep the site navigation focused on the single public PIM entry. The
    Japanese and Korean notebook pages are still built and reachable through
    the language switcher, but they should not appear as separate book entries. */
+.bd-sidebar-primary a[href*="/ja/bbo_ja"],
+.bd-sidebar-primary a[href*="/kr/bbo_kr"],
+.bd-sidebar-primary a[href$="ja/bbo_ja.html"],
+.bd-sidebar-primary a[href$="kr/bbo_kr.html"] {
+  display: none !important;
+}
+
+/* Keep the site navigation focused on the single public PIM entry. The
+   Japanese and Korean notebook pages are still built and reachable through
+   the language switcher, but they should not appear as separate book entries. */
 .bd-sidebar-primary a[href*="/ja/coupled_wave_ja"],
 .bd-sidebar-primary a[href*="/kr/coupled_wave_kr"],
 .bd-sidebar-primary a[href$="ja/coupled_wave_ja.html"],
