@@ -1,0 +1,1218 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Coupled-Wave Equations &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/coupled_wave_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/coupled_wave_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/coupled_wave_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/coupled_wave_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coupled-Wave Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">비선형 광학 매질의 파동방정식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell">Maxwell 방정식으로부터 일반 파동방정식 유도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">평면파 조건과 분극의 선형/비선형 분리</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">단순한 경우: 무손실·무분산 매질</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">일반적인 경우: 분산 매질과 단색파 성분</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfg">합주파수 생성(SFG)의 결합파 방정식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ansatz">장 방정식과 완만하게 변하는 진폭에 대한 Ansatz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">비선형 소스 분극</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">파동방정식에 대입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">각 항을 합치기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svaa">완만한 진폭 근사 (SVAA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">세 파에 대한 결합방정식</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mis-match-considerations">위상 정합과 위상 부정합 (Phase (Mis)match Considerations)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">펌프 고갈을 무시하는 근사</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-k-0">완전한 위상 정합: <span class="math notranslate nohighlight">\(\Delta k=0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-k-neq0">위상 부정합: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">생성파의 세기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinc">Sinc 함수에 의한 위상 부정합 효과</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-1-i-2"><span class="math notranslate nohighlight">\(I_1\)</span>과 <span class="math notranslate nohighlight">\(I_2\)</span>를 이용한 표현</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coupled-wave-equations">
+<h1>Coupled-Wave Equations<a class="headerlink" href="#coupled-wave-equations" title="Permalink to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>출처.</strong> 이 노트는 <strong>Friedrich Schiller University Jena</strong>의 <strong>2021/22 겨울학기</strong>에 <strong>Prof. G. G. Paulus</strong>가 강의한 <strong>Nonlinear Optics</strong> 수업 자료에 근거한것입니다.</p>
+</div></blockquote>
+<section id="id1">
+<h2>비선형 광학 매질의 파동방정식<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="maxwell">
+<h3>Maxwell 방정식으로부터 일반 파동방정식 유도<a class="headerlink" href="#maxwell" title="Permalink to this heading">#</a></h3>
+<p>Ampère 법칙을 Faraday 법칙에 대입하는 방식으로 파동방정식을 유도한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}
+=
+-\mu_0\partial_t^2\widetilde{\vec D}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}
+=
+\varepsilon_0\widetilde{\vec E}
++
+\widetilde{\vec P},
+\qquad
+\mu_0=\frac{1}{\varepsilon_0c^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}\partial_t^2\widetilde{\vec P}
+\tag{5}
+\]</div>
+<p>식 (5)는 여기에서 사용하는 고전 비선형 광학의 가장 일반적인 파동방정식 형태이다.</p>
+</section>
+<section id="id2">
+<h3>평면파 조건과 분극의 선형/비선형 분리<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>광학에서는
+<span class="math notranslate nohighlight">\(\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}\)</span>
+를 Laplacian으로 바꾸고 싶다. 그러나 일반적으로 전기장의 발산은 0이 아니다. 평면파에 대해서는</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\cdot\vec E=0
+\]</div>
+<p>을 사용할 수 있다. 따라서</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}\partial_t^2\widetilde{\vec P}
+\tag{6}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}
+=
+\widetilde{\vec P}^{(1)}
++
+\widetilde{\vec P}^{NL}
+\tag{7}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2
+\left(
+\widetilde{\vec E}
++
+\frac{1}{\varepsilon_0}\widetilde{\vec P}^{(1)}
+\right)
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}
+\tag{8}
+\]</div>
+<p>로 바꿔쓸수있다. 여기서</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}
+=
+\varepsilon_0\widetilde{\vec E}
++
+\widetilde{\vec P}^{(1)},
+\]</div>
+<p>이를 이용하면, 최종 파동 방적식의 형태는 (9)와 같다.</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec D}^{(1)}
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}.
+\tag{9}
+\]</div>
+</section>
+<section id="id3">
+<h3>단순한 경우: 무손실·무분산 매질<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>무손실이고 분산이 없는 매질에서는 선형 응답이 순간적이라고 가정한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}(t)
+=
+\varepsilon_0\widetilde{\vec E}
++
+\widetilde{\vec P}^{(1)},
+=
+\varepsilon_0\varepsilon^{(1)}\,
+\widetilde{\vec E}(t)
+\tag{10}
+\]</div>
+<p>식 (10)을 식 (9)에 대입하면,</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{\varepsilon^{(1)}}{c^2}
+\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}.
+\tag{11}
+\]</div>
+<p>일반적으로,시간영역에서는
+<span class="math notranslate nohighlight">\(D(t)\neq E(t)\)</span> 이지만 주파수영역에서는 <span class="math notranslate nohighlight">\(D(\omega)\sim E(\omega)\)</span> 을 만족한다.</p>
+<p>식 (11)은 오른쪽 항, 즉 비선형 분극이 소스 항으로 작용하는 파동방정식이다.</p>
+</section>
+<section id="id4">
+<h3>일반적인 경우: 분산 매질과 단색파 성분<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>위에서 언급한대로, 분산 매질에서는 시간영역에서 식 (10)이 성립하지 않는다. 그러나 주파수 영역에서는 선형 전기변위와 전기장이 주파수 의존 유전응답으로 연결된다.</p>
+<p>2차 비선형 과정은 세 개의 파를 결합하고, 3차 비선형 과정은 네 개의 파를 결합한다. 실제로 결합되는 파의 수는 적기 때문에 전체 장을 단색파 성분들의 합으로 나타내면 편리할수있다.</p>
+<p>먼저 선형 displacement를 주파수 형식으로 바꿔쓴다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}(\omega)
+=
+\varepsilon_0\varepsilon^{(1)}(\omega)
+\widetilde{\vec E}(\omega)
+\]</div>
+<p>다음으로, E field, displacement, polarization에 대해서도 주파수응답의 합으로 표시한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec E}(\vec r,t)
+=
+\sum_n' \widetilde{\vec E}_n(\vec r,t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}(\vec r,t)
+=
+\sum_n' \widetilde{\vec D}_n(\vec r,t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}^{NL}(\vec r,t)
+=
+\sum_n' \widetilde{\vec P}^{NL}_n(\vec r,t)
+\tag{13}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\varepsilon^{(1)}\in\mathbb{R}\)</span>라고 가정하고 주파수 성분을 식 (9)에 대입하면,</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_n
++
+\frac{\varepsilon^{(1)}(\omega_n)}{c^2}
+\partial_t^2\widetilde{\vec E}_n
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_n.
+\tag{15}
+\]</div>
+<p>단색파에 대해서,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec E}_n(\vec r,t)
+=
+\vec E_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec E_n\in\mathbb C^3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}_n(\vec r,t)
+=
+\vec D_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec D_n\in\mathbb C^3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}_n(\vec r,t)
+=
+\vec P_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec P_n\in\mathbb C^3.
+\tag{16}
+\]</div>
+<p>공간 의존성과 시간 의존성을 분리했으므로,</p>
+<div class="math notranslate nohighlight">
+\[
+\partial_t^2\sim-\omega^2,
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla^2\widetilde{\vec E}_n(\vec r)
++
+\frac{\varepsilon^{(1)}(\omega_n)\omega_n^2}{c^2}
+\widetilde{\vec E}_n
+=
+-\frac{\omega_n^2}{\varepsilon_0c^2}
+\widetilde{\vec P}^{NL}_n.
+\tag{17}
+\]</div>
+<p>식 (15)는 식 (11)과 같은 형태를 가지면서, 물질의 응답이 주파수에 의존하는 경우에도 사용할 수 있다.</p>
+</section>
+</section>
+<section id="sfg">
+<h2>합주파수 생성(SFG)의 결합파 방정식<a class="headerlink" href="#sfg" title="Permalink to this heading">#</a></h2>
+<section id="ansatz">
+<h3>장 방정식과 완만하게 변하는 진폭에 대한 Ansatz<a class="headerlink" href="#ansatz" title="Permalink to this heading">#</a></h3>
+<p>Ansatz: 물리학, 수학, 양자 컴퓨팅 등에서 어려운 방정식을 풀기 위해 “답이 이런 모양일 것이다” 하고 먼저 가정하는 식이나 파라미터화된 상태(Trial state)를 뜻하는 독일어 단어</p>
+<p>이제 앞에서 얻은 파동방정식을 구체적인 비선형 상호작용인 합주파수 생성(SFG)에 적용한다.</p>
+<p>SFG에서는,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_3=\omega_1+\omega_2.
+\]</div>
+<p>를 만족한다. 식 (15)의 <span class="math notranslate nohighlight">\(\omega_3\)</span> 성분은 다음과 같다.</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_3
++
+\frac{n_3^2}{c^2}
+\partial_t^2\widetilde{\vec E}_3
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_3.
+\tag{20}
+\]</div>
+<p>오른쪽 항을 무시할 수 있다면 일반적인 파동방정식의 해는</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde E_3(z,t)
+=
+A_3e^{i(k_3z-\omega_3t)}
++c.c.,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+k_3=\frac{n_3\omega_3}{c}.
+\tag{21}
+\]</div>
+<p>비선형 소스가 작지만 0은 아닐 때 다음 Ansatz를 사용한다.여기서 <span class="math notranslate nohighlight">\(A_3\)</span> dms <span class="math notranslate nohighlight">\(z\)</span> 의 함수임을 유의하기 바란다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde E_3(z,t)
+=
+A_3(z)e^{i(k_3z-\omega_3t)}
++c.c.
+\]</div>
+<p>결정 내부를 진행하면서 생성파의 진폭 <span class="math notranslate nohighlight">\(A_3(z)\)</span>가 증가할 것으로 예상되므로, 진폭이 <span class="math notranslate nohighlight">\(z\)</span>에 의존하도록 두는 것은 물리적으로 자연스럽다.</p>
+</section>
+<section id="id5">
+<h3>비선형 소스 분극<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(z\)</span> 와 <span class="math notranslate nohighlight">\(t\)</span>가 들어간 항을 분리해서 쓰면, <span class="math notranslate nohighlight">\(E_1,E_2\)</span>에 의한 SFG의 비선형 소스 항은 다음과 같이 쓴다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde P_3(z,t)
+=
+P_3(z)e^{-i\omega_3t}
++c.c.,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_3
+=
+4\varepsilon_0d_{\mathrm{eff}}E_1E_2,
+\qquad
+2d_{\mathrm{eff}}\sim\chi^{(2)}.
+\tag{24}
+\]</div>
+<p>또한,</p>
+<div class="math notranslate nohighlight">
+\[
+E_i(z,t)
+=
+E_ie^{-i\omega_it}+c.c.,
+\qquad
+E_i=A_ie^{ik_iz}.
+\tag{25}
+\]</div>
+<p>따라서,</p>
+<div class="math notranslate nohighlight">
+\[
+P_3
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_1A_2e^{i(k_1+k_2)z}.
+\tag{26}
+\]</div>
+</section>
+<section id="id6">
+<h3>파동방정식에 대입<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<p>장의 Ansatz와 식 (26)을 식 (20)에 대입한다. 여기서 <span class="math notranslate nohighlight">\(\partial_t^2\sim-\omega^2\)</span> 를 사용한다.</p>
+<p>첫 번째 항:</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_3
+=
+-\partial_z^2
+\left[
+A_3(z)e^{i(k_3z-\omega_3t)}+c.c.
+\right]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+-
+\left[
+\frac{\partial^2A_3}{\partial z^2}
++
+2ik_3\frac{\partial A_3}{\partial z}
+-
+k_3^2A_3
+\right]
+e^{i(k_3z-\omega_3t)}
++c.c.
+\]</div>
+<p>두 번째 항:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{n_3^2}{c^2}\partial_t^2\widetilde{\vec E}_3
+=
+-\frac{n_3^2\omega_3^2}{c^2}
+\left[
+A_3e^{i(k_3z-\omega_3t)}+c.c.
+\right].
+\]</div>
+<p>세 번째 항:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_3
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2
+e^{i[(k_1+k_2)z-\omega_3t]}
++c.c.
+\]</div>
+</section>
+<section id="id7">
+<h3>각 항을 합치기<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<p>각 항을 합치면,</p>
+<div class="math notranslate nohighlight">
+\[
+\left[
+-\frac{\partial^2A_3}{\partial z^2}
+-2ik_3\frac{\partial A_3}{\partial z}
++k_3^2A_3
+-\frac{n_3^2\omega_3^2}{c^2}A_3
+\right]
+e^{i(k_3z-\omega_3t)}
++c.c.
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2
+e^{i[(k_1+k_2)z-\omega_3t]}
++c.c.
+\]</div>
+<p>여기서</p>
+<div class="math notranslate nohighlight">
+\[
+k_3^2A_3-\frac{n_3^2\omega_3^2}{c^2}A_3=0,
+\]</div>
+<p>이고, 또한 <span class="math notranslate nohighlight">\(e^{-i\omega t}\)</span>와 <span class="math notranslate nohighlight">\(e^{i\omega t}\)</span>는 선형 독립이므로 <span class="math notranslate nohighlight">\(c.c.\)</span> 항은 별도로 취급할 수 있다. <span class="math notranslate nohighlight">\(e^{-i\omega_3t}\)</span> 로 나누면</p>
+<div class="math notranslate nohighlight">
+\[
+-
+\left[
+\frac{\partial^2A_3}{\partial z^2}
++
+2ik_3\frac{\partial A_3}{\partial z}
+\right]
+e^{ik_3z}
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2e^{i(k_1+k_2)z}.
+\tag{27}
+\]</div>
+</section>
+<section id="svaa">
+<h3>완만한 진폭 근사 (SVAA)<a class="headerlink" href="#svaa" title="Permalink to this heading">#</a></h3>
+<p>완만한 진폭 근사(SVAA)에서는 두 번째 공간 미분항을 무시한다:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2A_3}{\partial z^2}
+\ll
+k_3\frac{\partial A_3}{\partial z}.
+\]</div>
+<p>결국,</p>
+<div class="math notranslate nohighlight">
+\[
+-2ik_3\frac{\partial A_3}{\partial z}e^{ik_3z}
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2e^{i(k_1+k_2)z},
+\]</div>
+<p>만 남는다. 따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2e^{i(k_1+k_2-k_3)z}.
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\Delta k\)</span>는 다음과 같이 정의한다:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k=k_1+k_2-k_3,
+\qquad
+k_3=\frac{n_3\omega_3}{c}.
+\]</div>
+<p>따라서 <span class="math notranslate nohighlight">\(\frac{\partial A_3}{\partial z}\)</span> 의 최종형식은</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3}{n_3c}
+A_1A_2e^{i\Delta kz}.
+\tag{28}
+\]</div>
+</section>
+<section id="id8">
+<h3>세 파에 대한 결합방정식<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>같은 절차를 <span class="math notranslate nohighlight">\(A_1\)</span>과 <span class="math notranslate nohighlight">\(A_2\)</span>에도 적용한다. 다만, 아래와 같은 관계식을 사용한다:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1=\omega_3-\omega_2,
+\qquad
+\omega_2=\omega_3-\omega_1.
+\]</div>
+<p>비선형 분극은</p>
+<div class="math notranslate nohighlight">
+\[
+P_1
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_3A_2^*e^{i(k_3-k_2)z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_2
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_3A_1^*e^{i(k_3-k_1)z}.
+\]</div>
+<p>따라서,</p>
+<div style="border: 4px solid; padding: 18px 24px; margin: 20px 0; border-radius: 6px;">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\frac{\partial A_1}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_1^2}{k_1c^2}
+A_3(z)A_2^*(z)e^{-i\Delta kz},
+\\[8pt]
+\frac{\partial A_2}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_2^2}{k_2c^2}
+A_3(z)A_1^*(z)e^{-i\Delta kz},
+\\[8pt]
+\frac{\partial A_3}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1(z)A_2(z)e^{i\Delta kz}.
+\end{aligned}
+\end{split}\]</div>
+</div></section>
+</section>
+<section id="phase-mis-match-considerations">
+<h2>위상 정합과 위상 부정합 (Phase (Mis)match Considerations)<a class="headerlink" href="#phase-mis-match-considerations" title="Permalink to this heading">#</a></h2>
+<section id="id9">
+<h3>펌프 고갈을 무시하는 근사<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(A_3\)</span>가 <span class="math notranslate nohighlight">\(A_1\)</span>, <span class="math notranslate nohighlight">\(A_2\)</span>에 비해 충분히 작다고 가정한다. 따라서 <span class="math notranslate nohighlight">\(A_1\)</span>과 <span class="math notranslate nohighlight">\(A_2\)</span>는 <span class="math notranslate nohighlight">\(z\)</span>에 의존하지 않는다고 본다:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_1}{\partial z}
+=
+\frac{\partial A_2}{\partial z}
+=0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2e^{i\Delta kz}.
+\]</div>
+</section>
+<section id="delta-k-0">
+<h3>완전한 위상 정합: <span class="math notranslate nohighlight">\(\Delta k=0\)</span><a class="headerlink" href="#delta-k-0" title="Permalink to this heading">#</a></h3>
+<p>문제를 더욱 단순하게 하기 위해 완전한 위상 정합을 가정한다:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k=0.
+\]</div>
+<p>그러면 <span class="math notranslate nohighlight">\(A_3(z)\)</span>는 <span class="math notranslate nohighlight">\(z\)</span>에 대해 선형적으로 증가한다. 따라서 세기 <span class="math notranslate nohighlight">\(I_3(z)\)</span>는 <span class="math notranslate nohighlight">\(z\)</span>의 제곱에 비례하여 증가한다:</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(z)\propto z,
+\qquad
+I_3(z)\propto z^2.
+\]</div>
+</section>
+<section id="delta-k-neq0">
+<h3>위상 부정합: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span><a class="headerlink" href="#delta-k-neq0" title="Permalink to this heading">#</a></h3>
+<p>이제</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k\neq0
+\]</div>
+<p>인 경우를 생각한다.</p>
+<p><span class="math notranslate nohighlight">\(z=0\)</span>에서 <span class="math notranslate nohighlight">\(z=L\)</span>까지 적분하면,</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(L)
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2
+\int_0^L e^{i\Delta kz}\,dz,
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(L)
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2
+\frac{e^{i\Delta kL}-1}{i\Delta k}.
+\]</div>
+</section>
+<section id="id10">
+<h3>생성파의 세기<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\Delta k\neq0\)</span>의 영향을 확인하기 위해 <span class="math notranslate nohighlight">\(I_3\)</span>를 계산한다:</p>
+<div class="math notranslate nohighlight">
+\[
+I_3
+=
+\frac{cn_3\varepsilon_0}{2}|A_3|^2
+=
+\frac{2\varepsilon_0d_{\mathrm{eff}}^2\omega_3^2}{n_3c^2}
+|A_1|^2|A_2|^2
+\left|
+\frac{e^{i\Delta kL}-1}{\Delta k}
+\right|^2.
+\]</div>
+<p>또한,</p>
+<div class="math notranslate nohighlight">
+\[
+c\varepsilon_0=\frac{1}{377\ \Omega}.
+\]</div>
+</section>
+<section id="sinc">
+<h3>Sinc 함수에 의한 위상 부정합 효과<a class="headerlink" href="#sinc" title="Permalink to this heading">#</a></h3>
+<p>다음을 이용하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\left|
+\frac{e^{i\Delta kL}-1}{\Delta k}
+\right|^2
+=
+L^2
+\operatorname{sinc}^2
+\left(\frac{\Delta kL}{2}\right),
+\]</div>
+<p>위상 부정합에 의한 변환 효율의 변화는 <span class="math notranslate nohighlight">\(\operatorname{sinc}^2\)</span> 함수로 표현된다.</p>
+</section>
+<section id="i-1-i-2">
+<h3><span class="math notranslate nohighlight">\(I_1\)</span>과 <span class="math notranslate nohighlight">\(I_2\)</span>를 이용한 표현<a class="headerlink" href="#i-1-i-2" title="Permalink to this heading">#</a></h3>
+<p>다음을 사용한다:</p>
+<div class="math notranslate nohighlight">
+\[
+I_1=\frac{cn_1\varepsilon_0}{2}|A_1|^2,
+\qquad
+I_2=\frac{cn_2\varepsilon_0}{2}|A_2|^2.
+\]</div>
+<p>그러면</p>
+<div style="border: 4px solid; padding: 18px 24px; margin: 20px 0; border-radius: 6px;">
+<div class="math notranslate nohighlight">
+\[
+I_3
+=
+8
+\frac{
+d_{\mathrm{eff}}^2\omega_3^2 I_1 I_2
+}{
+n_1n_2n_3\varepsilon_0c^3
+}
+L^2
+\operatorname{sinc}^2
+\left(
+\frac{\Delta kL}{2}
+\right).
+\]</div>
+</div>
+<p>제공된 강의 노트의 표기에 따르면,</p>
+<div class="math notranslate nohighlight">
+\[
+L\equiv L_{\mathrm{coh}}=\frac{2}{\Delta k}.
+\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">비선형 광학 매질의 파동방정식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell">Maxwell 방정식으로부터 일반 파동방정식 유도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">평면파 조건과 분극의 선형/비선형 분리</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">단순한 경우: 무손실·무분산 매질</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">일반적인 경우: 분산 매질과 단색파 성분</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfg">합주파수 생성(SFG)의 결합파 방정식</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ansatz">장 방정식과 완만하게 변하는 진폭에 대한 Ansatz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">비선형 소스 분극</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">파동방정식에 대입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">각 항을 합치기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svaa">완만한 진폭 근사 (SVAA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">세 파에 대한 결합방정식</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mis-match-considerations">위상 정합과 위상 부정합 (Phase (Mis)match Considerations)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">펌프 고갈을 무시하는 근사</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-k-0">완전한 위상 정합: <span class="math notranslate nohighlight">\(\Delta k=0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-k-neq0">위상 부정합: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">생성파의 세기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinc">Sinc 함수에 의한 위상 부정합 효과</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-1-i-2"><span class="math notranslate nohighlight">\(I_1\)</span>과 <span class="math notranslate nohighlight">\(I_2\)</span>를 이용한 표현</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

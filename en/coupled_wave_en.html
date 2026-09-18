@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Coupled-Wave Equations &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'en/coupled_wave_en';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Susceptibility in NLC" href="bbo_en.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/en/coupled_wave_en.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fen/coupled_wave_en.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/en/coupled_wave_en.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coupled-Wave Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation-for-nonlinear-optical-media">Wave Equation for Nonlinear Optical Media</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-maxwell-s-equations-to-the-general-wave-equation">From Maxwell’s equations to the general wave equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-wave-condition-and-separation-of-polarization">Plane-wave condition and separation of polarization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-lossless-dispersionless-medium">Simple case: lossless, dispersionless medium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-case-dispersive-media-and-monochromatic-components">General case: dispersive media and monochromatic components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-wave-equations-for-sum-frequency-generation-sfg">Coupled-Wave Equations for Sum-Frequency Generation (SFG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-equation-and-slowly-changing-amplitude-ansatz">Field equation and slowly changing amplitude ansatz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-source-polarization">Nonlinear source polarization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitute-into-the-wave-equation">Substitute into the wave equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-the-terms">Collect the terms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slowly-varying-amplitude-approximation-svaa">Slowly varying amplitude approximation (SVAA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations-for-all-three-waves">Coupled equations for all three waves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mis-match-considerations">Phase (Mis)match Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undepleted-pump-approximation">Undepleted-pump approximation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfect-phase-matching-delta-k-0">Perfect phase matching: <span class="math notranslate nohighlight">\(\Delta k=0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mismatch-delta-k-neq0">Phase mismatch: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-the-generated-wave">Intensity of the generated wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinc-dependence">Sinc dependence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-i-3-in-terms-of-i-1-and-i-2">Expressing <span class="math notranslate nohighlight">\(I_3\)</span> in terms of <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coupled-wave-equations">
+<h1>Coupled-Wave Equations<a class="headerlink" href="#coupled-wave-equations" title="Permalink to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>Source note.</strong> This notebook is from the course <strong>Nonlinear Optics</strong>, taught by <strong>Prof. G. G. Paulus</strong> at <strong>Friedrich Schiller University Jena</strong> in the <strong>winter semester 2021/22</strong>.</p>
+</div></blockquote>
+<p>The derivation order, notation, and equation numbering follow the supplied lecture notes. Mathematical expressions have only been reformatted into notebook-friendly LaTeX.</p>
+<section id="wave-equation-for-nonlinear-optical-media">
+<h2>Wave Equation for Nonlinear Optical Media<a class="headerlink" href="#wave-equation-for-nonlinear-optical-media" title="Permalink to this heading">#</a></h2>
+<section id="from-maxwell-s-equations-to-the-general-wave-equation">
+<h3>From Maxwell’s equations to the general wave equation<a class="headerlink" href="#from-maxwell-s-equations-to-the-general-wave-equation" title="Permalink to this heading">#</a></h3>
+<p>Derive the wave equation by inserting Ampère’s law into Faraday’s law:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}
+=
+-\mu_0\partial_t^2\widetilde{\vec D}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}
+=
+\varepsilon_0\widetilde{\vec E}
++
+\widetilde{\vec P},
+\qquad
+\mu_0=\frac{1}{\varepsilon_0c^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}\partial_t^2\widetilde{\vec P}
+\tag{5}
+\]</div>
+<p>Equation (5) is the most general form of the wave equation used here in classical nonlinear optics.</p>
+</section>
+<section id="plane-wave-condition-and-separation-of-polarization">
+<h3>Plane-wave condition and separation of polarization<a class="headerlink" href="#plane-wave-condition-and-separation-of-polarization" title="Permalink to this heading">#</a></h3>
+<p>In optics, we would like to replace
+<span class="math notranslate nohighlight">\(\vec{\nabla}\times\vec{\nabla}\times\widetilde{\vec E}\)</span>
+with a Laplacian. In general, however, the divergence of the electric field is not zero. For a plane wave we use</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\cdot\vec E=0.
+\]</div>
+<p>This leads to</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}\partial_t^2\widetilde{\vec P}
+\tag{6}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}
+=
+\widetilde{\vec P}^{(1)}
++
+\widetilde{\vec P}^{NL}
+\tag{7}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{c^2}\partial_t^2
+\left(
+\widetilde{\vec E}
++
+\frac{1}{\varepsilon_0}\widetilde{\vec P}^{(1)}
+\right)
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}
+\tag{8}
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}
+=
+\varepsilon_0\widetilde{\vec E}
++
+\widetilde{\vec P}^{(1)},
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec D}^{(1)}
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}.
+\tag{9}
+\]</div>
+</section>
+<section id="simple-case-lossless-dispersionless-medium">
+<h3>Simple case: lossless, dispersionless medium<a class="headerlink" href="#simple-case-lossless-dispersionless-medium" title="Permalink to this heading">#</a></h3>
+<p>For a lossless, dispersionless medium, assume an instantaneous linear response:</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}(t)
+=
+\varepsilon_0\varepsilon\,
+\widetilde{\vec E}(t)
+\tag{10}
+\]</div>
+<p>Substituting Eq. (10) into Eq. (9),</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}
++
+\frac{\varepsilon^{(1)}}{c^2}
+\partial_t^2\widetilde{\vec E}
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}.
+\tag{11}
+\]</div>
+<p>In general,
+$<span class="math notranslate nohighlight">\(
+D(t)\neq E(t),
+\qquad
+D(\omega)\sim E(\omega).
+\)</span>$</p>
+<p>Equation (11) is a wave equation with a source term: the nonlinear-polarization term on its right-hand side.</p>
+</section>
+<section id="general-case-dispersive-media-and-monochromatic-components">
+<h3>General case: dispersive media and monochromatic components<a class="headerlink" href="#general-case-dispersive-media-and-monochromatic-components" title="Permalink to this heading">#</a></h3>
+<p>For a dispersive medium, Eq. (10) does not hold in the time domain. In frequency space, however, the linear displacement and electric field are related by the frequency-dependent dielectric response.</p>
+<p>A second-order nonlinear process couples three waves, while a third-order process couples four waves. Since only a few waves are involved, the total field can be written as a sum of monochromatic components.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}^{(1)}(\omega)
+=
+\varepsilon_0\varepsilon^{(1)}(\omega)
+\widetilde{\vec E}(\omega)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec E}(\vec r,t)
+=
+\sum_n' \widetilde{\vec E}_n(\vec r,t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}(\vec r,t)
+=
+\sum_n' \widetilde{\vec D}_n(\vec r,t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}^{NL}(\vec r,t)
+=
+\sum_n' \widetilde{\vec P}^{NL}_n(\vec r,t)
+\tag{13}
+\]</div>
+<p>Assuming <span class="math notranslate nohighlight">\(\varepsilon^{(1)}\in\mathbb{R}\)</span> and substituting the frequency component into Eq. (9),</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_n
++
+\frac{\varepsilon^{(1)}(\omega_n)}{c^2}
+\partial_t^2\widetilde{\vec E}_n
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_n.
+\tag{15}
+\]</div>
+<p>For monochromatic waves,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec E}_n(\vec r,t)
+=
+\vec E_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec E_n\in\mathbb C^3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec D}_n(\vec r,t)
+=
+\vec D_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec D_n\in\mathbb C^3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{\vec P}_n(\vec r,t)
+=
+\vec P_n(\vec r)e^{-i\omega_nt}
++c.c.,
+\qquad
+\vec P_n\in\mathbb C^3.
+\tag{16}
+\]</div>
+<p>Because the spatial and temporal dependences have been factorized,</p>
+<div class="math notranslate nohighlight">
+\[
+\partial_t^2\sim-\omega^2,
+\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla^2\widetilde{\vec E}_n(\vec r)
++
+\frac{\varepsilon^{(1)}(\omega_n)\omega_n^2}{c^2}
+\widetilde{\vec E}_n
+=
+-\frac{\omega_n^2}{\varepsilon_0c^2}
+\widetilde{\vec P}^{NL}_n.
+\tag{17}
+\]</div>
+<p>Equation (15) has the same algebraic form as Eq. (11), while allowing the material response to depend on frequency.</p>
+</section>
+</section>
+<section id="coupled-wave-equations-for-sum-frequency-generation-sfg">
+<h2>Coupled-Wave Equations for Sum-Frequency Generation (SFG)<a class="headerlink" href="#coupled-wave-equations-for-sum-frequency-generation-sfg" title="Permalink to this heading">#</a></h2>
+<section id="field-equation-and-slowly-changing-amplitude-ansatz">
+<h3>Field equation and slowly changing amplitude ansatz<a class="headerlink" href="#field-equation-and-slowly-changing-amplitude-ansatz" title="Permalink to this heading">#</a></h3>
+<p>We now apply the preceding wave equation to a specific nonlinear interaction: sum-frequency generation (SFG).</p>
+<p>For SFG,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_3=\omega_1+\omega_2.
+\]</div>
+<p>Equation (15) for the <span class="math notranslate nohighlight">\(\omega_3\)</span> component becomes</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_3
++
+\frac{n_3^2}{c^2}
+\partial_t^2\widetilde{\vec E}_3
+=
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_3.
+\tag{20}
+\]</div>
+<p>If the right-hand side is negligible, the ordinary wave-equation solution is</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde E_3(z,t)
+=
+A_3e^{i(k_3z-\omega_3t)}
++c.c.,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+k_3=\frac{n_3\omega_3}{c}.
+\tag{21}
+\]</div>
+<p>When the nonlinear source is small but nonzero, we use the ansatz</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde E_3(z,t)
+=
+A_3(z)e^{i(k_3z-\omega_3t)}
++c.c.
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(z\)</span>-dependent amplitude is physically natural because the generated wave is expected to grow as it propagates through the crystal.</p>
+</section>
+<section id="nonlinear-source-polarization">
+<h3>Nonlinear source polarization<a class="headerlink" href="#nonlinear-source-polarization" title="Permalink to this heading">#</a></h3>
+<p>For the nonlinear source,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde P_3(z,t)
+=
+P_3(z)e^{-i\omega_3t}
++c.c.,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_3
+=
+4\varepsilon_0d_{\mathrm{eff}}E_1E_2,
+\qquad
+2d_{\mathrm{eff}}\sim\chi^{(2)}.
+\tag{24}
+\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+E_i(z,t)
+=
+E_ie^{-i\omega_it}+c.c.,
+\qquad
+E_i=A_ie^{ik_iz}.
+\tag{25}
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+P_3
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_1A_2e^{i(k_1+k_2)z}.
+\tag{26}
+\]</div>
+</section>
+<section id="substitute-into-the-wave-equation">
+<h3>Substitute into the wave equation<a class="headerlink" href="#substitute-into-the-wave-equation" title="Permalink to this heading">#</a></h3>
+<p>Substitute the field ansatz and Eq. (26) into Eq. (20).</p>
+<p>First term:</p>
+<div class="math notranslate nohighlight">
+\[
+-\nabla^2\widetilde{\vec E}_3
+=
+-\partial_z^2
+\left[
+A_3(z)e^{i(k_3z-\omega_3t)}+c.c.
+\right]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+-
+\left[
+\frac{\partial^2A_3}{\partial z^2}
++
+2ik_3\frac{\partial A_3}{\partial z}
+-
+k_3^2A_3
+\right]
+e^{i(k_3z-\omega_3t)}
++c.c.
+\]</div>
+<p>Second term:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{n_3^2}{c^2}\partial_t^2\widetilde{\vec E}_3
+=
+-\frac{n_3^2\omega_3^2}{c^2}
+\left[
+A_3e^{i(k_3z-\omega_3t)}+c.c.
+\right].
+\]</div>
+<p>Third term:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{\varepsilon_0c^2}
+\partial_t^2\widetilde{\vec P}^{NL}_3
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2
+e^{i[(k_1+k_2)z-\omega_3t]}
++c.c.
+\]</div>
+</section>
+<section id="collect-the-terms">
+<h3>Collect the terms<a class="headerlink" href="#collect-the-terms" title="Permalink to this heading">#</a></h3>
+<p>Combining the terms,</p>
+<div class="math notranslate nohighlight">
+\[
+\left[
+-\frac{\partial^2A_3}{\partial z^2}
+-2ik_3\frac{\partial A_3}{\partial z}
++k_3^2A_3
+-\frac{n_3^2\omega_3^2}{c^2}A_3
+\right]
+e^{i(k_3z-\omega_3t)}
++c.c.
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2
+e^{i[(k_1+k_2)z-\omega_3t]}
++c.c.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+k_3^2A_3-\frac{n_3^2\omega_3^2}{c^2}A_3=0,
+\]</div>
+<p>and because <span class="math notranslate nohighlight">\(e^{-i\omega t}\)</span> and <span class="math notranslate nohighlight">\(e^{i\omega t}\)</span> are linearly independent, the <span class="math notranslate nohighlight">\(c.c.\)</span> term can be treated separately. Dividing by <span class="math notranslate nohighlight">\(e^{-i\omega_3t}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+-
+\left[
+\frac{\partial^2A_3}{\partial z^2}
++
+2ik_3\frac{\partial A_3}{\partial z}
+\right]
+e^{ik_3z}
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2e^{i(k_1+k_2)z}.
+\tag{27}
+\]</div>
+</section>
+<section id="slowly-varying-amplitude-approximation-svaa">
+<h3>Slowly varying amplitude approximation (SVAA)<a class="headerlink" href="#slowly-varying-amplitude-approximation-svaa" title="Permalink to this heading">#</a></h3>
+<p>Under the slowly varying amplitude approximation (SVAA), the second derivative is neglected:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2A_3}{\partial z^2}
+\ll
+k_3\frac{\partial A_3}{\partial z}.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+-2ik_3\frac{\partial A_3}{\partial z}e^{ik_3z}
+=
+\frac{4\varepsilon_0d_{\mathrm{eff}}\omega_3^2}
+{\varepsilon_0c^2}
+A_1A_2e^{i(k_1+k_2)z},
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2e^{i(k_1+k_2-k_3)z}.
+\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k=k_1+k_2-k_3,
+\qquad
+k_3=\frac{n_3\omega_3}{c}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3}{n_3c}
+A_1A_2e^{i\Delta kz}.
+\tag{28}
+\]</div>
+</section>
+<section id="coupled-equations-for-all-three-waves">
+<h3>Coupled equations for all three waves<a class="headerlink" href="#coupled-equations-for-all-three-waves" title="Permalink to this heading">#</a></h3>
+<p>The same procedure is applied to <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>, using</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1=\omega_3-\omega_2,
+\qquad
+\omega_2=\omega_3-\omega_1.
+\]</div>
+<p>The nonlinear polarizations are</p>
+<div class="math notranslate nohighlight">
+\[
+P_1
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_3A_2^*e^{i(k_3-k_2)z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_2
+=
+4\varepsilon_0d_{\mathrm{eff}}
+A_3A_1^*e^{i(k_3-k_1)z}.
+\]</div>
+<p>Therefore,</p>
+<div style="border: 4px solid; padding: 18px 24px; margin: 20px 0; border-radius: 6px;">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\frac{\partial A_1}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_1^2}{k_1c^2}
+A_3(z)A_2^*(z)e^{-i\Delta kz},
+\\[8pt]
+\frac{\partial A_2}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_2^2}{k_2c^2}
+A_3(z)A_1^*(z)e^{-i\Delta kz},
+\\[8pt]
+\frac{\partial A_3}{\partial z}
+&amp;=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1(z)A_2(z)e^{i\Delta kz}.
+\end{aligned}
+\end{split}\]</div>
+</div></section>
+</section>
+<section id="phase-mis-match-considerations">
+<h2>Phase (Mis)match Considerations<a class="headerlink" href="#phase-mis-match-considerations" title="Permalink to this heading">#</a></h2>
+<section id="undepleted-pump-approximation">
+<h3>Undepleted-pump approximation<a class="headerlink" href="#undepleted-pump-approximation" title="Permalink to this heading">#</a></h3>
+<p>We assume that <span class="math notranslate nohighlight">\(A_3\)</span> remains small compared with <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>. Therefore, <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> are taken to be independent of <span class="math notranslate nohighlight">\(z\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial A_3}{\partial z}
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2e^{i\Delta kz}.
+\]</div>
+</section>
+<section id="perfect-phase-matching-delta-k-0">
+<h3>Perfect phase matching: <span class="math notranslate nohighlight">\(\Delta k=0\)</span><a class="headerlink" href="#perfect-phase-matching-delta-k-0" title="Permalink to this heading">#</a></h3>
+<p>To make things even simpler, assume perfect phase matching:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k=0.
+\]</div>
+<p>Then <span class="math notranslate nohighlight">\(A_3(z)\)</span> increases linearly with <span class="math notranslate nohighlight">\(z\)</span>. Therefore, the intensity <span class="math notranslate nohighlight">\(I_3(z)\)</span> increases quadratically:</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(z)\propto z,
+\qquad
+I_3(z)\propto z^2.
+\]</div>
+</section>
+<section id="phase-mismatch-delta-k-neq0">
+<h3>Phase mismatch: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span><a class="headerlink" href="#phase-mismatch-delta-k-neq0" title="Permalink to this heading">#</a></h3>
+<p>Now consider</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta k\neq0.
+\]</div>
+<p>Integrating from <span class="math notranslate nohighlight">\(z=0\)</span> to <span class="math notranslate nohighlight">\(z=L\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(L)
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2
+\int_0^L e^{i\Delta kz}\,dz,
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+A_3(L)
+=
+i\frac{2d_{\mathrm{eff}}\omega_3^2}{k_3c^2}
+A_1A_2
+\frac{e^{i\Delta kL}-1}{i\Delta k}.
+\]</div>
+</section>
+<section id="intensity-of-the-generated-wave">
+<h3>Intensity of the generated wave<a class="headerlink" href="#intensity-of-the-generated-wave" title="Permalink to this heading">#</a></h3>
+<p>To see the effect of <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span>, calculate <span class="math notranslate nohighlight">\(I_3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+I_3
+=
+\frac{cn_3\varepsilon_0}{2}|A_3|^2
+=
+\frac{2\varepsilon_0d_{\mathrm{eff}}^2\omega_3^2}{n_3c^2}
+|A_1|^2|A_2|^2
+\left|
+\frac{e^{i\Delta kL}-1}{\Delta k}
+\right|^2.
+\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+c\varepsilon_0=\frac{1}{377\ \Omega}.
+\]</div>
+</section>
+<section id="sinc-dependence">
+<h3>Sinc dependence<a class="headerlink" href="#sinc-dependence" title="Permalink to this heading">#</a></h3>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\left|
+\frac{e^{i\Delta kL}-1}{\Delta k}
+\right|^2
+=
+L^2
+\operatorname{sinc}^2
+\left(\frac{\Delta kL}{2}\right),
+\]</div>
+<p>the phase-mismatch dependence is expressed by the familiar <span class="math notranslate nohighlight">\(\operatorname{sinc}^2\)</span> function.</p>
+</section>
+<section id="expressing-i-3-in-terms-of-i-1-and-i-2">
+<h3>Expressing <span class="math notranslate nohighlight">\(I_3\)</span> in terms of <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span><a class="headerlink" href="#expressing-i-3-in-terms-of-i-1-and-i-2" title="Permalink to this heading">#</a></h3>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+I_1=\frac{cn_1\varepsilon_0}{2}|A_1|^2,
+\qquad
+I_2=\frac{cn_2\varepsilon_0}{2}|A_2|^2,
+\]</div>
+<p>we obtain</p>
+<div style="border: 4px solid; padding: 18px 24px; margin: 20px 0; border-radius: 6px;">
+<div class="math notranslate nohighlight">
+\[
+I_3
+=
+8
+\frac{
+d_{\mathrm{eff}}^2\omega_3^2 I_1 I_2
+}{
+n_1n_2n_3\varepsilon_0c^3
+}
+L^2
+\operatorname{sinc}^2
+\left(
+\frac{\Delta kL}{2}
+\right).
+\]</div>
+</div>
+<p>Following the supplied notes,</p>
+<div class="math notranslate nohighlight">
+\[
+L\equiv L_{\mathrm{coh}}=\frac{2}{\Delta k}.
+\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./en"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bbo_en.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Susceptibility in NLC</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation-for-nonlinear-optical-media">Wave Equation for Nonlinear Optical Media</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-maxwell-s-equations-to-the-general-wave-equation">From Maxwell’s equations to the general wave equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-wave-condition-and-separation-of-polarization">Plane-wave condition and separation of polarization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-lossless-dispersionless-medium">Simple case: lossless, dispersionless medium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-case-dispersive-media-and-monochromatic-components">General case: dispersive media and monochromatic components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-wave-equations-for-sum-frequency-generation-sfg">Coupled-Wave Equations for Sum-Frequency Generation (SFG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-equation-and-slowly-changing-amplitude-ansatz">Field equation and slowly changing amplitude ansatz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-source-polarization">Nonlinear source polarization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#substitute-into-the-wave-equation">Substitute into the wave equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-the-terms">Collect the terms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slowly-varying-amplitude-approximation-svaa">Slowly varying amplitude approximation (SVAA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations-for-all-three-waves">Coupled equations for all three waves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mis-match-considerations">Phase (Mis)match Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undepleted-pump-approximation">Undepleted-pump approximation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perfect-phase-matching-delta-k-0">Perfect phase matching: <span class="math notranslate nohighlight">\(\Delta k=0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-mismatch-delta-k-neq0">Phase mismatch: <span class="math notranslate nohighlight">\(\Delta k\neq0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-of-the-generated-wave">Intensity of the generated wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinc-dependence">Sinc dependence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-i-3-in-terms-of-i-1-and-i-2">Expressing <span class="math notranslate nohighlight">\(I_3\)</span> in terms of <span class="math notranslate nohighlight">\(I_1\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

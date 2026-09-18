@@ -1,0 +1,2150 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Susceptibility in NLC &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'en/bbo_en';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coupled-Wave Equations" href="coupled_wave_en.html" />
+    <link rel="prev" title="Non-Collinear Type-I SHG in a BBO Crystal" href="sh_en.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/en/bbo_en.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fen/bbo_en.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/en/bbo_en.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Susceptibility in NLC</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarization">1. Nonlinear Polarization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-and-difference-frequency-generation">2. Sum- and Difference-Frequency Generation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-representation-of-second-order-frequency-mixing">3. Tensor Representation of Second-Order Frequency Mixing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-3-times3-matrix-for-one-output-polarization">3.1 A Useful <span class="math notranslate nohighlight">\(3\times3\)</span> Matrix for One Output Polarization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-permutation-symmetry-in-sfg-with-different-frequencies">3.2 Intrinsic Permutation Symmetry in SFG with Different Frequencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contracted-notation-for-shg">4. Contracted Notation for SHG</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-term-between-two-coherent-beams-at-the-same-frequency">4.1 Cross Term between Two Coherent Beams at the Same Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-crystal-symmetry-and-the-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: Crystal Symmetry and the <span class="math notranslate nohighlight">\(d\)</span> Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-non-collinear-shg-geometry">6. Symmetric Non-Collinear SHG Geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-the-cross-term-nonlinear-polarization-for-two-y-polarized-beams">6.1 Derivation of the Cross-Term Nonlinear Polarization for Two <span class="math notranslate nohighlight">\(y\)</span>-Polarized Beams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-using-the-actual-type-i-bbo-crystal-coordinates">6.2 Calculation Using the Actual Type-I BBO Crystal Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinates">6.2.1 Laboratory Coordinates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinates-x-y-z">6.2.2 BBO Crystal Coordinates <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-wave-vectors-into-the-crystal-frame">6.2.3 Transforming the Wave Vectors into the Crystal Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-polarization-is-the-ordinary-polarization-along-crystal-x">6.2.4 The Fundamental Polarization Is the Ordinary Polarization along Crystal <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-term-contracted-vector-in-the-crystal-frame">6.2.5 Cross-Term Contracted Vector in the Crystal Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-bbo-d-matrix">6.2.6 Applying the BBO <span class="math notranslate nohighlight">\(d\)</span> Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-the-nonlinear-polarization-back-to-the-laboratory-frame">6.2.7 Rotating the Nonlinear Polarization Back to the Laboratory Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-nonlinear-coefficient-coupled-to-the-extraordinary-sh">6.2.8 Effective Nonlinear Coefficient Coupled to the Extraordinary SH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caution-when-using-numerical-values-of-d-22-and-d-31">6.2.9 Caution When Using Numerical Values of <span class="math notranslate nohighlight">\(d_{22}\)</span> and <span class="math notranslate nohighlight">\(d_{31}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-from-section-6-1">6.2.10 Difference from Section 6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="susceptibility-in-nlc">
+<h1>Susceptibility in NLC<a class="headerlink" href="#susceptibility-in-nlc" title="Permalink to this heading">#</a></h1>
+<section id="nonlinear-polarization">
+<h2>1. Nonlinear Polarization<a class="headerlink" href="#nonlinear-polarization" title="Permalink to this heading">#</a></h2>
+<p>In a dielectric medium, the induced polarization can be expanded in powers of the electric field. In Cartesian tensor notation,</p>
+<div class="math notranslate nohighlight">
+\[
+P_i(t)
+=
+\varepsilon_0
+\left[
+\sum_j \chi_{ij}^{(1)} E_j(t)
++
+\sum_{jk} \chi_{ijk}^{(2)} E_j(t)E_k(t)
++
+\sum_{jkl} \chi_{ijkl}^{(3)} E_j(t)E_k(t)E_l(t)
++\cdots
+\right].
+\]</div>
+<p>In compact form,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}
+=
+\mathbf{P}^{(1)}
++
+\mathbf{P}^{(2)}
++
+\mathbf{P}^{(3)}
++\cdots.
+\]</div>
+<p>The tensor ranks and SI units are as follows.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\chi^{(1)}\)</span>: rank-2 tensor; dimensionless in SI</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(2)}\)</span>: rank-3 tensor; SI unit <span class="math notranslate nohighlight">\(\mathrm{m/V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(3)}\)</span>: rank-4 tensor; SI unit <span class="math notranslate nohighlight">\(\mathrm{m^2/V^2}\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\mathbf{P}^{(2)}\)</span> is the second-order nonlinear polarization, and<br />
+<span class="math notranslate nohighlight">\(\mathbf{P}^{(3)}\)</span> is the third-order nonlinear polarization.</p>
+<p>The simple algebraic form above assumes an <strong>instantaneous, local response</strong>. A real dispersive medium is generally described by a response function that depends on the electric field at earlier times; in the frequency domain, this is expressed through a frequency-dependent susceptibility.</p>
+<p>A representative scale for estimating the magnitude of optical nonlinearities is the atomic electric field,</p>
+<div class="math notranslate nohighlight">
+\[
+E_{\mathrm{at}}
+=
+\frac{e}{4\pi\varepsilon_0 a_0^2}
+\simeq
+5.14\times10^{11}\ \mathrm{V/m},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_0\)</span> is the Bohr radius.</p>
+<p>The corresponding intensity in vacuum is</p>
+<div class="math notranslate nohighlight">
+\[
+I_{\mathrm{at}}
+=
+\frac{1}{2}c\varepsilon_0 E_{\mathrm{at}}^2
+\simeq
+3.51\times10^{16}\ \mathrm{W/cm^2}.
+\]</div>
+<p>If successive terms in the expansion are assumed to become comparable in magnitude when <span class="math notranslate nohighlight">\(E\sim E_{\mathrm{at}}\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}},
+\qquad
+\chi^{(3)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}^2}.
+\]</div>
+<p>Taking <span class="math notranslate nohighlight">\(\chi^{(1)}\sim1\)</span> gives the approximate estimates</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+2\times10^{-12}\ \mathrm{m/V},
+\qquad
+\chi^{(3)}
+\sim
+4\times10^{-24}\ \mathrm{m^2/V^2}.
+\]</div>
+<p>These values are only order-of-magnitude estimates; the actual values depend strongly on the material and optical frequency.</p>
+</section>
+<section id="sum-and-difference-frequency-generation">
+<h2>2. Sum- and Difference-Frequency Generation<a class="headerlink" href="#sum-and-difference-frequency-generation" title="Permalink to this heading">#</a></h2>
+<p>Consider two monochromatic complex field amplitudes. We use the following convention:</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{E}(t)
+=
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\]</div>
+<p>First, treating the field as a scalar,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\widetilde{E}^{\,2}(t).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\left(
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\right)^2.
+\]</div>
+<p>Expanding this expression gives</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\Big[
+E_1^2 e^{-2i\omega_1 t}
++
+E_2^2 e^{-2i\omega_2 t}
++
+2E_1E_2e^{-i(\omega_1+\omega_2)t}
++
+2E_1E_2^*e^{-i(\omega_1-\omega_2)t}
++
+c.c.
+\Big]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\qquad
++
+\varepsilon_0\chi^{(2)}
+\left(
+E_1E_1^*
++
+E_2E_2^*
+\right).
+\]</div>
+<p>This expansion contains second-harmonic, sum-frequency, difference-frequency, and zero-frequency components.</p>
+<p>For <span class="math notranslate nohighlight">\(\omega_1&gt;\omega_2\)</span>, the positive-frequency components are</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_1)
+=
+\varepsilon_0\chi^{(2)}E_1^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_2)
+=
+\varepsilon_0\chi^{(2)}E_2^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1+\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1-\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2^*.
+\]</div>
+<p>The zero-frequency component is optical rectification:</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(0)
+=
+2\varepsilon_0\chi^{(2)}
+\left(
+|E_1|^2
++
+|E_2|^2
+\right).
+\]</div>
+<p>The complex conjugates of the positive-frequency components form the corresponding negative-frequency components.</p>
+</section>
+<section id="tensor-representation-of-second-order-frequency-mixing">
+<h2>3. Tensor Representation of Second-Order Frequency Mixing<a class="headerlink" href="#tensor-representation-of-second-order-frequency-mixing" title="Permalink to this heading">#</a></h2>
+<p>For an anisotropic medium, the scalar expression above must be written as a tensor contraction. For sum-frequency generation, let</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_3=\omega_1+\omega_2.
+\]</div>
+<p>With the complex-amplitude convention above, the sum-frequency polarization is</p>
+<div class="math notranslate nohighlight">
+\[
+P_i^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\sum_{j=x,y,z}
+\sum_{k=x,y,z}
+\chi_{ijk}^{(2)}
+(\omega_3;\omega_1,\omega_2)
+E_j(\omega_1)
+E_k(\omega_2).
+\]</div>
+<section id="a-useful-3-times3-matrix-for-one-output-polarization">
+<h3>3.1 A Useful <span class="math notranslate nohighlight">\(3\times3\)</span> Matrix for One Output Polarization<a class="headerlink" href="#a-useful-3-times3-matrix-for-one-output-polarization" title="Permalink to this heading">#</a></h3>
+<p>Fix one output component of the polarization. For example, for <span class="math notranslate nohighlight">\(i=x\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{\chi}_x^{(2)}
+=
+\begin{pmatrix}
+\chi_{xxx}^{(2)} &amp; \chi_{xxy}^{(2)} &amp; \chi_{xxz}^{(2)}\\
+\chi_{xyx}^{(2)} &amp; \chi_{xyy}^{(2)} &amp; \chi_{xyz}^{(2)}\\
+\chi_{xzx}^{(2)} &amp; \chi_{xzy}^{(2)} &amp; \chi_{xzz}^{(2)}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+P_x^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\mathbf{E}^T(\omega_1)
+\mathbf{\chi}_x^{(2)}
+\mathbf{E}(\omega_2),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}(\omega_m)
+=
+\begin{pmatrix}
+E_x(\omega_m)\\
+E_y(\omega_m)\\
+E_z(\omega_m)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This form is particularly convenient for numerical calculations.</p>
+<p>Because the nonlinear polarization for sum-frequency generation contains products of the form <span class="math notranslate nohighlight">\(E_jE_k\)</span>, the expression uses the ordinary transpose <span class="math notranslate nohighlight">\(T\)</span>, not the Hermitian transpose <span class="math notranslate nohighlight">\(\dagger\)</span>.</p>
+</section>
+</section>
+<section id="intrinsic-permutation-symmetry-in-sfg-with-different-frequencies">
+<h2>3.2 Intrinsic Permutation Symmetry in SFG with Different Frequencies<a class="headerlink" href="#intrinsic-permutation-symmetry-in-sfg-with-different-frequencies" title="Permalink to this heading">#</a></h2>
+<p>Consider the following two terms:</p>
+<div class="math notranslate nohighlight">
+\[
+A = E_x(\omega_2)E_y(\omega_1)\chi_{xxy}^{(2)}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+B = E_y(\omega_2)E_x(\omega_1)\chi_{xyx}^{(2)}.
+\]</div>
+<p>When the two frequencies are different, i.e., <span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span>, in general <span class="math notranslate nohighlight">\(A \neq B\)</span>.</p>
+<p>The reason is that the nonlinear susceptibility depends not only on the Cartesian indices but also on the frequencies associated with those indices.</p>
+<p>Writing the frequency arguments of the first term explicitly,</p>
+<div class="math notranslate nohighlight">
+\[
+A = \chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)E_x(\omega_2)E_y(\omega_1).
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\omega_3 = \omega_1+\omega_2\)</span>.</p>
+<p>The intrinsic permutation symmetry of the second-order susceptibility is</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(\omega_3;\omega_a,\omega_b)
+=
+\chi_{ikj}^{(2)}(\omega_3;\omega_b,\omega_a).
+\]</div>
+<p>Therefore, in the present case,</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2).
+\]</div>
+<p>Thus, intrinsic permutation symmetry does not simply interchange the Cartesian indices <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>; rather, it simultaneously interchanges the entire <strong>index-frequency pairs</strong> <span class="math notranslate nohighlight">\((x,\omega_2)\)</span> and <span class="math notranslate nohighlight">\((y,\omega_1)\)</span>.</p>
+<p>Accordingly, <span class="math notranslate nohighlight">\(A\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+A
+=
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2).
+\]</div>
+<p>Hence, the exact relation guaranteed by intrinsic permutation symmetry is</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2).
+\]</div>
+<p>On the other hand,</p>
+<div class="math notranslate nohighlight">
+\[
+B
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_y(\omega_2)E_x(\omega_1)
+\]</div>
+<p>represents a different frequency-polarization assignment from <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Specifically, for <span class="math notranslate nohighlight">\(A\)</span>,</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(\omega_2\)</span> component is <span class="math notranslate nohighlight">\(x\)</span>-polarized,</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(\omega_1\)</span> component is <span class="math notranslate nohighlight">\(y\)</span>-polarized,</p></li>
+</ul>
+<p>whereas for <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(\omega_2\)</span> component is <span class="math notranslate nohighlight">\(y\)</span>-polarized,</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(\omega_1\)</span> component is <span class="math notranslate nohighlight">\(x\)</span>-polarized.</p></li>
+</ul>
+<p>Therefore, for general SFG with <span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span>, it is possible that <span class="math notranslate nohighlight">\(A \neq B\)</span>. The key point is that intrinsic permutation symmetry means the simultaneous interchange <span class="math notranslate nohighlight">\((j,\omega_1) \leftrightarrow (k,\omega_2)\)</span>, not an independent interchange <span class="math notranslate nohighlight">\(j \leftrightarrow k\)</span> alone.</p>
+<p>For degenerate SHG, however, <span class="math notranslate nohighlight">\(\omega_1=\omega_2=\omega\)</span>, so exchanging the frequencies produces no change:</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(2\omega;\omega,\omega)
+=
+\chi_{ikj}^{(2)}(2\omega;\omega,\omega).
+\]</div>
+<p>Thus, the last two Cartesian indices can be treated symmetrically. This symmetry makes the usual <span class="math notranslate nohighlight">\(3\times6\)</span> contracted notation natural for SHG.</p>
+<p>Kleinman symmetry can provide additional index symmetries when applicable, but it should not be assumed automatically in a strongly dispersive regime.</p>
+</section>
+<section id="contracted-notation-for-shg">
+<h2>4. Contracted Notation for SHG<a class="headerlink" href="#contracted-notation-for-shg" title="Permalink to this heading">#</a></h2>
+<p>For a symmetric index pair <span class="math notranslate nohighlight">\(j,k\)</span>, use the following contraction:</p>
+<div class="math notranslate nohighlight">
+\[
+xx\rightarrow1,\qquad
+yy\rightarrow2,\qquad
+zz\rightarrow3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+yz(=zy)\rightarrow4,\qquad
+zx(=xz)\rightarrow5,\qquad
+xy(=yx)\rightarrow6.
+\]</div>
+<p>The conventional nonlinear coefficient is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+d_{il}
+=
+\frac{1}{2}\chi_{ijk}^{(2)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(l\)</span> represents the pair <span class="math notranslate nohighlight">\(jk\)</span>.</p>
+<p>For a single field at frequency <span class="math notranslate nohighlight">\(\omega\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore, the SH polarization can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}(\mathbf{E}).
+\]</div>
+<section id="cross-term-between-two-coherent-beams-at-the-same-frequency">
+<h3>4.1 Cross Term between Two Coherent Beams at the Same Frequency<a class="headerlink" href="#cross-term-between-two-coherent-beams-at-the-same-frequency" title="Permalink to this heading">#</a></h3>
+<p>For non-collinear SHG, it is clearer to distinguish the two beams by <strong>beam number</strong>.</p>
+<p>Let the positive-frequency spatial amplitude be</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}(\mathbf{r})
+=
+\mathbf{E}_1(\mathbf{r})
++
+\mathbf{E}_2(\mathbf{r}),
+\]</div>
+<p>with the common time dependence <span class="math notranslate nohighlight">\(e^{-i\omega t}\)</span>.</p>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{q}(\mathbf{E}_1+\mathbf{E}_2)
+=
+\mathbf{q}(\mathbf{E}_1)
++
+\mathbf{q}(\mathbf{E}_2)
++
+\mathbf{q}_{12},
+\]</div>
+<p>where the cross-term vector is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+2
+\begin{pmatrix}
+E_{1x}E_{2x}\\
+E_{1y}E_{2y}\\
+E_{1z}E_{2z}\\
+E_{1y}E_{2z}+E_{1z}E_{2y}\\
+E_{1z}E_{2x}+E_{1x}E_{2z}\\
+E_{1x}E_{2y}+E_{1y}E_{2x}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>This definition avoids a common factor-of-two ambiguity.</p>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span> is instead defined without the leading factor 2, the prefactor in the polarization expression must be written as <span class="math notranslate nohighlight">\(4\varepsilon_0\)</span>.</p>
+</section>
+</section>
+<section id="beta-bbo-crystal-symmetry-and-the-d-matrix">
+<h2>5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: Crystal Symmetry and the <span class="math notranslate nohighlight">\(d\)</span> Matrix<a class="headerlink" href="#beta-bbo-crystal-symmetry-and-the-d-matrix" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\beta\)</span>-<span class="math notranslate nohighlight">\(\mathrm{BaB_2O_4}\)</span> (BBO) is a non-centrosymmetric trigonal crystal with</p>
+<div class="math notranslate nohighlight">
+\[
+\text{space group}=R3c,
+\qquad
+\text{point group}=3m.
+\]</div>
+<p>In a commonly used crystal-axis convention, the contracted second-order matrix is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>When Kleinman symmetry is applicable,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{15}=d_{31}.
+\]</div>
+<p>Commonly quoted magnitudes for BBO are approximately</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{15}|
+=
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V}.
+\]</div>
+<p>The signs of the individual <span class="math notranslate nohighlight">\(d\)</span> coefficients may depend on the crystallographic-axis convention.</p>
+<p>For the matrix convention above, the signs must be used consistently as</p>
+<div class="math notranslate nohighlight">
+\[
+d_{21}=-d_{22}.
+\]</div>
+</section>
+<section id="symmetric-non-collinear-shg-geometry">
+<h2>6. Symmetric Non-Collinear SHG Geometry<a class="headerlink" href="#symmetric-non-collinear-shg-geometry" title="Permalink to this heading">#</a></h2>
+<p><img alt="Fig. 10" src="../_images/fig10.jpg" /></p>
+<section id="derivation-of-the-cross-term-nonlinear-polarization-for-two-y-polarized-beams">
+<h3>6.1 Derivation of the Cross-Term Nonlinear Polarization for Two <span class="math notranslate nohighlight">\(y\)</span>-Polarized Beams<a class="headerlink" href="#derivation-of-the-cross-term-nonlinear-polarization-for-two-y-polarized-beams" title="Permalink to this heading">#</a></h3>
+<p>Assume that the <span class="math notranslate nohighlight">\((x,y,z)\)</span> axes used above are <strong>exactly the same as the crystal axes</strong> used in Eq. (15).</p>
+<p>Let the two fundamental beams have the same frequency <span class="math notranslate nohighlight">\(\omega\)</span> and propagate symmetrically in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(z\)</span> plane at angles <span class="math notranslate nohighlight">\(\pm\gamma\)</span>.</p>
+<p>Their electric fields are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_1(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_2(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The total fundamental field is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}
+=
+\mathbf{E}_1+\mathbf{E}_2.
+\]</div>
+<p>Because both beams contain only <span class="math notranslate nohighlight">\(y\)</span> polarization,</p>
+<div class="math notranslate nohighlight">
+\[
+E_x=0,
+\qquad
+E_z=0,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+E_y
+=
+E_{1y}+E_{2y}.
+\]</div>
+<p>In the contracted notation for SHG, the quadratic field vector is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(E_x=E_z=0\)</span> in the present case,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+0\\
+(E_{1y}+E_{2y})^2\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Expanding the second component,</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1y}+E_{2y})^2
+=
+E_{1y}^2
++
+E_{2y}^2
++
+2E_{1y}E_{2y}.
+\]</div>
+<p>Here,</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}^2
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}^2
+\]</div>
+<p>are the SHG components generated independently by beams 1 and 2, respectively, while</p>
+<div class="math notranslate nohighlight">
+\[
+2E_{1y}E_{2y}
+\]</div>
+<p>is the <strong>cross-term SHG</strong> between the two beams.</p>
+<p>Thus, the contracted field vector corresponding to the cross term is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+\begin{pmatrix}
+0\\
+2E_{1y}E_{2y}\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Now substitute the spatial phases of the two fields:</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>Their product is</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>Combining the exponents,</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega[
+2\cos\gamma\,z
++
+\sin\gamma\,x
+-
+\sin\gamma\,x
+]}.
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(x\)</span>-direction phase terms cancel, so</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>Therefore, the cross-term vector becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p>Let the contracted nonlinear coefficient matrix of BBO be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The SHG nonlinear polarization is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}.
+\]</div>
+<p>Hence, the cross term is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>Substituting the expression for <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span> obtained above,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\left[
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+\right].
+\end{split}\]</div>
+<p>Pulling the scalar factor outside,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Because only the second component of the vector on the right is 1, only the <strong>second column</strong> of the <span class="math notranslate nohighlight">\(d\)</span> matrix is selected:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}
+}.
+\end{split}\]</div>
+<p>The Cartesian components are</p>
+<div class="math notranslate nohighlight">
+\[
+P_{12,x}^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,y}^{(2)}
+=
+4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,z}^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>The spatial phase factor</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i2k_\omega\cos\gamma\,z}
+\]</div>
+<p>means that the wave vector of the cross-term nonlinear polarization is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+\begin{pmatrix}
+0\\
+0\\
+2k_\omega\cos\gamma
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Thus, in the symmetric non-collinear geometry, the spatial phase of the cross-term nonlinear polarization propagates along the <span class="math notranslate nohighlight">\(z\)</span> direction, i.e., along the angle bisector of the two fundamental beams.</p>
+</section>
+<section id="calculation-using-the-actual-type-i-bbo-crystal-coordinates">
+<h3>6.2 Calculation Using the Actual Type-I BBO Crystal Coordinates<a class="headerlink" href="#calculation-using-the-actual-type-i-bbo-crystal-coordinates" title="Permalink to this heading">#</a></h3>
+<p>In Section 6.1, the laboratory <span class="math notranslate nohighlight">\((x,y,z)\)</span> axes were intentionally assumed to be <strong>exactly the same as the crystal axes</strong> used in Eq. (15).<br />
+Therefore, Section 6.1 is retained as a comparison calculation based on that incorrect assumption.</p>
+<p>For an actual Type-I BBO crystal, the laboratory and crystal coordinate systems must be distinguished.</p>
+<p>Here, the calculation is repeated using the standard <span class="math notranslate nohighlight">\(3m\)</span> crystal-axis convention corresponding to the <span class="math notranslate nohighlight">\(d\)</span> matrix in Eq. (15).</p>
+<hr class="docutils" />
+<section id="laboratory-coordinates">
+<h4>6.2.1 Laboratory Coordinates<a class="headerlink" href="#laboratory-coordinates" title="Permalink to this heading">#</a></h4>
+<p>Define the laboratory coordinates <span class="math notranslate nohighlight">\((x,y,z)\)</span> as follows.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: the angle-bisector direction of the two fundamental beams and the propagation direction of the cross-term SH</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>: the transverse direction within the plane in which the two beams cross</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span>: the direction perpendicular to the beam-crossing plane and the polarization direction of the fundamental beams</p></li>
+</ul>
+<p>Thus, the two fundamental wave vectors are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix},
+\qquad
+\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+-\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The spatial wave vector of the cross-term nonlinear polarization is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+2k_\omega\cos\gamma
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore, the nominal propagation direction of the cross-term SH is the laboratory <span class="math notranslate nohighlight">\(z\)</span> direction.</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-crystal-coordinates-x-y-z">
+<h4>6.2.2 BBO Crystal Coordinates <span class="math notranslate nohighlight">\((X,Y,Z)\)</span><a class="headerlink" href="#bbo-crystal-coordinates-x-y-z" title="Permalink to this heading">#</a></h4>
+<p>We denote the crystal coordinates used in the <span class="math notranslate nohighlight">\(d\)</span> matrix of Eq. (15) by uppercase <span class="math notranslate nohighlight">\((X,Y,Z)\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z\)</span>: the crystallographic <span class="math notranslate nohighlight">\(c\)</span> axis of BBO and the <strong>optic axis</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(YZ\)</span> plane: one <strong>crystal mirror plane</strong> of the <span class="math notranslate nohighlight">\(3m\)</span> point group</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span>: the axis perpendicular to that mirror plane</p></li>
+</ul>
+<p>In the standard orientation for Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> BBO that exploits the large <span class="math notranslate nohighlight">\(d_{22}\)</span> coefficient, the propagation plane is placed in the crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane.<br />
+In the standard spherical-angle convention, the optimum azimuth can be chosen as</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-\frac{\pi}{2}.
+\]</div>
+<p>In the present geometry, the laboratory <span class="math notranslate nohighlight">\(xz\)</span> plane is the optical principal plane, so we set</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+YZ_{\mathrm{crys}}
+=
+xz_{\mathrm{lab}}
+}.
+\]</div>
+<p>Therefore, the crystal <span class="math notranslate nohighlight">\(X\)</span> axis is parallel to the laboratory <span class="math notranslate nohighlight">\(y\)</span> axis.<br />
+To satisfy both a right-handed coordinate system and the <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span> convention, we define</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}
+}.
+\]</div>
+<p>This sign choice does not by itself change the physics, but it is necessary to keep the sign of <span class="math notranslate nohighlight">\(d_{22}\)</span> and the <span class="math notranslate nohighlight">\(\phi\)</span> convention consistent.</p>
+<p>Let the generated SH wave vector <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> point along the laboratory <span class="math notranslate nohighlight">\(z\)</span> direction, and let <span class="math notranslate nohighlight">\(\theta\)</span> be the angle between the optic axis <span class="math notranslate nohighlight">\(Z\)</span> and the <span class="math notranslate nohighlight">\(z\)</span> axis.</p>
+<p>The crystal basis vectors expressed in laboratory coordinates can then be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{X}}
+=
+\begin{pmatrix}
+0\\
+-1\\
+0
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Y}}
+=
+\begin{pmatrix}
+\cos\theta\\
+0\\
+-\sin\theta
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Z}}
+=
+\begin{pmatrix}
+\sin\theta\\
+0\\
+\cos\theta
+\end{pmatrix}
+}.
+\end{split}\]</div>
+<p>Indeed,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf{X}}\times\hat{\mathbf{Y}}
+=
+\hat{\mathbf{Z}},
+\]</div>
+<p>so the coordinate system is right-handed.</p>
+<p>The rotation matrix that transforms crystal-frame components into the laboratory frame has these crystal basis vectors as its columns:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+R
+=
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+}.
+\end{split}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\mathbf{v}_{\mathrm{lab}}
+=
+R\mathbf{v}_{\mathrm{crys}},
+\qquad
+\mathbf{v}_{\mathrm{crys}}
+=
+R^T\mathbf{v}_{\mathrm{lab}}.
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="transforming-the-wave-vectors-into-the-crystal-frame">
+<h4>6.2.3 Transforming the Wave Vectors into the Crystal Frame<a class="headerlink" href="#transforming-the-wave-vectors-into-the-crystal-frame" title="Permalink to this heading">#</a></h4>
+<p>First, transform the generated SH direction:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Thus, in crystal coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{k}}_{2\omega,\mathrm{crys}}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}
+}.
+\end{split}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> lies in the crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane and makes an angle <span class="math notranslate nohighlight">\(\theta\)</span> with the <span class="math notranslate nohighlight">\(Z\)</span> axis.<br />
+Because its <span class="math notranslate nohighlight">\(X\)</span> component is zero and <span class="math notranslate nohighlight">\(Y&lt;0\)</span>, this orientation corresponds to</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ.
+\]</div>
+<p>For the two fundamental beams,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta-\gamma)\\
+\cos(\theta-\gamma)
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta+\gamma)\\
+\cos(\theta+\gamma)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(\mathbf{k}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{k}_2\)</span>, <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span>, and the optic axis <span class="math notranslate nohighlight">\(Z\)</span> all lie in the crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane.</p>
+</section>
+<hr class="docutils" />
+<section id="the-fundamental-polarization-is-the-ordinary-polarization-along-crystal-x">
+<h4>6.2.4 The Fundamental Polarization Is the Ordinary Polarization along Crystal <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#the-fundamental-polarization-is-the-ordinary-polarization-along-crystal-x" title="Permalink to this heading">#</a></h4>
+<p>In the laboratory frame, the two fundamental fields are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{1,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{2,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Transforming to the crystal frame,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}_{m,\mathrm{crys}}
+=
+R^T\mathbf{E}_{m,\mathrm{lab}}.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\
+0\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{1,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{2,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>Thus, although the beams are <span class="math notranslate nohighlight">\(y\)</span>-polarized in the laboratory frame, they are <strong><span class="math notranslate nohighlight">\(X\)</span>-polarized in the crystal coordinates</strong> used in Eq. (15):</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+E_{X,\mathrm{crys}}=-E_y,
+\qquad
+E_{Y,\mathrm{crys}}=E_{Z,\mathrm{crys}}=0.
+}
+\]</div>
+<p>The minus sign disappears in the SHG quantity <span class="math notranslate nohighlight">\(E_X^2\)</span>.</p>
+<p>The ordinary polarization is perpendicular to the principal plane formed by <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> and the optic axis <span class="math notranslate nohighlight">\(Z\)</span>.<br />
+Because the principal plane here is the crystal <span class="math notranslate nohighlight">\(YZ\)</span> plane, the ordinary polarization is exactly along the crystal <span class="math notranslate nohighlight">\(X\)</span> direction.</p>
+<p>This is the most important difference from the incorrect coordinate identification used in Section 6.1.</p>
+</section>
+<hr class="docutils" />
+<section id="cross-term-contracted-vector-in-the-crystal-frame">
+<h4>6.2.5 Cross-Term Contracted Vector in the Crystal Frame<a class="headerlink" href="#cross-term-contracted-vector-in-the-crystal-frame" title="Permalink to this heading">#</a></h4>
+<p>The product of the <span class="math notranslate nohighlight">\(X\)</span> components of the two fields is</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+(-E_y)(-E_y)
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>The cross term in the square of the total field is</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1X}+E_{2X})^2
+\supset
+2E_{1X}E_{2X},
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12,\mathrm{crys}}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>Thus, in the actual Type-I orientation, the <strong>first column</strong>, not the second column, of the <span class="math notranslate nohighlight">\(d\)</span> matrix is selected.</p>
+</section>
+<hr class="docutils" />
+<section id="applying-the-bbo-d-matrix">
+<h4>6.2.6 Applying the BBO <span class="math notranslate nohighlight">\(d\)</span> Matrix<a class="headerlink" href="#applying-the-bbo-d-matrix" title="Permalink to this heading">#</a></h4>
+<p>The BBO matrix in Eq. (15) is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore, the cross-term nonlinear polarization is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}_{\mathrm{BBO}}
+\mathbf{q}_{12,\mathrm{crys}}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Only the first column remains:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>Therefore, in the crystal frame,</p>
+<div class="math notranslate nohighlight">
+\[
+P_X^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Y^{(2)}
+=
+-4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Z^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="rotating-the-nonlinear-polarization-back-to-the-laboratory-frame">
+<h4>6.2.7 Rotating the Nonlinear Polarization Back to the Laboratory Frame<a class="headerlink" href="#rotating-the-nonlinear-polarization-back-to-the-laboratory-frame" title="Permalink to this heading">#</a></h4>
+<p>In the laboratory frame,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+R
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Carrying out the matrix multiplication,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+-d_{22}\cos\theta+d_{31}\sin\theta\\
+0\\
+d_{22}\sin\theta+d_{31}\cos\theta
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+P_x^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{31}\sin\theta-d_{22}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+P_y^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_z^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{22}\sin\theta+d_{31}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="effective-nonlinear-coefficient-coupled-to-the-extraordinary-sh">
+<h4>6.2.8 Effective Nonlinear Coefficient Coupled to the Extraordinary SH<a class="headerlink" href="#effective-nonlinear-coefficient-coupled-to-the-extraordinary-sh" title="Permalink to this heading">#</a></h4>
+<p>The generated SH propagates along the laboratory <span class="math notranslate nohighlight">\(z\)</span> direction, while the optic axis lies in the laboratory <span class="math notranslate nohighlight">\(xz\)</span> plane.</p>
+<p>Therefore, the extraordinary output polarization basis for Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> can be taken along the laboratory <span class="math notranslate nohighlight">\(x\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Transforming this vector into crystal coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{crys}}
+=
+R^T
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+0\\
+\cos\theta\\
+\sin\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The projection onto the crystal-frame nonlinear polarization therefore gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+d_{\mathrm{eff}}
+=
+\begin{pmatrix}
+0&amp;
+\cos\theta&amp;
+\sin\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta.
+}
+\]</div>
+<p>This agrees with the general Type-I expression for a <span class="math notranslate nohighlight">\(3m\)</span> crystal,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta\sin3\phi,
+\]</div>
+<p>when the standard BBO convention</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ
+\]</div>
+<p>is applied.</p>
+<p>Note that different references may use different signs for the <span class="math notranslate nohighlight">\(X,Y\)</span> axes and for <span class="math notranslate nohighlight">\(d_{22}\)</span>. Therefore, maintaining a <strong>single consistent axis convention throughout the calculation</strong> is more important than the overall sign of the expression.</p>
+<p>If the spatial walk-off angle <span class="math notranslate nohighlight">\(\rho\)</span> is included in a more precise calculation, the standard expression is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin(\theta+\rho)
+-
+d_{22}\cos(\theta+\rho).
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="caution-when-using-numerical-values-of-d-22-and-d-31">
+<h4>6.2.9 Caution When Using Numerical Values of <span class="math notranslate nohighlight">\(d_{22}\)</span> and <span class="math notranslate nohighlight">\(d_{31}\)</span><a class="headerlink" href="#caution-when-using-numerical-values-of-d-22-and-d-31" title="Permalink to this heading">#</a></h4>
+<p>Values given by manufacturers or data sheets, such as</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V},
+\]</div>
+<p>should often be interpreted as <strong>magnitudes</strong>.</p>
+<p>Under a standard BBO axis convention, the relative signs of <span class="math notranslate nohighlight">\(d_{22}\)</span> and <span class="math notranslate nohighlight">\(d_{31}\)</span> must be used consistently.</p>
+<p>For example, choosing</p>
+<div class="math notranslate nohighlight">
+\[
+d_{31}=+0.08\ \mathrm{pm/V},
+\qquad
+d_{22}=-2.2\ \mathrm{pm/V},
+\]</div>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}
+=
+0.08\sin\theta
++
+2.2\cos\theta.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(\theta=29.2^\circ\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}
+\simeq
+1.96\ \mathrm{pm/V}.
+}
+\]</div>
+<p>If all crystal-axis sign conventions are reversed, the overall sign of <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span> may change. However, the SHG conversion efficiency depends on</p>
+<div class="math notranslate nohighlight">
+\[
+I_{2\omega}\propto |d_{\mathrm{eff}}|^2,
+\]</div>
+<p>so the observable intensity is unchanged.</p>
+</section>
+<hr class="docutils" />
+<section id="difference-from-section-6-1">
+<h4>6.2.10 Difference from Section 6.1<a class="headerlink" href="#difference-from-section-6-1" title="Permalink to this heading">#</a></h4>
+<p>Section 6.1 used the incorrect assumption</p>
+<div class="math notranslate nohighlight">
+\[
+y_{\mathrm{lab}}
+\equiv
+Y_{\mathrm{crys}},
+\]</div>
+<p>which selected the second column of the <span class="math notranslate nohighlight">\(d\)</span> matrix and yielded</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>However, in the standard orientation of an actual Type-I BBO crystal,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+y_{\mathrm{lab}}
+\parallel
+X_{\mathrm{crys}}
+},
+\]</div>
+<p>and, for the present right-handed <span class="math notranslate nohighlight">\(\phi=-90^\circ\)</span> convention,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}.
+}
+\]</div>
+<p>Therefore, the actual cross term uses the first column of the <span class="math notranslate nohighlight">\(d\)</span> matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>After rotation to the laboratory frame and projection onto the extraordinary output,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta
+}
+\]</div>
+<p>is obtained.</p>
+<p>Thus, the essential error in Section 6.1 is not only that the tilt of the optic axis was ignored, but also that the <strong>laboratory <span class="math notranslate nohighlight">\(y\)</span> polarization was incorrectly interpreted as the crystal <span class="math notranslate nohighlight">\(Y\)</span> component</strong>.</p>
+<p>For the standard Type-I BBO orientation, the laboratory <span class="math notranslate nohighlight">\(y\)</span> polarization corresponds to the ordinary polarization along crystal <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<hr class="docutils" />
+<p>Reference: M. Bache, H. Guo, B. Zhou, and X. Zeng, <em>The anisotropic Kerr nonlinear refractive index of the beta-barium borate (BBO) nonlinear crystal</em>, arXiv:1209.3158. This reference distinguishes the BBO crystal coordinates <span class="math notranslate nohighlight">\(XYZ\)</span> from the beam coordinates <span class="math notranslate nohighlight">\(xyz\)</span> and describes the optimum Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> cut using <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span>.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./en"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sh_en.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Non-Collinear Type-I SHG in a BBO Crystal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="coupled_wave_en.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coupled-Wave Equations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarization">1. Nonlinear Polarization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-and-difference-frequency-generation">2. Sum- and Difference-Frequency Generation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-representation-of-second-order-frequency-mixing">3. Tensor Representation of Second-Order Frequency Mixing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-useful-3-times3-matrix-for-one-output-polarization">3.1 A Useful <span class="math notranslate nohighlight">\(3\times3\)</span> Matrix for One Output Polarization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-permutation-symmetry-in-sfg-with-different-frequencies">3.2 Intrinsic Permutation Symmetry in SFG with Different Frequencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contracted-notation-for-shg">4. Contracted Notation for SHG</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-term-between-two-coherent-beams-at-the-same-frequency">4.1 Cross Term between Two Coherent Beams at the Same Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-crystal-symmetry-and-the-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: Crystal Symmetry and the <span class="math notranslate nohighlight">\(d\)</span> Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-non-collinear-shg-geometry">6. Symmetric Non-Collinear SHG Geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-the-cross-term-nonlinear-polarization-for-two-y-polarized-beams">6.1 Derivation of the Cross-Term Nonlinear Polarization for Two <span class="math notranslate nohighlight">\(y\)</span>-Polarized Beams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-using-the-actual-type-i-bbo-crystal-coordinates">6.2 Calculation Using the Actual Type-I BBO Crystal Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinates">6.2.1 Laboratory Coordinates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinates-x-y-z">6.2.2 BBO Crystal Coordinates <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-wave-vectors-into-the-crystal-frame">6.2.3 Transforming the Wave Vectors into the Crystal Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-polarization-is-the-ordinary-polarization-along-crystal-x">6.2.4 The Fundamental Polarization Is the Ordinary Polarization along Crystal <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-term-contracted-vector-in-the-crystal-frame">6.2.5 Cross-Term Contracted Vector in the Crystal Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-bbo-d-matrix">6.2.6 Applying the BBO <span class="math notranslate nohighlight">\(d\)</span> Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-the-nonlinear-polarization-back-to-the-laboratory-frame">6.2.7 Rotating the Nonlinear Polarization Back to the Laboratory Frame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-nonlinear-coefficient-coupled-to-the-extraordinary-sh">6.2.8 Effective Nonlinear Coefficient Coupled to the Extraordinary SH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caution-when-using-numerical-values-of-d-22-and-d-31">6.2.9 Caution When Using Numerical Values of <span class="math notranslate nohighlight">\(d_{22}\)</span> and <span class="math notranslate nohighlight">\(d_{31}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-from-section-6-1">6.2.10 Difference from Section 6.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

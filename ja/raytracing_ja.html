@@ -1,0 +1,1098 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>45度端面マルチモードファイバの光伝搬 &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ja/raytracing_ja';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/ja/raytracing_ja.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fja/raytracing_ja.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ja/raytracing_ja.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>45度端面マルチモードファイバの光伝搬</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">順方向・逆方向コードの実際のアルゴリズムと数式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">本書の読み方</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">目次</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">記号と単位</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1 実装の要点と実行順序</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2 光学系の数値と座標</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3 順方向入力ベクトル場の実際の生成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4 光線の交点と境界媒質</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snellfresnel">5 入射面と境界でのSnell則とFresnel処理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6 ファイバ内部の位相と偏光伝搬</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo">7 確率的分岐とコヒーレントMonte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">8 45度端面から側方へ出る経路</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9 出射光線を側面基準面へ集める方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10 有限画素での複素場と強度の加算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">11 基準面からカメラまでのベクトル角スペクトル法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">12 逆方向点光源のベクトル場と面積標本化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">13 逆方向の境界通過と出射面記録</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic">14 選択可能なanalytic入力分岐</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">15 順方向と逆方向の対応と限界</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">16 結果を解釈するときの確認事項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">出典索引</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>45度端面マルチモードファイバの光伝搬<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>順方向・逆方向コードの実際のアルゴリズムと数式<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>入力ベクトル場から境界、ファイバ内部、出射面、カメラ記録までを説明する。既に確認したコードのスナップショットに基づく実装解析であり、新たな全光線シミュレーションの実行結果ではない。</p>
+<p><strong>解析対象</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py">angled45/mmf_angled45_main.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py">angled45/mmf_angled45_reverse_main.py</a></p></li>
+</ul>
+<p><strong>解析対象コミット</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/commit/c6a399ce07fd095daee3bedfee1fb04ccac07f4d">c6a399ce07fd095daee3bedfee1fb04ccac07f4d</a></p>
+<p><strong>形式変更日</strong>: 2026-09-17</p>
+</section>
+<section id="id3">
+<h2>本書の読み方<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>各節の出典リンクは解析対象コミットの該当コード行へ移動する。説明と数式はMarkdownセルに格納し、表示数式は全て<code class="docutils literal notranslate"><span class="pre">$$</span></code>で囲んだLaTeXとする。本ノートブックは解説文書のため、実行するコードセルはない。図はファイル内に埋め込まれており、別の画像ファイルを必要としない。非公開リポジトリのリンクを開くにはGitHubへのログインと閲覧権限が必要である。</p>
+</section>
+<section id="id4">
+<h2>目次<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst">1 実装の要点と実行順序</span></p></li>
+<li><p><span class="xref myst">2 光学系の数値と座標</span></p></li>
+<li><p><span class="xref myst">3 順方向入力ベクトル場の実際の生成</span></p></li>
+<li><p><span class="xref myst">4 光線の交点と境界媒質</span></p></li>
+<li><p><span class="xref myst">5 入射面と境界でのSnell則とFresnel処理</span></p></li>
+<li><p><span class="xref myst">6 ファイバ内部の位相と偏光伝搬</span></p></li>
+<li><p><span class="xref myst">7 確率的分岐とコヒーレントMonte Carlo</span></p></li>
+<li><p><span class="xref myst">8 45度端面から側方へ出る経路</span></p></li>
+<li><p><span class="xref myst">9 出射光線を側面基準面へ集める方法</span></p></li>
+<li><p><span class="xref myst">10 有限画素での複素場と強度の加算</span></p></li>
+<li><p><span class="xref myst">11 基準面からカメラまでのベクトル角スペクトル法</span></p></li>
+<li><p><span class="xref myst">12 逆方向点光源のベクトル場と面積標本化</span></p></li>
+<li><p><span class="xref myst">13 逆方向の境界通過と出射面記録</span></p></li>
+<li><p><span class="xref myst">14 選択可能なanalytic入力分岐</span></p></li>
+<li><p><span class="xref myst">15 順方向と逆方向の対応と限界</span></p></li>
+<li><p><span class="xref myst">16 結果を解釈するときの確認事項</span></p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>記号と単位<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>記号</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E, H</p></td>
+<td><p>複素電場と相対単位の磁場</p></td>
+</tr>
+<tr class="row-odd"><td><p>k̂, k₀, λ₀</p></td>
+<td><p>単位進行方向、真空波数、真空波長</p></td>
+</tr>
+<tr class="row-even"><td><p>L, a, Δ</p></td>
+<td><p>ファイバ軸上長、コア半径、格子間隔</p></td>
+</tr>
+<tr class="row-odd"><td><p>W, N₀, *</p></td>
+<td><p>重要度重み、総発射数、複素共役</p></td>
+</tr>
+<tr class="row-even"><td><p>f / r</p></td>
+<td><p>順方向 / 逆方向の座標</p></td>
+</tr>
+<tr class="row-odd"><td><p>u, v, w</p></td>
+<td><p>側面の右手系局所基底</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="section-01"></a></p>
+</section>
+<section id="id6">
+<h2>1 実装の要点と実行順序<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a></p>
+<p>両プログラムは同じ45度端面ファイバを互いに反対側から伝搬させる。現在の既定動作では、まずreverseが平坦端面の直外における方向別の複素電場を保存し、mainがそのチャネルを位相共役して反対向きに再入射させる。main内のdefine_input_vector_fieldは既定動作の入力源ではなく、INPUT_MODEをanalyticに変更したときに使用される。</p>
+<p>計算は三つの処理を接続している。境界間では幾何光学の直線光線を追跡し、その経路に3成分の複素電場、Fresnel振幅、光路位相を付与する。出射光線は有限画素にコヒーレント加算する。順方向では、この基準面場をFFTによるベクトル角スペクトル法で側面カメラまで伝搬させる。ファイバ内部を格子化してMaxwell方程式を直接解く処理や、導波モードの固有値展開は、この既定呼出し経路にはない。</p>
+<p><img alt="Fig. 11" src="../_images/fig11.jpg" /></p>
+<p><em>図1. 実際の実行順序。既定設定では逆方向計算でチャネルを保存し、順方向で位相共役して再入射させる。</em></p>
+<p>本書の式は、各節にリンクした実装の演算を数式化したものである。既定値から導いた数値は計算値であり、新たな光線シミュレーションの測定結果ではない。各節の出典は解析対象コミットに固定したGitHubの行リンクである。</p>
+<p><a id="section-02"></a></p>
+</section>
+<section id="id7">
+<h2>2 光学系の数値と座標<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">S02 · L6–L33</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>現在値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>真空波長</p></td>
+<td><p>0.633 μm = 0.000633 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>屈折率</p></td>
+<td><p>core 1.4469   clad 1.3001   outside 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>コアとクラッド半径</p></td>
+<td><p>0.0525 mm / 0.0625 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>軸上の端面中心</p></td>
+<td><p>L = 3.6 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>端面角と方位角</p></td>
+<td><p>45° / 0°</p></td>
+</tr>
+<tr class="row-odd"><td><p>順方向の目標点</p></td>
+<td><p>(−0.1625, 0, 3.6) mm</p></td>
+</tr>
+<tr class="row-even"><td><p>側面基準面中心</p></td>
+<td><p>(−0.0625, 0, 3.6) mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>基準面からカメラ</p></td>
+<td><p>0.1000 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>場の格子</p></td>
+<td><p>512 × 512; Δ = 0.15 / 512 mm = 0.29296875 μm</p></td>
+</tr>
+<tr class="row-odd"><td><p>逆方向の発射標本</p></td>
+<td><p>262144; seed 12345</p></td>
+</tr>
+<tr class="row-even"><td><p>最大相互作用</p></td>
+<td><p>200; 最小交差距離 10 nm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="math notranslate nohighlight">
+\[
+z_f=L-\tan(\theta )(x\cos \phi +y\sin \phi ),\quad z_r=L-z_f
+\]</div>
+<p>順方向の平坦入射面はz_f=0、45度端面は既定値でz_f=L−xである。逆方向ではx,yを保ち、z_r=L−z_fとする。このため斜面はz_r=x、平坦出射面はz_r=L、点光源は(−0.1625,0,0) mmとなる。同じ物体を別の座標で表しており、異なる形状のファイバに置き換えるわけではない。</p>
+<div class="math notranslate nohighlight">
+\[
+e_w=(-1,0,0),\quad e_v=(0,0,1),\quad e_u=e_v\times e_w=(0,-1,0)
+\]</div>
+<p>側面場の成分順は大域(x,y,z)ではなく、右手系の局所基底(u,v,w)である。既定値では(E_u,E_v,E_w)=(−E_y,E_z,−E_x)となる。uは−y方向、vはzのオフセットである。mainの古いdocstringのx=−0.2625 mmやFACET_DISTANCE_MM=0.20を現在のカメラ位置・距離として使ってはいけない。実際の配置はFOCUS_X_MM、FOCUS_Y_MMとfocus_geometryが決める。</p>
+<p><a id="section-03"></a></p>
+</section>
+<section id="id8">
+<h2>3 順方向入力ベクトル場の実際の生成<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">S23 · L44–L64</a></p>
+<p>既定のmainはreverse_exit_field_angled45.npzからchannel_points、channel_directions、channel_electric、channel_weights、および総発射数を読む。これは画素ごとの振幅・位相だけを持つ2次元画像より多い情報である。同一画素に複数方向の光線が到達しても、各チャネルの進行方向と3成分複素電場を個別に保持する。保存版4、angled45_ray_channels_v1、物理パラメータ、光源位置、格子、偏光とMonte Carlo設定を検査する。</p>
+<div class="math notranslate nohighlight">
+\[
+D=\mathrm{diag}(1,1,-1),\quad r_f=(x_r,y_r,L-z_r)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hat{k}_f=-D\hat{k}_r,\quad E_f=D E_r^{*}
+\]</div>
+<p>複素共役は位相の符号を反転する。座標反射Dも同時に適用するため、k_x,k_yは反転し、k_zは保たれ、E_zは共役後に符号が反転する。電場の全成分を単に共役するだけでは説明が不十分である。変換チャネルを同じ格子へ加算した場とD E_exit*の相対ノルム誤差NRMSが10⁻¹⁰以下かを確認する。この検査は保存データと再生入力の整合性を検査するもので、カメラ焦点の物理的精度を保証するものではない。</p>
+<p>この分岐では、入力FFTによる角度の再標本化も入力電力の再正規化も行わない。PhaseConjugateInputの補間器はメタデータ検証で構築されるが、実際の再入射では評価されない。入射面の軸方向0.0001 mm手前の空気中から追跡を開始し、その区間の伝搬位相をあらかじめ差し引いて、z=0で元のチャネル位相が復元されるようにする。</p>
+<div class="math notranslate nohighlight">
+\[
+s=\frac{10\varepsilon }{k_{f,z}},\quad r_{start}=r_f-s\hat{k}_f,\quad E_{start}=E_f e^{-i k_0 n_{out}s}
+\]</div>
+<p><a id="section-04"></a></p>
+</section>
+<section id="id9">
+<h2>4 光線の交点と境界媒質<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">S11 · L1856–L1945</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">S19 · L194–L314</a></p>
+<p>次に交差する面は非順次追跡で決定する。面をあらかじめ定めた順に一度ずつ通すのではなく、現在位置と方向から最も近い有効交点を探す。コア境界、クラッド外壁、平坦入射面、斜端面にはmmf_angled_geometryの解析交差関数が組み込まれる。このため現在の経路計算で円筒壁が256角形の近似法線として反射するわけではない。PyVistaメッシュと分解能値は形状構成、表示、一部の他面処理にも残る。</p>
+<div class="math notranslate nohighlight">
+\[
+a t^2+b t+c=0,\quad a=d_x^2+d_y^2,\quad b=2(o_xd_x+o_yd_y),\quad c=o_x^2+o_y^2-R^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q=-\frac{1}{2}[b+\mathrm{copysign}(\sqrt{b^2-4ac},b)],\quad t_1=\frac{q}{a},\quad t_2=\frac{c}{q}
+\]</div>
+<p>円筒交差は上の二次方程式を解き、壁付近の桁落ちを抑える安定な根の計算を使う。平面交差はt=(h−n·o)/(n·d)で求める。有効半径、入射面から斜端面までのz範囲、最小交差距離ε=10⁻⁵ mmを検査し、最も近い正の交点を採用する。円筒法線は半径方向、端面法線は解析的に求める。逆方向でも順方向の標準形状座標へ変換して同じ交差関数を使い、結果を逆変換する。</p>
+<p>q=0となる退化した場合はt=−b/(2a)を使う。媒質は現在媒質、境界名、交点の半径、および順方向のz範囲から判定する。内側円筒はcore↔clad、外側円筒はclad↔air、コア端面はcore↔airを結ぶ。逆方向には同じ物理的な接続規則を別のresolverで適用する。これによりクラッドへ移った光線を、その後もコア中の光線として扱う誤りを防いでいる。</p>
+<p><a id="section-05"></a></p>
+</section>
+<section id="snellfresnel">
+<h2>5 入射面と境界でのSnell則とFresnel処理<a class="headerlink" href="#snellfresnel" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">S09 · L745–L1099</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">S10 · L1173–L1240</a></p>
+<p>既定の順方向計算は空気中から実際の平坦入射面を追跡する。KrakenがSnell則による屈折方向または反射方向を計算し、共通の偏光再計算関数が同じイベントに複素Fresnel振幅を適用する。n₁は入射媒質、n₂は透過先媒質であり、法線は入射方向との内積が正となるよう整える。k₀=2π/λ₀のλ₀はmmへ変換する。</p>
+<div class="math notranslate nohighlight">
+\[
+n_1\sin \theta _i=n_2\sin \theta _t,\quad c_t=\sqrt{1-(\frac{n_1}{n_2}\sin \theta _i)^2+0i}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r_s=\frac{n_1c_i-n_2c_t}{n_1c_i+n_2c_t},\quad r_p=\frac{n_2c_i-n_1c_t}{n_2c_i+n_1c_t}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t_s=\frac{2n_1c_i}{n_1c_i+n_2c_t},\quad t_p=\frac{2n_1c_i}{n_2c_i+n_1c_t}
+\]</div>
+<p>c_i=cosθ_iである。平方根はIm(c_t)≥0の枝を選ぶ。全反射ではc_tが虚数となり、r_s,r_pに位相が生じる。反射率が1だからといって電場をそのままにするとs成分とp成分の位相差を失うため、このコードは全反射でも複素反射係数を掛ける。振幅透過係数の|t|²はそのまま電力透過率ではなく、次の屈折率・角度因子を含める必要がある。</p>
+<div class="math notranslate nohighlight">
+\[
+T_{s,p}=\frac{n_2\mathrm{Re}(c_t)}{n_1c_i}|t_{s,p}|^2
+\]</div>
+<p>局所s軸はn×kを正規化して作り、p軸はk×sから作る。垂直入射で外積が退化する場合は代替の横方向基底を使う。複素電場をこの基底へ分解して係数を掛け、新しい反射・屈折方向の基底から大域xyz成分へ戻す。固定された大域x,y成分に同一のスカラー係数を掛けるモデルではない。</p>
+<p><a id="section-06"></a></p>
+</section>
+<section id="id10">
+<h2>6 ファイバ内部の位相と偏光伝搬<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">S09 · L745–L1099</a></p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{OPL}=\sum_j n_j\ell_j,\quad E\leftarrow E e^{i k_0 n_j\ell_j},\quad k_0=\frac{2\pi }{\lambda _0}
+\]</div>
+<p>RayStateは現在位置、単位進行方向、3成分複素電場、現在屈折率、累積光路長、伝搬位相、反射回数、標本重みを保持する。二つの交点間のユークリッド距離ℓ_jに区間の屈折率を掛けてOPLを加算し、電場にexp(i k₀n_jℓ_j)を掛ける。光線は均質媒質内を直進し、内部伝搬をz刻みのFFTや有限差分で解くわけではない。</p>
+<div class="math notranslate nohighlight">
+\[
+E_s=s\cdot E,\quad E_p=p\cdot E,\quad E_{refl}=r_sE_s s_r+r_pE_p p_r
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{trans}=t_sE_s s_t+t_pE_p p_t,\quad E\leftarrow E-\hat{k}(\hat{k}\cdot E)
+\]</div>
+<p>各境界後のp軸は新しい進行方向から再計算する。この基底回転とs,pそれぞれの複素係数により、空間的な偏光変化と全反射の位相遅れが保持される。最後の横波補正は数値的な縦成分残差を除く。ただし、大域E_zが常にゼロという意味ではない。斜めの光線はk·E=0を満たしながらE_zを持つことができる。</p>
+<p>trace_core_polarizationはKrakenの幾何経路と媒質・法線の記録を読み、これらの演算を適用する。ここでの再計算は光を逆向きに戻すことではなく、既に得られた経路へ複素ベクトル場を付与する第二段階である。ゼロ長区間、検出点の不一致、不適切な媒質を診断し、既定設定ではゼロ長区間を含む記録を最終コヒーレント加算から除外する。</p>
+<p><a id="section-07"></a></p>
+</section>
+<section id="monte-carlo">
+<h2>7 確率的分岐とコヒーレントMonte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">S10 · L1173–L1240</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a></p>
+<p>通常の全反射でない境界では、Krakenは一本の光線を常に反射と透過の二本へ複製しない。energy_probability=1では、無偏光平均のFresnel電力に基づく確率で一方を選ぶ。偏光ごとの実際の電場振幅は別のJones計算で適用するため、分岐選択確率と電場係数を区別する必要がある。</p>
+<div class="math notranslate nohighlight">
+\[
+P_R=\frac{|r_s|^2+|r_p|^2}{2},\quad P_T=1-P_R,\quad W\leftarrow \frac{W}{P_b}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[\frac{\mathbf{1}_b}{P_b}a_b]=a_b
+\]</div>
+<p>選択した分岐の物理的複素振幅a_bにはFresnel係数が含まれ、sampling_weightには1/P_bを別に累積する。複素場の平均に対する重要度標本化なので、補正は1/√P_bではない。全反射ではP_R=1となる。分岐確率が10⁻¹²以下の場合は安定な補正を作れないとして例外を出す。低確率の経路は大きな重みを生み、分散を増大させ得る。</p>
+<p>順方向の再入射では逆方向ファイルの重みを一度引き継ぎ、新しい順方向追跡で生じた分岐補正を独立に加算する。保存経路を逆順に強制せず、経路を新たに探索する。複素場推定の分岐補正が正しいことだけで、その二次量である強度が有限標本で不偏になるわけでも、光学モデル全体が厳密になるわけでもない。光線数、乱数シード、格子を変えた収束確認が必要である。</p>
+<p><a id="section-08"></a></p>
+</section>
+<section id="id11">
+<h2>8 45度端面から側方へ出る経路<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">S02 · L6–L33</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">S11 · L1856–L1945</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a></p>
+<p><img alt="Fig. 12" src="../_images/fig12.jpg" /></p>
+<p><em>図2. 45度端面付近の中心光線の概念経路。シミュレーションで得た光線画像ではない。</em></p>
+<p>既定値の軸上中心光線は+z_fへ進み、法線(1,0,1)/√2のコア端面に45度で入射する。core–airの臨界角はasin(1/1.4469)=43.7198度なので、この代表経路は全反射する。反射方向は−xとなり、続いて円筒状のcore–clad境界とclad–air外壁を透過して側面カメラへ進む。45度端面から直ちに空気へ透過する経路と説明すると、この主要光路を見落とす。</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{k}_{refl}=\hat{k}_{in}-2(\hat{k}_{in}\cdot \hat{n})\hat{n},\quad (0,0,1)\rightarrow (-1,0,0)
+\]</div>
+<p>全光線が同一角度で入射するわけではない。位置と方向に応じて45度面を透過したり、クラッドへ漏れたりする経路も含まれる。core–cladの臨界角は63.9670度、NA=√(n_core²−n_clad²)=0.635027であり、いずれも材料値からの計算値である。これらだけで実際のチャネル到達率や焦点径は決まらない。既定再生は保存された有効チャネルを使用し、選択的analytic分岐もAS_GUIDED_ONLY=Falseなので、NA外成分を事前に全て除いてはいない。</p>
+<p><a id="section-09"></a></p>
+</section>
+<section id="id12">
+<h2>9 出射光線を側面基準面へ集める方法<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2584-L2739">S13 · L2584–L2739</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a></p>
+<p>既定のKRAKEN_CAPTURE_GAP_MM=Noneはfocus_geometryが計算した0.1 mmに置き換わる。幾何追跡の側面capture diskは実際のカメラ中心と同じ位置にあり、半径は0.30 mmである。ただし、その検出点で数えた光線数を最終カメラ画像として使わない。output_detector_sideへ到達した有効記録を選び、光線方向に沿って固定基準面x=−0.0625 mmへ戻してから波動伝搬を行う。</p>
+<div class="math notranslate nohighlight">
+\[
+s=-\frac{(r_{det}-c_{ref})\cdot e_w}{\hat{k}\cdot e_w},\quad r_{ref}=r_{det}+s\hat{k}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{ref}=E_{det}e^{i k_0 n_{out}s},\quad (u,v)=((r_{ref}-c_{ref})\cdot e_u,(r_{ref}-c_{ref})\cdot e_v)
+\]</div>
+<p>カメラが基準面より進行方向の前方にある場合、sは負となる。その区間の位相を差し引くので、基準面以後の距離を二重に加算しない。電場と進行方向も局所(u,v,w)へ回転する。検査条件は検出点と状態位置の一致、外部屈折率、k·e_w&gt;0、基準面半幅0.075 mm以内、ゼロ長区間の除外などである。検出面へ到達したことと、最終場の加算に採用されたことは同じではない。</p>
+<p>既定phase_conjugate結果のE_referenceとE_cameraは、この側面場である。z方向へ漏れた光線の記録は残るが、軸方向画像は計算しないためE_camera_zなどはNoneとなる。camera_z_mm=Lは側面カメラ中心の大域z座標であり、波が+z軸へ進むことを意味しない。</p>
+<p><a id="section-10"></a></p>
+</section>
+<section id="id13">
+<h2>10 有限画素での複素場と強度の加算<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">S22 · L2477–L2582</a></p>
+<p>順方向の側面基準面と逆方向の平坦出射面はaccumulate_fieldを共用する。座標を最寄りの格子節点のセルへ割り当て、光線交点からセル中心までの横方向位相を補正する。面積積分を表す複素場寄与を、総発射数N₀とセル面積Δ²で割って電場を加算する。画素に入った光線数だけで割る平均でも、各光線の強度を先に足す非コヒーレント計算でもない。</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi _{jp}=k_0n_{out}\hat{k}_{j,\perp }\cdot (\rho _p-\rho _j)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_p=\frac{1}{N_0\Delta ^2}\sum_{j\in C_p}W_j E_j e^{i\Phi _{jp}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+H_p=\frac{1}{N_0\Delta ^2}\sum_{j\in C_p}n_{out}(\hat{k}_j\times E_j)W_j e^{i\Phi _{jp}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+I_p=\frac{1}{2}\mathrm{Re}(E_p\times H_p^{*})\cdot e_w
+\]</div>
+<p>N₀は逆方向で元々発射した総数262144である。既定の順方向再生でも、保存され再入射するチャネル数へ置き換えず、逆方向の元の発射数を分母に使う。analytic分岐では、その実行の位置数と角標本数の積を使う。</p>
+<p>磁場はコードの相対単位H=n(k̂×E)で定義される。順方向側面ではe_wが局所第三軸、逆方向平面では+z_rである。光線間の位相差がEとHの加算内で干渉を生むため、この強度は一般に|E|²と等しくない。SIのインピーダンス定数、検出器感度、露光時間、光子数変換を適用したW/m²やカメラcountではない。</p>
+<p>これは有限セル上の光線に基づく場の推定である。セル内では局所平面波の位相を使い、各光線の方向情報を格子上の和へ圧縮する。光線数が不足したり分布が偏ったりすると、空セルや大きな統計変動が生じ得る。hit_countやactive_pixelsは、この標本化状態を調べる診断量である。</p>
+<p><a id="section-11"></a></p>
+</section>
+<section id="id14">
+<h2>11 基準面からカメラまでのベクトル角スペクトル法<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">S15 · L2741–L2821</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">S28 · L237–L288</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">S29 · L2824–L2885</a></p>
+<p>propagate_vector_angular_spectrumは512×512の基準面場を2048×2048へゼロ埋めする。画素間隔は保たれるため、paddingは視野と周波数標本間隔を変えるが、元の場の空間分解能を4倍にするわけではない。3成分にcentered FFTを適用し、局所横波数k_u,k_vに対して伝搬可能な成分だけを残す。</p>
+<div class="math notranslate nohighlight">
+\[
+k_w=\sqrt{(n_{out}k_0)^2-k_u^2-k_v^2},\quad k_u^2+k_v^2\leq (n_{out}k_0)^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_w=-\frac{k_uA_u+k_vA_v}{k_w},\quad A(d)=A(0)e^{i k_w d}
+\]</div>
+<p>コードはA_u,A_vを保ち、横波条件からA_wを作り直す。入力の第三成分のFFTは上書きされる。コメントの一般的な直交射影という表現より、この実際の演算に基づいて理解すべきである。k_wが10⁻¹⁰ n_out k₀以下のほぼ接線方向の成分とエバネッセント成分は除かれる。したがって、逆方向の距離ゼロ記録面で方向別チャネルをそのまま保持する処理とは異なる。</p>
+<div class="math notranslate nohighlight">
+\[
+E_{cam}=\mathcal{F}^{-1}[A(d)],\quad H_{cam}=\mathcal{F}^{-1}[n_{out}(\hat{k}\times A(d))]
+\]</div>
+<p>伝搬距離d=0.1 mmを適用し、EとHをそれぞれ逆FFTしてI=½Re(E×H*)_wを計算する。最後にカメラ半幅0.20 mmへ切り出す。k_wを放物線近似するFresnel近軸式ではなく、平方根の分散式を使うASMである。ただし一方向の伝搬可能スペクトル、有限窓、離散格子という制限は残る。この関数の実装はNumPy FFTを使う。USE_GPU_NUMERICS=Trueという設定だけでカメラ伝搬がGPU実行されるとはいえない。</p>
+<p>保存するforward_camera_angled45.npzには局所座標の複素カメラ場、強度、座標、基準面場、基底、目標点が入る。図の表示では最大強度で割るが、保存した元の強度と正規化画像を混同してはいけない。ピーク位置とその行・列の半値全幅FWHMを強度配列から求める処理であり、多峰性やスペックルを自動的に理想焦点と判定するものではない。</p>
+<p><a id="section-12"></a></p>
+</section>
+<section id="id15">
+<h2>12 逆方向点光源のベクトル場と面積標本化<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">S18 · L317–L367</a></p>
+<p>逆方向はカメラの記録画像を読み込んで逆FFTするプログラムではない。順方向の目標点に対応する(−0.1625,0,0) mmへ数学的点光源を置き、傾いたコア面上の標的点を抽出して初期光線方向を作る。半径をa√U、方位角を2πVで抽出するのでxy投影円板上で一様になる。平面の傾斜は一定なので実際の斜面上でも面積密度は一定となり、面積はπa²/cosθである。</p>
+<div class="math notranslate nohighlight">
+\[
+\rho =a\sqrt{U},\quad \psi =2\pi V,\quad x=\rho \cos \psi ,\quad y=\rho \sin \psi
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+z_r=\tan \theta (x\cos \phi +y\sin \phi ),\quad \hat{k}=\frac{r_{target}-r_{src}}{R}
+\]</div>
+<p>U,Vは[0,1)の一様乱数、Rは光源から標本標的点までの直線距離である。標的点は発射方向を定めるだけで、実際の最初の入射点や45度面との最終交点を強制しない。その前にクラッド外壁で屈折し得るためである。また、全空間の立体角へ一様放射する点光源の全方向を計算する設定でもない。</p>
+<div class="math notranslate nohighlight">
+\[
+E_0=J_u e_u+J_v e_v,\quad E_{launch}=\frac{\sqrt{P}A_{facet}}{R}[E_0-\hat{k}(\hat{k}\cdot E_0)]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_{facet}=\frac{\pi a^2}{\cos \theta },\quad J=(1,0),\quad e_u=(0,1,0),\quad e_v=(0,0,1)
+\]</div>
+<p>PはSOURCE_POWER=1.0という相対光源スケールであり、この値だけで絶対光出力のワット値を指定したわけではない。</p>
+<p>既定Jonesベクトルは光源基底のu直線偏光で、現在の基底では+yである。各光線方向に垂直となるよう射影するが、単位振幅へ再正規化しないため方向依存の振幅が残る。1/Rはコードの球面波振幅モデル、A_facetは面積積分の重みである。1/Nはここでは掛けず、後の画素加算で一度適用する。初期式にexp(i kR)は入れない。光源から実際の各境界までの位相を共通OPL計算が既に加算するためである。</p>
+<p><a id="section-13"></a></p>
+</section>
+<section id="id16">
+<h2>13 逆方向の境界通過と出射面記録<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">S19 · L194–L314</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L369-L482">S20 · L369–L482</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">S22 · L2477–L2582</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">S23 · L44–L64</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L195-L215">S31 · L195–L215</a></p>
+<p>代表的な中心経路は、側方の空気→クラッド外壁→クラッド→コア境界→45度core–air面での反射→+z_r方向のコア伝搬→平坦なcore–air出射面である。逆方向の斜面法線は順方向法線のz成分を反転したものになる。各実境界では順方向と同じSnell方向計算、s/p Fresnel変換、全反射位相、区間OPL、確率分岐補正を使う。光源位置だけを反対側へ置き、全光線に同じ経路を通らせる単純処理ではない。</p>
+<p>逆方向の出射面記録はz_r=Lで空気へ出た直後の場を意味する。数値追跡用に少し前方の補助検出面を置くが、最終チャネルは余分な空気区間を光線ごとに逆伝搬して出射面へ移す。したがってEXIT_CAMERA_DISTANCE_MM=0とは矛盾しない。collect_reference_channelsで有効出射チャネルを集め、accumulate_fieldで加算する。出射面に追加の自由空間ASMを適用しない。</p>
+<p>逆方向の最終進行方向は、KrakenのLMNの符号より実際の最後のXYZ区間方向を優先する。最終Eの残留縦成分を除いて保存する。返却E_exitは(3,Ny,Nx)、順方向カメラEは(Ny,Nx,3)で、電場成分の座標系も異なる。amplitude_exitは√Σ|E_c|²、intensity_exitはPoynting fluxなので、両画像を同じ強度として扱ってはいけない。</p>
+<p>NPZにはE_exit、x/y座標、光源位置、座標変換文字列、物理パラメータ、方向別の位置・電場・方向・重み・総発射数を保存する。intensity_exitは返却結果にあるが、保存関数のNPZ項目には直接含まれない。mainはファイルが存在しない場合や、パラメータ・格子が一致しない場合に再生を停止する。</p>
+<p><a id="section-14"></a></p>
+</section>
+<section id="analytic">
+<h2>14 選択可能なanalytic入力分岐<a class="headerlink" href="#analytic" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L79-L136">S24 · L79–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1133-L1280">S25 · L1133–L1280</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1281-L1403">S26 · L1281–L1403</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L3067-L3235">S27 · L3067–L3235</a></p>
+<p>INPUT_MODE=analyticに変更すると、INPUT_FIELD_FUNCTIONのEx,Eyを格子上で評価する。現在の関数はwaist w₀=0.020 mmのGaussian振幅へexp(i2 atan2(y,x))を掛けたx直線偏光場である。ラベルがGaussian input beamでも位相は平坦ではなく、電荷2の渦位相である。ただし振幅へr²因子を含む標準Laguerre–Gaussianモード全体を実装したものではない。コア半径外をマスクし、次式の縦成分を含む前進Poynting積分Pが1となるよう電場全体を1/√P倍する。DはFFT窓の一辺0.15 mmである。</p>
+<div class="math notranslate nohighlight">
+\[
+E_x=e^{-(r/w_0)^2}e^{2i\mathrm{atan2}(y,x)},\quad E_y=0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_{x,y}=\Delta ^2\mathcal{F}[E_{x,y}],\quad A_z=-\frac{k_xA_x+k_yA_y}{k_{z,out}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P=\frac{1}{D^2}\sum_{prop}\frac{n_{out}k_{z,out}}{2k_{out}}(|A_x|^2+|A_y|^2+|A_z|^2)
+\]</div>
+<p>2次元FFTで外部angular spectrumを作り、伝搬不能成分を除く。最大ベクトルスペクトル振幅の10⁻³をcutoffとする。各成分の接線波数k_x,k_yを保存してコアのk_zとSnell屈折方向を求め、平坦入射面のs/p Fresnel透過係数を先に適用する。このためanalyticはコア側境界から開始し、既定phase_conjugateは空気側から実際の入射面の確率分岐まで追跡する。</p>
+<div class="math notranslate nohighlight">
+\[
+p_m=\frac{\|A_m\|}{\sum_l\|A_l\|},\quad B_m=\frac{A_{core,m}}{p_mD^2}
+\]</div>
+<p>角成分は外部ベクトル振幅に比例する確率p_mで抽出し、累積分布の層化標本u_m=(m+U_m)/Mを使う。同じbinが複数回選ばれても別々の標本として保持する。A_core,mは入射面透過後のベクトルスペクトルで、コード変数qはこのp_mである。発射位置はコア円板の一様面積標本とする。光線の初期寄与はπa² B_m exp(i(k_xx+k_yy))で与える。現在設定では256個の位置ごとに1024個の角標本を追跡し、262144本を発射する。</p>
+<p>その後の内部追跡と場加算は共通関数を使う。ただしanalyticの一般的なutility.run_simulationはzカメラと側面カメラを構成し、E_cameraの既定別名はzカメラを指す。既定位相共役分岐のE_cameraが側面カメラを意味する点と区別する必要がある。</p>
+<p><a id="section-15"></a></p>
+</section>
+<section id="id17">
+<h2>15 順方向と逆方向の対応と限界<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">S15 · L2741–L2821</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">S18 · L317–L367</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>比較</p></th>
+<th class="head"><p>順方向既定</p></th>
+<th class="head"><p>逆方向</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p>保存チャネルの位相共役</p></td>
+<td><p>側方ベクトル点光源</p></td>
+</tr>
+<tr class="row-odd"><td><p>最初の境界</p></td>
+<td><p>平坦air→core</p></td>
+<td><p>代表経路air→clad外壁</p></td>
+</tr>
+<tr class="row-even"><td><p>45度面</p></td>
+<td><p>側方へ向ける反射</p></td>
+<td><p>軸方向へ向ける反射</p></td>
+</tr>
+<tr class="row-odd"><td><p>内部</p></td>
+<td><p>幾何経路と複素Jones伝搬</p></td>
+<td><p>同一の局所法則</p></td>
+</tr>
+<tr class="row-even"><td><p>記録面</p></td>
+<td><p>側面基準面後0.1 mmのASM</p></td>
+<td><p>平坦出射面の直外</p></td>
+</tr>
+<tr class="row-odd"><td><p>場の座標</p></td>
+<td><p>(Ny, Nx, 3), 局所u, v, w</p></td>
+<td><p>(3, Ny, Nx), 大域x, y, z_r</p></td>
+</tr>
+<tr class="row-even"><td><p>保存</p></td>
+<td><p>forward_camera_angled45.npz</p></td>
+<td><p>reverse_exit_field_angled45.npz</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>同じ光学系の反対向きの伝搬と説明するのは妥当である。ただし全演算が互いの厳密な逆行列であることを意味しない。有限の発射領域と検出視野、反射・透過で失われる経路、有効記録フィルタ、確率標本化、セル加算、ASMのスペクトル切断がある。一つの出射側で収集したチャネルだけを位相共役して再入射するため、全ての外部放射チャネルを同時に時間反転する計算ではない。</p>
+<p>ファイバ内部の電場振幅はFresnel係数と初期重みで運ばれ、各区間では位相だけが更新される。この既定の複素場計算には、光線管断面積のJacobianによる振幅更新、焦点通過の独立したMaslov位相、境界のエバネッセント場分布、モード固有値解析、粗さ・非線形効果がない。材料吸収による振幅減衰もこの複素場の再計算には適用しない。検出面で光線を停止するABSORB処理とは区別すべきである。全反射の偏光位相を含むベクトル幾何光学と外部回折計算を接続した近似、と位置付けるのが正確である。</p>
+<p><a id="section-16"></a></p>
+</section>
+<section id="id18">
+<h2>16 結果を解釈するときの確認事項<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h2>
+<p><strong>出典</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">S28 · L237–L288</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">S29 · L2824–L2885</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/_bootstrap.py#L1-L10">S30 · L1–L10</a></p>
+<p>同一ソースのスナップショットでの実行順は、angled45/mmf_angled45_reverse_main.py –no-plots、次にangled45/mmf_angled45_main.py –no-plotsである。_bootstrapは当該フォルダをimport経路の先頭に置き、ルートの同名モジュールとの混在を避ける。物理パラメータ、目標点、格子を変更した場合はreverseファイルを作り直す。本書は実行手順と実装の説明であり、既定の全光線数で再実行して焦点性能を測定した報告ではない。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>確認対象</p></th>
+<th class="head"><p>解釈</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>source_reconstruction_nrms</p></td>
+<td><p>保存チャネルと入力格子場の一致</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_field_hits</span></code>と<code class="docutils literal notranslate"><span class="pre">skipped_*</span></code></p></td>
+<td><p>幾何到達と場への採用の区別</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">peak_global_mm</span></code>と<code class="docutils literal notranslate"><span class="pre">target_error_um</span></code></p></td>
+<td><p>局所ピークを大域座標へ変換した位置誤差</p></td>
+</tr>
+<tr class="row-odd"><td><p>FWHM</p></td>
+<td><p>ピーク行と列の半値全幅</p></td>
+</tr>
+<tr class="row-even"><td><p>強度正規化</p></td>
+<td><p>表示画像と保存元配列を区別</p></td>
+</tr>
+<tr class="row-odd"><td><p>標本数と格子</p></td>
+<td><p>光線数増加と格子変更を分けて収束確認</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>コメントより実行式を優先すべき点は明確である。現在の入力は位相共役チャネル、カメラのx座標は−0.1625 mm、基準面以後の距離は0.1 mm、出射後の波動伝搬軸は側面w軸である。またカメラFFTはNumPyを用い、横波補正は二つの横成分を保って縦成分を作り直す演算である。これらを反映して初めて、実際に使用された方法を再現可能な形で説明できる。</p>
+</section>
+<section id="id19">
+<h2>出典索引<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
+<p>以下のリンクは全て同一の解析対象コミットに固定している。masterが後から変更されても引用したコード行は維持される。</p>
+<p><strong>S01 — 順方向の実行分岐</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">angled45/mmf_angled45_main.py · L228–L248</a></p>
+<p><strong>S02 — 共通の物理パラメータ</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">angled45/mmf_parameters.py · L6–L33</a></p>
+<p><strong>S03 — 目標点とカメラ座標</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">angled45/mmf_focus.py · L5–L28</a></p>
+<p><strong>S04 — 方向チャネルの検証と位相共役</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">angled45/mmf_phase_channels.py · L21–L93</a></p>
+<p><strong>S05 — 空気中からの再入射と独立追跡</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">angled45/mmf_phase_channels.py · L100–L165</a></p>
+<p><strong>S06 — 解析的な交点と法線</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">angled45/mmf_angled_geometry.py · L11–L103</a></p>
+<p><strong>S07 — 局所基底とFresnel係数</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">angled45/mmf_vector_utility.py · L392–L491</a></p>
+<p><strong>S08 — 光路位相とベクトル場の更新</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">angled45/mmf_vector_utility.py · L493–L728</a></p>
+<p><strong>S09 — 境界イベントごとの偏光計算</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">angled45/mmf_vector_utility.py · L745–L1099</a></p>
+<p><strong>S10 — Krakenの確率的分岐</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">KrakenOS/KrakenSys.py · L1173–L1240</a></p>
+<p><strong>S11 — 境界両側の媒質判定</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">angled45/mmf_vector_utility.py · L1856–L1945</a></p>
+<p><strong>S12 — 光学系と検出面の構成</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">angled45/mmf_vector_utility.py · L1947–L2123</a></p>
+<p><strong>S13 — 側面基準面への戻し計算</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2584-L2739">angled45/mmf_vector_utility.py · L2584–L2739</a></p>
+<p><strong>S14 — 有限セルでの複素場の加算</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">angled45/mmf_field.py · L14–L41</a></p>
+<p><strong>S15 — ベクトル角スペクトル伝搬</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">angled45/mmf_vector_utility.py · L2741–L2821</a></p>
+<p><strong>S16 — 側面カメラの出力と保存</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">angled45/mmf_phase_channels.py · L168–L233</a></p>
+<p><strong>S17 — 逆方向光源と距離ゼロの記録面</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">angled45/mmf_angled45_reverse_main.py · L44–L136</a></p>
+<p><strong>S18 — 点光源の標本と初期電場</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">angled45/mmf_vector_reverse_utility.py · L317–L367</a></p>
+<p><strong>S19 — 逆方向の媒質と光学系</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">angled45/mmf_vector_reverse_utility.py · L194–L314</a></p>
+<p><strong>S20 — 逆方向の経路と偏光</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L369-L482">angled45/mmf_vector_reverse_utility.py · L369–L482</a></p>
+<p><strong>S21 — 逆方向出射場の再構成</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">angled45/mmf_vector_reverse_utility.py · L651–L673</a></p>
+<p><strong>S22 — 出射チャネルの収集と平面場</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">angled45/mmf_vector_utility.py · L2477–L2582</a></p>
+<p><strong>S23 — 逆方向NPZの保存</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">angled45/mmf_field.py · L44–L64</a></p>
+<p><strong>S24 — 選択的な解析入力と標本数</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L79-L136">angled45/mmf_angled45_main.py · L79–L136</a></p>
+<p><strong>S25 — 入力場FFTと縦成分</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1133-L1280">angled45/mmf_vector_utility.py · L1133–L1280</a></p>
+<p><strong>S26 — 角成分と位置の重要度標本化</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1281-L1403">angled45/mmf_vector_utility.py · L1281–L1403</a></p>
+<p><strong>S27 — analyticの全体実行経路</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L3067-L3235">angled45/mmf_vector_utility.py · L3067–L3235</a></p>
+<p><strong>S28 — 表示の正規化と図の保存</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">angled45/mmf_phase_channels.py · L237–L288</a></p>
+<p><strong>S29 — ピークとFWHMの計算</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">angled45/mmf_vector_utility.py · L2824–L2885</a></p>
+<p><strong>S30 — 同一フォルダのモジュール優先順位</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/_bootstrap.py#L1-L10">angled45/_bootstrap.py · L1–L10</a></p>
+<p><strong>S31 — 逆方向の振幅と強度の区別</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L195-L215">angled45/mmf_angled45_reverse_main.py · L195–L215</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">順方向・逆方向コードの実際のアルゴリズムと数式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">本書の読み方</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">目次</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">記号と単位</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1 実装の要点と実行順序</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2 光学系の数値と座標</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3 順方向入力ベクトル場の実際の生成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4 光線の交点と境界媒質</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snellfresnel">5 入射面と境界でのSnell則とFresnel処理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6 ファイバ内部の位相と偏光伝搬</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo">7 確率的分岐とコヒーレントMonte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">8 45度端面から側方へ出る経路</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9 出射光線を側面基準面へ集める方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10 有限画素での複素場と強度の加算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">11 基準面からカメラまでのベクトル角スペクトル法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">12 逆方向点光源のベクトル場と面積標本化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">13 逆方向の境界通過と出射面記録</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic">14 選択可能なanalytic入力分岐</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">15 順方向と逆方向の対応と限界</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">16 結果を解釈するときの確認事項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">出典索引</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
