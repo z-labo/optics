@@ -1,0 +1,2157 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Susceptibility in NLC &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ja/bbo_ja';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/ja/bbo_ja.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fja/bbo_ja.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ja/bbo_ja.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Susceptibility in NLC</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 非線形分極</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 和周波・差周波発生</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">3. 2次周波数混合のtensor表現</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#times3-matrix">3.1 1つの出力偏光に対する有用な <span class="math notranslate nohighlight">\(3\times3\)</span> matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfgintrinsic-permutation-symmetry">3.2 異なる周波数のSFGにおけるintrinsic permutation symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shgcontracted-notation">4. SHGのcontracted notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherent-beamcross-term">4.1 同一周波数の2つのcoherent beam間のcross term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO：結晶対称性と <span class="math notranslate nohighlight">\(d\)</span> matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-shg-geometry">6. 対称なnon-collinear SHG geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-cross-term-nonlinear-polarization">6.1 2つの <span class="math notranslate nohighlight">\(y\)</span> 偏光ビームによるcross-term nonlinear polarizationの導出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-bbocrystal-coordinate">6.2 実際のType-I BBOのcrystal coordinateを反映した計算</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinate">6.2.1 Laboratory coordinate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinate-x-y-z">6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vectorcrystal-frame">6.2.3 Wave vectorをcrystal frameへ変換</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-polarizationcrystal-x-ordinary-polarization">6.2.4 Fundamental polarizationはcrystal <span class="math notranslate nohighlight">\(X\)</span> 方向のordinary polarization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#crystal-framecross-term-contracted-vector">6.2.5 Crystal frameにおけるcross-term contracted vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-d-matrix">6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrixの適用</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarizationlaboratory-frame">6.2.7 Nonlinear polarizationをlaboratory frameへ回転</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extraordinary-sheffective-nonlinear-coefficient">6.2.8 Extraordinary SHに結合するeffective nonlinear coefficient</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31">6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span> と <span class="math notranslate nohighlight">\(d_{31}\)</span> の数値を使用する際の注意</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.10 6.1節との違い</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="susceptibility-in-nlc">
+<h1>Susceptibility in NLC<a class="headerlink" href="#susceptibility-in-nlc" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>1. 非線形分極<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>誘電体媒質において、誘起分極は電場のべき級数として展開できる。Cartesian tensor notationで書くと、</p>
+<div class="math notranslate nohighlight">
+\[
+P_i(t)
+=
+\varepsilon_0
+\left[
+\sum_j \chi_{ij}^{(1)} E_j(t)
++
+\sum_{jk} \chi_{ijk}^{(2)} E_j(t)E_k(t)
++
+\sum_{jkl} \chi_{ijkl}^{(3)} E_j(t)E_k(t)E_l(t)
++\cdots
+\right].
+\]</div>
+<p>簡略化して書くと、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}
+=
+\mathbf{P}^{(1)}
++
+\mathbf{P}^{(2)}
++
+\mathbf{P}^{(3)}
++\cdots.
+\]</div>
+<p>tensor rankとSI単位は以下のとおりである。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\chi^{(1)}\)</span>: rank-2 tensor、SIでは無次元</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(2)}\)</span>: rank-3 tensor、SI単位は <span class="math notranslate nohighlight">\(\mathrm{m/V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(3)}\)</span>: rank-4 tensor、SI単位は <span class="math notranslate nohighlight">\(\mathrm{m^2/V^2}\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\mathbf{P}^{(2)}\)</span>は2次非線形分極（second-order nonlinear polarization）、<br />
+<span class="math notranslate nohighlight">\(\mathbf{P}^{(3)}\)</span>は3次非線形分極（third-order nonlinear polarization）である。</p>
+<p>上記の単純な代数的表現は <strong>instantaneous, local response</strong> を仮定している。実際の分散媒質は一般に、過去の時刻における電場に依存するresponse functionで記述され、周波数領域ではfrequency-dependent susceptibilityとして表される。</p>
+<p>非線形性の大きさを概算するための代表的なスケールとしてatomic electric fieldがある。</p>
+<div class="math notranslate nohighlight">
+\[
+E_{\mathrm{at}}
+=
+\frac{e}{4\pi\varepsilon_0 a_0^2}
+\simeq
+5.14\times10^{11}\ \mathrm{V/m},
+\]</div>
+<p>ここで <span class="math notranslate nohighlight">\(a_0\)</span> はBohr radiusである。</p>
+<p>これに対応する真空中のintensityは</p>
+<div class="math notranslate nohighlight">
+\[
+I_{\mathrm{at}}
+=
+\frac{1}{2}c\varepsilon_0 E_{\mathrm{at}}^2
+\simeq
+3.51\times10^{16}\ \mathrm{W/cm^2}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(E\sim E_{\mathrm{at}}\)</span> において展開式の連続する各項が同程度の大きさになると仮定すると、</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}},
+\qquad
+\chi^{(3)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}^2}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\chi^{(1)}\sim1\)</span> とすると、おおよそ</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+2\times10^{-12}\ \mathrm{m/V},
+\qquad
+\chi^{(3)}
+\sim
+4\times10^{-24}\ \mathrm{m^2/V^2}.
+\]</div>
+<p>これらはorder-of-magnitude estimateにすぎず、実際の値は物質および光学周波数に強く依存する。</p>
+</section>
+<section id="id2">
+<h2>2. 和周波・差周波発生<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>2つの単色波のcomplex field amplitudeを考える。以下のconventionを用いる。</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{E}(t)
+=
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\]</div>
+<p>まずfieldをscalarとして扱うと、</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\widetilde{E}^{\,2}(t).
+\]</div>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\left(
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\right)^2.
+\]</div>
+<p>これを展開すると、</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\Big[
+E_1^2 e^{-2i\omega_1 t}
++
+E_2^2 e^{-2i\omega_2 t}
++
+2E_1E_2e^{-i(\omega_1+\omega_2)t}
++
+2E_1E_2^*e^{-i(\omega_1-\omega_2)t}
++
+c.c.
+\Big]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\qquad
++
+\varepsilon_0\chi^{(2)}
+\left(
+E_1E_1^*
++
+E_2E_2^*
+\right).
+\]</div>
+<p>この展開にはsecond-harmonic、sum-frequency、difference-frequency、およびzero-frequency成分が含まれる。</p>
+<p><span class="math notranslate nohighlight">\(\omega_1&gt;\omega_2\)</span> のとき、positive-frequency成分は</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_1)
+=
+\varepsilon_0\chi^{(2)}E_1^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_2)
+=
+\varepsilon_0\chi^{(2)}E_2^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1+\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1-\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2^*.
+\]</div>
+<p>zero-frequency成分は以下に示すoptical rectificationである。</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(0)
+=
+2\varepsilon_0\chi^{(2)}
+\left(
+|E_1|^2
++
+|E_2|^2
+\right).
+\]</div>
+<p>positive-frequency成分のcomplex conjugateが、対応するnegative-frequency成分を構成する。</p>
+</section>
+<section id="tensor">
+<h2>3. 2次周波数混合のtensor表現<a class="headerlink" href="#tensor" title="Permalink to this heading">#</a></h2>
+<p>異方性媒質では、上記のscalar式をtensor contractionとして記述する必要がある。和周波発生の場合、</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_3=\omega_1+\omega_2
+\]</div>
+<p>とおくと、上記のcomplex-amplitude conventionにおけるsum-frequency polarizationは</p>
+<div class="math notranslate nohighlight">
+\[
+P_i^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\sum_{j=x,y,z}
+\sum_{k=x,y,z}
+\chi_{ijk}^{(2)}
+(\omega_3;\omega_1,\omega_2)
+E_j(\omega_1)
+E_k(\omega_2).
+\]</div>
+<section id="times3-matrix">
+<h3>3.1 1つの出力偏光に対する有用な <span class="math notranslate nohighlight">\(3\times3\)</span> matrix<a class="headerlink" href="#times3-matrix" title="Permalink to this heading">#</a></h3>
+<p>Polarizationの出力成分を1つ固定する。例えば <span class="math notranslate nohighlight">\(i=x\)</span> の場合、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{\chi}_x^{(2)}
+=
+\begin{pmatrix}
+\chi_{xxx}^{(2)} &amp; \chi_{xxy}^{(2)} &amp; \chi_{xxz}^{(2)}\\
+\chi_{xyx}^{(2)} &amp; \chi_{xyy}^{(2)} &amp; \chi_{xyz}^{(2)}\\
+\chi_{xzx}^{(2)} &amp; \chi_{xzy}^{(2)} &amp; \chi_{xzz}^{(2)}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>すると、</p>
+<div class="math notranslate nohighlight">
+\[
+P_x^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\mathbf{E}^T(\omega_1)
+\mathbf{\chi}_x^{(2)}
+\mathbf{E}(\omega_2),
+\]</div>
+<p>ここで</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}(\omega_m)
+=
+\begin{pmatrix}
+E_x(\omega_m)\\
+E_y(\omega_m)\\
+E_z(\omega_m)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>この表現は数値計算において特に簡潔である。</p>
+<p>和周波の非線形分極には <span class="math notranslate nohighlight">\(E_jE_k\)</span> の積が含まれるため、上式ではHermitian transpose <span class="math notranslate nohighlight">\(\dagger\)</span> ではなく通常のtranspose <span class="math notranslate nohighlight">\(T\)</span> を用いる。</p>
+</section>
+</section>
+<section id="sfgintrinsic-permutation-symmetry">
+<h2>3.2 異なる周波数のSFGにおけるintrinsic permutation symmetry<a class="headerlink" href="#sfgintrinsic-permutation-symmetry" title="Permalink to this heading">#</a></h2>
+<p>次の2つの項を考える。</p>
+<div class="math notranslate nohighlight">
+\[
+A = E_x(\omega_2)E_y(\omega_1)\chi_{xxy}^{(2)}
+\]</div>
+<p>および</p>
+<div class="math notranslate nohighlight">
+\[
+B = E_y(\omega_2)E_x(\omega_1)\chi_{xyx}^{(2)}.
+\]</div>
+<p>2つの周波数が異なる場合、すなわち <span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span> のとき、一般には <span class="math notranslate nohighlight">\(A \neq B\)</span> である。</p>
+<p>その理由は、nonlinear susceptibilityが単にCartesian indexだけでなく、それぞれのindexに対応する周波数にも依存するためである。</p>
+<p>第1項 <span class="math notranslate nohighlight">\(A\)</span> の周波数argumentを明示すると、</p>
+<div class="math notranslate nohighlight">
+\[
+A = \chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)E_x(\omega_2)E_y(\omega_1)
+\]</div>
+<p>と書ける。</p>
+<p>ここで <span class="math notranslate nohighlight">\(\omega_3 = \omega_1+\omega_2\)</span> である。</p>
+<p>Second-order susceptibilityのintrinsic permutation symmetryは</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(\omega_3;\omega_a,\omega_b)
+=
+\chi_{ikj}^{(2)}(\omega_3;\omega_b,\omega_a)
+\]</div>
+<p>で与えられる。</p>
+<p>したがって現在の場合、</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+\]</div>
+<p>が成立する。</p>
+<p>つまりintrinsic permutation symmetryでは、単にCartesian index <span class="math notranslate nohighlight">\(x\)</span> と <span class="math notranslate nohighlight">\(y\)</span> を交換するのではなく、<span class="math notranslate nohighlight">\((x,\omega_2)\)</span> と <span class="math notranslate nohighlight">\((y,\omega_1)\)</span> という <strong>index-frequency pair全体を同時に交換する</strong>。</p>
+<p>したがって <span class="math notranslate nohighlight">\(A\)</span> は</p>
+<div class="math notranslate nohighlight">
+\[
+A
+=
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2)
+\]</div>
+<p>と書くことができる。</p>
+<p>したがって、intrinsic permutation symmetryによって保証される正確な関係は</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2)
+\]</div>
+<p>である。</p>
+<p>一方、</p>
+<div class="math notranslate nohighlight">
+\[
+B
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_y(\omega_2)E_x(\omega_1)
+\]</div>
+<p>は <span class="math notranslate nohighlight">\(A\)</span> とは異なる周波数・偏光の割り当てを表す。</p>
+<p>すなわち <span class="math notranslate nohighlight">\(A\)</span> では</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2\)</span> 成分が <span class="math notranslate nohighlight">\(x\)</span> 偏光</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1\)</span> 成分が <span class="math notranslate nohighlight">\(y\)</span> 偏光</p></li>
+</ul>
+<p>であるのに対して、<span class="math notranslate nohighlight">\(B\)</span> では</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2\)</span> 成分が <span class="math notranslate nohighlight">\(y\)</span> 偏光</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1\)</span> 成分が <span class="math notranslate nohighlight">\(x\)</span> 偏光</p></li>
+</ul>
+<p>である。</p>
+<p>したがって、<span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span> の一般的なSFGでは <span class="math notranslate nohighlight">\(A \neq B\)</span> となり得る。重要なのは、intrinsic permutation symmetryが意味するのは <span class="math notranslate nohighlight">\((j,\omega_1) \leftrightarrow (k,\omega_2)\)</span> の同時交換であり、<span class="math notranslate nohighlight">\(j \leftrightarrow k\)</span> だけを独立に交換することではないという点である。</p>
+<p>一方、degenerate SHGでは <span class="math notranslate nohighlight">\(\omega_1=\omega_2=\omega\)</span> であるため、周波数を交換しても変化せず、</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(2\omega;\omega,\omega)
+=
+\chi_{ikj}^{(2)}(2\omega;\omega,\omega)
+\]</div>
+<p>となり、最後の2つのCartesian indexについて対称性を利用できる。この対称性により、SHGでは通常の <span class="math notranslate nohighlight">\(3\times6\)</span> contracted notationを自然に使用できる。</p>
+<p>Kleinman symmetryを適用できる場合には、さらに多くのindex symmetryが得られるが、強いdispersionが存在する領域では自動的に仮定すべきではない。</p>
+</section>
+<section id="shgcontracted-notation">
+<h2>4. SHGのcontracted notation<a class="headerlink" href="#shgcontracted-notation" title="Permalink to this heading">#</a></h2>
+<p>対称なindex pair <span class="math notranslate nohighlight">\(j,k\)</span> に対して、次のように縮約する。</p>
+<div class="math notranslate nohighlight">
+\[
+xx\rightarrow1,\qquad
+yy\rightarrow2,\qquad
+zz\rightarrow3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+yz(=zy)\rightarrow4,\qquad
+zx(=xz)\rightarrow5,\qquad
+xy(=yx)\rightarrow6.
+\]</div>
+<p>通常のnonlinear coefficientは</p>
+<div class="math notranslate nohighlight">
+\[
+d_{il}
+=
+\frac{1}{2}\chi_{ijk}^{(2)}
+\]</div>
+<p>と定義し、<span class="math notranslate nohighlight">\(l\)</span> が <span class="math notranslate nohighlight">\(jk\)</span> のpairを表す。</p>
+<p>単一周波数 <span class="math notranslate nohighlight">\(\omega\)</span> のfieldに対して、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがってSH polarizationは</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}(\mathbf{E})
+\]</div>
+<p>と書ける。</p>
+<section id="coherent-beamcross-term">
+<h3>4.1 同一周波数の2つのcoherent beam間のcross term<a class="headerlink" href="#coherent-beamcross-term" title="Permalink to this heading">#</a></h3>
+<p>non-collinear SHGでは、2つのビームを <strong>beam number</strong> で区別する方が明確である。</p>
+<p>positive-frequency spatial amplitudeを</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}(\mathbf{r})
+=
+\mathbf{E}_1(\mathbf{r})
++
+\mathbf{E}_2(\mathbf{r})
+\]</div>
+<p>とし、共通の時間依存性を <span class="math notranslate nohighlight">\(e^{-i\omega t}\)</span> とする。</p>
+<p>すると、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{q}(\mathbf{E}_1+\mathbf{E}_2)
+=
+\mathbf{q}(\mathbf{E}_1)
++
+\mathbf{q}(\mathbf{E}_2)
++
+\mathbf{q}_{12},
+\]</div>
+<p>ここでcross-term vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+2
+\begin{pmatrix}
+E_{1x}E_{2x}\\
+E_{1y}E_{2y}\\
+E_{1z}E_{2z}\\
+E_{1y}E_{2z}+E_{1z}E_{2y}\\
+E_{1z}E_{2x}+E_{1x}E_{2z}\\
+E_{1x}E_{2y}+E_{1y}E_{2x}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>この定義により、しばしば生じるfactor-of-twoの混乱を避けることができる。</p>
+<p>もし <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span> を先頭のfactor 2なしで定義する場合には、polarization式のprefactorを代わりに <span class="math notranslate nohighlight">\(4\varepsilon_0\)</span> としなければならない。</p>
+</section>
+</section>
+<section id="beta-bbo-d-matrix">
+<h2>5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO：結晶対称性と <span class="math notranslate nohighlight">\(d\)</span> matrix<a class="headerlink" href="#beta-bbo-d-matrix" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\beta\)</span>-<span class="math notranslate nohighlight">\(\mathrm{BaB_2O_4}\)</span> (BBO) は非中心対称（non-centrosymmetric）のtrigonal crystalであり、</p>
+<div class="math notranslate nohighlight">
+\[
+\text{space group}=R3c,
+\qquad
+\text{point group}=3m
+\]</div>
+<p>である。</p>
+<p>よく用いられるcrystal-axis conventionでは、contracted second-order matrixは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Kleinman symmetryが適用できる場合、</p>
+<div class="math notranslate nohighlight">
+\[
+d_{15}=d_{31}.
+\]</div>
+<p>BBOについてよく引用される係数の大きさは、おおよそ</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{15}|
+=
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V}.
+\]</div>
+<p>各 <span class="math notranslate nohighlight">\(d\)</span> coefficientの符号はcrystallographic-axis conventionに依存して変わる場合がある。</p>
+<p>上記のmatrix conventionでは、以下のように符号を一貫して使用する必要がある。</p>
+<div class="math notranslate nohighlight">
+\[
+d_{21}=-d_{22}.
+\]</div>
+</section>
+<section id="non-collinear-shg-geometry">
+<h2>6. 対称なnon-collinear SHG geometry<a class="headerlink" href="#non-collinear-shg-geometry" title="Permalink to this heading">#</a></h2>
+<p><img alt="Fig. 10" src="../_images/fig10.jpg" /></p>
+<section id="y-cross-term-nonlinear-polarization">
+<h3>6.1 2つの <span class="math notranslate nohighlight">\(y\)</span> 偏光ビームによるcross-term nonlinear polarizationの導出<a class="headerlink" href="#y-cross-term-nonlinear-polarization" title="Permalink to this heading">#</a></h3>
+<p>上で使用した <span class="math notranslate nohighlight">\((x,y,z)\)</span> 軸が、Eq. (15) の <strong>crystal axisと完全に同一の軸</strong> であると仮定する。</p>
+<p>2つのfundamental beamは同一周波数 <span class="math notranslate nohighlight">\(\omega\)</span> を持ち、<span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(z\)</span> 平面内を <span class="math notranslate nohighlight">\(\pm\gamma\)</span> の角度で対称に伝搬するとする。</p>
+<p>各電場を</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_1(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_2(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}\\
+0
+\end{pmatrix}
+\end{split}\]</div>
+<p>とする。</p>
+<p>したがって、2つのビームを合わせた全fundamental fieldは</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}
+=
+\mathbf{E}_1+\mathbf{E}_2.
+\]</div>
+<p>両ビームとも <span class="math notranslate nohighlight">\(y\)</span> 偏光成分のみを持つため、</p>
+<div class="math notranslate nohighlight">
+\[
+E_x=0,
+\qquad
+E_z=0,
+\]</div>
+<p>かつ</p>
+<div class="math notranslate nohighlight">
+\[
+E_y
+=
+E_{1y}+E_{2y}.
+\]</div>
+<p>SHGのcontracted notationにおけるquadratic field vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>現在の場合 <span class="math notranslate nohighlight">\(E_x=E_z=0\)</span> なので、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+0\\
+(E_{1y}+E_{2y})^2\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>第2成分を展開すると、</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1y}+E_{2y})^2
+=
+E_{1y}^2
++
+E_{2y}^2
++
+2E_{1y}E_{2y}.
+\]</div>
+<p>ここで</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}^2
+\]</div>
+<p>と</p>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}^2
+\]</div>
+<p>は、それぞれbeam 1とbeam 2が単独で生成するSHG成分であり、</p>
+<div class="math notranslate nohighlight">
+\[
+2E_{1y}E_{2y}
+\]</div>
+<p>が2つのビーム間の <strong>cross-term SHG</strong> に対応する。</p>
+<p>したがって、cross termに対応するcontracted field vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+\begin{pmatrix}
+0\\
+2E_{1y}E_{2y}\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>ここで、2つのfieldの空間位相を代入する。</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>したがって2つのfieldの積は</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>指数部をまとめると、</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega[
+2\cos\gamma\,z
++
+\sin\gamma\,x
+-
+\sin\gamma\,x
+]}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(x\)</span> 方向のphase termは相殺されるため、</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>したがってcross-term vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>となる。</p>
+<hr class="docutils" />
+<p>BBOのcontracted nonlinear coefficient matrixを</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{split}\]</div>
+<p>とする。</p>
+<p>SHG nonlinear polarizationは</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}
+\]</div>
+<p>で与えられる。</p>
+<p>したがってcross termは</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>先ほど求めた <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span> を代入すると、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\left[
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+\right].
+\end{split}\]</div>
+<p>scalar factorを外に出すと、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>右側vectorでは第2成分のみが1であるため、<span class="math notranslate nohighlight">\(d\)</span> matrixの <strong>第2columnのみが選択される</strong>。</p>
+<p>すなわち、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがって最終的に、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>を得る。</p>
+<p>各Cartesian componentは</p>
+<div class="math notranslate nohighlight">
+\[
+P_{12,x}^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,y}^{(2)}
+=
+4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,z}^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>ここでspatial phase factor</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i2k_\omega\cos\gamma\,z}
+\]</div>
+<p>は、cross-term nonlinear polarizationのwave vectorが</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+\begin{pmatrix}
+0\\
+0\\
+2k_\omega\cos\gamma
+\end{pmatrix}
+\end{split}\]</div>
+<p>であることを意味する。</p>
+<p>つまり、対称なnon-collinear geometryでは、cross-term nonlinear polarizationのspatial phaseは2つのfundamental beamのangle bisectorである <span class="math notranslate nohighlight">\(z\)</span> 方向に進む。</p>
+</section>
+<section id="type-i-bbocrystal-coordinate">
+<h3>6.2 実際のType-I BBOのcrystal coordinateを反映した計算<a class="headerlink" href="#type-i-bbocrystal-coordinate" title="Permalink to this heading">#</a></h3>
+<p>6.1節では、laboratory <span class="math notranslate nohighlight">\((x,y,z)\)</span> 軸をEq. (15)の <strong>crystal axisと完全に同一の軸</strong> であると意図的に仮定した。<br />
+したがって6.1節の計算は、その誤った仮定を維持した比較用の計算としてそのまま残す。</p>
+<p>実際のType-I BBOでは、laboratory coordinateとcrystal coordinateを区別する必要がある。</p>
+<p>ここではEq. (15)の <span class="math notranslate nohighlight">\(d\)</span> matrixに対応する標準的な <span class="math notranslate nohighlight">\(3m\)</span> crystal-axis conventionを用いて再計算する。</p>
+<hr class="docutils" />
+<section id="laboratory-coordinate">
+<h4>6.2.1 Laboratory coordinate<a class="headerlink" href="#laboratory-coordinate" title="Permalink to this heading">#</a></h4>
+<p>laboratory coordinate <span class="math notranslate nohighlight">\((x,y,z)\)</span> を以下のように定義する。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: 2つのfundamental beamのangle bisectorであり、cross-term SHの伝搬方向</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>: 2つのbeamが交差するplane内のtransverse direction</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span>: beam-crossing planeに垂直な方向であり、fundamental beamの偏光方向</p></li>
+</ul>
+<p>したがって、2つのfundamental beamのwave vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix},
+\qquad
+\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+-\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix}.
+\end{split}\]</div>
+<p>2つのbeamによるcross-term nonlinear polarizationのspatial wave vectorは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+2k_\omega\cos\gamma
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがって、cross-term SHのnominal propagation directionはlaboratory <span class="math notranslate nohighlight">\(z\)</span> 方向である。</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-crystal-coordinate-x-y-z">
+<h4>6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span><a class="headerlink" href="#bbo-crystal-coordinate-x-y-z" title="Permalink to this heading">#</a></h4>
+<p>Eq. (15)の <span class="math notranslate nohighlight">\(d\)</span> matrixで用いるcrystal coordinateを大文字 <span class="math notranslate nohighlight">\((X,Y,Z)\)</span> で表す。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z\)</span>: BBOのcrystallographic <span class="math notranslate nohighlight">\(c\)</span>-axisであり <strong>optic axis</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(YZ\)</span> plane: <span class="math notranslate nohighlight">\(3m\)</span> point groupに属する1つの <strong>crystal mirror plane</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span>: そのmirror planeに垂直なaxis</p></li>
+</ul>
+<p>大きな <span class="math notranslate nohighlight">\(d_{22}\)</span> を利用するType-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> BBOの標準的なorientationでは、propagation planeをcrystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane内に置く。<br />
+標準的なspherical-angle conventionでは、最適azimuthを</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-\frac{\pi}{2}
+\]</div>
+<p>と取ることができる。</p>
+<p>現在のgeometryではlaboratory <span class="math notranslate nohighlight">\(xz\)</span> planeがoptical principal planeであるため、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+YZ_{\mathrm{crys}}
+=
+xz_{\mathrm{lab}}
+}
+\]</div>
+<p>とする。</p>
+<p>したがってcrystal <span class="math notranslate nohighlight">\(X\)</span> axisはlaboratory <span class="math notranslate nohighlight">\(y\)</span> axisと平行である。<br />
+以下では、right-handed coordinateと <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span> conventionを同時に満たすため、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}
+}
+\]</div>
+<p>と定義する。</p>
+<p>この符号の選択自体は物理的な違いを生じないが、<span class="math notranslate nohighlight">\(d_{22}\)</span> の符号と <span class="math notranslate nohighlight">\(\phi\)</span> conventionを一貫して保つために必要である。</p>
+<p>generated SH wave vector <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> がlaboratory <span class="math notranslate nohighlight">\(z\)</span> 方向を向き、optic axis <span class="math notranslate nohighlight">\(Z\)</span> と <span class="math notranslate nohighlight">\(z\)</span> のなす角を <span class="math notranslate nohighlight">\(\theta\)</span> とする。</p>
+<p>すると、crystal basis vectorをlaboratory coordinateで</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{X}}
+=
+\begin{pmatrix}
+0\\
+-1\\
+0
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Y}}
+=
+\begin{pmatrix}
+\cos\theta\\
+0\\
+-\sin\theta
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Z}}
+=
+\begin{pmatrix}
+\sin\theta\\
+0\\
+\cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>と書ける。</p>
+<p>実際、</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf{X}}\times\hat{\mathbf{Y}}
+=
+\hat{\mathbf{Z}}
+\]</div>
+<p>を満たすため、right-handed coordinate systemである。</p>
+<p>crystal-frame componentをlaboratory frameへ変換するrotation matrixは、各crystal basis vectorをcolumnとして持つ</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+R
+=
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>である。</p>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\mathbf{v}_{\mathrm{lab}}
+=
+R\mathbf{v}_{\mathrm{crys}},
+\qquad
+\mathbf{v}_{\mathrm{crys}}
+=
+R^T\mathbf{v}_{\mathrm{lab}}.
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="wave-vectorcrystal-frame">
+<h4>6.2.3 Wave vectorをcrystal frameへ変換<a class="headerlink" href="#wave-vectorcrystal-frame" title="Permalink to this heading">#</a></h4>
+<p>まずgenerated SHの方向を変換すると、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>すなわちcrystal coordinateでは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{k}}_{2\omega,\mathrm{crys}}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>である。</p>
+<p>したがって <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> はcrystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane内にあり、<span class="math notranslate nohighlight">\(Z\)</span> axisと <span class="math notranslate nohighlight">\(\theta\)</span> の角をなす。<br />
+また <span class="math notranslate nohighlight">\(X\)</span> componentが0で <span class="math notranslate nohighlight">\(Y&lt;0\)</span> であるため、このorientationは</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ
+\]</div>
+<p>に対応する。</p>
+<p>2つのfundamental beamについても</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta-\gamma)\\
+\cos(\theta-\gamma)
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta+\gamma)\\
+\cos(\theta+\gamma)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがって <span class="math notranslate nohighlight">\(\mathbf{k}_1\)</span>、<span class="math notranslate nohighlight">\(\mathbf{k}_2\)</span>、<span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> およびoptic axis <span class="math notranslate nohighlight">\(Z\)</span> はすべてcrystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane内にある。</p>
+</section>
+<hr class="docutils" />
+<section id="fundamental-polarizationcrystal-x-ordinary-polarization">
+<h4>6.2.4 Fundamental polarizationはcrystal <span class="math notranslate nohighlight">\(X\)</span> 方向のordinary polarization<a class="headerlink" href="#fundamental-polarizationcrystal-x-ordinary-polarization" title="Permalink to this heading">#</a></h4>
+<p>laboratory frameにおける2つのfundamental fieldは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{1,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{2,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>crystal frameへ変換すると、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}_{m,\mathrm{crys}}
+=
+R^T\mathbf{E}_{m,\mathrm{lab}}.
+\]</div>
+<p>ここで</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{1,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>および</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{2,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>すなわち、laboratoryでは <span class="math notranslate nohighlight">\(y\)</span> 偏光のbeamであるが、Eq. (15)のcrystal coordinateでは <strong><span class="math notranslate nohighlight">\(X\)</span> 偏光のbeam</strong> である。</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+E_{X,\mathrm{crys}}=-E_y,
+\qquad
+E_{Y,\mathrm{crys}}=E_{Z,\mathrm{crys}}=0.
+}
+\]</div>
+<p>符号 <span class="math notranslate nohighlight">\(-\)</span> はSHGの <span class="math notranslate nohighlight">\(E_X^2\)</span> では消える。</p>
+<p>また、ordinary polarizationは <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> とoptic axis <span class="math notranslate nohighlight">\(Z\)</span> が作るprincipal planeに垂直である。<br />
+現在のprincipal planeはcrystal <span class="math notranslate nohighlight">\(YZ\)</span> planeなので、ordinary polarizationは正確にcrystal <span class="math notranslate nohighlight">\(X\)</span> 方向である。</p>
+<p>これが6.1節の誤ったcoordinate identificationとの最も重要な違いである。</p>
+</section>
+<hr class="docutils" />
+<section id="crystal-framecross-term-contracted-vector">
+<h4>6.2.5 Crystal frameにおけるcross-term contracted vector<a class="headerlink" href="#crystal-framecross-term-contracted-vector" title="Permalink to this heading">#</a></h4>
+<p>2つのfieldの <span class="math notranslate nohighlight">\(X\)</span> componentの積は</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+(-E_y)(-E_y)
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>全fieldの2乗におけるcross termは</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1X}+E_{2X})^2
+\supset
+2E_{1X}E_{2X}
+\]</div>
+<p>なので、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12,\mathrm{crys}}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>すなわち、実際のType-I orientationでは <span class="math notranslate nohighlight">\(d\)</span> matrixの <strong>第2columnではなく第1column</strong> が選択される。</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-d-matrix">
+<h4>6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrixの適用<a class="headerlink" href="#bbo-d-matrix" title="Permalink to this heading">#</a></h4>
+<p>Eq. (15)のBBO matrixは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがってcross-term nonlinear polarizationは</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}_{\mathrm{BBO}}
+\mathbf{q}_{12,\mathrm{crys}}.
+\]</div>
+<p>すなわち、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>第1columnのみが残るため、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>したがってcrystal coordinateでは</p>
+<div class="math notranslate nohighlight">
+\[
+P_X^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Y^{(2)}
+=
+-4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Z^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="nonlinear-polarizationlaboratory-frame">
+<h4>6.2.7 Nonlinear polarizationをlaboratory frameへ回転<a class="headerlink" href="#nonlinear-polarizationlaboratory-frame" title="Permalink to this heading">#</a></h4>
+<p>laboratory frameでは、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+R
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}.
+\]</div>
+<p>したがって、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>行列積を計算すると、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+-d_{22}\cos\theta+d_{31}\sin\theta\\
+0\\
+d_{22}\sin\theta+d_{31}\cos\theta
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>すなわち、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+P_x^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{31}\sin\theta-d_{22}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+}
+\]</div>
+<p>であり、</p>
+<div class="math notranslate nohighlight">
+\[
+P_y^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_z^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{22}\sin\theta+d_{31}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="extraordinary-sheffective-nonlinear-coefficient">
+<h4>6.2.8 Extraordinary SHに結合するeffective nonlinear coefficient<a class="headerlink" href="#extraordinary-sheffective-nonlinear-coefficient" title="Permalink to this heading">#</a></h4>
+<p>generated SHはlaboratory <span class="math notranslate nohighlight">\(z\)</span> 方向に伝搬し、optic axisはlaboratory <span class="math notranslate nohighlight">\(xz\)</span> plane内にある。</p>
+<p>したがってType-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> のextraordinary output polarization basisはlaboratory <span class="math notranslate nohighlight">\(x\)</span> 方向に取ることができる。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>これをcrystal coordinateへ変換すると、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{crys}}
+=
+R^T
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+0\\
+\cos\theta\\
+\sin\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>したがってcrystal-frame nonlinear polarizationとのprojectionは</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+d_{\mathrm{eff}}
+=
+\begin{pmatrix}
+0&amp;
+\cos\theta&amp;
+\sin\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>その結果、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta.
+}
+\]</div>
+<p>を得る。</p>
+<p>この式は <span class="math notranslate nohighlight">\(3m\)</span> crystalの一般的なType-I式</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta\sin3\phi
+\]</div>
+<p>に</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ
+\]</div>
+<p>を適用した標準BBO conventionと一致する。</p>
+<p>ただし、文献によって <span class="math notranslate nohighlight">\(X,Y\)</span> axisの符号や <span class="math notranslate nohighlight">\(d_{22}\)</span> の符号conventionが異なる場合があるため、式全体の符号よりも <strong>同一のaxis conventionを計算の最後まで一貫して使用すること</strong> が重要である。</p>
+<p>さらに精密な計算でspatial walk-off angle <span class="math notranslate nohighlight">\(\rho\)</span> まで含めると、標準的な表現はおおよそ</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin(\theta+\rho)
+-
+d_{22}\cos(\theta+\rho)
+\]</div>
+<p>となる。</p>
+</section>
+<hr class="docutils" />
+<section id="d-22-d-31">
+<h4>6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span> と <span class="math notranslate nohighlight">\(d_{31}\)</span> の数値を使用する際の注意<a class="headerlink" href="#d-22-d-31" title="Permalink to this heading">#</a></h4>
+<p>メーカーやデータシートで</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V}
+\]</div>
+<p>のように示される値は、しばしば <strong>magnitude</strong> として解釈すべきである。</p>
+<p>標準BBO axis conventionでは、<span class="math notranslate nohighlight">\(d_{22}\)</span> と <span class="math notranslate nohighlight">\(d_{31}\)</span> の相対符号まで一貫して使用する必要がある。</p>
+<p>例えば、</p>
+<div class="math notranslate nohighlight">
+\[
+d_{31}=+0.08\ \mathrm{pm/V},
+\qquad
+d_{22}=-2.2\ \mathrm{pm/V}
+\]</div>
+<p>という符号conventionを選ぶと、</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}
+=
+0.08\sin\theta
++
+2.2\cos\theta.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\theta=29.2^\circ\)</span> のとき、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}
+\simeq
+1.96\ \mathrm{pm/V}.
+}
+\]</div>
+<p>逆に、すべてのcrystal-axis sign conventionを反転すると <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span> 全体の符号が変わる場合があるが、SHG conversion efficiencyは</p>
+<div class="math notranslate nohighlight">
+\[
+I_{2\omega}\propto |d_{\mathrm{eff}}|^2
+\]</div>
+<p>に依存するため、観測されるintensityは変化しない。</p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h4>6.2.10 6.1節との違い<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<p>6.1節では誤った仮定</p>
+<div class="math notranslate nohighlight">
+\[
+y_{\mathrm{lab}}
+\equiv
+Y_{\mathrm{crys}}
+\]</div>
+<p>を用いたため、<span class="math notranslate nohighlight">\(d\)</span> matrixの第2columnを選択し、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}
+\end{split}\]</div>
+<p>を得た。</p>
+<p>しかし、実際のType-I BBOの標準orientationでは、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+y_{\mathrm{lab}}
+\parallel
+X_{\mathrm{crys}}
+}
+\]</div>
+<p>であり、現在のright-handed <span class="math notranslate nohighlight">\(\phi=-90^\circ\)</span> conventionでは具体的に</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}.
+}
+\]</div>
+<p>したがって実際のcross termは <span class="math notranslate nohighlight">\(d\)</span> matrixの第1columnを使用し、</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>これをlaboratory frameへ回転し、extraordinary outputへprojectionすると、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta
+}
+\]</div>
+<p>を得る。</p>
+<p>つまり6.1節の本質的な誤りは、単にoptic axisの傾きを無視したことだけではなく、<strong>laboratory <span class="math notranslate nohighlight">\(y\)</span> polarizationをcrystal <span class="math notranslate nohighlight">\(Y\)</span> componentとして誤って解釈したこと</strong> にある。</p>
+<p>標準Type-I BBOでは、laboratory <span class="math notranslate nohighlight">\(y\)</span> polarizationはcrystal <span class="math notranslate nohighlight">\(X\)</span> 方向のordinary polarizationに対応する。</p>
+<hr class="docutils" />
+<p>参考文献: M. Bache, H. Guo, B. Zhou, and X. Zeng, <em>The anisotropic Kerr nonlinear refractive index of the beta-barium borate (BBO) nonlinear crystal</em>, arXiv:1209.3158. この文献では、BBOのcrystal coordinateを <span class="math notranslate nohighlight">\(XYZ\)</span>、beam coordinateを <span class="math notranslate nohighlight">\(xyz\)</span> と区別し、Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> の最適cutを <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span> と記述している。</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 非線形分極</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 和周波・差周波発生</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">3. 2次周波数混合のtensor表現</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#times3-matrix">3.1 1つの出力偏光に対する有用な <span class="math notranslate nohighlight">\(3\times3\)</span> matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfgintrinsic-permutation-symmetry">3.2 異なる周波数のSFGにおけるintrinsic permutation symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shgcontracted-notation">4. SHGのcontracted notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherent-beamcross-term">4.1 同一周波数の2つのcoherent beam間のcross term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO：結晶対称性と <span class="math notranslate nohighlight">\(d\)</span> matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-shg-geometry">6. 対称なnon-collinear SHG geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-cross-term-nonlinear-polarization">6.1 2つの <span class="math notranslate nohighlight">\(y\)</span> 偏光ビームによるcross-term nonlinear polarizationの導出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-bbocrystal-coordinate">6.2 実際のType-I BBOのcrystal coordinateを反映した計算</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinate">6.2.1 Laboratory coordinate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinate-x-y-z">6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vectorcrystal-frame">6.2.3 Wave vectorをcrystal frameへ変換</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-polarizationcrystal-x-ordinary-polarization">6.2.4 Fundamental polarizationはcrystal <span class="math notranslate nohighlight">\(X\)</span> 方向のordinary polarization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#crystal-framecross-term-contracted-vector">6.2.5 Crystal frameにおけるcross-term contracted vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-d-matrix">6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrixの適用</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarizationlaboratory-frame">6.2.7 Nonlinear polarizationをlaboratory frameへ回転</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extraordinary-sheffective-nonlinear-coefficient">6.2.8 Extraordinary SHに結合するeffective nonlinear coefficient</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31">6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span> と <span class="math notranslate nohighlight">\(d_{31}\)</span> の数値を使用する際の注意</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.10 6.1節との違い</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

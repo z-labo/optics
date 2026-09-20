@@ -1,0 +1,1098 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>45도 단면 다중모드 파이버의 광전파 &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/raytracing_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/raytracing_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/raytracing_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/raytracing_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>45도 단면 다중모드 파이버의 광전파</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">정방향과 역방향 코드의 실제 알고리즘과 수식</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">읽는 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">목차</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">기호와 단위</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1 구현의 핵심과 실행 순서</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2 광학계의 수치와 좌표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3 정방향 입력 벡터장의 실제 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4 광선의 교차점과 경계 매질</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snell-fresnel">5 입구와 경계면의 Snell 및 Fresnel 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6 파이버 내부의 위상과 편광 전파</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo">7 확률적 분기와 코히런트 Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">8 45도 끝면에서 측면으로 나오는 경로</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9 출사 광선을 측면 기준면으로 모으는 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10 유한 픽셀의 복소장과 강도 합산</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">11 기준면에서 카메라까지의 벡터 각 스펙트럼법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">12 역방향 점광원의 벡터장과 면적 표본화</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">13 역방향 경계 통과와 출구 기록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic">14 선택 가능한 analytic 입력 분기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">15 정방향과 역방향의 대응과 한계</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">16 결과를 해석할 때 확인할 사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">출처 색인</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>45도 단면 다중모드 파이버의 광전파<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>정방향과 역방향 코드의 실제 알고리즘과 수식<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>입력 벡터장부터 경계면, 파이버 내부, 출사면과 카메라 기록까지 설명한다. 기존에 확인한 코드 스냅샷에 근거한 구현 분석이며, 새로운 전체 광선 시뮬레이션의 실행 결과는 아니다.</p>
+<p><strong>분석 대상</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py">angled45/mmf_angled45_main.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py">angled45/mmf_angled45_reverse_main.py</a></p></li>
+</ul>
+<p><strong>분석 기준 커밋</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/commit/c6a399ce07fd095daee3bedfee1fb04ccac07f4d">c6a399ce07fd095daee3bedfee1fb04ccac07f4d</a></p>
+<p><strong>형식 변경일</strong>: 2026-09-17</p>
+</section>
+<section id="id3">
+<h2>읽는 방법<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>각 절의 출처 링크는 분석 커밋의 해당 코드 행으로 연결된다. 설명과 수식은 Markdown 셀에 들어 있으며, 표시 수식은 모두 <code class="docutils literal notranslate"><span class="pre">$$</span></code>로 둘러싼 LaTeX이다. 이 노트북은 설명 문서이므로 실행할 코드 셀은 없다. 그림은 파일 안에 포함되어 별도 이미지 파일이 필요하지 않다. 비공개 저장소의 링크를 열려면 GitHub 로그인과 저장소 접근 권한이 필요하다.</p>
+</section>
+<section id="id4">
+<h2>목차<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst">1 구현의 핵심과 실행 순서</span></p></li>
+<li><p><span class="xref myst">2 광학계의 수치와 좌표</span></p></li>
+<li><p><span class="xref myst">3 정방향 입력 벡터장의 실제 생성</span></p></li>
+<li><p><span class="xref myst">4 광선의 교차점과 경계 매질</span></p></li>
+<li><p><span class="xref myst">5 입구와 경계면의 Snell 및 Fresnel 처리</span></p></li>
+<li><p><span class="xref myst">6 파이버 내부의 위상과 편광 전파</span></p></li>
+<li><p><span class="xref myst">7 확률적 분기와 코히런트 Monte Carlo</span></p></li>
+<li><p><span class="xref myst">8 45도 끝면에서 측면으로 나오는 경로</span></p></li>
+<li><p><span class="xref myst">9 출사 광선을 측면 기준면으로 모으는 방법</span></p></li>
+<li><p><span class="xref myst">10 유한 픽셀의 복소장과 강도 합산</span></p></li>
+<li><p><span class="xref myst">11 기준면에서 카메라까지의 벡터 각 스펙트럼법</span></p></li>
+<li><p><span class="xref myst">12 역방향 점광원의 벡터장과 면적 표본화</span></p></li>
+<li><p><span class="xref myst">13 역방향 경계 통과와 출구 기록</span></p></li>
+<li><p><span class="xref myst">14 선택 가능한 analytic 입력 분기</span></p></li>
+<li><p><span class="xref myst">15 정방향과 역방향의 대응과 한계</span></p></li>
+<li><p><span class="xref myst">16 결과를 해석할 때 확인할 사항</span></p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>기호와 단위<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>기호</p></th>
+<th class="head"><p>의미</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E, H</p></td>
+<td><p>복소 전기장과 상대 단위 자기장</p></td>
+</tr>
+<tr class="row-odd"><td><p>k̂, k₀, λ₀</p></td>
+<td><p>단위 진행 방향, 진공 파수, 진공 파장</p></td>
+</tr>
+<tr class="row-even"><td><p>L, a, Δ</p></td>
+<td><p>파이버 축상 길이, 코어 반경, 격자 간격</p></td>
+</tr>
+<tr class="row-odd"><td><p>W, N₀, *</p></td>
+<td><p>중요도 가중치, 총 발사 수, 복소공액</p></td>
+</tr>
+<tr class="row-even"><td><p>f / r</p></td>
+<td><p>정방향 / 역방향 좌표</p></td>
+</tr>
+<tr class="row-odd"><td><p>u, v, w</p></td>
+<td><p>측면의 오른손 국소 기저</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="section-01"></a></p>
+</section>
+<section id="id6">
+<h2>1 구현의 핵심과 실행 순서<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a></p>
+<p>이 두 프로그램은 동일한 45도 단면 광섬유의 양쪽에서 전파를 계산한다. 현재 기본 실행은 reverse를 먼저 수행하여 평평한 단면 바로 밖의 방향별 복소 전기장을 저장하고, main이 그 채널을 위상공액하여 반대쪽으로 재입사시키는 순서다. main 안의 define_input_vector_field는 기본 실행에서 입력장을 만드는 함수가 아니다. INPUT_MODE를 analytic으로 바꿀 때만 그 함수가 사용된다.</p>
+<p>실제 계산은 세 부분의 결합이다. 파이버 안팎의 경계 사이에서는 기하광학 광선의 직선 경로를 계산하고, 각 경로에 3성분 복소 전기장·Fresnel 진폭·광로 위상을 붙인다. 출사 광선은 유한 픽셀에 코히런트하게 합산한다. 정방향에서는 이 기준면장을 FFT 기반 벡터 각 스펙트럼법으로 측면 카메라까지 전파한다. 파이버 내부를 격자로 나누어 Maxwell 방정식을 직접 푸는 방식이나 유도모드 고유치 전개는 이 기본 호출 경로에 없다.</p>
+<p><img alt="그림 1. 실제 실행 순서. 기본 설정은 역방향 계산으로 채널을 저장한 다음 정방향에서 위상공액 재입사한다." src="kr/attachment:flow_ko.png" /></p>
+<p><em>그림 1. 실제 실행 순서. 기본 설정은 역방향 계산으로 채널을 저장한 다음 정방향에서 위상공액 재입사한다.</em></p>
+<p>이 문서의 식은 아래에 연결한 실제 코드의 연산을 수학적으로 정리한 것이다. 기본값에서 유도한 수치는 계산값이며, 새로운 광선 시뮬레이션의 측정 결과를 뜻하지 않는다. 각 절의 출처는 분석 커밋에 고정된 GitHub 행 링크다.</p>
+<p><a id="section-02"></a></p>
+</section>
+<section id="id7">
+<h2>2 광학계의 수치와 좌표<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">S02 · L6–L33</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>현재 값</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>진공 파장</p></td>
+<td><p>0.633 μm = 0.000633 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>굴절률</p></td>
+<td><p>core 1.4469   clad 1.3001   outside 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>코어와 클래딩 반경</p></td>
+<td><p>0.0525 mm / 0.0625 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>축상 단면 중심</p></td>
+<td><p>L = 3.6 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>단면 기울기와 방위각</p></td>
+<td><p>45° / 0°</p></td>
+</tr>
+<tr class="row-odd"><td><p>정방향 목표점</p></td>
+<td><p>(−0.1625, 0, 3.6) mm</p></td>
+</tr>
+<tr class="row-even"><td><p>측면 기준면 중심</p></td>
+<td><p>(−0.0625, 0, 3.6) mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>기준면에서 카메라까지</p></td>
+<td><p>0.1000 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>필드 격자</p></td>
+<td><p>512 × 512; Δ = 0.15 / 512 mm = 0.29296875 μm</p></td>
+</tr>
+<tr class="row-odd"><td><p>역방향 발사 표본</p></td>
+<td><p>262144; seed 12345</p></td>
+</tr>
+<tr class="row-even"><td><p>최대 상호작용</p></td>
+<td><p>200; 최소 교차 거리 10 nm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="math notranslate nohighlight">
+\[
+z_f=L-\tan(\theta )(x\cos \phi +y\sin \phi ),\quad z_r=L-z_f
+\]</div>
+<p>정방향 평면 입구는 z_f=0이고 45도 끝면은 기본값에서 z_f=L−x이다. 역방향 좌표는 x,y를 유지하고 z_r=L−z_f로 바꾼다. 따라서 역방향 기울어진 면은 z_r=x, 평면 출구는 z_r=L, 점광원은 (−0.1625,0,0) mm가 된다. 이는 같은 물체의 좌표 표현을 바꾼 것이며, 파이버를 다른 형상으로 새로 만든다는 뜻이 아니다.</p>
+<div class="math notranslate nohighlight">
+\[
+e_w=(-1,0,0),\quad e_v=(0,0,1),\quad e_u=e_v\times e_w=(0,-1,0)
+\]</div>
+<p>측면장의 성분 순서는 전역 (x,y,z)가 아니라 오른손 국소 기저 (u,v,w)이다. 따라서 기본값에서는 (E_u,E_v,E_w)=(−E_y,E_z,−E_x)이다. u는 −y 방향이고 v는 z 오프셋이다. main의 옛 docstring에 있는 x=−0.2625 mm나 FACET_DISTANCE_MM=0.20을 현재 카메라 위치·거리로 사용하면 틀린다. 실제 위치는 FOCUS_X_MM, FOCUS_Y_MM와 focus_geometry가 결정한다.</p>
+<p><a id="section-03"></a></p>
+</section>
+<section id="id8">
+<h2>3 정방향 입력 벡터장의 실제 생성<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">S23 · L44–L64</a></p>
+<p>기본 main은 reverse_exit_field_angled45.npz의 channel_points, channel_directions, channel_electric, channel_weights와 총 발사 수를 읽는다. 이 정보는 픽셀의 진폭·위상만 가진 2차원 영상보다 많다. 같은 픽셀에 여러 방향의 광선이 들어와도 채널별 진행 방향과 3성분 복소 전기장을 따로 보존한다. 저장 버전 4와 angled45_ray_channels_v1, 물리 파라미터, 광원 위치, 격자, 편광 및 Monte Carlo 옵션을 검사한다.</p>
+<div class="math notranslate nohighlight">
+\[
+D=\mathrm{diag}(1,1,-1),\quad r_f=(x_r,y_r,L-z_r)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hat{k}_f=-D\hat{k}_r,\quad E_f=D E_r^{*}
+\]</div>
+<p>복소공액은 위상의 부호를 반전시킨다. 여기에 좌표 반사 D를 함께 적용하므로 k_x,k_y는 반전되고 k_z는 유지되며, E_z는 공액 후 부호가 반전된다. 전기장 세 성분에 무조건 공액만 취하는 설명은 불완전하다. 변환된 채널을 동일한 격자로 다시 합산한 장과 D E_exit*의 상대 노름 오차 NRMS가 10⁻¹⁰ 이하인지 확인한다. 이 검사는 저장 데이터와 재생 입력의 일치 검사이며, 카메라 초점의 물리적 정확도를 보증하는 검사가 아니다.</p>
+<p>이 분기에서는 입력 FFT를 통한 각도 재표본화나 입력 전력 재정규화를 하지 않는다. PhaseConjugateInput의 보간기는 메타데이터 검증 과정에서 만들어지지만, 실제 재입사에 평가되어 사용되지 않는다. 입력면보다 축방향으로 0.0001 mm 앞선 공기 쪽에서 추적을 시작하고, 그만큼의 전파 위상을 미리 빼서 z=0에서 원래 채널 위상이 복원되도록 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+s=\frac{10\varepsilon }{k_{f,z}},\quad r_{start}=r_f-s\hat{k}_f,\quad E_{start}=E_f e^{-i k_0 n_{out}s}
+\]</div>
+<p><a id="section-04"></a></p>
+</section>
+<section id="id9">
+<h2>4 광선의 교차점과 경계 매질<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">S11 · L1856–L1945</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">S19 · L194–L314</a></p>
+<p>광선의 다음 교차면은 비순차 추적으로 결정한다. 즉 면을 미리 정한 순서로 한 번씩 통과시키지 않고, 현재 위치·방향에서 가장 가까운 유효 교차점을 찾는다. 파이버의 코어 경계, 클래딩 외벽, 평면 입구와 기울어진 끝면에는 mmf_angled_geometry의 해석적 교차 함수를 설치한다. 따라서 현재 경로 계산에서 원통은 256각형 벽의 근사 법선으로 반사되는 것이 아니다. PyVista 메시와 해상도 값은 형상 구성·표시 및 일부 다른 면 처리에도 남아 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+a t^2+b t+c=0,\quad a=d_x^2+d_y^2,\quad b=2(o_xd_x+o_yd_y),\quad c=o_x^2+o_y^2-R^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q=-\frac{1}{2}[b+\mathrm{copysign}(\sqrt{b^2-4ac},b)],\quad t_1=\frac{q}{a},\quad t_2=\frac{c}{q}
+\]</div>
+<p>원통 교차는 위의 이차방정식을 풀고, 벽 근처의 상쇄오차를 줄이는 안정한 근 계산을 사용한다. 평면 교차는 t=(h−n·o)/(n·d)로 계산한다. 유효 반경, 입구와 기울어진 끝면 사이의 z 범위, 최소 교차 거리 ε=10⁻⁵ mm를 검사하고 가장 가까운 양의 교차점을 채택한다. 원통 법선은 반경 방향, 끝면 법선은 해석적으로 얻는다. 역방향도 먼저 정방향 표준 형상 좌표로 변환하여 같은 교차 함수를 사용하고 결과를 역변환한다.</p>
+<p>q=0인 퇴화 경우에는 t=−b/(2a)를 사용한다. 매질은 현재 매질, 경계 이름, 교차점의 반경과 정방향의 z 범위를 이용해 판정한다. 내부 원통은 core↔clad, 외부 원통은 clad↔air, 코어 끝면은 core↔air를 연결한다. 역방향에는 같은 물리적 연결 규칙을 별도 resolver로 적용한다. 이것이 클래딩을 통과한 광선을 계속 코어 광선으로 잘못 취급하지 않게 하는 부분이다.</p>
+<p><a id="section-05"></a></p>
+</section>
+<section id="snell-fresnel">
+<h2>5 입구와 경계면의 Snell 및 Fresnel 처리<a class="headerlink" href="#snell-fresnel" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">S09 · L745–L1099</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">S10 · L1173–L1240</a></p>
+<p>기본 정방향은 공기에서 실제 평면 입구를 추적한다. Kraken이 Snell 법칙에 따른 굴절 방향 또는 반사 방향을 계산하고, 공통 편광 재생 함수가 동일한 사건에 복소 Fresnel 진폭을 적용한다. 여기서 n₁은 입사 매질, n₂는 통과할 매질이며, 법선은 입사 방향과 내적이 양수가 되도록 정렬한다. k₀=2π/λ₀에서 λ₀는 mm로 변환한다.</p>
+<div class="math notranslate nohighlight">
+\[
+n_1\sin \theta _i=n_2\sin \theta _t,\quad c_t=\sqrt{1-(\frac{n_1}{n_2}\sin \theta _i)^2+0i}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r_s=\frac{n_1c_i-n_2c_t}{n_1c_i+n_2c_t},\quad r_p=\frac{n_2c_i-n_1c_t}{n_2c_i+n_1c_t}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t_s=\frac{2n_1c_i}{n_1c_i+n_2c_t},\quad t_p=\frac{2n_1c_i}{n_2c_i+n_1c_t}
+\]</div>
+<p>c_i=cosθ_i이다. 제곱근은 Im(c_t)≥0인 가지를 선택한다. 전반사에서는 c_t가 허수가 되어 r_s,r_p에 위상이 생긴다. 반사율이 1이라는 이유로 전기장을 그대로 두면 s와 p 사이의 위상차를 잃으므로, 이 코드는 전반사에서도 복소 반사계수를 곱한다. 진폭 투과계수 |t|²는 곧바로 전력 투과율이 아니며, 아래의 굴절률·각도 인자를 함께 사용한다.</p>
+<div class="math notranslate nohighlight">
+\[
+T_{s,p}=\frac{n_2\mathrm{Re}(c_t)}{n_1c_i}|t_{s,p}|^2
+\]</div>
+<p>국소 s축은 n×k를 정규화하여 만들고, p축은 k×s에서 만든다. 정상 입사로 외적이 퇴화하면 대체 횡방향 기저를 사용한다. 복소 전기장을 이 기저로 분해하여 계수를 곱한 뒤, 새로운 반사·굴절 방향의 기저를 통해 전역 xyz 성분으로 돌아온다. 따라서 고정된 전역 x,y 성분에 같은 스칼라 계수를 곱하는 모델이 아니다.</p>
+<p><a id="section-06"></a></p>
+</section>
+<section id="id10">
+<h2>6 파이버 내부의 위상과 편광 전파<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">S09 · L745–L1099</a></p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{OPL}=\sum_j n_j\ell_j,\quad E\leftarrow E e^{i k_0 n_j\ell_j},\quad k_0=\frac{2\pi }{\lambda _0}
+\]</div>
+<p>RayState는 현재 위치, 단위 진행 방향, 3성분 복소 전기장, 현재 굴절률, 누적 광로 길이, 전파 위상, 반사 횟수와 표본 가중치를 저장한다. 두 교차점 사이의 유클리드 거리 ℓ_j에 해당 구간의 굴절률을 곱해 OPL을 누적하고 exp(i k₀n_jℓ_j)를 전기장에 곱한다. 광선 자체는 균질한 매질 안에서 직선으로 움직이고, 내부 전파를 z 스텝별 FFT나 유한차분으로 풀지 않는다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_s=s\cdot E,\quad E_p=p\cdot E,\quad E_{refl}=r_sE_s s_r+r_pE_p p_r
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{trans}=t_sE_s s_t+t_pE_p p_t,\quad E\leftarrow E-\hat{k}(\hat{k}\cdot E)
+\]</div>
+<p>각 경계 이후의 p축은 새로운 진행 방향으로 다시 계산한다. 이 기저 회전과 s,p의 서로 다른 복소 계수 때문에 공간적으로 변하는 편광과 전반사 지연 위상이 유지된다. 마지막 식의 횡파 보정은 수치적 종방향 잔차를 제거한다. 단, 전역 E_z가 항상 0이라는 뜻은 아니다. 비스듬한 광선은 k·E=0을 만족하면서도 E_z를 가질 수 있다.</p>
+<p>trace_core_polarization은 Kraken의 기하 경로와 매질·법선 기록을 읽어 이 연산을 재생한다. 이는 역방향으로 빛을 돌리는 의미의 재생이 아니라, 이미 얻은 경로에 복소 벡터장을 부여하는 두 번째 계산 단계다. 영길이 구간, 검출점 불일치, 잘못된 매질 등의 진단을 수행하며, 기본 설정은 영길이 구간을 포함한 기록을 최종 코히런트 합산에서 제외한다.</p>
+<p><a id="section-07"></a></p>
+</section>
+<section id="monte-carlo">
+<h2>7 확률적 분기와 코히런트 Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">S10 · L1173–L1240</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">S05 · L100–L165</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a></p>
+<p>일반적인 비전반사 경계에서 Kraken은 한 광선을 반사·투과 두 광선으로 항상 복제하지 않는다. energy_probability=1일 때 무편광 평균 Fresnel 전력에 따른 확률로 한 분기를 선택한다. 편광별 실제 전기장 진폭은 별도의 Jones 계산에서 적용하므로, 분기 선택 확률과 전기장 계수를 구분해야 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+P_R=\frac{|r_s|^2+|r_p|^2}{2},\quad P_T=1-P_R,\quad W\leftarrow \frac{W}{P_b}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[\frac{\mathbf{1}_b}{P_b}a_b]=a_b
+\]</div>
+<p>선택된 분기의 물리적 복소 진폭 a_b는 Fresnel 계수를 포함하고, sampling_weight에는 1/P_b를 별도로 누적한다. 복소장 평균을 구하는 중요도 표본화이므로 1/√P_b가 아니다. 전반사에서는 P_R=1이다. 분기 확률이 10⁻¹² 이하이면 안정한 보정을 만들 수 없다고 예외를 발생시킨다. 작은 확률의 경로는 큰 가중치를 만들어 분산을 키울 수 있다.</p>
+<p>정방향 재입사에서는 역방향 파일의 가중치를 한 번 전달하고, 새 정방향 추적에서 발생한 분기의 보정은 독립적으로 누적한다. 정방향은 저장된 경로를 역순으로 강제하지 않고 새로 경로를 찾는다. 복소장 추정량의 분기 보정이 맞다는 사실만으로 그 제곱에서 구한 강도가 유한 표본에서 무편향이 되거나, 전체 광학 모델이 정확해지는 것은 아니다. 수렴성은 광선 수·시드·격자에 대해 별도로 확인해야 한다.</p>
+<p><a id="section-08"></a></p>
+</section>
+<section id="id11">
+<h2>8 45도 끝면에서 측면으로 나오는 경로<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">S02 · L6–L33</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">S06 · L11–L103</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">S07 · L392–L491</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">S11 · L1856–L1945</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a></p>
+<p><img alt="그림 2. 45도 끝면 부근 중앙 광선의 개념 경로. 시뮬레이션으로 얻은 광선 영상은 아니다." src="kr/attachment:geometry_ko.png" /></p>
+<p><em>그림 2. 45도 끝면 부근 중앙 광선의 개념 경로. 시뮬레이션으로 얻은 광선 영상은 아니다.</em></p>
+<p>기본값의 축방향 중앙 광선은 +z_f로 진행하여 법선 (1,0,1)/√2의 코어 끝면에 45도로 입사한다. core–air 임계각은 asin(1/1.4469)=43.7198도이므로 이 대표 경로는 전반사한다. 반사 방향은 −x가 되고, 이후 원통형 core–clad 경계와 clad–air 외벽을 통과하여 측면 카메라로 진행한다. 45도 끝면에서 즉시 공기로 투과하는 경로로 설명하면 이 주요 광경로를 놓친다.</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{k}_{refl}=\hat{k}_{in}-2(\hat{k}_{in}\cdot \hat{n})\hat{n},\quad (0,0,1)\rightarrow (-1,0,0)
+\]</div>
+<p>모든 광선이 같은 각도로 입사하는 것은 아니다. 위치와 방향에 따라 45도 면에서 투과하거나 클래딩으로 누설되는 경로도 포함된다. 코어–클래딩 임계각은 63.9670도이며 NA=√(n_core²−n_clad²)=0.635027은 재료값에서 계산되는 값이다. 이 숫자만으로 현재 채널의 실제 도달률이나 초점 크기를 정할 수는 없다. 기본 재생은 저장된 유효 채널을 사용하고, 선택적 analytic 분기도 AS_GUIDED_ONLY=False이므로 NA 바깥 성분을 사전에 모두 제거하지 않는다.</p>
+<p><a id="section-09"></a></p>
+</section>
+<section id="id12">
+<h2>9 출사 광선을 측면 기준면으로 모으는 방법<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">S12 · L1947–L2123</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2584-L2739">S13 · L2584–L2739</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a></p>
+<p>기본 KRAKEN_CAPTURE_GAP_MM=None은 focus_geometry가 계산한 0.1 mm로 대체된다. 기하 추적의 측면 capture disk는 실제 카메라 중심과 같은 위치에 놓이고 반경은 0.30 mm이다. 그러나 그 검출점의 광선 수를 최종 카메라 영상으로 바로 쓰지 않는다. output_detector_side에 도달한 유효 기록을 선택하여 광선 방향을 따라 고정 기준면 x=−0.0625 mm로 되돌린 뒤 파동 전파를 계산한다.</p>
+<div class="math notranslate nohighlight">
+\[
+s=-\frac{(r_{det}-c_{ref})\cdot e_w}{\hat{k}\cdot e_w},\quad r_{ref}=r_{det}+s\hat{k}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{ref}=E_{det}e^{i k_0 n_{out}s},\quad (u,v)=((r_{ref}-c_{ref})\cdot e_u,(r_{ref}-c_{ref})\cdot e_v)
+\]</div>
+<p>카메라가 기준면보다 진행 방향 앞쪽에 있으면 s는 음수다. 그 구간의 위상을 빼므로 기준면 이후 거리를 두 번 더하지 않는다. 전기장과 진행 방향도 (u,v,w) 국소 좌표로 회전한다. 검사 조건은 검출점과 상태 위치의 일치, 외부 굴절률, k·e_w&gt;0, 기준면 반폭 0.075 mm 이내, 영길이 구간 배제 등이다. 검출면 도달 여부와 최종 필드 합산에 채택되는 여부는 다를 수 있다.</p>
+<p>기본 phase_conjugate 결과의 E_reference와 E_camera는 이 측면장이다. z방향으로 누설된 광선의 기록은 남지만 별도의 축방향 이미지를 계산하지 않아 E_camera_z 등은 None이다. camera_z_mm=L은 측면 카메라 중심의 전역 z좌표이며, 파동이 +z축으로 진행한다는 뜻이 아니다.</p>
+<p><a id="section-10"></a></p>
+</section>
+<section id="id13">
+<h2>10 유한 픽셀의 복소장과 강도 합산<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">S22 · L2477–L2582</a></p>
+<p>정방향 측면 기준면과 역방향 평면 출구는 accumulate_field를 공유한다. 좌표를 가장 가까운 격자 노드의 셀로 배정하고, 광선 교차점에서 셀 중심까지의 횡방향 위상을 보정한다. 면적 적분을 나타내는 복소장 기여를 총 발사 수 N₀와 셀 면적 Δ²로 나누어 전기장을 합한다. 한 픽셀에 들어온 광선 개수만으로 나누는 평균도 아니고, 각 광선 강도를 먼저 합하는 비코히런트 계산도 아니다.</p>
+<div class="math notranslate nohighlight">
+\[
+\Phi _{jp}=k_0n_{out}\hat{k}_{j,\perp }\cdot (\rho _p-\rho _j)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_p=\frac{1}{N_0\Delta ^2}\sum_{j\in C_p}W_j E_j e^{i\Phi _{jp}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+H_p=\frac{1}{N_0\Delta ^2}\sum_{j\in C_p}n_{out}(\hat{k}_j\times E_j)W_j e^{i\Phi _{jp}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+I_p=\frac{1}{2}\mathrm{Re}(E_p\times H_p^{*})\cdot e_w
+\]</div>
+<p>N₀는 역방향의 원래 총 발사 수 262144이다. 기본 정방향 재생에서도 보존되어 다시 쏘는 채널 개수로 바꾸지 않고, 이 역방향 원래 발사 수를 그대로 분모에 사용한다. analytic 분기는 해당 실행의 위치 수와 각 표본 수의 곱을 사용한다.</p>
+<p>자기장은 코드의 상대 단위 H=n(k̂×E)로 정의된다. 정방향 측면 계산에서는 e_w가 국소 세 번째 축이며, 역방향 평면에서는 +z_r이다. 서로 다른 광선의 위상차가 E와 H의 합 안에서 간섭을 만들기 때문에 이 강도는 일반적으로 |E|²와 같지 않다. 임피던스의 SI 상수, 검출기 감도, 노출 시간, 광자수 변환을 적용한 W/m² 또는 카메라 count는 아니다.</p>
+<p>이 방식은 유한 셀 위의 광선 기반 장 추정이다. 셀 안에서 국소 평면파 위상을 사용하고, 각 광선의 방향 정보를 격자 합으로 압축한다. 광선 수가 적거나 분포가 불균일하면 비어 있는 셀과 큰 통계 변동이 생길 수 있다. 코드의 hit_count와 active_pixels는 이 샘플링 상태를 확인하기 위한 진단이다.</p>
+<p><a id="section-11"></a></p>
+</section>
+<section id="id14">
+<h2>11 기준면에서 카메라까지의 벡터 각 스펙트럼법<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">S15 · L2741–L2821</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">S28 · L237–L288</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">S29 · L2824–L2885</a></p>
+<p>propagate_vector_angular_spectrum은 512×512 기준면장을 2048×2048로 zero padding한다. 픽셀 간격은 그대로 유지되므로 padding은 시야와 주파수 표본 간격을 바꾸지만 원래 필드의 공간 해상도를 네 배 높이지 않는다. 세 성분에 centered FFT를 적용하고 국소 횡파수 k_u,k_v에 대해 전파 가능한 성분만 남긴다.</p>
+<div class="math notranslate nohighlight">
+\[
+k_w=\sqrt{(n_{out}k_0)^2-k_u^2-k_v^2},\quad k_u^2+k_v^2\leq (n_{out}k_0)^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_w=-\frac{k_uA_u+k_vA_v}{k_w},\quad A(d)=A(0)e^{i k_w d}
+\]</div>
+<p>코드는 A_u,A_v를 유지하고 횡파 조건으로 A_w를 다시 만든다. 입력의 세 번째 성분 FFT는 덮어쓴다. 주석의 일반적인 직교 투영이라는 표현보다 이 실제 연산을 기준으로 이해해야 한다. k_w가 10⁻¹⁰ n_out k₀ 이하인 거의 접선 방향 성분과 에바네슨트 성분은 버린다. 따라서 역방향 영거리 기록면에서 방향별 채널을 그대로 보존하는 처리와 이 FFT 재구성은 서로 다르다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_{cam}=\mathcal{F}^{-1}[A(d)],\quad H_{cam}=\mathcal{F}^{-1}[n_{out}(\hat{k}\times A(d))]
+\]</div>
+<p>전파 거리 d=0.1 mm를 적용한 뒤 E와 H를 각각 역FFT하고 I=½Re(E×H*)_w를 계산한다. 마지막으로 카메라 반폭 0.20 mm로 자른다. 이 식은 k_w를 포물선으로 근사하는 Fresnel 근축식이 아니라 제곱근 분산식을 사용하는 ASM이다. 다만 단방향 전파 가능한 스펙트럼, 유한 창, 이산 격자라는 제한은 남는다. 구현은 이 함수에서 NumPy FFT를 사용한다. USE_GPU_NUMERICS=True라는 설정만으로 이 카메라 전파가 GPU에서 실행된다고 볼 수 없다.</p>
+<p>저장되는 forward_camera_angled45.npz에는 국소 좌표계의 복소 카메라장, 강도, 좌표, 기준면장, 기저 및 목표점이 들어간다. 그림 표시에서는 최대 강도로 나누지만 원시 저장 강도를 그 정규화 영상과 혼동해서는 안 된다. 피크 좌표와 해당 행·열의 반치폭 FWHM은 강도 배열에서 계산하며, 다중 피크나 스펙클을 자동으로 이상적 초점으로 판정하지 않는다.</p>
+<p><a id="section-12"></a></p>
+</section>
+<section id="id15">
+<h2>12 역방향 점광원의 벡터장과 면적 표본화<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">S18 · L317–L367</a></p>
+<p>역방향은 카메라의 기록 이미지를 읽어 역FFT하는 프로그램이 아니다. 정방향 목표점에 해당하는 위치 (−0.1625,0,0) mm에 수학적 점광원을 놓고, 기울어진 코어 면 위의 표적점을 뽑아 초기 광선 방향을 만든다. 반경은 a√U, 방위각은 2πV로 뽑으므로 xy 투영 원판에 균일하다. 평면의 기울기는 일정하므로 실제 기울어진 면에서도 면적 밀도가 일정하며, 면적은 πa²/cosθ이다.</p>
+<div class="math notranslate nohighlight">
+\[
+\rho =a\sqrt{U},\quad \psi =2\pi V,\quad x=\rho \cos \psi ,\quad y=\rho \sin \psi
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+z_r=\tan \theta (x\cos \phi +y\sin \phi ),\quad \hat{k}=\frac{r_{target}-r_{src}}{R}
+\]</div>
+<p>여기서 U,V는 [0,1)의 균일 난수이고 R은 광원에서 샘플 표적점까지의 직선 거리다. 이 표적점은 발사 방향을 정의할 뿐, 실제 첫 입사점이나 최종 45도 면 교차점을 강제하지 않는다. 광선은 그 전에 클래딩 외벽에서 굴절할 수 있기 때문이다. 전체 공간에 균일한 입체각으로 복사하는 모든 점광원 방향을 계산하는 설정도 아니다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_0=J_u e_u+J_v e_v,\quad E_{launch}=\frac{\sqrt{P}A_{facet}}{R}[E_0-\hat{k}(\hat{k}\cdot E_0)]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_{facet}=\frac{\pi a^2}{\cos \theta },\quad J=(1,0),\quad e_u=(0,1,0),\quad e_v=(0,0,1)
+\]</div>
+<p>P는 SOURCE_POWER=1.0의 상대 광원 스케일이다. 이 값만으로 절대 광출력의 와트 값을 지정한 것은 아니다.</p>
+<p>기본 Jones 벡터는 광원 기저의 u 선편광이며 현재 기저에서는 +y이다. 각 광선 방향에 직교하도록 투영하되 다시 단위 진폭으로 만들지 않으므로 방향에 따른 진폭 변화가 남는다. 1/R은 코드의 구면파 진폭 모형이고, A_facet은 면적 적분 가중치다. 1/N은 여기서 곱하지 않고 나중의 픽셀 합산에서 한 번 적용한다. 초기식에는 exp(i kR)을 넣지 않는다. 광원부터 각 실제 경계까지의 위상은 공통 OPL 계산이 이미 누적하기 때문이다.</p>
+<p><a id="section-13"></a></p>
+</section>
+<section id="id16">
+<h2>13 역방향 경계 통과와 출구 기록<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">S19 · L194–L314</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L369-L482">S20 · L369–L482</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">S22 · L2477–L2582</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">S23 · L44–L64</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L195-L215">S31 · L195–L215</a></p>
+<p>대표적인 중앙 경로는 측면 공기→클래딩 외벽→클래딩→코어 경계→45도 core–air 면의 반사→+z_r 방향 코어 전파→평평한 core–air 출구이다. 역방향 기울어진 법선은 정방향 법선의 z성분을 반전시킨 것이다. 각 실제 경계에서는 정방향과 같은 Snell 방향 계산, s/p Fresnel 변환, 전반사 위상, 구간 OPL, 확률 분기 보정을 사용한다. 광원 위치만 반대로 놓고 모든 광선을 같은 경로로 통과시키는 단순한 연산은 아니다.</p>
+<p>역방향 출구 기록은 z_r=L에서 공기로 나온 직후의 장을 의미한다. 수치 추적을 위해 그보다 약간 앞에 있는 보조 검출면을 두지만, 최종 채널은 그 여분의 공기 구간을 광선별로 역전파해 출구면으로 옮긴다. 따라서 EXIT_CAMERA_DISTANCE_MM=0과 모순되지 않는다. 재구성은 유효 출사 채널을 collect_reference_channels로 수집한 뒤 accumulate_field로 합산하며, 출구에 추가 자유공간 ASM을 적용하지 않는다.</p>
+<p>역방향 최종 진행 방향에는 Kraken의 LMN 부호보다 실제 마지막 XYZ 구간 방향을 우선한다. 최종 E에서 남은 종방향 성분을 제거한 후 저장한다. 반환 E_exit는 (3,Ny,Nx), 정방향 카메라 E는 (Ny,Nx,3)이며 전기장 성분의 좌표계도 다르다. reverse_main의 amplitude_exit는 √Σ|E_c|²이고 intensity_exit는 Poynting flux이므로 두 영상을 같은 강도로 취급하면 안 된다.</p>
+<p>NPZ에는 E_exit, x/y 좌표, 광원 위치, 좌표 변환 문자열, 물리 파라미터, 방향별 위치·전기장·방향·가중치·총 발사 수를 저장한다. intensity_exit는 반환 결과에 있으나 저장 함수의 NPZ 항목에는 직접 포함되지 않는다. main은 이 파일이 없거나 파라미터·격자가 다르면 재생을 중단한다.</p>
+<p><a id="section-14"></a></p>
+</section>
+<section id="analytic">
+<h2>14 선택 가능한 analytic 입력 분기<a class="headerlink" href="#analytic" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L79-L136">S24 · L79–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1133-L1280">S25 · L1133–L1280</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1281-L1403">S26 · L1281–L1403</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L3067-L3235">S27 · L3067–L3235</a></p>
+<p>INPUT_MODE=analytic으로 바꾸면 INPUT_FIELD_FUNCTION의 Ex,Ey를 격자로 평가한다. 현재 함수는 waist w₀=0.020 mm의 Gaussian 진폭에 exp(i2 atan2(y,x))를 곱한 x 선편광장이다. 라벨이 Gaussian input beam이라도 위상은 평탄하지 않고 전하 2의 와류 위상이다. 다만 진폭에 r² 인자를 넣은 표준 Laguerre–Gaussian 모드 전체를 구현한 것은 아니다. 코어 반경 밖을 마스크하고, 아래 식의 종방향 성분까지 포함한 순방향 Poynting 적분 P가 1이 되도록 전기장 전체를 1/√P배 한다. D는 FFT 창의 한 변 0.15 mm다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_x=e^{-(r/w_0)^2}e^{2i\mathrm{atan2}(y,x)},\quad E_y=0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A_{x,y}=\Delta ^2\mathcal{F}[E_{x,y}],\quad A_z=-\frac{k_xA_x+k_yA_y}{k_{z,out}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P=\frac{1}{D^2}\sum_{prop}\frac{n_{out}k_{z,out}}{2k_{out}}(|A_x|^2+|A_y|^2+|A_z|^2)
+\]</div>
+<p>2차원 FFT로 외부 angular spectrum을 만들고 전파 불가능한 성분을 제거한다. 최대 벡터 스펙트럼 진폭의 10⁻³를 cutoff로 사용한다. 각 성분의 접선 파수 k_x,k_y를 보존하여 코어의 k_z와 Snell 굴절 방향을 구하고, 평면 입구의 s/p Fresnel 투과계수를 미리 적용한다. 따라서 analytic은 코어 쪽 경계에서 출발하는 반면, 기본 phase_conjugate는 공기 쪽에서 실제 입구의 확률 분기까지 추적한다.</p>
+<div class="math notranslate nohighlight">
+\[
+p_m=\frac{\|A_m\|}{\sum_l\|A_l\|},\quad B_m=\frac{A_{core,m}}{p_mD^2}
+\]</div>
+<p>각 성분은 외부 벡터 진폭에 비례하는 확률 p_m으로 추출하고, 누적분포의 층화 표본화 u_m=(m+U_m)/M을 사용한다. 같은 bin이 여러 번 뽑혀도 그대로 별도 표본으로 유지한다. A_core,m은 입구 투과 후의 벡터 스펙트럼이며 코드 변수 q는 이 p_m이다. 소스 위치는 코어 원판의 균일 면적 샘플이다. 광선 초기 기여는 πa² B_m exp(i(k_xx+k_yy))로 주어진다. 현재 설정에서는 256개 위치마다 1024개 각 표본을 추적하여 262144개를 발사한다.</p>
+<p>이후 내부 추적과 장 합산은 공통 함수를 사용한다. 다만 analytic의 일반 utility.run_simulation은 z카메라와 측면 카메라를 모두 구성하고 E_camera 기본 별칭은 z카메라를 가리킨다. 기본 위상공액 분기의 E_camera가 측면 카메라를 뜻하는 것과 구별해야 한다.</p>
+<p><a id="section-15"></a></p>
+</section>
+<section id="id17">
+<h2>15 정방향과 역방향의 대응과 한계<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">S08 · L493–L728</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">S14 · L14–L41</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">S15 · L2741–L2821</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">S18 · L317–L367</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">S21 · L651–L673</a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>비교</p></th>
+<th class="head"><p>정방향 기본</p></th>
+<th class="head"><p>역방향</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>입력</p></td>
+<td><p>저장 채널의 위상공액</p></td>
+<td><p>측면 벡터 점광원</p></td>
+</tr>
+<tr class="row-odd"><td><p>첫 경계</p></td>
+<td><p>평면 air→core</p></td>
+<td><p>대표 경로 air→clad 외벽</p></td>
+</tr>
+<tr class="row-even"><td><p>45도 면</p></td>
+<td><p>측면으로 돌리는 반사</p></td>
+<td><p>축으로 돌리는 반사</p></td>
+</tr>
+<tr class="row-odd"><td><p>파이버 내부</p></td>
+<td><p>기하 경로와 복소 Jones 전파</p></td>
+<td><p>동일한 국소 법칙</p></td>
+</tr>
+<tr class="row-even"><td><p>기록면</p></td>
+<td><p>측면 기준면 후 0.1 mm ASM</p></td>
+<td><p>평면 출구 바로 밖</p></td>
+</tr>
+<tr class="row-odd"><td><p>필드 좌표</p></td>
+<td><p>(Ny, Nx, 3), 국소 u, v, w</p></td>
+<td><p>(3, Ny, Nx), 전역 x, y, z_r</p></td>
+</tr>
+<tr class="row-even"><td><p>저장</p></td>
+<td><p>forward_camera_angled45.npz</p></td>
+<td><p>reverse_exit_field_angled45.npz</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>이 구현을 동일 광학계의 반대 방향 전파라고 설명하는 것은 타당하다. 그러나 전체 연산이 서로의 정확한 역행렬이라는 뜻은 아니다. 유한한 launch 영역과 검출 시야, 반사·투과로 빠져나가는 경로, 유효 기록 필터, 확률적 표본화, 셀 합산, ASM의 스펙트럼 절단이 있다. 한쪽 출구에서 수집한 채널만 위상공액해 재입사하므로 모든 외부 방사 채널을 동시에 시간 반전하는 계산이 아니다.</p>
+<p>파이버 내부의 전기장 진폭은 Fresnel 계수와 시작 가중치로 운반되고, 각 구간은 위상만 갱신한다. 이 기본 복소장 계산에는 광선관 단면적의 Jacobian에 따른 진폭 갱신, 초점 통과의 별도 Maslov 위상, 경계의 에바네슨트 장 분포, 모드 고유치 해석, 거칠기·비선형 효과가 없다. 재료 흡수에 따른 진폭 감쇠도 이 복소장 재생에는 적용하지 않는다. 검출면에서 광선을 정지시키는 ABSORB 처리와는 구별해야 한다. 따라서 전반사 편광 위상을 포함한 벡터 기하광학과 외부 회절 계산을 결합한 근사라고 규정하는 것이 정확하다.</p>
+<p><a id="section-16"></a></p>
+</section>
+<section id="id18">
+<h2>16 결과를 해석할 때 확인할 사항<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h2>
+<p><strong>근거</strong>: <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">S01 · L228–L248</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">S03 · L5–L28</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">S04 · L21–L93</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">S16 · L168–L233</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">S17 · L44–L136</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">S28 · L237–L288</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">S29 · L2824–L2885</a> · <a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/_bootstrap.py#L1-L10">S30 · L1–L10</a></p>
+<p>동일 소스 스냅샷으로 실행할 때 순서는 angled45/mmf_angled45_reverse_main.py –no-plots 다음 angled45/mmf_angled45_main.py –no-plots이다. _bootstrap은 해당 폴더를 import 경로 앞에 두어 루트의 동명 모듈과 섞이지 않게 한다. 물리 파라미터, 목표점 또는 격자를 바꾸면 reverse 파일을 다시 만들어야 한다. 이 문서는 실행 절차와 구현을 설명하며, 전체 기본 광선 수로 재실행하여 초점 성능을 측정한 보고서는 아니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>확인 대상</p></th>
+<th class="head"><p>해석</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>source_reconstruction_nrms</p></td>
+<td><p>저장 채널과 입력 격자장의 일치</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_field_hits</span></code>와 <code class="docutils literal notranslate"><span class="pre">skipped_*</span></code></p></td>
+<td><p>기하 도달과 필드 채택의 구분</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">peak_global_mm</span></code>와 <code class="docutils literal notranslate"><span class="pre">target_error_um</span></code></p></td>
+<td><p>국소 피크를 전역 좌표로 환산한 위치 오차</p></td>
+</tr>
+<tr class="row-odd"><td><p>FWHM</p></td>
+<td><p>피크 행과 열의 반치폭</p></td>
+</tr>
+<tr class="row-even"><td><p>강도 정규화</p></td>
+<td><p>표시 영상과 저장 원시 배열을 구분</p></td>
+</tr>
+<tr class="row-odd"><td><p>샘플 수와 격자</p></td>
+<td><p>광선 수 증가와 격자 변경을 분리해 수렴 확인</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>소스 주석보다 실행식을 우선해야 하는 지점은 명확하다. 현재 입력은 위상공액 채널, 카메라 x좌표는 −0.1625 mm, 기준면 이후 거리는 0.1 mm, 출사 후 파동 전파축은 측면 w축이다. 또한 카메라 FFT는 NumPy이며, 횡파 보정은 두 횡성분을 보존하고 종성분을 다시 만드는 연산이다. 이 차이를 반영해야 실제 사용된 방법을 재현 가능한 설명으로 만들 수 있다.</p>
+</section>
+<section id="id19">
+<h2>출처 색인<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
+<p>아래 링크는 모두 동일한 분석 커밋에 고정되어 있다. 이후 master가 변경되어도 인용한 코드 행은 유지된다.</p>
+<p><strong>S01 — 정방향 실행 분기</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L228-L248">angled45/mmf_angled45_main.py · L228–L248</a></p>
+<p><strong>S02 — 공통 물리 파라미터</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_parameters.py#L6-L33">angled45/mmf_parameters.py · L6–L33</a></p>
+<p><strong>S03 — 목표점과 카메라 좌표</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_focus.py#L5-L28">angled45/mmf_focus.py · L5–L28</a></p>
+<p><strong>S04 — 방향 채널 검증과 위상공액</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L21-L93">angled45/mmf_phase_channels.py · L21–L93</a></p>
+<p><strong>S05 — 공기 중 재입사와 독립 추적</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L100-L165">angled45/mmf_phase_channels.py · L100–L165</a></p>
+<p><strong>S06 — 해석적 교차점과 법선</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled_geometry.py#L11-L103">angled45/mmf_angled_geometry.py · L11–L103</a></p>
+<p><strong>S07 — 국소 기저와 Fresnel 계수</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L392-L491">angled45/mmf_vector_utility.py · L392–L491</a></p>
+<p><strong>S08 — 광로 위상과 벡터장 갱신</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L493-L728">angled45/mmf_vector_utility.py · L493–L728</a></p>
+<p><strong>S09 — 경계 사건별 편광 재생</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L745-L1099">angled45/mmf_vector_utility.py · L745–L1099</a></p>
+<p><strong>S10 — Kraken 확률적 분기</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/KrakenOS/KrakenSys.py#L1173-L1240">KrakenOS/KrakenSys.py · L1173–L1240</a></p>
+<p><strong>S11 — 경계 양쪽 매질 결정</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1856-L1945">angled45/mmf_vector_utility.py · L1856–L1945</a></p>
+<p><strong>S12 — 광학계와 검출면 구성</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1947-L2123">angled45/mmf_vector_utility.py · L1947–L2123</a></p>
+<p><strong>S13 — 측면 기준면으로 되돌리기</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2584-L2739">angled45/mmf_vector_utility.py · L2584–L2739</a></p>
+<p><strong>S14 — 유한 셀의 복소장 합산</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L14-L41">angled45/mmf_field.py · L14–L41</a></p>
+<p><strong>S15 — 벡터 각 스펙트럼 전파</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2741-L2821">angled45/mmf_vector_utility.py · L2741–L2821</a></p>
+<p><strong>S16 — 측면 카메라 출력과 저장</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L168-L233">angled45/mmf_phase_channels.py · L168–L233</a></p>
+<p><strong>S17 — 역방향 소스와 영거리 기록면</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L44-L136">angled45/mmf_angled45_reverse_main.py · L44–L136</a></p>
+<p><strong>S18 — 점광원 샘플과 초기 전기장</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L317-L367">angled45/mmf_vector_reverse_utility.py · L317–L367</a></p>
+<p><strong>S19 — 역방향 매질과 광학계</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L194-L314">angled45/mmf_vector_reverse_utility.py · L194–L314</a></p>
+<p><strong>S20 — 역방향 경로와 편광</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L369-L482">angled45/mmf_vector_reverse_utility.py · L369–L482</a></p>
+<p><strong>S21 — 역방향 출사장 재구성</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_reverse_utility.py#L651-L673">angled45/mmf_vector_reverse_utility.py · L651–L673</a></p>
+<p><strong>S22 — 출사 채널 수집과 평면장</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2477-L2582">angled45/mmf_vector_utility.py · L2477–L2582</a></p>
+<p><strong>S23 — 역방향 NPZ 저장</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_field.py#L44-L64">angled45/mmf_field.py · L44–L64</a></p>
+<p><strong>S24 — 선택적 해석 입력과 샘플 수</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_main.py#L79-L136">angled45/mmf_angled45_main.py · L79–L136</a></p>
+<p><strong>S25 — 입력장 FFT와 종방향 성분</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1133-L1280">angled45/mmf_vector_utility.py · L1133–L1280</a></p>
+<p><strong>S26 — 각 성분과 위치의 중요도 표본화</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L1281-L1403">angled45/mmf_vector_utility.py · L1281–L1403</a></p>
+<p><strong>S27 — analytic 전체 실행 경로</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L3067-L3235">angled45/mmf_vector_utility.py · L3067–L3235</a></p>
+<p><strong>S28 — 표시 정규화와 그림 저장</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_phase_channels.py#L237-L288">angled45/mmf_phase_channels.py · L237–L288</a></p>
+<p><strong>S29 — 피크와 FWHM 계산</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_vector_utility.py#L2824-L2885">angled45/mmf_vector_utility.py · L2824–L2885</a></p>
+<p><strong>S30 — 동일 폴더 모듈의 우선순위</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/_bootstrap.py#L1-L10">angled45/_bootstrap.py · L1–L10</a></p>
+<p><strong>S31 — 역방향 진폭과 강도 구분</strong><br />
+<a class="reference external" href="https://github.com/z-labo/Raytracing/blob/c6a399ce07fd095daee3bedfee1fb04ccac07f4d/angled45/mmf_angled45_reverse_main.py#L195-L215">angled45/mmf_angled45_reverse_main.py · L195–L215</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">정방향과 역방향 코드의 실제 알고리즘과 수식</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">읽는 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">목차</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">기호와 단위</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1 구현의 핵심과 실행 순서</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2 광학계의 수치와 좌표</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3 정방향 입력 벡터장의 실제 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4 광선의 교차점과 경계 매질</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snell-fresnel">5 입구와 경계면의 Snell 및 Fresnel 처리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">6 파이버 내부의 위상과 편광 전파</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo">7 확률적 분기와 코히런트 Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">8 45도 끝면에서 측면으로 나오는 경로</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9 출사 광선을 측면 기준면으로 모으는 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10 유한 픽셀의 복소장과 강도 합산</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">11 기준면에서 카메라까지의 벡터 각 스펙트럼법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">12 역방향 점광원의 벡터장과 면적 표본화</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">13 역방향 경계 통과와 출구 기록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic">14 선택 가능한 analytic 입력 분기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">15 정방향과 역방향의 대응과 한계</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">16 결과를 해석할 때 확인할 사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">출처 색인</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
