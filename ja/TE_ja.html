@@ -1,0 +1,1414 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TEモードとベッセル関数 &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ja/TE_ja';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/ja/TE_ja.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fja/TE_ja.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ja/TE_ja.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TEモードとベッセル関数</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 座標系と波数ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. TEモードの意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. 「反射する平面波の重ね合わせ」から得られる直観</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">操作して確認：2つの波の重ね合わせ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4. 円筒対称性とベッセル関数の登場</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5. TEモードのベッセル関数表示</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> で <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span> の意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8. まとめ</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="te">
+<h1>TEモードとベッセル関数<a class="headerlink" href="#te" title="Permalink to this heading">#</a></h1>
+<p><img alt="図6" src="../_images/fig6.jpg" /></p>
+<p>説明、図、実行コードをこの1つのノートブックにまとめた。コードは上から順に実行し、値を変更した後に Shift+Enter で再実行できる。</p>
+<section id="id1">
+<h2>1. 座標系と波数ベクトル<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>円筒座標を</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\phi,z)
+\]</div>
+<p>とする。ここで、</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>：導波路の軸方向</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span>：軸からの距離</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span>：横断面内の方位角</p></li>
+</ul>
+<p>である。</p>
+<p>一様なコア内の各平面波成分について、波数ベクトルを軸方向成分と横方向成分に分けると、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>と書ける。円筒対称性を考える場合、横波数の大きさを <span class="math notranslate nohighlight">\(k_r\)</span> と書き、</p>
+<div class="math notranslate nohighlight">
+\[
+k_r=nk_0\sin\theta,\qquad
+\beta=nk_0\cos\theta
+\]</div>
+<p>とおける。ここで <span class="math notranslate nohighlight">\(\theta\)</span> は、波数ベクトル <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> と <span class="math notranslate nohighlight">\(z\)</span> 軸のなす角である。したがって <span class="math notranslate nohighlight">\(\theta\)</span> は「波が導波路の軸に対してどれだけ傾いているか」を表す。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># グラフを表示するには、このセルから実行してください。</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># SciPyを使わず、角度平均によりJ0、J1を数値計算する。</span>
+<span class="c1"># J0の積分表示: https://dlmf.nist.gov/10.9#E1</span>
+<span class="c1"># J1 = -J0の微分: https://dlmf.nist.gov/10.6#E3</span>
+<span class="k">def</span> <span class="nf">j0</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">j1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">)))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">k_r</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># 横波数：値を変えてみてください。</span>
+<span class="n">r_max</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># グラフに表示する半径の範囲</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">r_max</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>2. TEモードの意味<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>TEモードとは、軸方向の電場成分が0であるモード、すなわち</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0
+\]</div>
+<p>を満たすモードである。したがって、導波路内の電場はファイバーの横断面に平行である。
+また、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>であるため、一様な媒質内の各平面波成分について、<span class="math notranslate nohighlight">\(\mathbf{k} \cdot \mathbf{E} = \mathbf{k}_\perp \cdot \mathbf{E} + \beta \hat z  \cdot \mathbf{E} = \mathbf{k}_\perp \cdot \mathbf{E} = 0\)</span></p>
+<p>となる。つまり、<span class="math notranslate nohighlight">\(\mathbf{E}\)</span> の方向は、<span class="math notranslate nohighlight">\(\mathbf{k}\)</span> と <span class="math notranslate nohighlight">\(\mathbf{k}_\perp\)</span> が張る平面に垂直である。</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_\perp = k_r \hat {\mathbf {r}}
+\]</div>
+<p>とすれば、電場の方向は <span class="math notranslate nohighlight">\(\hat{\boldsymbol\phi}\)</span> 方向になる。</p>
+<p>ここでの偏光方向の説明は、各平面波成分についてのものである。複数の成分を重ね合わせたモードの電場は、第6節で考える。</p>
+</section>
+<section id="id3">
+<h2>3. 「反射する平面波の重ね合わせ」から得られる直観<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p><img alt="図13" src="../_images/fig13.jpg" /></p>
+<p>導波路内のモードは、共通の軸方向成分 <span class="math notranslate nohighlight">\(\beta\)</span> を持ち、横方向にはそれぞれ異なる方位角の方向に進む平面波成分の重ね合わせとして、直観的に理解できる。1つの成分だけを見ると、例えば</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=k_r\hat r+\beta \hat z
+\]</div>
+<p>と書ける。一様な媒質内の平面波では、</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}\cdot \mathbf{k}=0
+\]</div>
+<p>であるため、電場は <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> に垂直でなければならない。円筒座標で直観的に考えると、横方向の電場として <span class="math notranslate nohighlight">\(\hat\phi\)</span> 方向を選べば、<span class="math notranslate nohighlight">\(\hat r\)</span> にも <span class="math notranslate nohighlight">\(\hat z\)</span> にも直交するため、TEの偏光を思い描きやすい。</p>
+<p>図のように1つの横方向について反射を考えると、その方向の波数成分は</p>
+<div class="math notranslate nohighlight">
+\[
+k_r\rightarrow -k_r
+\]</div>
+<p>となるが、<span class="math notranslate nohighlight">\(\beta\)</span> は変わらない。元の図の記号を使い、選んだ1つの半径方向について2つの成分を比較しよう。2つの成分の振幅を等しくし、相対位相差を省略すると、</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i(k_r r+\beta z)}+e^{i(-k_r r+\beta z)}
+=
+2\cos(k_r r)e^{i\beta z}
+\]</div>
+<p>のように、<span class="math notranslate nohighlight">\(\pm k_r\)</span> 成分の重ね合わせから横方向の定在波構造が生じる。以下の平均は大きさそのものではなく、符号を持つ2つの成分 <span class="math notranslate nohighlight">\(+k_r\)</span>、<span class="math notranslate nohighlight">\(-k_r\)</span> の平均を表す。この意味で、</p>
+<div class="math notranslate nohighlight">
+\[
+\langle k_r\rangle=0,\qquad k_r\neq 0
+\]</div>
+<p>である。つまり、<strong>平均すると横方向には流れないが、横方向の空間スケール自体は残り、その結果として横断面のモード構造が形成される</strong>。</p>
+<p>ここでの <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span> は、<strong>1つの方向から見た1次元の例</strong>である。
+まだ横断面全体にわたる円筒波の解を意味するものではない。
+この重ね合わせは、<span class="math notranslate nohighlight">\(H_z\)</span> のようなスカラー場成分の空間依存性を説明していると考えればよい。</p>
+<p><strong>ここで、この1つの方向を横断面内で回転させ、すべての方位角からの寄与を足し合わせてみよう。</strong>
+その際、各波の位相に入るのは単なる距離 <span class="math notranslate nohighlight">\(r\)</span> ではなく、観測点の位置をその波の進行方向に射影した距離である。
+次の節では、この過程からベッセル関数が現れることを確かめる。</p>
+<section id="id4">
+<h3>操作して確認：2つの波の重ね合わせ<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>次のセルを <strong>Shift+Enter</strong> で実行し、時間スライダーを動かしてください。図をクリックすると、その位置の値を確認できます。
+<strong>瞬時値</strong>は選んだ時刻の電場の値、<strong>振幅</strong>はその位置での1周期における電場の最大絶対値です。</p>
+<p>ここで <span class="math notranslate nohighlight">\(x\)</span> は、選んだ1つの横方向に沿った符号付き座標です。表示単位は <span class="math notranslate nohighlight">\(\lambda_x=2\pi/k_r\)</span>、<span class="math notranslate nohighlight">\(\lambda_z=2\pi/\beta\)</span>、<span class="math notranslate nohighlight">\(T=2\pi/\omega\)</span> です。
+別ファイルやSciPyのインストールは不要です。静的プレビューでは操作できないため、Jupyterでセルを実行してください。</p>
+<div class="cell tag_te-wave-interactive docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># このセルにインターフェースが含まれています。外部ファイルは読み込みません。</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">escape</span>
+
+<span class="n">TE_WAVE_HTML</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;&lt;!doctype html&gt;</span>
+<span class="s2">&lt;html lang=&quot;ja&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">&lt;meta charset=&quot;utf-8&quot;&gt;</span>
+<span class="s2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span>
+<span class="s2">&lt;title&gt;2つの構成波と合成波&lt;/title&gt;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">:root {</span>
+<span class="s2">  color-scheme: light dark;</span>
+<span class="s2">  --background: light-dark(rgb(255 255 255), rgb(24 24 24));</span>
+<span class="s2">  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));</span>
+<span class="s2">  --border: light-dark(rgb(26 28 31 / 12%), rgb(255 255 255 / 15%));</span>
+<span class="s2">  --viz-series-1: light-dark(rgb(51 156 255), rgb(131 195 255));</span>
+<span class="s2">  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));</span>
+<span class="s2">  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));</span>
+<span class="s2">  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));</span>
+<span class="s2">}</span>
+<span class="s2">* { box-sizing: border-box; }</span>
+<span class="s2">html, body { margin: 0; background: var(--background); color: var(--foreground); }</span>
+<span class="s2">body { padding: 12px; font: 16px/1.5 system-ui, &#39;Segoe UI&#39;, sans-serif; }</span>
+<span class="s2">h3 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 8px; }</span>
+<span class="s2">.text-small { font-size: 14px; line-height: 1.5; }</span>
+<span class="s2">.tabular-nums { font-variant-numeric: tabular-nums; }</span>
+<span class="s2">.form-label { display: block; }</span>
+<span class="s2">.form-range { display: block; width: 100%; height: 24px; margin: 0; accent-color: var(--foreground); }</span>
+<span class="s2">.cursor-interaction { cursor: crosshair; }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;div id=&quot;wave-quantities&quot;&gt;</span>
+<span class="s2">  &lt;style&gt;</span>
+<span class="s2">    #wave-quantities { color: var(--foreground); }</span>
+<span class="s2">    #wave-quantities h3 { padding-right: 90px; }</span>
+<span class="s2">    #wave-quantities .wq-control { margin: 6px 0; }</span>
+<span class="s2">    #wave-quantities .wq-between { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }</span>
+<span class="s2">    #wave-quantities .wq-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }</span>
+<span class="s2">    #wave-quantities .wq-sum { grid-column: 1 / -1; }</span>
+<span class="s2">    #wave-quantities .wq-panel { min-width: 0; }</span>
+<span class="s2">    #wave-quantities .wq-panel canvas { display: block; width: 100%; height: 120px; }</span>
+<span class="s2">    #wave-quantities .wq-title { display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }</span>
+<span class="s2">    #wave-quantities .wq-scale { display: flex; align-items: center; gap: 8px; }</span>
+<span class="s2">    #wave-quantities .wq-ramp { height: 10px; flex: 1; min-width: 36px; }</span>
+<span class="s2">    #wave-quantities .wq-field-ramp { background: linear-gradient(to right, var(--viz-series-2), var(--background), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-positive-ramp { background: linear-gradient(to right, var(--background), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-phase-ramp { background: linear-gradient(to right, var(--viz-series-1), var(--viz-series-4), var(--viz-series-2), var(--viz-series-3), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-phase-ticks { display: flex; justify-content: space-between; }</span>
+<span class="s2">    #wave-quantities .wq-node-key { display: inline-block; width: 24px; border-top: 1px dashed var(--foreground); vertical-align: middle; margin-right: 6px; }</span>
+<span class="s2">    #wave-quantities .wq-selected { margin: 4px 0 8px; }</span>
+<span class="s2">    #wave-quantities .wq-probe { position: absolute; visibility: hidden; }</span>
+<span class="s2">    @media (max-width: 640px) {</span>
+<span class="s2">      #wave-quantities .wq-panels { grid-template-columns: minmax(0, 1fr); }</span>
+<span class="s2">      #wave-quantities .wq-panel canvas { height: 152px; }</span>
+<span class="s2">    }</span>
+<span class="s2">  &lt;/style&gt;</span>
+<span class="s2">  &lt;h3&gt;2つの構成波と合成波&lt;/h3&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-control&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;wq-between&quot;&gt;</span>
+<span class="s2">      &lt;label class=&quot;form-label&quot; for=&quot;wq-time&quot;&gt;時間&lt;/label&gt;</span>
+<span class="s2">      &lt;output id=&quot;wq-time-value&quot; class=&quot;tabular-nums&quot; aria-live=&quot;polite&quot;&gt;t/T = 0.00&lt;/output&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;input id=&quot;wq-time&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;0&quot; aria-label=&quot;時間 t/T&quot;&gt;</span>
+<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-selected text-small tabular-nums&quot; id=&quot;wq-position&quot;&gt;選択位置： x/λₓ = 0.00, z/λz = 0.00 · 図をクリックして選択&lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-panels&quot;&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;入射波の瞬時値 E₁/E₀&lt;/span&gt;&lt;output id=&quot;wq-incident-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-incident&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;入射波の電場の瞬時値。正のx方向と正のz方向へ進みます。&quot;&gt;入射波の電場の瞬時値&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;反射波の瞬時値 E₂/E₀&lt;/span&gt;&lt;output id=&quot;wq-reflected-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-reflected&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;反射波の電場の瞬時値。負のx方向と正のz方向へ進みます。&quot;&gt;反射波の電場の瞬時値&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel wq-sum&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成波の瞬時値 (E₁ + E₂)/E₀&lt;/span&gt;&lt;output id=&quot;wq-field-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-field&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;合成電場の瞬時値。横軸は軸方向の位置、縦軸は横方向の位置です。時間を変えると符号と大きさが変わります。&quot;&gt;合成電場の瞬時値&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成振幅 A/E₀ · 最大絶対値&lt;/span&gt;&lt;output id=&quot;wq-amplitude-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-amplitude&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;位置を固定し、1周期にわたって観測した合成電場の最大絶対値。0から2の範囲を取り、このモデルでは時間によって変わりません。&quot;&gt;合成振幅&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;0&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-positive-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成位相 Φ · 時間項を含む&lt;/span&gt;&lt;output id=&quot;wq-phase-value&quot; class=&quot;tabular-nums&quot;&gt;0.00π&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-phase&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;時間項を含む合成位相を−πからπの範囲で表示します。節では位相が定義されません。&quot;&gt;合成位相&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale&quot;&gt;&lt;span class=&quot;wq-ramp wq-phase-ramp&quot;&gt;&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-phase-ticks text-small&quot;&gt;&lt;span&gt;−π&lt;/span&gt;&lt;span&gt;−π/2&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;π/2&lt;/span&gt;&lt;span&gt;π&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;text-small&quot; style=&quot;margin-top:12px&quot;&gt;&lt;span class=&quot;wq-node-key&quot;&gt;&lt;/span&gt;破線：A = 0 の節 · 位相は未定義&lt;/div&gt;</span>
+<span class="s2">  &lt;span id=&quot;wq-probe&quot; class=&quot;wq-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span>
+<span class="s2">  &lt;script&gt;</span>
+<span class="s2">  (() =&gt; {</span>
+<span class="s2">    const root = document.getElementById(&#39;wave-quantities&#39;);</span>
+<span class="s2">    const slider = root.querySelector(&#39;#wq-time&#39;);</span>
+<span class="s2">    const probe = root.querySelector(&#39;#wq-probe&#39;);</span>
+<span class="s2">    const tau = 2 * Math.PI;</span>
+<span class="s2">    const nodes = [-0.75, -0.25, 0.25, 0.75];</span>
+<span class="s2">    const plots = [&#39;incident&#39;, &#39;reflected&#39;, &#39;field&#39;, &#39;amplitude&#39;, &#39;phase&#39;].map(name =&gt; ({name, canvas: root.querySelector(&#39;#wq-&#39; + name)}));</span>
+<span class="s2">    const raster = document.createElement(&#39;canvas&#39;);</span>
+<span class="s2">    raster.width = 256; raster.height = 128;</span>
+<span class="s2">    const rasterContext = raster.getContext(&#39;2d&#39;);</span>
+<span class="s2">    const colorCanvas = document.createElement(&#39;canvas&#39;);</span>
+<span class="s2">    colorCanvas.width = colorCanvas.height = 1;</span>
+<span class="s2">    const colorContext = colorCanvas.getContext(&#39;2d&#39;, {willReadFrequently: true});</span>
+<span class="s2">    let time = 0;</span>
+<span class="s2">    let selected = {x: 0, z: 0};</span>
+<span class="s2">    let framePending = false;</span>
+
+<span class="s2">    function waveAt(x, z, t) {</span>
+<span class="s2">      const c = Math.cos(tau * x);</span>
+<span class="s2">      const a = Math.cos(tau * (x + z - t));</span>
+<span class="s2">      const b = Math.cos(tau * (-x + z - t));</span>
+<span class="s2">      const isNode = Math.abs(c) &lt; 1e-10;</span>
+<span class="s2">      const amplitude = isNode ? 0 : 2 * Math.abs(c);</span>
+<span class="s2">      const phase0 = tau * (z - t) + (c &lt; 0 ? Math.PI : 0);</span>
+<span class="s2">      const phase = isNode ? null : Math.atan2(Math.sin(phase0), Math.cos(phase0));</span>
+<span class="s2">      return {incident: a, reflected: b, field: isNode ? 0 : a + b, amplitude, phase};</span>
+<span class="s2">    }</span>
+
+<span class="s2">    function color(token) {</span>
+<span class="s2">      probe.style.color = &#39;var(&#39; + token + &#39;)&#39;;</span>
+<span class="s2">      const css = getComputedStyle(probe).color;</span>
+<span class="s2">      colorContext.clearRect(0, 0, 1, 1);</span>
+<span class="s2">      colorContext.fillStyle = css;</span>
+<span class="s2">      colorContext.fillRect(0, 0, 1, 1);</span>
+<span class="s2">      return {css, rgb: Array.from(colorContext.getImageData(0, 0, 1, 1).data).slice(0, 3)};</span>
+<span class="s2">    }</span>
+<span class="s2">    function mix(a, b, amount) { return a.map((v, i) =&gt; Math.round(v * (1 - amount) + b[i] * amount)); }</span>
+<span class="s2">    function phaseColor(phase, colors) {</span>
+<span class="s2">      const p = Math.max(0, Math.min(4, (phase + Math.PI) / tau * 4));</span>
+<span class="s2">      const i = Math.min(3, Math.floor(p));</span>
+<span class="s2">      return mix(colors[i], colors[i + 1], p - i);</span>
+<span class="s2">    }</span>
+<span class="s2">    function fixed(value) { return Math.abs(value) &lt; 0.0005 ? &#39;0.00&#39; : value.toFixed(2); }</span>
+<span class="s2">    function updateValues() {</span>
+<span class="s2">      const q = waveAt(selected.x, selected.z, time);</span>
+<span class="s2">      root.querySelector(&#39;#wq-time-value&#39;).textContent = &#39;t/T = &#39; + time.toFixed(2);</span>
+<span class="s2">      slider.setAttribute(&#39;aria-valuetext&#39;, time.toFixed(2) + &#39; 周期&#39;);</span>
+<span class="s2">      root.querySelector(&#39;#wq-position&#39;).textContent = &#39;選択位置： x/λₓ = &#39; + fixed(selected.x) + &#39;, z/λz = &#39; + fixed(selected.z) + &#39; · 図をクリックして選択&#39;;</span>
+<span class="s2">      for (const key of [&#39;incident&#39;, &#39;reflected&#39;, &#39;field&#39;, &#39;amplitude&#39;]) root.querySelector(&#39;#wq-&#39; + key + &#39;-value&#39;).textContent = fixed(q[key]);</span>
+<span class="s2">      root.querySelector(&#39;#wq-phase-value&#39;).textContent = q.phase === null ? &#39;未定義&#39; : fixed(q.phase / Math.PI) + &#39;π&#39;;</span>
+<span class="s2">    }</span>
+<span class="s2">    function render() {</span>
+<span class="s2">      const positive = color(&#39;--viz-series-1&#39;);</span>
+<span class="s2">      const negative = color(&#39;--viz-series-2&#39;);</span>
+<span class="s2">      const base = color(&#39;--background&#39;);</span>
+<span class="s2">      const foreground = color(&#39;--foreground&#39;);</span>
+<span class="s2">      const border = color(&#39;--border&#39;);</span>
+<span class="s2">      const phaseColors = [positive.rgb, color(&#39;--viz-series-4&#39;).rgb, negative.rgb, color(&#39;--viz-series-3&#39;).rgb, positive.rgb];</span>
+<span class="s2">      updateValues();</span>
+<span class="s2">      for (const plot of plots) {</span>
+<span class="s2">        const width = Math.round(plot.canvas.getBoundingClientRect().width);</span>
+<span class="s2">        if (width &lt; 1) continue;</span>
+<span class="s2">        const height = Math.round(plot.canvas.getBoundingClientRect().height);</span>
+<span class="s2">        const left = 58, right = 10, top = 9, bottom = 35;</span>
+<span class="s2">        const pw = width - left - right, ph = height - top - bottom;</span>
+<span class="s2">        plot.geometry = {width, height, left, top, pw, ph};</span>
+<span class="s2">        const image = rasterContext.createImageData(raster.width, raster.height);</span>
+<span class="s2">        for (let row = 0; row &lt; raster.height; row++) {</span>
+<span class="s2">          const x = 1 - 2 * (row + 0.5) / raster.height;</span>
+<span class="s2">          for (let col = 0; col &lt; raster.width; col++) {</span>
+<span class="s2">            const z = 2 * (col + 0.5) / raster.width;</span>
+<span class="s2">            const q = waveAt(x, z, time);</span>
+<span class="s2">            let rgb;</span>
+<span class="s2">            if (plot.name === &#39;phase&#39;) rgb = q.phase === null ? base.rgb : phaseColor(q.phase, phaseColors);</span>
+<span class="s2">            else if (plot.name === &#39;amplitude&#39;) rgb = mix(base.rgb, positive.rgb, q.amplitude / 2);</span>
+<span class="s2">            else rgb = mix(base.rgb, q[plot.name] &gt;= 0 ? positive.rgb : negative.rgb, Math.min(1, Math.abs(q[plot.name]) / 2));</span>
+<span class="s2">            const index = 4 * (row * raster.width + col);</span>
+<span class="s2">            image.data.set([rgb[0], rgb[1], rgb[2], 255], index);</span>
+<span class="s2">          }</span>
+<span class="s2">        }</span>
+<span class="s2">        rasterContext.putImageData(image, 0, 0);</span>
+<span class="s2">        const dpr = window.devicePixelRatio || 1;</span>
+<span class="s2">        plot.canvas.width = Math.round(width * dpr); plot.canvas.height = Math.round(height * dpr);</span>
+<span class="s2">        const ctx = plot.canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);</span>
+<span class="s2">        ctx.clearRect(0, 0, width, height);</span>
+<span class="s2">        ctx.imageSmoothingEnabled = false;</span>
+<span class="s2">        ctx.drawImage(raster, left, top, pw, ph);</span>
+<span class="s2">        ctx.strokeStyle = border.css; ctx.lineWidth = 1; ctx.strokeRect(left, top, pw, ph);</span>
+<span class="s2">        if (![&#39;incident&#39;, &#39;reflected&#39;].includes(plot.name)) {</span>
+<span class="s2">          for (const x of nodes) {</span>
+<span class="s2">            const y = top + (1 - x) / 2 * ph;</span>
+<span class="s2">            if (plot.name === &#39;phase&#39;) { ctx.strokeStyle = base.css; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); }</span>
+<span class="s2">            ctx.strokeStyle = foreground.css; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); ctx.setLineDash([]);</span>
+<span class="s2">          }</span>
+<span class="s2">        }</span>
+<span class="s2">        const sx = left + selected.z / 2 * pw, sy = top + (1 - selected.x) / 2 * ph;</span>
+<span class="s2">        ctx.save(); ctx.beginPath(); ctx.rect(left, top, pw, ph); ctx.clip();</span>
+<span class="s2">        ctx.strokeStyle = base.css; ctx.lineWidth = 4;</span>
+<span class="s2">        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke();</span>
+<span class="s2">        ctx.strokeStyle = foreground.css; ctx.lineWidth = 1.5;</span>
+<span class="s2">        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke(); ctx.restore();</span>
+<span class="s2">        const style = getComputedStyle(root);</span>
+<span class="s2">        ctx.font = style.fontSize + &#39; &#39; + style.fontFamily; ctx.fillStyle = foreground.css;</span>
+<span class="s2">        ctx.textBaseline = &#39;middle&#39;; ctx.textAlign = &#39;right&#39;;</span>
+<span class="s2">        ctx.fillText(&#39;+1&#39;, left - 7, top + 6); ctx.fillText(&#39;0&#39;, left - 7, top + ph / 2); ctx.fillText(&#39;−1&#39;, left - 7, top + ph - 6);</span>
+<span class="s2">        ctx.save(); ctx.translate(12, top + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = &#39;center&#39;; ctx.fillText(&#39;x/λₓ&#39;, 0, 0); ctx.restore();</span>
+<span class="s2">        ctx.textAlign = &#39;left&#39;; ctx.fillText(&#39;0&#39;, left, height - 15);</span>
+<span class="s2">        ctx.textAlign = &#39;center&#39;; ctx.fillText(&#39;z/λz →&#39;, left + pw / 2, height - 15);</span>
+<span class="s2">        ctx.textAlign = &#39;right&#39;; ctx.fillText(&#39;2&#39;, left + pw, height - 15);</span>
+<span class="s2">      }</span>
+<span class="s2">    }</span>
+<span class="s2">    function scheduleRender() {</span>
+<span class="s2">      if (!framePending) { framePending = true; requestAnimationFrame(() =&gt; { framePending = false; render(); }); }</span>
+<span class="s2">    }</span>
+<span class="s2">    function save() {</span>
+<span class="s2">      if (window.openai &amp;&amp; window.openai.setWidgetState) {</span>
+<span class="s2">        const q = waveAt(selected.x, selected.z, time);</span>
+<span class="s2">        window.openai.setWidgetState({modelContent: {timeOverPeriod: time, xOverLambdaX: selected.x, zOverLambdaZ: selected.z, incidentOverE0: q.incident, reflectedOverE0: q.reflected, fieldOverE0: q.field, amplitudeOverE0: q.amplitude, phaseOverPi: q.phase === null ? null : q.phase / Math.PI}, privateContent: {time, selected}}).catch(() =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+<span class="s2">      }</span>
+<span class="s2">    }</span>
+<span class="s2">    function restore(state) {</span>
+<span class="s2">      const s = state &amp;&amp; state.privateContent;</span>
+<span class="s2">      if (s &amp;&amp; Number.isFinite(s.time)) { time = Math.max(0, Math.min(1, s.time)); slider.value = String(time); }</span>
+<span class="s2">      if (s &amp;&amp; s.selected &amp;&amp; Number.isFinite(s.selected.x) &amp;&amp; Number.isFinite(s.selected.z)) selected = {x: Math.max(-1, Math.min(1, s.selected.x)), z: Math.max(0, Math.min(2, s.selected.z))};</span>
+<span class="s2">    }</span>
+<span class="s2">    restore(window.openai &amp;&amp; window.openai.widgetState);</span>
+<span class="s2">    slider.addEventListener(&#39;input&#39;, () =&gt; { time = Number(slider.value); scheduleRender(); });</span>
+<span class="s2">    slider.addEventListener(&#39;change&#39;, save);</span>
+<span class="s2">    for (const plot of plots) plot.canvas.addEventListener(&#39;click&#39;, event =&gt; {</span>
+<span class="s2">      const g = plot.geometry; if (!g) return;</span>
+<span class="s2">      const box = plot.canvas.getBoundingClientRect();</span>
+<span class="s2">      const px = (event.clientX - box.left) * g.width / box.width;</span>
+<span class="s2">      const py = (event.clientY - box.top) * g.height / box.height;</span>
+<span class="s2">      if (px &lt; g.left || px &gt; g.left + g.pw || py &lt; g.top || py &gt; g.top + g.ph) return;</span>
+<span class="s2">      let x = 1 - 2 * (py - g.top) / g.ph;</span>
+<span class="s2">      for (const node of nodes) if (Math.abs(x - node) * g.ph / 2 &lt; 3) { x = node; break; }</span>
+<span class="s2">      selected = {x, z: 2 * (px - g.left) / g.pw}; scheduleRender(); save();</span>
+<span class="s2">    });</span>
+<span class="s2">    window.addEventListener(&#39;openai:set_globals&#39;, event =&gt; { const g = event.detail &amp;&amp; event.detail.globals; if (g &amp;&amp; Object.prototype.hasOwnProperty.call(g, &#39;widgetState&#39;)) { restore(g.widgetState); scheduleRender(); } });</span>
+<span class="s2">    new ResizeObserver(scheduleRender).observe(root);</span>
+<span class="s2">    new MutationObserver(scheduleRender).observe(document.documentElement, {attributes: true, attributeFilter: [&#39;class&#39;, &#39;style&#39;, &#39;data-theme&#39;]});</span>
+<span class="s2">    render();</span>
+<span class="s2">  })();</span>
+<span class="s2">  &lt;/script&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;div class=&quot;te-wave-output-ja&quot; style=&quot;container-type:inline-size&quot;&gt;&#39;</span>
+    <span class="s1">&#39;&lt;style&gt;.te-wave-output-ja iframe{display:block;width:100%;height:720px;border:0;}&#39;</span>
+    <span class="s1">&#39;@container (max-width:640px){.te-wave-output-ja iframe{height:1240px;}}&lt;/style&gt;&#39;</span>
+    <span class="s1">&#39;&lt;iframe title=&quot;2つの構成波と合成波&quot; sandbox=&quot;allow-scripts&quot; referrerpolicy=&quot;no-referrer&quot; srcdoc=&quot;&#39;</span>
+    <span class="o">+</span> <span class="n">escape</span><span class="p">(</span><span class="n">TE_WAVE_HTML</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&#39;</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="te-wave-output-ja" style="container-type:inline-size"><style>.te-wave-output-ja iframe{display:block;width:100%;height:720px;border:0;}@container (max-width:640px){.te-wave-output-ja iframe{height:1240px;}}</style><iframe title="2つの構成波と合成波" sandbox="allow-scripts" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;2つの構成波と合成波&lt;/title&gt;
+&lt;style&gt;
+:root {
+  color-scheme: light dark;
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --border: light-dark(rgb(26 28 31 / 12%), rgb(255 255 255 / 15%));
+  --viz-series-1: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--background); color: var(--foreground); }
+body { padding: 12px; font: 16px/1.5 system-ui, &#x27;Segoe UI&#x27;, sans-serif; }
+h3 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 8px; }
+.text-small { font-size: 14px; line-height: 1.5; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.form-label { display: block; }
+.form-range { display: block; width: 100%; height: 24px; margin: 0; accent-color: var(--foreground); }
+.cursor-interaction { cursor: crosshair; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;wave-quantities&quot;&gt;
+  &lt;style&gt;
+    #wave-quantities { color: var(--foreground); }
+    #wave-quantities h3 { padding-right: 90px; }
+    #wave-quantities .wq-control { margin: 6px 0; }
+    #wave-quantities .wq-between { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    #wave-quantities .wq-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
+    #wave-quantities .wq-sum { grid-column: 1 / -1; }
+    #wave-quantities .wq-panel { min-width: 0; }
+    #wave-quantities .wq-panel canvas { display: block; width: 100%; height: 120px; }
+    #wave-quantities .wq-title { display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+    #wave-quantities .wq-scale { display: flex; align-items: center; gap: 8px; }
+    #wave-quantities .wq-ramp { height: 10px; flex: 1; min-width: 36px; }
+    #wave-quantities .wq-field-ramp { background: linear-gradient(to right, var(--viz-series-2), var(--background), var(--viz-series-1)); }
+    #wave-quantities .wq-positive-ramp { background: linear-gradient(to right, var(--background), var(--viz-series-1)); }
+    #wave-quantities .wq-phase-ramp { background: linear-gradient(to right, var(--viz-series-1), var(--viz-series-4), var(--viz-series-2), var(--viz-series-3), var(--viz-series-1)); }
+    #wave-quantities .wq-phase-ticks { display: flex; justify-content: space-between; }
+    #wave-quantities .wq-node-key { display: inline-block; width: 24px; border-top: 1px dashed var(--foreground); vertical-align: middle; margin-right: 6px; }
+    #wave-quantities .wq-selected { margin: 4px 0 8px; }
+    #wave-quantities .wq-probe { position: absolute; visibility: hidden; }
+    @media (max-width: 640px) {
+      #wave-quantities .wq-panels { grid-template-columns: minmax(0, 1fr); }
+      #wave-quantities .wq-panel canvas { height: 152px; }
+    }
+  &lt;/style&gt;
+  &lt;h3&gt;2つの構成波と合成波&lt;/h3&gt;
+  &lt;div class=&quot;wq-control&quot;&gt;
+    &lt;div class=&quot;wq-between&quot;&gt;
+      &lt;label class=&quot;form-label&quot; for=&quot;wq-time&quot;&gt;時間&lt;/label&gt;
+      &lt;output id=&quot;wq-time-value&quot; class=&quot;tabular-nums&quot; aria-live=&quot;polite&quot;&gt;t/T = 0.00&lt;/output&gt;
+    &lt;/div&gt;
+    &lt;input id=&quot;wq-time&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;0&quot; aria-label=&quot;時間 t/T&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;wq-selected text-small tabular-nums&quot; id=&quot;wq-position&quot;&gt;選択位置： x/λₓ = 0.00, z/λz = 0.00 · 図をクリックして選択&lt;/div&gt;
+  &lt;div class=&quot;wq-panels&quot;&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;入射波の瞬時値 E₁/E₀&lt;/span&gt;&lt;output id=&quot;wq-incident-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-incident&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;入射波の電場の瞬時値。正のx方向と正のz方向へ進みます。&quot;&gt;入射波の電場の瞬時値&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;反射波の瞬時値 E₂/E₀&lt;/span&gt;&lt;output id=&quot;wq-reflected-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-reflected&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;反射波の電場の瞬時値。負のx方向と正のz方向へ進みます。&quot;&gt;反射波の電場の瞬時値&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel wq-sum&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成波の瞬時値 (E₁ + E₂)/E₀&lt;/span&gt;&lt;output id=&quot;wq-field-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-field&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;合成電場の瞬時値。横軸は軸方向の位置、縦軸は横方向の位置です。時間を変えると符号と大きさが変わります。&quot;&gt;合成電場の瞬時値&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成振幅 A/E₀ · 最大絶対値&lt;/span&gt;&lt;output id=&quot;wq-amplitude-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-amplitude&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;位置を固定し、1周期にわたって観測した合成電場の最大絶対値。0から2の範囲を取り、このモデルでは時間によって変わりません。&quot;&gt;合成振幅&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;0&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-positive-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;合成位相 Φ · 時間項を含む&lt;/span&gt;&lt;output id=&quot;wq-phase-value&quot; class=&quot;tabular-nums&quot;&gt;0.00π&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-phase&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;時間項を含む合成位相を−πからπの範囲で表示します。節では位相が定義されません。&quot;&gt;合成位相&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale&quot;&gt;&lt;span class=&quot;wq-ramp wq-phase-ramp&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;wq-phase-ticks text-small&quot;&gt;&lt;span&gt;−π&lt;/span&gt;&lt;span&gt;−π/2&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;π/2&lt;/span&gt;&lt;span&gt;π&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;text-small&quot; style=&quot;margin-top:12px&quot;&gt;&lt;span class=&quot;wq-node-key&quot;&gt;&lt;/span&gt;破線：A = 0 の節 · 位相は未定義&lt;/div&gt;
+  &lt;span id=&quot;wq-probe&quot; class=&quot;wq-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;script&gt;
+  (() =&gt; {
+    const root = document.getElementById(&#x27;wave-quantities&#x27;);
+    const slider = root.querySelector(&#x27;#wq-time&#x27;);
+    const probe = root.querySelector(&#x27;#wq-probe&#x27;);
+    const tau = 2 * Math.PI;
+    const nodes = [-0.75, -0.25, 0.25, 0.75];
+    const plots = [&#x27;incident&#x27;, &#x27;reflected&#x27;, &#x27;field&#x27;, &#x27;amplitude&#x27;, &#x27;phase&#x27;].map(name =&gt; ({name, canvas: root.querySelector(&#x27;#wq-&#x27; + name)}));
+    const raster = document.createElement(&#x27;canvas&#x27;);
+    raster.width = 256; raster.height = 128;
+    const rasterContext = raster.getContext(&#x27;2d&#x27;);
+    const colorCanvas = document.createElement(&#x27;canvas&#x27;);
+    colorCanvas.width = colorCanvas.height = 1;
+    const colorContext = colorCanvas.getContext(&#x27;2d&#x27;, {willReadFrequently: true});
+    let time = 0;
+    let selected = {x: 0, z: 0};
+    let framePending = false;
+
+    function waveAt(x, z, t) {
+      const c = Math.cos(tau * x);
+      const a = Math.cos(tau * (x + z - t));
+      const b = Math.cos(tau * (-x + z - t));
+      const isNode = Math.abs(c) &lt; 1e-10;
+      const amplitude = isNode ? 0 : 2 * Math.abs(c);
+      const phase0 = tau * (z - t) + (c &lt; 0 ? Math.PI : 0);
+      const phase = isNode ? null : Math.atan2(Math.sin(phase0), Math.cos(phase0));
+      return {incident: a, reflected: b, field: isNode ? 0 : a + b, amplitude, phase};
+    }
+
+    function color(token) {
+      probe.style.color = &#x27;var(&#x27; + token + &#x27;)&#x27;;
+      const css = getComputedStyle(probe).color;
+      colorContext.clearRect(0, 0, 1, 1);
+      colorContext.fillStyle = css;
+      colorContext.fillRect(0, 0, 1, 1);
+      return {css, rgb: Array.from(colorContext.getImageData(0, 0, 1, 1).data).slice(0, 3)};
+    }
+    function mix(a, b, amount) { return a.map((v, i) =&gt; Math.round(v * (1 - amount) + b[i] * amount)); }
+    function phaseColor(phase, colors) {
+      const p = Math.max(0, Math.min(4, (phase + Math.PI) / tau * 4));
+      const i = Math.min(3, Math.floor(p));
+      return mix(colors[i], colors[i + 1], p - i);
+    }
+    function fixed(value) { return Math.abs(value) &lt; 0.0005 ? &#x27;0.00&#x27; : value.toFixed(2); }
+    function updateValues() {
+      const q = waveAt(selected.x, selected.z, time);
+      root.querySelector(&#x27;#wq-time-value&#x27;).textContent = &#x27;t/T = &#x27; + time.toFixed(2);
+      slider.setAttribute(&#x27;aria-valuetext&#x27;, time.toFixed(2) + &#x27; 周期&#x27;);
+      root.querySelector(&#x27;#wq-position&#x27;).textContent = &#x27;選択位置： x/λₓ = &#x27; + fixed(selected.x) + &#x27;, z/λz = &#x27; + fixed(selected.z) + &#x27; · 図をクリックして選択&#x27;;
+      for (const key of [&#x27;incident&#x27;, &#x27;reflected&#x27;, &#x27;field&#x27;, &#x27;amplitude&#x27;]) root.querySelector(&#x27;#wq-&#x27; + key + &#x27;-value&#x27;).textContent = fixed(q[key]);
+      root.querySelector(&#x27;#wq-phase-value&#x27;).textContent = q.phase === null ? &#x27;未定義&#x27; : fixed(q.phase / Math.PI) + &#x27;π&#x27;;
+    }
+    function render() {
+      const positive = color(&#x27;--viz-series-1&#x27;);
+      const negative = color(&#x27;--viz-series-2&#x27;);
+      const base = color(&#x27;--background&#x27;);
+      const foreground = color(&#x27;--foreground&#x27;);
+      const border = color(&#x27;--border&#x27;);
+      const phaseColors = [positive.rgb, color(&#x27;--viz-series-4&#x27;).rgb, negative.rgb, color(&#x27;--viz-series-3&#x27;).rgb, positive.rgb];
+      updateValues();
+      for (const plot of plots) {
+        const width = Math.round(plot.canvas.getBoundingClientRect().width);
+        if (width &lt; 1) continue;
+        const height = Math.round(plot.canvas.getBoundingClientRect().height);
+        const left = 58, right = 10, top = 9, bottom = 35;
+        const pw = width - left - right, ph = height - top - bottom;
+        plot.geometry = {width, height, left, top, pw, ph};
+        const image = rasterContext.createImageData(raster.width, raster.height);
+        for (let row = 0; row &lt; raster.height; row++) {
+          const x = 1 - 2 * (row + 0.5) / raster.height;
+          for (let col = 0; col &lt; raster.width; col++) {
+            const z = 2 * (col + 0.5) / raster.width;
+            const q = waveAt(x, z, time);
+            let rgb;
+            if (plot.name === &#x27;phase&#x27;) rgb = q.phase === null ? base.rgb : phaseColor(q.phase, phaseColors);
+            else if (plot.name === &#x27;amplitude&#x27;) rgb = mix(base.rgb, positive.rgb, q.amplitude / 2);
+            else rgb = mix(base.rgb, q[plot.name] &gt;= 0 ? positive.rgb : negative.rgb, Math.min(1, Math.abs(q[plot.name]) / 2));
+            const index = 4 * (row * raster.width + col);
+            image.data.set([rgb[0], rgb[1], rgb[2], 255], index);
+          }
+        }
+        rasterContext.putImageData(image, 0, 0);
+        const dpr = window.devicePixelRatio || 1;
+        plot.canvas.width = Math.round(width * dpr); plot.canvas.height = Math.round(height * dpr);
+        const ctx = plot.canvas.getContext(&#x27;2d&#x27;);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(raster, left, top, pw, ph);
+        ctx.strokeStyle = border.css; ctx.lineWidth = 1; ctx.strokeRect(left, top, pw, ph);
+        if (![&#x27;incident&#x27;, &#x27;reflected&#x27;].includes(plot.name)) {
+          for (const x of nodes) {
+            const y = top + (1 - x) / 2 * ph;
+            if (plot.name === &#x27;phase&#x27;) { ctx.strokeStyle = base.css; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); }
+            ctx.strokeStyle = foreground.css; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
+            ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); ctx.setLineDash([]);
+          }
+        }
+        const sx = left + selected.z / 2 * pw, sy = top + (1 - selected.x) / 2 * ph;
+        ctx.save(); ctx.beginPath(); ctx.rect(left, top, pw, ph); ctx.clip();
+        ctx.strokeStyle = base.css; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke();
+        ctx.strokeStyle = foreground.css; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke(); ctx.restore();
+        const style = getComputedStyle(root);
+        ctx.font = style.fontSize + &#x27; &#x27; + style.fontFamily; ctx.fillStyle = foreground.css;
+        ctx.textBaseline = &#x27;middle&#x27;; ctx.textAlign = &#x27;right&#x27;;
+        ctx.fillText(&#x27;+1&#x27;, left - 7, top + 6); ctx.fillText(&#x27;0&#x27;, left - 7, top + ph / 2); ctx.fillText(&#x27;−1&#x27;, left - 7, top + ph - 6);
+        ctx.save(); ctx.translate(12, top + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = &#x27;center&#x27;; ctx.fillText(&#x27;x/λₓ&#x27;, 0, 0); ctx.restore();
+        ctx.textAlign = &#x27;left&#x27;; ctx.fillText(&#x27;0&#x27;, left, height - 15);
+        ctx.textAlign = &#x27;center&#x27;; ctx.fillText(&#x27;z/λz →&#x27;, left + pw / 2, height - 15);
+        ctx.textAlign = &#x27;right&#x27;; ctx.fillText(&#x27;2&#x27;, left + pw, height - 15);
+      }
+    }
+    function scheduleRender() {
+      if (!framePending) { framePending = true; requestAnimationFrame(() =&gt; { framePending = false; render(); }); }
+    }
+    function save() {
+      if (window.openai &amp;&amp; window.openai.setWidgetState) {
+        const q = waveAt(selected.x, selected.z, time);
+        window.openai.setWidgetState({modelContent: {timeOverPeriod: time, xOverLambdaX: selected.x, zOverLambdaZ: selected.z, incidentOverE0: q.incident, reflectedOverE0: q.reflected, fieldOverE0: q.field, amplitudeOverE0: q.amplitude, phaseOverPi: q.phase === null ? null : q.phase / Math.PI}, privateContent: {time, selected}}).catch(() =&gt; {});
+      }
+    }
+    function restore(state) {
+      const s = state &amp;&amp; state.privateContent;
+      if (s &amp;&amp; Number.isFinite(s.time)) { time = Math.max(0, Math.min(1, s.time)); slider.value = String(time); }
+      if (s &amp;&amp; s.selected &amp;&amp; Number.isFinite(s.selected.x) &amp;&amp; Number.isFinite(s.selected.z)) selected = {x: Math.max(-1, Math.min(1, s.selected.x)), z: Math.max(0, Math.min(2, s.selected.z))};
+    }
+    restore(window.openai &amp;&amp; window.openai.widgetState);
+    slider.addEventListener(&#x27;input&#x27;, () =&gt; { time = Number(slider.value); scheduleRender(); });
+    slider.addEventListener(&#x27;change&#x27;, save);
+    for (const plot of plots) plot.canvas.addEventListener(&#x27;click&#x27;, event =&gt; {
+      const g = plot.geometry; if (!g) return;
+      const box = plot.canvas.getBoundingClientRect();
+      const px = (event.clientX - box.left) * g.width / box.width;
+      const py = (event.clientY - box.top) * g.height / box.height;
+      if (px &lt; g.left || px &gt; g.left + g.pw || py &lt; g.top || py &gt; g.top + g.ph) return;
+      let x = 1 - 2 * (py - g.top) / g.ph;
+      for (const node of nodes) if (Math.abs(x - node) * g.ph / 2 &lt; 3) { x = node; break; }
+      selected = {x, z: 2 * (px - g.left) / g.pw}; scheduleRender(); save();
+    });
+    window.addEventListener(&#x27;openai:set_globals&#x27;, event =&gt; { const g = event.detail &amp;&amp; event.detail.globals; if (g &amp;&amp; Object.prototype.hasOwnProperty.call(g, &#x27;widgetState&#x27;)) { restore(g.widgetState); scheduleRender(); } });
+    new ResizeObserver(scheduleRender).observe(root);
+    new MutationObserver(scheduleRender).observe(document.documentElement, {attributes: true, attributeFilter: [&#x27;class&#x27;, &#x27;style&#x27;, &#x27;data-theme&#x27;]});
+    render();
+  })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;"></iframe></div></div></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>4. 円筒対称性とベッセル関数の登場<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>前の節のコサイン定在波は、互いに反対方向へ進む2つの平面波を足し合わせたものである。
+ここで、構成する平面波の進行方向をすべての方位角に広げる。
+<span class="math notranslate nohighlight">\(\phi\)</span> は<strong>観測点の方位角</strong>、<span class="math notranslate nohighlight">\(\psi\)</span> は<strong>構成する平面波の横方向の進行角度</strong>である。
+観測点の位置を <span class="math notranslate nohighlight">\(\psi\)</span> 方向に射影した距離は <span class="math notranslate nohighlight">\(r\cos(\phi-\psi)\)</span> となる。</p>
+<p>円筒座標系において、方位角 <span class="math notranslate nohighlight">\(\psi\)</span> の方向を向く横波数ベクトルを持つ平面波成分は、観測点 <span class="math notranslate nohighlight">\((r,\phi)\)</span> で</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i k_r r\cos(\phi-\psi)}
+\]</div>
+<p>という位相因子を与える。共通の軸方向因子は、ここでは省略する。これをすべての方位角について等しい重みで重ね合わせると、</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi} e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>となる。</p>
+<p>ベッセル関数の積分表示</p>
+<div class="math notranslate nohighlight">
+\[
+J_0(k_r r)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>から、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+=
+2\pi J_0(k_r r)
+}
+\]</div>
+<p>を得る。反対方向の平面波を対にすると、虚部が打ち消し合い、前の節のコサイン項が残る。
+したがって、この積分は<strong>向きを変えた平面定在波を一様に重ね合わせること</strong>につながる。
+すでに円対称である <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span> を単に回転させるという意味ではない。</p>
+<p>このように、<strong>円筒対称な平面波の重ね合わせから <span class="math notranslate nohighlight">\(J_0\)</span> が自然に現れる</strong>。
+観測点を <span class="math notranslate nohighlight">\(\phi=0\)</span> の方向に置くと、元のコサイン表示でも同じ結果を書ける。</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2\pi} \int_0^{2\pi}
+\cos\!\left[k_r r\cos(-\psi)\right]\,d\psi =J_0(k_r r)
+\]</div>
+<p>さらに、方位角モード数 <span class="math notranslate nohighlight">\(l\)</span> を持つ成分を作るには、各平面波成分に方位角 <span class="math notranslate nohighlight">\(\psi\)</span> に依存する位相の重み</p>
+<div class="math notranslate nohighlight">
+\[
+e^{il\psi}
+\]</div>
+<p>を掛けて重ね合わせればよい。その結果、</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{il\psi}
+e^{i k_r r\cos(\phi-\psi)}
+\,d\psi
+=
+2\pi i^l J_l(k_r r)e^{il\phi}
+}
+\]</div>
+<p>となる。これは Jacobi–Anger 展開</p>
+<div class="math notranslate nohighlight">
+\[
+e^{iz\cos\theta}
+=
+\sum_{m=-\infty}^{\infty}
+i^m J_m(z)e^{im\theta}
+\]</div>
+<p>から直接得られる結果であり、<strong>平面波の重ね合わせが円筒波 <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span> を作る</strong>ことを示している。</p>
+<p>この節の積分は、スカラーの空間関数についての関係である。これを電場ベクトル全体にそのまま適用するのではなく、次の節では <span class="math notranslate nohighlight">\(H_z\)</span> の分布と結び付ける。</p>
+<p>出典：<a class="reference external" href="https://dlmf.nist.gov/10.9#E1">NIST DLMF、ベッセルの積分表示 (10.9.1)</a>、<a class="reference external" href="https://dlmf.nist.gov/10.12">Jacobi–Anger 展開</a>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 第4節：すべての方向のコサイン平均とJ0を比較する。</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># 方向の数：4、16、128に変えてみてください。</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mean_wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k_r</span> <span class="o">*</span> <span class="n">r</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mean_wave</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Angular average&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j0</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;J0(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cos(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.7&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized amplitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/67b6ffc66d7fb0a5989dbc7f63191b50be5f1649ac34c751e8119d87e02359be.png" src="../_images/67b6ffc66d7fb0a5989dbc7f63191b50be5f1649ac34c751e8119d87e02359be.png" />
+</div>
+</div>
+</section>
+<section id="id6">
+<h2>5. TEモードのベッセル関数表示<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>円形導波路のTEモードでは <span class="math notranslate nohighlight">\(E_z=0\)</span> であり、縦方向の磁場 <span class="math notranslate nohighlight">\(H_z\)</span> が基本となる。円形導波路で用いられる縦方向磁場のベッセル関数表示は、</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)
+=
+H_0\,J_l(k_c r)\,[A\cos(l\phi)+B\sin(l\phi)]\,e^{-i\beta z}
+\]</div>
+<p>という形で書ける。複素数表示を用いれば、</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_c r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>と書いてもよい。以下では原文と同様に軸方向因子を <span class="math notranslate nohighlight">\(e^{-i\beta z}\)</span> と表記し、横方向の空間分布に注目する。ここで <span class="math notranslate nohighlight">\(k_c\)</span> は横方向の固有波数であり、境界条件によって離散的な値に定まる。</p>
+<p>この一般式を、光ファイバーのすべての <span class="math notranslate nohighlight">\(l\)</span> に対する純粋なTEモードと解釈してはいけない。
+ここでは光ファイバーの<strong>軸対称な <span class="math notranslate nohighlight">\(TE_{0m}\)</span> モード</strong>、すなわち <span class="math notranslate nohighlight">\(l=0\)</span> の場合に注目する。
+許容される波数は、コアと外部媒質の境界で <span class="math notranslate nohighlight">\(H_z\)</span> と <span class="math notranslate nohighlight">\(E_\phi\)</span> を連続につなぐことにより定まる。
+境界方程式の詳しい計算は、ここでは扱わない。</p>
+<p>なお、原文にあった</p>
+<div class="math notranslate nohighlight">
+\[
+J_l'(k_c a)=0
+\]</div>
+<p>と「支配モードは <span class="math notranslate nohighlight">\(TE_{11}\)</span>」という説明は、<strong>完全導体の壁を持つ円形導波路</strong>に当てはまる。
+この条件を光ファイバーにそのまま適用することはできない。</p>
+<p>出典：<a class="reference external" href="https://farside.ph.utexas.edu/teaching/jk1/Electromagnetism/node118.html#:~:text=For%20a%20TE%20mode">UT Austin、誘電体導波路のTEの場と境界条件、式 (1386)–(1396)</a>。</p>
+</section>
+<section id="te-0m-e-phi-propto-j-1">
+<h2>6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> で <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由<a class="headerlink" href="#te-0m-e-phi-propto-j-1" title="Permalink to this heading">#</a></h2>
+<p>軸対称なTEモードでは <span class="math notranslate nohighlight">\(l=0\)</span> であるため、縦方向磁場は</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,z)\propto J_0(k_c r)e^{-i\beta z}
+\]</div>
+<p>となる。</p>
+<p>TEモードの横電場成分は、Maxwell方程式により <span class="math notranslate nohighlight">\(H_z\)</span> の半径方向の微分から定まり、特に軸対称の場合は</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi \propto -\frac{\partial H_z}{\partial r}
+\]</div>
+<p>となる。したがって、</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi
+\propto
+-\frac{\partial}{\partial r}J_0(k_c r)
+\]</div>
+<p>である。ここで、ベッセル関数の微分公式</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ_0(x)}{dx}=-J_1(x)
+\]</div>
+<p>を使うと、</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1(k_c r)
+\]</div>
+<p>を得る。つまり <span class="math notranslate nohighlight">\(TE_{0m}\)</span> では、縦方向磁場が <span class="math notranslate nohighlight">\(J_0\)</span> 型であっても、横電場 <span class="math notranslate nohighlight">\(E_\phi\)</span> は <span class="math notranslate nohighlight">\(J_1\)</span> 型になる。</p>
+<p>ここでの比例関係は、共通の係数と位相因子を省略し、<strong>半径方向の形状</strong>を比較したものである。
+<span class="math notranslate nohighlight">\(E_\phi\)</span> に <span class="math notranslate nohighlight">\(J_1\)</span> が現れても、方位角モード数が <span class="math notranslate nohighlight">\(l=1\)</span> に変わるわけではない。</p>
+<p>出典：<a class="reference external" href="https://dlmf.nist.gov/10.6#E3">NIST DLMF、微分公式 (10.6.3)</a>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 第6節：共通の係数を除いたHzとE_phiの空間分布を比較する。</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j0</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Hz shape: J0(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j1</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E_phi shape: J1(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.7&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized shape&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a8fe1dbcb2b5aeedc64da7bd3ab59648c7685921ecf105ca9cfcafbde8d70521.png" src="../_images/a8fe1dbcb2b5aeedc64da7bd3ab59648c7685921ecf105ca9cfcafbde8d70521.png" />
+</div>
+</div>
+</section>
+<section id="l">
+<h2>7. <span class="math notranslate nohighlight">\(l\)</span> の意味<a class="headerlink" href="#l" title="Permalink to this heading">#</a></h2>
+<p>縦方向磁場の複素数表示</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_r r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>において、<span class="math notranslate nohighlight">\(l\)</span> は<strong>方位角モード数</strong>である。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l=0\)</span> では <span class="math notranslate nohighlight">\(e^{i0\phi}=1\)</span> となるため、このスカラー場成分は方位角 <span class="math notranslate nohighlight">\(\phi\)</span> に依存しない。</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=1\)</span> では <span class="math notranslate nohighlight">\(e^{i\phi}\)</span> となり、<span class="math notranslate nohighlight">\(\phi\)</span> を <span class="math notranslate nohighlight">\(2\pi\)</span> だけ回すと、複素位相が <span class="math notranslate nohighlight">\(2\pi\)</span> 変化する。</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=2\)</span> では <span class="math notranslate nohighlight">\(e^{i2\phi}\)</span> となり、1周で複素位相が <span class="math notranslate nohighlight">\(4\pi\)</span> 変化する。</p></li>
+</ul>
+<p>この意味では、複素数表示の <span class="math notranslate nohighlight">\(l\)</span> は「位相の巻き数」に対応するように見える。しかし、円形導波路の一般的なTE/TMモードでは、しばしば</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(l\phi),\qquad \sin(l\phi)
+\]</div>
+<p>という実関数表示を用いるため、最も誤解の少ない呼び方は<strong>方位角モード数</strong>である。つまり <span class="math notranslate nohighlight">\(l\)</span> は<strong>偏光方向</strong>を表す量ではなく、<strong>横断面内の角度依存性の次数</strong>を表す量である。</p>
+<p>軸対称なTEモードの電場は <span class="math notranslate nohighlight">\(\hat{\boldsymbol\phi}\)</span> 方向を向く。成分 <span class="math notranslate nohighlight">\(E_\phi(r)\)</span> が方位角に依存しなくても、ベクトルの向きは円周に沿って変わる。</p>
+</section>
+<section id="id7">
+<h2>8. まとめ<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>以上をまとめると、ここで扱ったTEモードは</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0,\qquad H_z\neq 0
+\]</div>
+<p>を満たすモードであり、横方向の構造は平面波成分の重ね合わせとして理解できる。その円筒対称な重ね合わせの結果、半径方向の依存性はベッセル関数 <span class="math notranslate nohighlight">\(J_l\)</span> で表される。特に、すべての方位角を等しい重みで重ね合わせると <span class="math notranslate nohighlight">\(J_0\)</span> が現れ、方位角に位相の重み <span class="math notranslate nohighlight">\(e^{il\psi}\)</span> を与えると <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span> が現れる。軸対称なTEモードでは縦方向磁場 <span class="math notranslate nohighlight">\(H_z\)</span> が基本となり、<span class="math notranslate nohighlight">\(TE_{0m}\)</span> では <span class="math notranslate nohighlight">\(H_z\propto J_0\)</span>、そこから導かれる横電場は</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1
+\]</div>
+<p>となる。したがって <span class="math notranslate nohighlight">\(l\)</span> は偏光を表すものではなく、<strong>モードの方位角依存性を表す指標</strong>である。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 座標系と波数ベクトル</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. TEモードの意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. 「反射する平面波の重ね合わせ」から得られる直観</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">操作して確認：2つの波の重ね合わせ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4. 円筒対称性とベッセル関数の登場</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5. TEモードのベッセル関数表示</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span> で <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span> が現れる理由</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span> の意味</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8. まとめ</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

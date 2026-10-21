@@ -1,0 +1,1414 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TE mode and Bessel functions &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/TE_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/TE_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/TE_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/TE_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TE mode and Bessel functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 좌표계와 파수 벡터</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te">2. TE 모드의 의미</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. “반사하는 평면파의 중첩”으로 보는 직관</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">직접 확인: 두 파의 중첩</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4. 원통 대칭성과 베셀 함수의 등장</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5. TE 모드의 베셀 함수 표현</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span>에서 <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span>이 나타나는 이유</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span>의 의미</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8. 요약</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="te-mode-and-bessel-functions">
+<h1>TE mode and Bessel functions<a class="headerlink" href="#te-mode-and-bessel-functions" title="Permalink to this heading">#</a></h1>
+<p><img alt="Fig. 6" src="../_images/fig6.jpg" /></p>
+<p>설명과 그림, 실행 코드를 이 노트북 하나에 담았다. 코드는 위에서 아래로 실행하고, 값을 바꾼 뒤 Shift+Enter로 다시 실행할 수 있다.</p>
+<section id="id1">
+<h2>1. 좌표계와 파수 벡터<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>원통좌표를</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\phi,z)
+\]</div>
+<p>라고 하자. 여기서</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: 도파관의 축 방향</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span>: 축으로부터의 거리</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span>: 횡단면 내의 방위각</p></li>
+</ul>
+<p>이다.</p>
+<p>균일한 코어 안의 각 평면파 성분에 대해서는 파수 벡터를 축 방향 성분과 횡방향 성분으로 나누어</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>라고 쓸 수 있다. 원통 대칭적인 논의에서는 횡파수의 크기를 <span class="math notranslate nohighlight">\(k_r\)</span>라고 쓰고,</p>
+<div class="math notranslate nohighlight">
+\[
+k_r=nk_0\sin\theta,\qquad
+\beta=nk_0\cos\theta
+\]</div>
+<p>라고 둘 수 있다. 여기서 <span class="math notranslate nohighlight">\(\theta\)</span>는 파수 벡터 <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>와 <span class="math notranslate nohighlight">\(z\)</span>축이 이루는 각이다. 따라서 <span class="math notranslate nohighlight">\(\theta\)</span>는 “파동이 도파관 축에 대해 얼마나 기울어져 있는가”를 나타낸다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 그래프를 실행하려면 이 셀부터 실행하세요.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># SciPy 없이 각도 평균으로 J0, J1을 수치 계산한다.</span>
+<span class="c1"># J0 적분식: https://dlmf.nist.gov/10.9#E1</span>
+<span class="c1"># J1 = -J0의 미분: https://dlmf.nist.gov/10.6#E3</span>
+<span class="k">def</span> <span class="nf">j0</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">j1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">)))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">k_r</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># 횡파수: 값을 바꿔 보세요.</span>
+<span class="n">r_max</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># 그래프에 표시할 반지름 범위</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">r_max</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="te">
+<h2>2. TE 모드의 의미<a class="headerlink" href="#te" title="Permalink to this heading">#</a></h2>
+<p>TE 모드란 축 방향 전기장 성분이 0인 모드, 즉</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0
+\]</div>
+<p>을 만족하는 모드이다. 따라서 도파관 안의 전기장은 파이버의 횡단면과 평행하다.
+또한</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=\mathbf{k}_\perp+\beta \hat z
+\]</div>
+<p>이므로, 균일한 매질의 각 평면파 성분에 대해 <span class="math notranslate nohighlight">\(\mathbf{k} \cdot \mathbf{E} = \mathbf{k}_\perp \cdot \mathbf{E} + \beta \hat z  \cdot \mathbf{E} = \mathbf{k}_\perp \cdot \mathbf{E} = 0\)</span></p>
+<p>즉 <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> 의 방향은 <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{k}_\perp\)</span> 가 이루는 평면에 수직이다.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_\perp = k_r \hat {\mathbf {r}}
+\]</div>
+<p>라고 한다면, 전기장의 방향은 <span class="math notranslate nohighlight">\(\hat{\boldsymbol\phi}\)</span> 방향과 같다.</p>
+<p>여기서 편광 방향에 대한 설명은 각 평면파 성분에 대한 것이다. 여러 성분을 합친 모드의 전기장은 6절에서 살펴본다.</p>
+</section>
+<section id="id2">
+<h2>3. “반사하는 평면파의 중첩”으로 보는 직관<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p><img alt="Fig. 13" src="../_images/fig13.jpg" /></p>
+<p>도파관 안의 모드는 축 방향 성분 <span class="math notranslate nohighlight">\(\beta\)</span>를 공유하면서 횡방향으로 서로 다른 방위각 방향을 갖는 평면파 성분들의 중첩으로 직관적으로 이해할 수 있다. 하나의 성분만 보면, 예를 들어</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}=k_r\hat r+\beta \hat z
+\]</div>
+<p>처럼 쓸 수 있다. 균일 매질 속의 평면파에서는</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}\cdot \mathbf{k}=0
+\]</div>
+<p>이므로 전기장은 <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>에 수직이어야 한다. 원통좌표의 직관에서는 이러한 횡방향 성분으로 <span class="math notranslate nohighlight">\(\hat\phi\)</span> 방향의 전기장을 생각하면 <span class="math notranslate nohighlight">\(\hat r\)</span>에도 <span class="math notranslate nohighlight">\(\hat z\)</span>에도 직교하므로, TE적인 편광을 떠올리기 쉽다.</p>
+<p>그림처럼 하나의 횡방향에서 반사를 생각하면, 그 방향의 파수 성분은</p>
+<div class="math notranslate nohighlight">
+\[
+k_r\rightarrow -k_r
+\]</div>
+<p>가 되지만, <span class="math notranslate nohighlight">\(\beta\)</span>는 변하지 않는다. 원래 그림의 기호를 유지하여, 선택한 한 반지름 방향에서 두 성분을 비교하자. 두 성분의 진폭을 같게 놓고 상대위상차를 생략하면</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i(k_r r+\beta z)}+e^{i(-k_r r+\beta z)}
+=
+2\cos(k_r r)e^{i\beta z}
+\]</div>
+<p>처럼 <span class="math notranslate nohighlight">\(\pm k_r\)</span> 성분의 중첩으로부터 횡방향 정상파 구조가 생긴다. 여기서 아래 평균은 크기 자체가 아니라 두 부호 있는 성분 <span class="math notranslate nohighlight">\(+k_r\)</span>, <span class="math notranslate nohighlight">\(-k_r\)</span>의 평균을 뜻한다. 이런 의미에서</p>
+<div class="math notranslate nohighlight">
+\[
+\langle k_r\rangle=0,\qquad k_r\neq 0
+\]</div>
+<p>이다. 즉 <strong>평균적으로는 횡방향으로 흐르지 않지만, 횡방향 스케일 자체는 남아 있으며, 그 결과 횡단면 모드 구조가 형성된다</strong>.</p>
+<p>여기서 <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span>는 <strong>한 방향에서 본 1차원적인 예</strong>이다.
+아직 횡단면 전체에 대한 원통파의 해를 뜻하지 않는다.
+이 중첩은 <span class="math notranslate nohighlight">\(H_z\)</span>와 같은 스칼라 장 성분의 공간 의존성을 설명하는 것으로 생각하면 된다.</p>
+<p><strong>이제 이 한 방향을 횡단면 안에서 회전시키고, 모든 방위각의 기여를 더해 보자.</strong>
+이때 각 파의 위상에는 단순한 거리 <span class="math notranslate nohighlight">\(r\)</span> 대신, 관측점 위치를 그 파의 진행 방향으로 투영한 거리가 들어간다.
+다음 절에서는 이 과정을 통해 베셀 함수가 나타남을 확인한다.</p>
+<section id="id3">
+<h3>직접 확인: 두 파의 중첩<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>다음 셀을 <strong>Shift+Enter</strong>로 실행하고 시간 슬라이더를 움직여 보세요. 그림을 클릭하면 그 위치의 값을 확인할 수 있습니다.
+<strong>순간값</strong>은 선택한 시각의 전기장 값이고, <strong>진폭</strong>은 그 위치에서 한 주기 동안 전기장이 갖는 최대 절댓값입니다.</p>
+<p>여기서 <span class="math notranslate nohighlight">\(x\)</span>는 선택한 한 횡방향의 부호 있는 좌표입니다. 표시 단위는 <span class="math notranslate nohighlight">\(\lambda_x=2\pi/k_r\)</span>, <span class="math notranslate nohighlight">\(\lambda_z=2\pi/\beta\)</span>, <span class="math notranslate nohighlight">\(T=2\pi/\omega\)</span>입니다.
+별도 파일이나 SciPy 설치 없이 실행할 수 있습니다. 정적 미리보기에서는 조작할 수 없으므로 Jupyter에서 셀을 실행하세요.</p>
+<div class="cell tag_te-wave-interactive docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 인터페이스가 이 셀에 포함되어 있습니다. 외부 파일을 읽지 않습니다.</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">escape</span>
+
+<span class="n">TE_WAVE_HTML</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;&lt;!doctype html&gt;</span>
+<span class="s2">&lt;html lang=&quot;ko&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">&lt;meta charset=&quot;utf-8&quot;&gt;</span>
+<span class="s2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span>
+<span class="s2">&lt;title&gt;두 구성파와 합성파&lt;/title&gt;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">:root {</span>
+<span class="s2">  color-scheme: light dark;</span>
+<span class="s2">  --background: light-dark(rgb(255 255 255), rgb(24 24 24));</span>
+<span class="s2">  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));</span>
+<span class="s2">  --border: light-dark(rgb(26 28 31 / 12%), rgb(255 255 255 / 15%));</span>
+<span class="s2">  --viz-series-1: light-dark(rgb(51 156 255), rgb(131 195 255));</span>
+<span class="s2">  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));</span>
+<span class="s2">  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));</span>
+<span class="s2">  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));</span>
+<span class="s2">}</span>
+<span class="s2">* { box-sizing: border-box; }</span>
+<span class="s2">html, body { margin: 0; background: var(--background); color: var(--foreground); }</span>
+<span class="s2">body { padding: 12px; font: 16px/1.5 system-ui, &#39;Segoe UI&#39;, sans-serif; }</span>
+<span class="s2">h3 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 8px; }</span>
+<span class="s2">.text-small { font-size: 14px; line-height: 1.5; }</span>
+<span class="s2">.tabular-nums { font-variant-numeric: tabular-nums; }</span>
+<span class="s2">.form-label { display: block; }</span>
+<span class="s2">.form-range { display: block; width: 100%; height: 24px; margin: 0; accent-color: var(--foreground); }</span>
+<span class="s2">.cursor-interaction { cursor: crosshair; }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;div id=&quot;wave-quantities&quot;&gt;</span>
+<span class="s2">  &lt;style&gt;</span>
+<span class="s2">    #wave-quantities { color: var(--foreground); }</span>
+<span class="s2">    #wave-quantities h3 { padding-right: 90px; }</span>
+<span class="s2">    #wave-quantities .wq-control { margin: 6px 0; }</span>
+<span class="s2">    #wave-quantities .wq-between { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }</span>
+<span class="s2">    #wave-quantities .wq-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }</span>
+<span class="s2">    #wave-quantities .wq-sum { grid-column: 1 / -1; }</span>
+<span class="s2">    #wave-quantities .wq-panel { min-width: 0; }</span>
+<span class="s2">    #wave-quantities .wq-panel canvas { display: block; width: 100%; height: 120px; }</span>
+<span class="s2">    #wave-quantities .wq-title { display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }</span>
+<span class="s2">    #wave-quantities .wq-scale { display: flex; align-items: center; gap: 8px; }</span>
+<span class="s2">    #wave-quantities .wq-ramp { height: 10px; flex: 1; min-width: 36px; }</span>
+<span class="s2">    #wave-quantities .wq-field-ramp { background: linear-gradient(to right, var(--viz-series-2), var(--background), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-positive-ramp { background: linear-gradient(to right, var(--background), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-phase-ramp { background: linear-gradient(to right, var(--viz-series-1), var(--viz-series-4), var(--viz-series-2), var(--viz-series-3), var(--viz-series-1)); }</span>
+<span class="s2">    #wave-quantities .wq-phase-ticks { display: flex; justify-content: space-between; }</span>
+<span class="s2">    #wave-quantities .wq-node-key { display: inline-block; width: 24px; border-top: 1px dashed var(--foreground); vertical-align: middle; margin-right: 6px; }</span>
+<span class="s2">    #wave-quantities .wq-selected { margin: 4px 0 8px; }</span>
+<span class="s2">    #wave-quantities .wq-probe { position: absolute; visibility: hidden; }</span>
+<span class="s2">    @media (max-width: 640px) {</span>
+<span class="s2">      #wave-quantities .wq-panels { grid-template-columns: minmax(0, 1fr); }</span>
+<span class="s2">      #wave-quantities .wq-panel canvas { height: 152px; }</span>
+<span class="s2">    }</span>
+<span class="s2">  &lt;/style&gt;</span>
+<span class="s2">  &lt;h3&gt;두 구성파와 합성파&lt;/h3&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-control&quot;&gt;</span>
+<span class="s2">    &lt;div class=&quot;wq-between&quot;&gt;</span>
+<span class="s2">      &lt;label class=&quot;form-label&quot; for=&quot;wq-time&quot;&gt;시간&lt;/label&gt;</span>
+<span class="s2">      &lt;output id=&quot;wq-time-value&quot; class=&quot;tabular-nums&quot; aria-live=&quot;polite&quot;&gt;t/T = 0.00&lt;/output&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">    &lt;input id=&quot;wq-time&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;0&quot; aria-label=&quot;시간 t/T&quot;&gt;</span>
+<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-selected text-small tabular-nums&quot; id=&quot;wq-position&quot;&gt;선택 위치: x/λₓ = 0.00, z/λz = 0.00 · 그림을 클릭하여 선택&lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;wq-panels&quot;&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;입사파 순간값 E₁/E₀&lt;/span&gt;&lt;output id=&quot;wq-incident-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-incident&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;입사파의 전기장 순간값. 양의 x와 양의 z 방향으로 진행합니다.&quot;&gt;입사파 전기장 순간값&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;반사파 순간값 E₂/E₀&lt;/span&gt;&lt;output id=&quot;wq-reflected-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-reflected&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;반사파의 전기장 순간값. 음의 x와 양의 z 방향으로 진행합니다.&quot;&gt;반사파 전기장 순간값&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel wq-sum&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 순간값 (E₁ + E₂)/E₀&lt;/span&gt;&lt;output id=&quot;wq-field-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-field&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;합성 전기장 순간값. 가로는 축방향 위치, 세로는 횡방향 위치. 시간을 바꾸면 부호와 크기가 변합니다.&quot;&gt;합성 전기장 순간값&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 진폭 A/E₀ · 최대 크기&lt;/span&gt;&lt;output id=&quot;wq-amplitude-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-amplitude&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;위치를 고정하고 한 주기 동안 관측한 합성 전기장의 최대 절댓값. 0에서 2까지이며 이 모델에서는 시간에 따라 변하지 않습니다.&quot;&gt;합성 진폭&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;0&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-positive-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section class=&quot;wq-panel&quot;&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 위상 Φ · 시간항 포함&lt;/span&gt;&lt;output id=&quot;wq-phase-value&quot; class=&quot;tabular-nums&quot;&gt;0.00π&lt;/output&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;canvas id=&quot;wq-phase&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;시간항을 포함한 합성 위상을 마이너스 파이에서 파이 사이로 표시합니다. 마디에서는 위상이 정의되지 않습니다.&quot;&gt;합성 위상&lt;/canvas&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-scale&quot;&gt;&lt;span class=&quot;wq-ramp wq-phase-ramp&quot;&gt;&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">      &lt;div class=&quot;wq-phase-ticks text-small&quot;&gt;&lt;span&gt;−π&lt;/span&gt;&lt;span&gt;−π/2&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;π/2&lt;/span&gt;&lt;span&gt;π&lt;/span&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">  &lt;/div&gt;</span>
+<span class="s2">  &lt;div class=&quot;text-small&quot; style=&quot;margin-top:12px&quot;&gt;&lt;span class=&quot;wq-node-key&quot;&gt;&lt;/span&gt;점선: A = 0인 마디 · 위상 정의 안 됨&lt;/div&gt;</span>
+<span class="s2">  &lt;span id=&quot;wq-probe&quot; class=&quot;wq-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span>
+<span class="s2">  &lt;script&gt;</span>
+<span class="s2">  (() =&gt; {</span>
+<span class="s2">    const root = document.getElementById(&#39;wave-quantities&#39;);</span>
+<span class="s2">    const slider = root.querySelector(&#39;#wq-time&#39;);</span>
+<span class="s2">    const probe = root.querySelector(&#39;#wq-probe&#39;);</span>
+<span class="s2">    const tau = 2 * Math.PI;</span>
+<span class="s2">    const nodes = [-0.75, -0.25, 0.25, 0.75];</span>
+<span class="s2">    const plots = [&#39;incident&#39;, &#39;reflected&#39;, &#39;field&#39;, &#39;amplitude&#39;, &#39;phase&#39;].map(name =&gt; ({name, canvas: root.querySelector(&#39;#wq-&#39; + name)}));</span>
+<span class="s2">    const raster = document.createElement(&#39;canvas&#39;);</span>
+<span class="s2">    raster.width = 256; raster.height = 128;</span>
+<span class="s2">    const rasterContext = raster.getContext(&#39;2d&#39;);</span>
+<span class="s2">    const colorCanvas = document.createElement(&#39;canvas&#39;);</span>
+<span class="s2">    colorCanvas.width = colorCanvas.height = 1;</span>
+<span class="s2">    const colorContext = colorCanvas.getContext(&#39;2d&#39;, {willReadFrequently: true});</span>
+<span class="s2">    let time = 0;</span>
+<span class="s2">    let selected = {x: 0, z: 0};</span>
+<span class="s2">    let framePending = false;</span>
+
+<span class="s2">    function waveAt(x, z, t) {</span>
+<span class="s2">      const c = Math.cos(tau * x);</span>
+<span class="s2">      const a = Math.cos(tau * (x + z - t));</span>
+<span class="s2">      const b = Math.cos(tau * (-x + z - t));</span>
+<span class="s2">      const isNode = Math.abs(c) &lt; 1e-10;</span>
+<span class="s2">      const amplitude = isNode ? 0 : 2 * Math.abs(c);</span>
+<span class="s2">      const phase0 = tau * (z - t) + (c &lt; 0 ? Math.PI : 0);</span>
+<span class="s2">      const phase = isNode ? null : Math.atan2(Math.sin(phase0), Math.cos(phase0));</span>
+<span class="s2">      return {incident: a, reflected: b, field: isNode ? 0 : a + b, amplitude, phase};</span>
+<span class="s2">    }</span>
+
+<span class="s2">    function color(token) {</span>
+<span class="s2">      probe.style.color = &#39;var(&#39; + token + &#39;)&#39;;</span>
+<span class="s2">      const css = getComputedStyle(probe).color;</span>
+<span class="s2">      colorContext.clearRect(0, 0, 1, 1);</span>
+<span class="s2">      colorContext.fillStyle = css;</span>
+<span class="s2">      colorContext.fillRect(0, 0, 1, 1);</span>
+<span class="s2">      return {css, rgb: Array.from(colorContext.getImageData(0, 0, 1, 1).data).slice(0, 3)};</span>
+<span class="s2">    }</span>
+<span class="s2">    function mix(a, b, amount) { return a.map((v, i) =&gt; Math.round(v * (1 - amount) + b[i] * amount)); }</span>
+<span class="s2">    function phaseColor(phase, colors) {</span>
+<span class="s2">      const p = Math.max(0, Math.min(4, (phase + Math.PI) / tau * 4));</span>
+<span class="s2">      const i = Math.min(3, Math.floor(p));</span>
+<span class="s2">      return mix(colors[i], colors[i + 1], p - i);</span>
+<span class="s2">    }</span>
+<span class="s2">    function fixed(value) { return Math.abs(value) &lt; 0.0005 ? &#39;0.00&#39; : value.toFixed(2); }</span>
+<span class="s2">    function updateValues() {</span>
+<span class="s2">      const q = waveAt(selected.x, selected.z, time);</span>
+<span class="s2">      root.querySelector(&#39;#wq-time-value&#39;).textContent = &#39;t/T = &#39; + time.toFixed(2);</span>
+<span class="s2">      slider.setAttribute(&#39;aria-valuetext&#39;, time.toFixed(2) + &#39; 주기&#39;);</span>
+<span class="s2">      root.querySelector(&#39;#wq-position&#39;).textContent = &#39;선택 위치: x/λₓ = &#39; + fixed(selected.x) + &#39;, z/λz = &#39; + fixed(selected.z) + &#39; · 그림을 클릭하여 선택&#39;;</span>
+<span class="s2">      for (const key of [&#39;incident&#39;, &#39;reflected&#39;, &#39;field&#39;, &#39;amplitude&#39;]) root.querySelector(&#39;#wq-&#39; + key + &#39;-value&#39;).textContent = fixed(q[key]);</span>
+<span class="s2">      root.querySelector(&#39;#wq-phase-value&#39;).textContent = q.phase === null ? &#39;정의 안 됨&#39; : fixed(q.phase / Math.PI) + &#39;π&#39;;</span>
+<span class="s2">    }</span>
+<span class="s2">    function render() {</span>
+<span class="s2">      const positive = color(&#39;--viz-series-1&#39;);</span>
+<span class="s2">      const negative = color(&#39;--viz-series-2&#39;);</span>
+<span class="s2">      const base = color(&#39;--background&#39;);</span>
+<span class="s2">      const foreground = color(&#39;--foreground&#39;);</span>
+<span class="s2">      const border = color(&#39;--border&#39;);</span>
+<span class="s2">      const phaseColors = [positive.rgb, color(&#39;--viz-series-4&#39;).rgb, negative.rgb, color(&#39;--viz-series-3&#39;).rgb, positive.rgb];</span>
+<span class="s2">      updateValues();</span>
+<span class="s2">      for (const plot of plots) {</span>
+<span class="s2">        const width = Math.round(plot.canvas.getBoundingClientRect().width);</span>
+<span class="s2">        if (width &lt; 1) continue;</span>
+<span class="s2">        const height = Math.round(plot.canvas.getBoundingClientRect().height);</span>
+<span class="s2">        const left = 58, right = 10, top = 9, bottom = 35;</span>
+<span class="s2">        const pw = width - left - right, ph = height - top - bottom;</span>
+<span class="s2">        plot.geometry = {width, height, left, top, pw, ph};</span>
+<span class="s2">        const image = rasterContext.createImageData(raster.width, raster.height);</span>
+<span class="s2">        for (let row = 0; row &lt; raster.height; row++) {</span>
+<span class="s2">          const x = 1 - 2 * (row + 0.5) / raster.height;</span>
+<span class="s2">          for (let col = 0; col &lt; raster.width; col++) {</span>
+<span class="s2">            const z = 2 * (col + 0.5) / raster.width;</span>
+<span class="s2">            const q = waveAt(x, z, time);</span>
+<span class="s2">            let rgb;</span>
+<span class="s2">            if (plot.name === &#39;phase&#39;) rgb = q.phase === null ? base.rgb : phaseColor(q.phase, phaseColors);</span>
+<span class="s2">            else if (plot.name === &#39;amplitude&#39;) rgb = mix(base.rgb, positive.rgb, q.amplitude / 2);</span>
+<span class="s2">            else rgb = mix(base.rgb, q[plot.name] &gt;= 0 ? positive.rgb : negative.rgb, Math.min(1, Math.abs(q[plot.name]) / 2));</span>
+<span class="s2">            const index = 4 * (row * raster.width + col);</span>
+<span class="s2">            image.data.set([rgb[0], rgb[1], rgb[2], 255], index);</span>
+<span class="s2">          }</span>
+<span class="s2">        }</span>
+<span class="s2">        rasterContext.putImageData(image, 0, 0);</span>
+<span class="s2">        const dpr = window.devicePixelRatio || 1;</span>
+<span class="s2">        plot.canvas.width = Math.round(width * dpr); plot.canvas.height = Math.round(height * dpr);</span>
+<span class="s2">        const ctx = plot.canvas.getContext(&#39;2d&#39;);</span>
+<span class="s2">        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);</span>
+<span class="s2">        ctx.clearRect(0, 0, width, height);</span>
+<span class="s2">        ctx.imageSmoothingEnabled = false;</span>
+<span class="s2">        ctx.drawImage(raster, left, top, pw, ph);</span>
+<span class="s2">        ctx.strokeStyle = border.css; ctx.lineWidth = 1; ctx.strokeRect(left, top, pw, ph);</span>
+<span class="s2">        if (![&#39;incident&#39;, &#39;reflected&#39;].includes(plot.name)) {</span>
+<span class="s2">          for (const x of nodes) {</span>
+<span class="s2">            const y = top + (1 - x) / 2 * ph;</span>
+<span class="s2">            if (plot.name === &#39;phase&#39;) { ctx.strokeStyle = base.css; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); }</span>
+<span class="s2">            ctx.strokeStyle = foreground.css; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);</span>
+<span class="s2">            ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); ctx.setLineDash([]);</span>
+<span class="s2">          }</span>
+<span class="s2">        }</span>
+<span class="s2">        const sx = left + selected.z / 2 * pw, sy = top + (1 - selected.x) / 2 * ph;</span>
+<span class="s2">        ctx.save(); ctx.beginPath(); ctx.rect(left, top, pw, ph); ctx.clip();</span>
+<span class="s2">        ctx.strokeStyle = base.css; ctx.lineWidth = 4;</span>
+<span class="s2">        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke();</span>
+<span class="s2">        ctx.strokeStyle = foreground.css; ctx.lineWidth = 1.5;</span>
+<span class="s2">        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke(); ctx.restore();</span>
+<span class="s2">        const style = getComputedStyle(root);</span>
+<span class="s2">        ctx.font = style.fontSize + &#39; &#39; + style.fontFamily; ctx.fillStyle = foreground.css;</span>
+<span class="s2">        ctx.textBaseline = &#39;middle&#39;; ctx.textAlign = &#39;right&#39;;</span>
+<span class="s2">        ctx.fillText(&#39;+1&#39;, left - 7, top + 6); ctx.fillText(&#39;0&#39;, left - 7, top + ph / 2); ctx.fillText(&#39;−1&#39;, left - 7, top + ph - 6);</span>
+<span class="s2">        ctx.save(); ctx.translate(12, top + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = &#39;center&#39;; ctx.fillText(&#39;x/λₓ&#39;, 0, 0); ctx.restore();</span>
+<span class="s2">        ctx.textAlign = &#39;left&#39;; ctx.fillText(&#39;0&#39;, left, height - 15);</span>
+<span class="s2">        ctx.textAlign = &#39;center&#39;; ctx.fillText(&#39;z/λz →&#39;, left + pw / 2, height - 15);</span>
+<span class="s2">        ctx.textAlign = &#39;right&#39;; ctx.fillText(&#39;2&#39;, left + pw, height - 15);</span>
+<span class="s2">      }</span>
+<span class="s2">    }</span>
+<span class="s2">    function scheduleRender() {</span>
+<span class="s2">      if (!framePending) { framePending = true; requestAnimationFrame(() =&gt; { framePending = false; render(); }); }</span>
+<span class="s2">    }</span>
+<span class="s2">    function save() {</span>
+<span class="s2">      if (window.openai &amp;&amp; window.openai.setWidgetState) {</span>
+<span class="s2">        const q = waveAt(selected.x, selected.z, time);</span>
+<span class="s2">        window.openai.setWidgetState({modelContent: {timeOverPeriod: time, xOverLambdaX: selected.x, zOverLambdaZ: selected.z, incidentOverE0: q.incident, reflectedOverE0: q.reflected, fieldOverE0: q.field, amplitudeOverE0: q.amplitude, phaseOverPi: q.phase === null ? null : q.phase / Math.PI}, privateContent: {time, selected}}).catch(() =&gt; </span><span class="si">{}</span><span class="s2">);</span>
+<span class="s2">      }</span>
+<span class="s2">    }</span>
+<span class="s2">    function restore(state) {</span>
+<span class="s2">      const s = state &amp;&amp; state.privateContent;</span>
+<span class="s2">      if (s &amp;&amp; Number.isFinite(s.time)) { time = Math.max(0, Math.min(1, s.time)); slider.value = String(time); }</span>
+<span class="s2">      if (s &amp;&amp; s.selected &amp;&amp; Number.isFinite(s.selected.x) &amp;&amp; Number.isFinite(s.selected.z)) selected = {x: Math.max(-1, Math.min(1, s.selected.x)), z: Math.max(0, Math.min(2, s.selected.z))};</span>
+<span class="s2">    }</span>
+<span class="s2">    restore(window.openai &amp;&amp; window.openai.widgetState);</span>
+<span class="s2">    slider.addEventListener(&#39;input&#39;, () =&gt; { time = Number(slider.value); scheduleRender(); });</span>
+<span class="s2">    slider.addEventListener(&#39;change&#39;, save);</span>
+<span class="s2">    for (const plot of plots) plot.canvas.addEventListener(&#39;click&#39;, event =&gt; {</span>
+<span class="s2">      const g = plot.geometry; if (!g) return;</span>
+<span class="s2">      const box = plot.canvas.getBoundingClientRect();</span>
+<span class="s2">      const px = (event.clientX - box.left) * g.width / box.width;</span>
+<span class="s2">      const py = (event.clientY - box.top) * g.height / box.height;</span>
+<span class="s2">      if (px &lt; g.left || px &gt; g.left + g.pw || py &lt; g.top || py &gt; g.top + g.ph) return;</span>
+<span class="s2">      let x = 1 - 2 * (py - g.top) / g.ph;</span>
+<span class="s2">      for (const node of nodes) if (Math.abs(x - node) * g.ph / 2 &lt; 3) { x = node; break; }</span>
+<span class="s2">      selected = {x, z: 2 * (px - g.left) / g.pw}; scheduleRender(); save();</span>
+<span class="s2">    });</span>
+<span class="s2">    window.addEventListener(&#39;openai:set_globals&#39;, event =&gt; { const g = event.detail &amp;&amp; event.detail.globals; if (g &amp;&amp; Object.prototype.hasOwnProperty.call(g, &#39;widgetState&#39;)) { restore(g.widgetState); scheduleRender(); } });</span>
+<span class="s2">    new ResizeObserver(scheduleRender).observe(root);</span>
+<span class="s2">    new MutationObserver(scheduleRender).observe(document.documentElement, {attributes: true, attributeFilter: [&#39;class&#39;, &#39;style&#39;, &#39;data-theme&#39;]});</span>
+<span class="s2">    render();</span>
+<span class="s2">  })();</span>
+<span class="s2">  &lt;/script&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
+
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;&quot;&quot;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;div class=&quot;te-wave-output-ko&quot; style=&quot;container-type:inline-size&quot;&gt;&#39;</span>
+    <span class="s1">&#39;&lt;style&gt;.te-wave-output-ko iframe{display:block;width:100%;height:720px;border:0;}&#39;</span>
+    <span class="s1">&#39;@container (max-width:640px){.te-wave-output-ko iframe{height:1240px;}}&lt;/style&gt;&#39;</span>
+    <span class="s1">&#39;&lt;iframe title=&quot;두 구성파와 합성파&quot; sandbox=&quot;allow-scripts&quot; referrerpolicy=&quot;no-referrer&quot; srcdoc=&quot;&#39;</span>
+    <span class="o">+</span> <span class="n">escape</span><span class="p">(</span><span class="n">TE_WAVE_HTML</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&#39;</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="te-wave-output-ko" style="container-type:inline-size"><style>.te-wave-output-ko iframe{display:block;width:100%;height:720px;border:0;}@container (max-width:640px){.te-wave-output-ko iframe{height:1240px;}}</style><iframe title="두 구성파와 합성파" sandbox="allow-scripts" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;두 구성파와 합성파&lt;/title&gt;
+&lt;style&gt;
+:root {
+  color-scheme: light dark;
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --border: light-dark(rgb(26 28 31 / 12%), rgb(255 255 255 / 15%));
+  --viz-series-1: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--background); color: var(--foreground); }
+body { padding: 12px; font: 16px/1.5 system-ui, &#x27;Segoe UI&#x27;, sans-serif; }
+h3 { font-size: 20px; line-height: 1.5; font-weight: 500; margin: 0 0 8px; }
+.text-small { font-size: 14px; line-height: 1.5; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.form-label { display: block; }
+.form-range { display: block; width: 100%; height: 24px; margin: 0; accent-color: var(--foreground); }
+.cursor-interaction { cursor: crosshair; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;wave-quantities&quot;&gt;
+  &lt;style&gt;
+    #wave-quantities { color: var(--foreground); }
+    #wave-quantities h3 { padding-right: 90px; }
+    #wave-quantities .wq-control { margin: 6px 0; }
+    #wave-quantities .wq-between { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    #wave-quantities .wq-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
+    #wave-quantities .wq-sum { grid-column: 1 / -1; }
+    #wave-quantities .wq-panel { min-width: 0; }
+    #wave-quantities .wq-panel canvas { display: block; width: 100%; height: 120px; }
+    #wave-quantities .wq-title { display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+    #wave-quantities .wq-scale { display: flex; align-items: center; gap: 8px; }
+    #wave-quantities .wq-ramp { height: 10px; flex: 1; min-width: 36px; }
+    #wave-quantities .wq-field-ramp { background: linear-gradient(to right, var(--viz-series-2), var(--background), var(--viz-series-1)); }
+    #wave-quantities .wq-positive-ramp { background: linear-gradient(to right, var(--background), var(--viz-series-1)); }
+    #wave-quantities .wq-phase-ramp { background: linear-gradient(to right, var(--viz-series-1), var(--viz-series-4), var(--viz-series-2), var(--viz-series-3), var(--viz-series-1)); }
+    #wave-quantities .wq-phase-ticks { display: flex; justify-content: space-between; }
+    #wave-quantities .wq-node-key { display: inline-block; width: 24px; border-top: 1px dashed var(--foreground); vertical-align: middle; margin-right: 6px; }
+    #wave-quantities .wq-selected { margin: 4px 0 8px; }
+    #wave-quantities .wq-probe { position: absolute; visibility: hidden; }
+    @media (max-width: 640px) {
+      #wave-quantities .wq-panels { grid-template-columns: minmax(0, 1fr); }
+      #wave-quantities .wq-panel canvas { height: 152px; }
+    }
+  &lt;/style&gt;
+  &lt;h3&gt;두 구성파와 합성파&lt;/h3&gt;
+  &lt;div class=&quot;wq-control&quot;&gt;
+    &lt;div class=&quot;wq-between&quot;&gt;
+      &lt;label class=&quot;form-label&quot; for=&quot;wq-time&quot;&gt;시간&lt;/label&gt;
+      &lt;output id=&quot;wq-time-value&quot; class=&quot;tabular-nums&quot; aria-live=&quot;polite&quot;&gt;t/T = 0.00&lt;/output&gt;
+    &lt;/div&gt;
+    &lt;input id=&quot;wq-time&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;0&quot; aria-label=&quot;시간 t/T&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;wq-selected text-small tabular-nums&quot; id=&quot;wq-position&quot;&gt;선택 위치: x/λₓ = 0.00, z/λz = 0.00 · 그림을 클릭하여 선택&lt;/div&gt;
+  &lt;div class=&quot;wq-panels&quot;&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;입사파 순간값 E₁/E₀&lt;/span&gt;&lt;output id=&quot;wq-incident-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-incident&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;입사파의 전기장 순간값. 양의 x와 양의 z 방향으로 진행합니다.&quot;&gt;입사파 전기장 순간값&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;반사파 순간값 E₂/E₀&lt;/span&gt;&lt;output id=&quot;wq-reflected-value&quot; class=&quot;tabular-nums&quot;&gt;1.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-reflected&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;반사파의 전기장 순간값. 음의 x와 양의 z 방향으로 진행합니다.&quot;&gt;반사파 전기장 순간값&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel wq-sum&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 순간값 (E₁ + E₂)/E₀&lt;/span&gt;&lt;output id=&quot;wq-field-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-field&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;합성 전기장 순간값. 가로는 축방향 위치, 세로는 횡방향 위치. 시간을 바꾸면 부호와 크기가 변합니다.&quot;&gt;합성 전기장 순간값&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;−2&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-field-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;+2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 진폭 A/E₀ · 최대 크기&lt;/span&gt;&lt;output id=&quot;wq-amplitude-value&quot; class=&quot;tabular-nums&quot;&gt;2.00&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-amplitude&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;위치를 고정하고 한 주기 동안 관측한 합성 전기장의 최대 절댓값. 0에서 2까지이며 이 모델에서는 시간에 따라 변하지 않습니다.&quot;&gt;합성 진폭&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale text-small&quot;&gt;&lt;span&gt;0&lt;/span&gt;&lt;span class=&quot;wq-ramp wq-positive-ramp&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;wq-panel&quot;&gt;
+      &lt;div class=&quot;wq-title&quot;&gt;&lt;span&gt;합성 위상 Φ · 시간항 포함&lt;/span&gt;&lt;output id=&quot;wq-phase-value&quot; class=&quot;tabular-nums&quot;&gt;0.00π&lt;/output&gt;&lt;/div&gt;
+      &lt;canvas id=&quot;wq-phase&quot; class=&quot;cursor-interaction&quot; role=&quot;img&quot; aria-label=&quot;시간항을 포함한 합성 위상을 마이너스 파이에서 파이 사이로 표시합니다. 마디에서는 위상이 정의되지 않습니다.&quot;&gt;합성 위상&lt;/canvas&gt;
+      &lt;div class=&quot;wq-scale&quot;&gt;&lt;span class=&quot;wq-ramp wq-phase-ramp&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;wq-phase-ticks text-small&quot;&gt;&lt;span&gt;−π&lt;/span&gt;&lt;span&gt;−π/2&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;π/2&lt;/span&gt;&lt;span&gt;π&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;text-small&quot; style=&quot;margin-top:12px&quot;&gt;&lt;span class=&quot;wq-node-key&quot;&gt;&lt;/span&gt;점선: A = 0인 마디 · 위상 정의 안 됨&lt;/div&gt;
+  &lt;span id=&quot;wq-probe&quot; class=&quot;wq-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;script&gt;
+  (() =&gt; {
+    const root = document.getElementById(&#x27;wave-quantities&#x27;);
+    const slider = root.querySelector(&#x27;#wq-time&#x27;);
+    const probe = root.querySelector(&#x27;#wq-probe&#x27;);
+    const tau = 2 * Math.PI;
+    const nodes = [-0.75, -0.25, 0.25, 0.75];
+    const plots = [&#x27;incident&#x27;, &#x27;reflected&#x27;, &#x27;field&#x27;, &#x27;amplitude&#x27;, &#x27;phase&#x27;].map(name =&gt; ({name, canvas: root.querySelector(&#x27;#wq-&#x27; + name)}));
+    const raster = document.createElement(&#x27;canvas&#x27;);
+    raster.width = 256; raster.height = 128;
+    const rasterContext = raster.getContext(&#x27;2d&#x27;);
+    const colorCanvas = document.createElement(&#x27;canvas&#x27;);
+    colorCanvas.width = colorCanvas.height = 1;
+    const colorContext = colorCanvas.getContext(&#x27;2d&#x27;, {willReadFrequently: true});
+    let time = 0;
+    let selected = {x: 0, z: 0};
+    let framePending = false;
+
+    function waveAt(x, z, t) {
+      const c = Math.cos(tau * x);
+      const a = Math.cos(tau * (x + z - t));
+      const b = Math.cos(tau * (-x + z - t));
+      const isNode = Math.abs(c) &lt; 1e-10;
+      const amplitude = isNode ? 0 : 2 * Math.abs(c);
+      const phase0 = tau * (z - t) + (c &lt; 0 ? Math.PI : 0);
+      const phase = isNode ? null : Math.atan2(Math.sin(phase0), Math.cos(phase0));
+      return {incident: a, reflected: b, field: isNode ? 0 : a + b, amplitude, phase};
+    }
+
+    function color(token) {
+      probe.style.color = &#x27;var(&#x27; + token + &#x27;)&#x27;;
+      const css = getComputedStyle(probe).color;
+      colorContext.clearRect(0, 0, 1, 1);
+      colorContext.fillStyle = css;
+      colorContext.fillRect(0, 0, 1, 1);
+      return {css, rgb: Array.from(colorContext.getImageData(0, 0, 1, 1).data).slice(0, 3)};
+    }
+    function mix(a, b, amount) { return a.map((v, i) =&gt; Math.round(v * (1 - amount) + b[i] * amount)); }
+    function phaseColor(phase, colors) {
+      const p = Math.max(0, Math.min(4, (phase + Math.PI) / tau * 4));
+      const i = Math.min(3, Math.floor(p));
+      return mix(colors[i], colors[i + 1], p - i);
+    }
+    function fixed(value) { return Math.abs(value) &lt; 0.0005 ? &#x27;0.00&#x27; : value.toFixed(2); }
+    function updateValues() {
+      const q = waveAt(selected.x, selected.z, time);
+      root.querySelector(&#x27;#wq-time-value&#x27;).textContent = &#x27;t/T = &#x27; + time.toFixed(2);
+      slider.setAttribute(&#x27;aria-valuetext&#x27;, time.toFixed(2) + &#x27; 주기&#x27;);
+      root.querySelector(&#x27;#wq-position&#x27;).textContent = &#x27;선택 위치: x/λₓ = &#x27; + fixed(selected.x) + &#x27;, z/λz = &#x27; + fixed(selected.z) + &#x27; · 그림을 클릭하여 선택&#x27;;
+      for (const key of [&#x27;incident&#x27;, &#x27;reflected&#x27;, &#x27;field&#x27;, &#x27;amplitude&#x27;]) root.querySelector(&#x27;#wq-&#x27; + key + &#x27;-value&#x27;).textContent = fixed(q[key]);
+      root.querySelector(&#x27;#wq-phase-value&#x27;).textContent = q.phase === null ? &#x27;정의 안 됨&#x27; : fixed(q.phase / Math.PI) + &#x27;π&#x27;;
+    }
+    function render() {
+      const positive = color(&#x27;--viz-series-1&#x27;);
+      const negative = color(&#x27;--viz-series-2&#x27;);
+      const base = color(&#x27;--background&#x27;);
+      const foreground = color(&#x27;--foreground&#x27;);
+      const border = color(&#x27;--border&#x27;);
+      const phaseColors = [positive.rgb, color(&#x27;--viz-series-4&#x27;).rgb, negative.rgb, color(&#x27;--viz-series-3&#x27;).rgb, positive.rgb];
+      updateValues();
+      for (const plot of plots) {
+        const width = Math.round(plot.canvas.getBoundingClientRect().width);
+        if (width &lt; 1) continue;
+        const height = Math.round(plot.canvas.getBoundingClientRect().height);
+        const left = 58, right = 10, top = 9, bottom = 35;
+        const pw = width - left - right, ph = height - top - bottom;
+        plot.geometry = {width, height, left, top, pw, ph};
+        const image = rasterContext.createImageData(raster.width, raster.height);
+        for (let row = 0; row &lt; raster.height; row++) {
+          const x = 1 - 2 * (row + 0.5) / raster.height;
+          for (let col = 0; col &lt; raster.width; col++) {
+            const z = 2 * (col + 0.5) / raster.width;
+            const q = waveAt(x, z, time);
+            let rgb;
+            if (plot.name === &#x27;phase&#x27;) rgb = q.phase === null ? base.rgb : phaseColor(q.phase, phaseColors);
+            else if (plot.name === &#x27;amplitude&#x27;) rgb = mix(base.rgb, positive.rgb, q.amplitude / 2);
+            else rgb = mix(base.rgb, q[plot.name] &gt;= 0 ? positive.rgb : negative.rgb, Math.min(1, Math.abs(q[plot.name]) / 2));
+            const index = 4 * (row * raster.width + col);
+            image.data.set([rgb[0], rgb[1], rgb[2], 255], index);
+          }
+        }
+        rasterContext.putImageData(image, 0, 0);
+        const dpr = window.devicePixelRatio || 1;
+        plot.canvas.width = Math.round(width * dpr); plot.canvas.height = Math.round(height * dpr);
+        const ctx = plot.canvas.getContext(&#x27;2d&#x27;);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(raster, left, top, pw, ph);
+        ctx.strokeStyle = border.css; ctx.lineWidth = 1; ctx.strokeRect(left, top, pw, ph);
+        if (![&#x27;incident&#x27;, &#x27;reflected&#x27;].includes(plot.name)) {
+          for (const x of nodes) {
+            const y = top + (1 - x) / 2 * ph;
+            if (plot.name === &#x27;phase&#x27;) { ctx.strokeStyle = base.css; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); }
+            ctx.strokeStyle = foreground.css; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
+            ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(left + pw, y); ctx.stroke(); ctx.setLineDash([]);
+          }
+        }
+        const sx = left + selected.z / 2 * pw, sy = top + (1 - selected.x) / 2 * ph;
+        ctx.save(); ctx.beginPath(); ctx.rect(left, top, pw, ph); ctx.clip();
+        ctx.strokeStyle = base.css; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke();
+        ctx.strokeStyle = foreground.css; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, tau); ctx.stroke(); ctx.restore();
+        const style = getComputedStyle(root);
+        ctx.font = style.fontSize + &#x27; &#x27; + style.fontFamily; ctx.fillStyle = foreground.css;
+        ctx.textBaseline = &#x27;middle&#x27;; ctx.textAlign = &#x27;right&#x27;;
+        ctx.fillText(&#x27;+1&#x27;, left - 7, top + 6); ctx.fillText(&#x27;0&#x27;, left - 7, top + ph / 2); ctx.fillText(&#x27;−1&#x27;, left - 7, top + ph - 6);
+        ctx.save(); ctx.translate(12, top + ph / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = &#x27;center&#x27;; ctx.fillText(&#x27;x/λₓ&#x27;, 0, 0); ctx.restore();
+        ctx.textAlign = &#x27;left&#x27;; ctx.fillText(&#x27;0&#x27;, left, height - 15);
+        ctx.textAlign = &#x27;center&#x27;; ctx.fillText(&#x27;z/λz →&#x27;, left + pw / 2, height - 15);
+        ctx.textAlign = &#x27;right&#x27;; ctx.fillText(&#x27;2&#x27;, left + pw, height - 15);
+      }
+    }
+    function scheduleRender() {
+      if (!framePending) { framePending = true; requestAnimationFrame(() =&gt; { framePending = false; render(); }); }
+    }
+    function save() {
+      if (window.openai &amp;&amp; window.openai.setWidgetState) {
+        const q = waveAt(selected.x, selected.z, time);
+        window.openai.setWidgetState({modelContent: {timeOverPeriod: time, xOverLambdaX: selected.x, zOverLambdaZ: selected.z, incidentOverE0: q.incident, reflectedOverE0: q.reflected, fieldOverE0: q.field, amplitudeOverE0: q.amplitude, phaseOverPi: q.phase === null ? null : q.phase / Math.PI}, privateContent: {time, selected}}).catch(() =&gt; {});
+      }
+    }
+    function restore(state) {
+      const s = state &amp;&amp; state.privateContent;
+      if (s &amp;&amp; Number.isFinite(s.time)) { time = Math.max(0, Math.min(1, s.time)); slider.value = String(time); }
+      if (s &amp;&amp; s.selected &amp;&amp; Number.isFinite(s.selected.x) &amp;&amp; Number.isFinite(s.selected.z)) selected = {x: Math.max(-1, Math.min(1, s.selected.x)), z: Math.max(0, Math.min(2, s.selected.z))};
+    }
+    restore(window.openai &amp;&amp; window.openai.widgetState);
+    slider.addEventListener(&#x27;input&#x27;, () =&gt; { time = Number(slider.value); scheduleRender(); });
+    slider.addEventListener(&#x27;change&#x27;, save);
+    for (const plot of plots) plot.canvas.addEventListener(&#x27;click&#x27;, event =&gt; {
+      const g = plot.geometry; if (!g) return;
+      const box = plot.canvas.getBoundingClientRect();
+      const px = (event.clientX - box.left) * g.width / box.width;
+      const py = (event.clientY - box.top) * g.height / box.height;
+      if (px &lt; g.left || px &gt; g.left + g.pw || py &lt; g.top || py &gt; g.top + g.ph) return;
+      let x = 1 - 2 * (py - g.top) / g.ph;
+      for (const node of nodes) if (Math.abs(x - node) * g.ph / 2 &lt; 3) { x = node; break; }
+      selected = {x, z: 2 * (px - g.left) / g.pw}; scheduleRender(); save();
+    });
+    window.addEventListener(&#x27;openai:set_globals&#x27;, event =&gt; { const g = event.detail &amp;&amp; event.detail.globals; if (g &amp;&amp; Object.prototype.hasOwnProperty.call(g, &#x27;widgetState&#x27;)) { restore(g.widgetState); scheduleRender(); } });
+    new ResizeObserver(scheduleRender).observe(root);
+    new MutationObserver(scheduleRender).observe(document.documentElement, {attributes: true, attributeFilter: [&#x27;class&#x27;, &#x27;style&#x27;, &#x27;data-theme&#x27;]});
+    render();
+  })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;"></iframe></div></div></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>4. 원통 대칭성과 베셀 함수의 등장<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>앞 절의 코사인 정상파는 서로 반대 방향으로 진행하는 두 평면파를 합친 것이다.
+이제 구성 평면파들의 진행 방향을 모든 방위각으로 확장한다.
+<span class="math notranslate nohighlight">\(\phi\)</span>는 <strong>관측점의 방위각</strong>, <span class="math notranslate nohighlight">\(\psi\)</span>는 <strong>구성 평면파의 횡방향 진행 각도</strong>이다.
+관측점 위치를 <span class="math notranslate nohighlight">\(\psi\)</span> 방향으로 투영한 거리는 <span class="math notranslate nohighlight">\(r\cos(\phi-\psi)\)</span>이다.</p>
+<p>원통계에서 어떤 방위각 <span class="math notranslate nohighlight">\(\psi\)</span> 방향을 향하는 횡파수 벡터를 갖는 평면파 성분은 관측점 <span class="math notranslate nohighlight">\((r,\phi)\)</span>에서</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i k_r r\cos(\phi-\psi)}
+\]</div>
+<p>라는 위상 인자를 준다. 공통인 축 방향 인자는 잠시 생략한다. 이를 모든 방위각에 대해 같은 가중치로 중첩하면</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{2\pi} e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>가 된다.</p>
+<p>베셀 함수의 적분 표현</p>
+<div class="math notranslate nohighlight">
+\[
+J_0(k_r r)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+\]</div>
+<p>로부터,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{i k_r r\cos(\phi-\psi)}\,d\psi
+=
+2\pi J_0(k_r r)
+}
+\]</div>
+<p>를 얻는다. 반대 방향의 평면파를 짝지으면 허수부는 상쇄되고 앞 절의 코사인 항이 남는다.
+따라서 이 적분은 <strong>방향을 바꾼 평면 정상파들을 균일하게 중첩하는 것</strong>과 연결된다.
+이미 원형인 <span class="math notranslate nohighlight">\(\cos(k_r r)\)</span>를 단순히 회전시킨다는 뜻은 아니다.</p>
+<p>따라서 <strong>원통 대칭적인 평면파 중첩으로부터 <span class="math notranslate nohighlight">\(J_0\)</span>가 자연스럽게 나타난다</strong>.
+관측점을 <span class="math notranslate nohighlight">\(\phi=0\)</span> 방향에 두면, 원래의 코사인 표현으로도 같은 결과를 쓸 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2\pi} \int_0^{2\pi}
+\cos\!\left[k_r r\cos(-\psi)\right]\,d\psi =J_0(k_r r)
+\]</div>
+<p>또한 방위각 모드수 <span class="math notranslate nohighlight">\(l\)</span>을 갖는 성분을 만들려면 각 평면파 성분에 대해 방위각 <span class="math notranslate nohighlight">\(\psi\)</span>에 의존하는 위상 가중치</p>
+<div class="math notranslate nohighlight">
+\[
+e^{il\psi}
+\]</div>
+<p>를 곱해 중첩하면 된다. 그 결과,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\int_0^{2\pi}
+e^{il\psi}
+e^{i k_r r\cos(\phi-\psi)}
+\,d\psi
+=
+2\pi i^l J_l(k_r r)e^{il\phi}
+}
+\]</div>
+<p>가 된다. 이는 Jacobi–Anger 전개</p>
+<div class="math notranslate nohighlight">
+\[
+e^{iz\cos\theta}
+=
+\sum_{m=-\infty}^{\infty}
+i^m J_m(z)e^{im\theta}
+\]</div>
+<p>의 직접적인 귀결이며, <strong>평면파의 중첩이 원통파 <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span>를 만든다</strong>는 것을 보여 준다.</p>
+<p>이 절의 적분은 스칼라 공간 함수에 대한 관계이다. 이를 전기장 벡터 전체에 바로 적용하지 않고, 다음 절에서는 <span class="math notranslate nohighlight">\(H_z\)</span>의 분포와 연결한다.</p>
+<p>출처: <a class="reference external" href="https://dlmf.nist.gov/10.9#E1">NIST DLMF, 베셀 적분식 (10.9.1)</a>, <a class="reference external" href="https://dlmf.nist.gov/10.12">Jacobi–Anger 전개</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4절: 모든 방향의 코사인 평균과 J0를 비교한다.</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># 방향 개수: 4, 16, 128로 바꿔 보세요.</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mean_wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k_r</span> <span class="o">*</span> <span class="n">r</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">psi</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mean_wave</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Angular average&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j0</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;J0(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cos(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.7&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized amplitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/67b6ffc66d7fb0a5989dbc7f63191b50be5f1649ac34c751e8119d87e02359be.png" src="../_images/67b6ffc66d7fb0a5989dbc7f63191b50be5f1649ac34c751e8119d87e02359be.png" />
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>5. TE 모드의 베셀 함수 표현<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>원형 도파관의 TE 모드에서는 <span class="math notranslate nohighlight">\(E_z=0\)</span>이고, 종방향 자기장 <span class="math notranslate nohighlight">\(H_z\)</span>가 기본이 된다. 원형 도파관에서 쓰이는 종방향 자기장의 베셀 함수 표현은</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)
+=
+H_0\,J_l(k_c r)\,[A\cos(l\phi)+B\sin(l\phi)]\,e^{-i\beta z}
+\]</div>
+<p>의 형태로 쓸 수 있다. 복소수 표시를 사용하면</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_c r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>라고 써도 된다. 아래에서는 원문처럼 축 방향 인자를 <span class="math notranslate nohighlight">\(e^{-i\beta z}\)</span>로 표기하며, 횡방향 공간 분포에 집중한다. 여기서 <span class="math notranslate nohighlight">\(k_c\)</span>는 횡방향의 고유 파수이며, 경계 조건에 의해 양자화된다.</p>
+<p>이 일반식을 광섬유의 모든 <span class="math notranslate nohighlight">\(l\)</span>에 대한 순수 TE 모드로 해석해서는 안 된다.
+여기서는 광섬유의 <strong>축대칭 <span class="math notranslate nohighlight">\(TE_{0m}\)</span> 모드</strong>, 즉 <span class="math notranslate nohighlight">\(l=0\)</span>인 경우에 집중한다.
+허용되는 파수는 코어와 외부 매질의 경계에서 <span class="math notranslate nohighlight">\(H_z\)</span>와 <span class="math notranslate nohighlight">\(E_\phi\)</span>를 연속으로 연결하여 정한다.
+자세한 경계방정식 계산은 여기서 다루지 않는다.</p>
+<p>참고로 원문에 있던</p>
+<div class="math notranslate nohighlight">
+\[
+J_l'(k_c a)=0
+\]</div>
+<p>과 “지배 모드는 <span class="math notranslate nohighlight">\(TE_{11}\)</span>”이라는 설명은 <strong>완전도체 벽을 가진 원형 도파관</strong>에 해당한다.
+이 조건을 광섬유에 그대로 적용하지 않는다.</p>
+<p>출처: <a class="reference external" href="https://farside.ph.utexas.edu/teaching/jk1/Electromagnetism/node118.html#:~:text=For%20a%20TE%20mode">UT Austin, 유전체 도파관의 TE 장과 경계조건, 식 (1386)–(1396)</a>.</p>
+</section>
+<section id="te-0m-e-phi-propto-j-1">
+<h2>6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span>에서 <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span>이 나타나는 이유<a class="headerlink" href="#te-0m-e-phi-propto-j-1" title="Permalink to this heading">#</a></h2>
+<p>축대칭 TE 모드에서는 <span class="math notranslate nohighlight">\(l=0\)</span>이므로 종방향 자기장은</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,z)\propto J_0(k_c r)e^{-i\beta z}
+\]</div>
+<p>가 된다.</p>
+<p>TE 모드의 횡전기장 성분은 Maxwell 방정식으로부터 <span class="math notranslate nohighlight">\(H_z\)</span>의 반지름 방향 미분으로 결정되며, 특히 축대칭인 경우에는</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi \propto -\frac{\partial H_z}{\partial r}
+\]</div>
+<p>가 된다. 따라서</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi
+\propto
+-\frac{\partial}{\partial r}J_0(k_c r)
+\]</div>
+<p>이다. 여기서 베셀 함수의 미분 공식</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ_0(x)}{dx}=-J_1(x)
+\]</div>
+<p>을 사용하면</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1(k_c r)
+\]</div>
+<p>를 얻는다. 그러므로 <span class="math notranslate nohighlight">\(TE_{0m}\)</span>에서는 종방향 자기장이 <span class="math notranslate nohighlight">\(J_0\)</span>형이더라도, 횡전기장 <span class="math notranslate nohighlight">\(E_\phi\)</span>는 <span class="math notranslate nohighlight">\(J_1\)</span>형이 된다.</p>
+<p>여기서 비례식은 공통 계수와 위상 인자를 생략하고 <strong>반지름 방향의 모양</strong>을 비교한 것이다.
+<span class="math notranslate nohighlight">\(E_\phi\)</span>에 <span class="math notranslate nohighlight">\(J_1\)</span>이 나타난다고 해서 방위각 모드수가 <span class="math notranslate nohighlight">\(l=1\)</span>로 바뀌는 것은 아니다.</p>
+<p>출처: <a class="reference external" href="https://dlmf.nist.gov/10.6#E3">NIST DLMF, 미분 공식 (10.6.3)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6절: 공통 계수를 제외한 Hz와 E_phi의 공간 분포를 비교한다.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j0</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Hz shape: J0(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j1</span><span class="p">(</span><span class="n">k_r</span><span class="o">*</span><span class="n">r</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E_phi shape: J1(k_r r)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.7&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized shape&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a8fe1dbcb2b5aeedc64da7bd3ab59648c7685921ecf105ca9cfcafbde8d70521.png" src="../_images/a8fe1dbcb2b5aeedc64da7bd3ab59648c7685921ecf105ca9cfcafbde8d70521.png" />
+</div>
+</div>
+</section>
+<section id="l">
+<h2>7. <span class="math notranslate nohighlight">\(l\)</span>의 의미<a class="headerlink" href="#l" title="Permalink to this heading">#</a></h2>
+<p>종방향 자기장의 복소수 표시</p>
+<div class="math notranslate nohighlight">
+\[
+H_z(r,\phi,z)\propto J_l(k_r r)e^{il\phi}e^{-i\beta z}
+\]</div>
+<p>에서 <span class="math notranslate nohighlight">\(l\)</span>은 <strong>방위각 모드수</strong>이다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l=0\)</span>이면 <span class="math notranslate nohighlight">\(e^{i0\phi}=1\)</span>이므로 이 스칼라 장 성분은 방위각 <span class="math notranslate nohighlight">\(\phi\)</span>에 의존하지 않는다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=1\)</span>이면 <span class="math notranslate nohighlight">\(e^{i\phi}\)</span>이며, <span class="math notranslate nohighlight">\(\phi\)</span>를 <span class="math notranslate nohighlight">\(2\pi\)</span>만큼 돌리면 복소 위상은 <span class="math notranslate nohighlight">\(2\pi\)</span> 변한다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(l=2\)</span>이면 <span class="math notranslate nohighlight">\(e^{i2\phi}\)</span>이며, 한 바퀴에서 복소 위상은 <span class="math notranslate nohighlight">\(4\pi\)</span> 변한다.</p></li>
+</ul>
+<p>이런 의미에서 <span class="math notranslate nohighlight">\(l\)</span>은 복소수 표시에서는 “위상의 감김수”에 대응하는 것처럼 보인다. 그러나 원형 도파관의 일반적인 TE/TM 모드에서는 종종</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(l\phi),\qquad \sin(l\phi)
+\]</div>
+<p>라는 실함수 표시로 쓰이므로, 가장 안전한 명칭은 <strong>방위각 모드수</strong>이다. 즉 <span class="math notranslate nohighlight">\(l\)</span>은 <strong>편광 방향</strong>을 나타내는 양이 아니라, <strong>횡단면 안에서의 각도 의존성의 차수</strong>를 나타내는 양이다.</p>
+<p>축대칭 TE 모드의 전기장은 <span class="math notranslate nohighlight">\(\hat{\boldsymbol\phi}\)</span> 방향이다. 성분 <span class="math notranslate nohighlight">\(E_\phi(r)\)</span>는 방위각에 독립적이어도, 벡터 방향은 원주를 따라 달라진다.</p>
+</section>
+<section id="id6">
+<h2>8. 요약<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>이상을 정리하면, 이 글에서 다룬 TE 모드는</p>
+<div class="math notranslate nohighlight">
+\[
+E_z=0,\qquad H_z\neq 0
+\]</div>
+<p>을 만족하는 모드이며, 횡방향 구조는 평면파 성분의 중첩으로 이해할 수 있다. 그 원통 대칭적인 중첩의 결과로 반지름 방향 의존성은 베셀 함수 <span class="math notranslate nohighlight">\(J_l\)</span>로 표현된다. 특히 모든 방위각에 대한 등가중 중첩에서는 <span class="math notranslate nohighlight">\(J_0\)</span>가 나타나고, 방위각에 위상 가중치 <span class="math notranslate nohighlight">\(e^{il\psi}\)</span>를 주면 <span class="math notranslate nohighlight">\(J_l(k_r r)e^{il\phi}\)</span>가 나타난다. 축대칭 TE 모드에서는 종방향 자기장 <span class="math notranslate nohighlight">\(H_z\)</span>가 기본이 되며, <span class="math notranslate nohighlight">\(TE_{0m}\)</span>에서는 <span class="math notranslate nohighlight">\(H_z\propto J_0\)</span>이고, 거기서 도출되는 횡전기장은</p>
+<div class="math notranslate nohighlight">
+\[
+E_\phi\propto J_1
+\]</div>
+<p>가 된다. 따라서 <span class="math notranslate nohighlight">\(l\)</span>은 편광을 나타내는 것이 아니라 <strong>모드의 방위각 의존성을 나타내는 지표</strong>이다.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 좌표계와 파수 벡터</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te">2. TE 모드의 의미</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. “반사하는 평면파의 중첩”으로 보는 직관</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">직접 확인: 두 파의 중첩</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4. 원통 대칭성과 베셀 함수의 등장</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5. TE 모드의 베셀 함수 표현</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-0m-e-phi-propto-j-1">6. <span class="math notranslate nohighlight">\(TE_{0m}\)</span>에서 <span class="math notranslate nohighlight">\(E_\phi\propto J_1\)</span>이 나타나는 이유</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7. <span class="math notranslate nohighlight">\(l\)</span>의 의미</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8. 요약</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

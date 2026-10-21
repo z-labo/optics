@@ -1,0 +1,2741 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; All about light</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js"></script>
+    <script src="../_static/language-switcher.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kr/bbo_kr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">All about light</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Basics of optics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../en/PIM_en.html">Propagation indipendent modes (PIM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/TE_en.html">TE mode and Bessel functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/prop_en.html">Wave propagation: Fresnel and Fraunhofer diffraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/exit_en.html">Exit angle from a Optical fiber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/sh_en.html">Non-Collinear Type-I SHG in a BBO Crystal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/bbo_en.html">Susceptibility in NLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../en/coupled_wave_en.html">Coupled-Wave Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/z-labo/optics/main?urlpath=lab/tree/kr/bbo_kr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/z-labo/optics/issues/new?title=Issue%20on%20page%20%2Fkr/bbo_kr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/kr/bbo_kr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 비선형 분극</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 합주파수 및 차주파수 발생</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">3. 2차 주파수 혼합의 tensor 표현</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#times3-matrix">3.1 하나의 출력 편광에 대한 유용한 <span class="math notranslate nohighlight">\(3\times3\)</span> matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfg-intrinsic-permutation-symmetry">3.2 서로 다른 주파수의 SFG에서 intrinsic permutation symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shg-contracted-notation">4. SHG의 contracted notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherent-beam-cross-term">4.1 같은 주파수의 두 coherent beam 사이의 cross term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: 결정 대칭과 <span class="math notranslate nohighlight">\(d\)</span> matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-shg-geometry">6. 대칭적인 non-collinear SHG geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-cross-term-nonlinear-polarization">6.1 두 <span class="math notranslate nohighlight">\(y\)</span>-편광 빔의 cross-term nonlinear polarization 유도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-bbo-crystal-coordinate">6.2 실제 Type-I BBO의 crystal coordinate를 반영한 계산</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinate">6.2.1 Laboratory coordinate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinate-x-y-z">6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vector-crystal-frame">6.2.3 Wave vector를 crystal frame으로 변환</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-polarization-crystal-x-ordinary-polarization">6.2.4 Fundamental polarization은 crystal <span class="math notranslate nohighlight">\(X\)</span> 방향의 ordinary polarization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#crystal-frame-cross-term-contracted-vector">6.2.5 Crystal frame에서 cross-term contracted vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-d-matrix">6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrix 적용</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarization-laboratory-frame">6.2.7 Nonlinear polarization을 laboratory frame으로 회전</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extraordinary-sh-effective-nonlinear-coefficient">6.2.8 Extraordinary SH에 결합하는 effective nonlinear coefficient</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31">6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span>와 <span class="math notranslate nohighlight">\(d_{31}\)</span>의 수치를 사용할 때의 주의</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.10 6.1절과의 차이</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-crossing-angle-gamma-phase-matching-angle-theta-d-mathrm-eff-ooe">6.3 Non-collinear crossing angle <span class="math notranslate nohighlight">\(\gamma\)</span>, phase-matching angle <span class="math notranslate nohighlight">\(\theta\)</span>, 그리고 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 관계</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-phase-matching-gamma-n-e-mathrm-eff">6.3.1 Vector phase matching이 <span class="math notranslate nohighlight">\(\gamma\)</span>와 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>를 연결한다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-birefringence-n-e-mathrm-eff-theta">6.3.2 BBO birefringence가 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>와 <span class="math notranslate nohighlight">\(\theta\)</span>를 연결한다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-d-mathrm-eff-ooe">6.3.3 <span class="math notranslate nohighlight">\(\theta\)</span>가 결정되면 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>가 결정된다</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mathrm-eff-ooe">6.4 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 물리적 의미</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ijk-d-mathrm-eff">6.4.1 <span class="math notranslate nohighlight">\(d_{ijk}\)</span>와 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 차이</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ooe">6.4.2 위첨자 <span class="math notranslate nohighlight">\(ooe\)</span>의 의미</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-geometry">6.4.3 현재 BBO geometry에서는 왜</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31-d-mathrm-eff">6.4.4 <span class="math notranslate nohighlight">\(d_{22}\)</span>, <span class="math notranslate nohighlight">\(d_{31}\)</span>과 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는 다른 물리량이다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mathrm-eff-shg-efficiency">6.4.5 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>가 SHG efficiency에 미치는 영향</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-theta-d-mathrm-eff">6.4.6 <span class="math notranslate nohighlight">\(\gamma\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 최종 물리적 연결</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>1. 비선형 분극<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>유전체 매질에서 유도 분극은 전기장의 거듭제곱으로 전개할 수 있다. Cartesian tensor notation으로 쓰면,</p>
+<div class="math notranslate nohighlight">
+\[
+P_i(t)
+=
+\varepsilon_0
+\left[
+\sum_j \chi_{ij}^{(1)} E_j(t)
++
+\sum_{jk} \chi_{ijk}^{(2)} E_j(t)E_k(t)
++
+\sum_{jkl} \chi_{ijkl}^{(3)} E_j(t)E_k(t)E_l(t)
++\cdots
+\right].
+\]</div>
+<p>간단히 쓰면,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}
+=
+\mathbf{P}^{(1)}
++
+\mathbf{P}^{(2)}
++
+\mathbf{P}^{(3)}
++\cdots.
+\]</div>
+<p>tensor rank와 SI 단위는 다음과 같다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\chi^{(1)}\)</span>: 2차(rank-2) tensor, SI에서 무차원</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(2)}\)</span>: 3차(rank-3) tensor, SI 단위는 <span class="math notranslate nohighlight">\(\mathrm{m/V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^{(3)}\)</span>: 4차(rank-4) tensor, SI 단위는 <span class="math notranslate nohighlight">\(\mathrm{m^2/V^2}\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\mathbf{P}^{(2)}\)</span>는 2차 비선형 분극(second-order nonlinear polarization),<br />
+<span class="math notranslate nohighlight">\(\mathbf{P}^{(3)}\)</span>는 3차 비선형 분극(third-order nonlinear polarization)이다.</p>
+<p>위의 단순한 대수적 형태는 <strong>instantaneous, local response</strong>를 가정한다. 실제 분산 매질은 일반적으로 과거 시간의 전기장에 의존하는 response function으로 기술되며, 주파수 영역에서는 frequency-dependent susceptibility로 표현된다.</p>
+<p>비선형성의 크기를 대략 추정할 때 사용할 수 있는 대표적인 스케일은 atomic electric field이다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_{\mathrm{at}}
+=
+\frac{e}{4\pi\varepsilon_0 a_0^2}
+\simeq
+5.14\times10^{11}\ \mathrm{V/m},
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(a_0\)</span>는 Bohr radius이다.</p>
+<p>이에 대응하는 진공 중 intensity는</p>
+<div class="math notranslate nohighlight">
+\[
+I_{\mathrm{at}}
+=
+\frac{1}{2}c\varepsilon_0 E_{\mathrm{at}}^2
+\simeq
+3.51\times10^{16}\ \mathrm{W/cm^2}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(E\sim E_{\mathrm{at}}\)</span>에서 식의 연속된 항들이 비슷한 크기가 된다고 가정하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}},
+\qquad
+\chi^{(3)}
+\sim
+\frac{\chi^{(1)}}{E_{\mathrm{at}}^2}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\chi^{(1)}\sim1\)</span>로 두면 대략</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^{(2)}
+\sim
+2\times10^{-12}\ \mathrm{m/V},
+\qquad
+\chi^{(3)}
+\sim
+4\times10^{-24}\ \mathrm{m^2/V^2}.
+\]</div>
+<p>이 값들은 order-of-magnitude estimate일 뿐이며, 실제 값은 물질과 광학 주파수에 강하게 의존한다.</p>
+</section>
+<section id="id2">
+<h2>2. 합주파수 및 차주파수 발생<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>두 개의 단색파 complex field amplitude를 생각하자. 다음 convention을 사용한다.</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{E}(t)
+=
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\]</div>
+<p>우선 field를 scalar로 취급하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\widetilde{E}^{\,2}(t).
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\left(
+E_1 e^{-i\omega_1 t}
++
+E_2 e^{-i\omega_2 t}
++
+c.c.
+\right)^2.
+\]</div>
+<p>이를 전개하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{P}^{(2)}(t)
+=
+\varepsilon_0\chi^{(2)}
+\Big[
+E_1^2 e^{-2i\omega_1 t}
++
+E_2^2 e^{-2i\omega_2 t}
++
+2E_1E_2e^{-i(\omega_1+\omega_2)t}
++
+2E_1E_2^*e^{-i(\omega_1-\omega_2)t}
++
+c.c.
+\Big]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\qquad
++
+\varepsilon_0\chi^{(2)}
+\left(
+E_1E_1^*
++
+E_2E_2^*
+\right).
+\]</div>
+<p>이 전개에는 second-harmonic, sum-frequency, difference-frequency, zero-frequency 성분이 모두 포함된다.</p>
+<p><span class="math notranslate nohighlight">\(\omega_1&gt;\omega_2\)</span>일 때, positive-frequency 성분은</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_1)
+=
+\varepsilon_0\chi^{(2)}E_1^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(2\omega_2)
+=
+\varepsilon_0\chi^{(2)}E_2^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1+\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(\omega_1-\omega_2)
+=
+2\varepsilon_0\chi^{(2)}E_1E_2^*.
+\]</div>
+<p>zero-frequency 성분은 아래에 표시된것과 같이 optical rectification이다.</p>
+<div class="math notranslate nohighlight">
+\[
+P^{(2)}(0)
+=
+2\varepsilon_0\chi^{(2)}
+\left(
+|E_1|^2
++
+|E_2|^2
+\right).
+\]</div>
+<p>positive-frequency 성분의 complex conjugate는 대응하는 negative-frequency 성분을 구성한다.</p>
+</section>
+<section id="tensor">
+<h2>3. 2차 주파수 혼합의 tensor 표현<a class="headerlink" href="#tensor" title="Permalink to this heading">#</a></h2>
+<p>비등방성 매질에서는 위의 scalar 식을 tensor contraction으로 써야 한다. 합주파수의 경우</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_3=\omega_1+\omega_2
+\]</div>
+<p>라 두면, 위의 complex-amplitude convention에서 sum-frequency polarization은</p>
+<div class="math notranslate nohighlight">
+\[
+P_i^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\sum_{j=x,y,z}
+\sum_{k=x,y,z}
+\chi_{ijk}^{(2)}
+(\omega_3;\omega_1,\omega_2)
+E_j(\omega_1)
+E_k(\omega_2).
+\]</div>
+<section id="times3-matrix">
+<h3>3.1 하나의 출력 편광에 대한 유용한 <span class="math notranslate nohighlight">\(3\times3\)</span> matrix<a class="headerlink" href="#times3-matrix" title="Permalink to this heading">#</a></h3>
+<p>Polarization의 출력 성분을 하나 고정하자. 예를 들어 <span class="math notranslate nohighlight">\(i=x\)</span>라면,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{\chi}_x^{(2)}
+=
+\begin{pmatrix}
+\chi_{xxx}^{(2)} &amp; \chi_{xxy}^{(2)} &amp; \chi_{xxz}^{(2)}\\
+\chi_{xyx}^{(2)} &amp; \chi_{xyy}^{(2)} &amp; \chi_{xyz}^{(2)}\\
+\chi_{xzx}^{(2)} &amp; \chi_{xzy}^{(2)} &amp; \chi_{xzz}^{(2)}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>그러면</p>
+<div class="math notranslate nohighlight">
+\[
+P_x^{(2)}(\omega_3)
+=
+2\varepsilon_0
+\mathbf{E}^T(\omega_1)
+\mathbf{\chi}_x^{(2)}
+\mathbf{E}(\omega_2),
+\]</div>
+<p>여기서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}(\omega_m)
+=
+\begin{pmatrix}
+E_x(\omega_m)\\
+E_y(\omega_m)\\
+E_z(\omega_m)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>이 형태는 수치 계산에서 특히 간단하다.</p>
+<p>합주파수의 비선형 분극에는 <span class="math notranslate nohighlight">\(E_jE_k\)</span>의 곱이 들어가므로, 위 식에서는 Hermitian transpose <span class="math notranslate nohighlight">\(\dagger\)</span>가 아니라 일반 transpose <span class="math notranslate nohighlight">\(T\)</span>를 사용한다.</p>
+</section>
+</section>
+<section id="sfg-intrinsic-permutation-symmetry">
+<h2>3.2 서로 다른 주파수의 SFG에서 intrinsic permutation symmetry<a class="headerlink" href="#sfg-intrinsic-permutation-symmetry" title="Permalink to this heading">#</a></h2>
+<p>다음 두 항을 생각하자.</p>
+<div class="math notranslate nohighlight">
+\[
+A = E_x(\omega_2)E_y(\omega_1)\chi_{xxy}^{(2)}
+\]</div>
+<p>그리고</p>
+<div class="math notranslate nohighlight">
+\[
+B = E_y(\omega_2)E_x(\omega_1)\chi_{xyx}^{(2)}
+\]</div>
+<p>주파수가 서로 다른 경우, 즉 <span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span> 라면 일반적으로 <span class="math notranslate nohighlight">\(A \neq B\)</span> 이다.
+그 이유는 nonlinear susceptibility가 단순히 Cartesian index에만 의존하는 것이 아니라, 각 index에 대응하는 주파수에도 의존하기 때문이다.</p>
+<p>첫 번째 항 <span class="math notranslate nohighlight">\(A\)</span>를 주파수 argument까지 명시하면,</p>
+<div class="math notranslate nohighlight">
+\[
+A = \chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)E_x(\omega_2)E_y(\omega_1)
+\]</div>
+<p>로 쓸 수 있다.</p>
+<p>여기서 <span class="math notranslate nohighlight">\(\omega_3 = \omega_1+\omega_2\)</span> 이다.</p>
+<p>Second-order susceptibility의 intrinsic permutation symmetry는</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(\omega_3;\omega_a,\omega_b)
+=
+\chi_{ikj}^{(2)}(\omega_3;\omega_b,\omega_a)
+\]</div>
+<p>로 주어진다.</p>
+<p>따라서 현재의 경우,</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+\]</div>
+<p>가 성립한다.
+즉 intrinsic permutation symmetry에서는 단순히 Cartesian index <span class="math notranslate nohighlight">\(x\)</span>와 <span class="math notranslate nohighlight">\(y\)</span>만 교환하는 것이 아니라, <span class="math notranslate nohighlight">\((x,\omega_2)\)</span> 와 <span class="math notranslate nohighlight">\((y,\omega_1)\)</span> 이라는 <strong>index-frequency pair 전체를 동시에 교환한다.</strong></p>
+<p>따라서 <span class="math notranslate nohighlight">\(A\)</span>는 다음과 같이 쓸 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+A
+=
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2)
+\]</div>
+<p>따라서 intrinsic permutation symmetry가 보장하는 정확한 관계는</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{xxy}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_x(\omega_2)E_y(\omega_1)
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_1,\omega_2)
+E_y(\omega_1)E_x(\omega_2)
+\]</div>
+<p>이다.</p>
+<p>반면</p>
+<div class="math notranslate nohighlight">
+\[
+B
+=
+\chi_{xyx}^{(2)}(\omega_3;\omega_2,\omega_1)
+E_y(\omega_2)E_x(\omega_1)
+\]</div>
+<p>는 <span class="math notranslate nohighlight">\(A\)</span>와 다른 주파수-편광 배치를 나타낸다.</p>
+<p>즉 <span class="math notranslate nohighlight">\(A\)</span>에서는</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2\)</span> 성분이 <span class="math notranslate nohighlight">\(x\)</span> 편광</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1\)</span> 성분이 <span class="math notranslate nohighlight">\(y\)</span> 편광</p></li>
+</ul>
+<p>인 반면, <span class="math notranslate nohighlight">\(B\)</span>에서는</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2\)</span> 성분이 <span class="math notranslate nohighlight">\(y\)</span> 편광</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1\)</span> 성분이 <span class="math notranslate nohighlight">\(x\)</span> 편광</p></li>
+</ul>
+<p>이다.</p>
+<p>따라서 <span class="math notranslate nohighlight">\(\omega_1 \neq \omega_2\)</span>인 일반적인 SFG에서는 <span class="math notranslate nohighlight">\(A \neq B\)</span> 일 수 있다. 핵심적으로 intrinsic permutation symmetry가 의미하는 것은 <span class="math notranslate nohighlight">\((j,\omega_1) \leftrightarrow (k,\omega_2)\)</span> 의 동시 교환이지, <span class="math notranslate nohighlight">\(j \leftrightarrow k\)</span> 만을 독립적으로 교환하는 것이 아니다.</p>
+<p>반면 degenerate SHG에서는 <span class="math notranslate nohighlight">\(\omega_1=\omega_2=\omega\)</span> 이므로 주파수를 교환해도 변화가 없고,</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{ijk}^{(2)}(2\omega;\omega,\omega)
+=
+\chi_{ikj}^{(2)}(2\omega;\omega,\omega)
+\]</div>
+<p>가 되어 마지막 두 Cartesian index에 대해 대칭성을 사용할 수 있다.
+이 대칭성이 일반적인 <span class="math notranslate nohighlight">\(3\times6\)</span> contracted notation을 SHG에서 자연스럽게 사용할 수 있게 한다.</p>
+<p>Kleinman symmetry를 적용할 수 있는 경우에는 더 많은 index symmetry를 얻을 수 있지만, 강한 dispersion이 있는 영역에서는 이를 자동으로 가정해서는 안 된다.</p>
+</section>
+<section id="shg-contracted-notation">
+<h2>4. SHG의 contracted notation<a class="headerlink" href="#shg-contracted-notation" title="Permalink to this heading">#</a></h2>
+<p>대칭적인 index pair <span class="math notranslate nohighlight">\(j,k\)</span>에 대해 다음과 같이 축약한다.</p>
+<div class="math notranslate nohighlight">
+\[
+xx\rightarrow1,\qquad
+yy\rightarrow2,\qquad
+zz\rightarrow3,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+yz(=zy)\rightarrow4,\qquad
+zx(=xz)\rightarrow5,\qquad
+xy(=yx)\rightarrow6.
+\]</div>
+<p>통상적인 nonlinear coefficient는</p>
+<div class="math notranslate nohighlight">
+\[
+d_{il}
+=
+\frac{1}{2}\chi_{ijk}^{(2)}
+\]</div>
+<p>로 정의하며, <span class="math notranslate nohighlight">\(l\)</span>이 <span class="math notranslate nohighlight">\(jk\)</span>의 pair를 나타낸다.</p>
+<p>단일 주파수 <span class="math notranslate nohighlight">\(\omega\)</span>의 field에 대해,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 SH polarization은</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}(\mathbf{E})
+\]</div>
+<p>로 쓸 수 있다.</p>
+<section id="coherent-beam-cross-term">
+<h3>4.1 같은 주파수의 두 coherent beam 사이의 cross term<a class="headerlink" href="#coherent-beam-cross-term" title="Permalink to this heading">#</a></h3>
+<p>non-collinear SHG에서는 <strong>beam number</strong>로 두 빔을 구분하는 편이 더 명확하다.</p>
+<p>positive-frequency spatial amplitude를</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}(\mathbf{r})
+=
+\mathbf{E}_1(\mathbf{r})
++
+\mathbf{E}_2(\mathbf{r})
+\]</div>
+<p>라 두고, 공통 시간 의존성을 <span class="math notranslate nohighlight">\(e^{-i\omega t}\)</span>로 둔다.</p>
+<p>그러면</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{q}(\mathbf{E}_1+\mathbf{E}_2)
+=
+\mathbf{q}(\mathbf{E}_1)
++
+\mathbf{q}(\mathbf{E}_2)
++
+\mathbf{q}_{12},
+\]</div>
+<p>여기서 cross-term vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+2
+\begin{pmatrix}
+E_{1x}E_{2x}\\
+E_{1y}E_{2y}\\
+E_{1z}E_{2z}\\
+E_{1y}E_{2z}+E_{1z}E_{2y}\\
+E_{1z}E_{2x}+E_{1x}E_{2z}\\
+E_{1x}E_{2y}+E_{1y}E_{2x}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}(2\omega)
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>위 정의는 자주 발생하는 factor-of-two 혼동을 피하기 위한 것이다.</p>
+<p>만약 <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span> 내부를 leading factor 2 없이 정의한다면, polarization 식의 prefactor를 대신 <span class="math notranslate nohighlight">\(4\varepsilon_0\)</span>로 써야 한다.</p>
+</section>
+</section>
+<section id="beta-bbo-d-matrix">
+<h2>5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: 결정 대칭과 <span class="math notranslate nohighlight">\(d\)</span> matrix<a class="headerlink" href="#beta-bbo-d-matrix" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\beta\)</span>-<span class="math notranslate nohighlight">\(\mathrm{BaB_2O_4}\)</span> (BBO)는 비중심대칭(non-centrosymmetric) trigonal crystal이며,</p>
+<div class="math notranslate nohighlight">
+\[
+\text{space group}=R3c,
+\qquad
+\text{point group}=3m
+\]</div>
+<p>이다.</p>
+<p>자주 사용되는 crystal-axis convention에서 contracted second-order matrix는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Kleinman symmetry가 적용 가능한 경우,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{15}=d_{31}.
+\]</div>
+<p>BBO에 대해 흔히 인용되는 계수의 크기는 대략</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{15}|
+=
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V}.
+\]</div>
+<p>각 <span class="math notranslate nohighlight">\(d\)</span> coefficient의 부호는 crystallographic-axis convention에 따라 달라질 수 있다.</p>
+<p>위 matrix convention에서는 아래의 식에서처럼 부호를 사용해야 한다.</p>
+<div class="math notranslate nohighlight">
+\[
+d_{21}=-d_{22}.
+\]</div>
+</section>
+<section id="non-collinear-shg-geometry">
+<h2>6. 대칭적인 non-collinear SHG geometry<a class="headerlink" href="#non-collinear-shg-geometry" title="Permalink to this heading">#</a></h2>
+<p><img alt="Fig. 10" src="../_images/fig10.jpg" /></p>
+<section id="y-cross-term-nonlinear-polarization">
+<h3>6.1 두 <span class="math notranslate nohighlight">\(y\)</span>-편광 빔의 cross-term nonlinear polarization 유도<a class="headerlink" href="#y-cross-term-nonlinear-polarization" title="Permalink to this heading">#</a></h3>
+<p>위에서 사용한 <span class="math notranslate nohighlight">\((x,y,z)\)</span> 축이 Eq. (15)의 <strong>crystal axis와 정확히 같은 축</strong>이라고 가정한다.</p>
+<p>두 fundamental beam은 동일한 주파수 <span class="math notranslate nohighlight">\(\omega\)</span>를 가지며, <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(z\)</span> 평면에서 <span class="math notranslate nohighlight">\(\pm\gamma\)</span>의 각도로 대칭적으로 전파한다고 하자.</p>
+<p>각각의 전기장을</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_1(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_2(\mathbf{r})
+=
+\begin{pmatrix}
+0\\
+E_y e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}\\
+0
+\end{pmatrix}
+\end{split}\]</div>
+<p>로 둔다.</p>
+<p>따라서 두 빔을 합친 전체 fundamental field는</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}
+=
+\mathbf{E}_1+\mathbf{E}_2.
+\]</div>
+<p>두 빔 모두 <span class="math notranslate nohighlight">\(y\)</span>-편광만 가지고 있으므로,</p>
+<div class="math notranslate nohighlight">
+\[
+E_x=0,
+\qquad
+E_z=0,
+\]</div>
+<p>이고</p>
+<div class="math notranslate nohighlight">
+\[
+E_y
+=
+E_{1y}+E_{2y}.
+\]</div>
+<p>SHG의 contracted notation에서 quadratic field vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+E_x^2\\
+E_y^2\\
+E_z^2\\
+2E_yE_z\\
+2E_zE_x\\
+2E_xE_y
+\end{pmatrix}.
+\end{split}\]</div>
+<p>현재의 경우 <span class="math notranslate nohighlight">\(E_x=E_z=0\)</span>이므로,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}(\mathbf{E})
+=
+\begin{pmatrix}
+0\\
+(E_{1y}+E_{2y})^2\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>두 번째 성분을 전개하면</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1y}+E_{2y})^2
+=
+E_{1y}^2
++
+E_{2y}^2
++
+2E_{1y}E_{2y}.
+\]</div>
+<p>여기서</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}^2
+\]</div>
+<p>와</p>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}^2
+\]</div>
+<p>는 각각 beam 1과 beam 2가 단독으로 만들어내는 SHG 성분이고,</p>
+<div class="math notranslate nohighlight">
+\[
+2E_{1y}E_{2y}
+\]</div>
+<p>가 두 빔 사이의 <strong>cross-term SHG</strong>에 해당한다.</p>
+<p>따라서 cross term에 해당하는 contracted field vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{q}_{12}
+=
+\begin{pmatrix}
+0\\
+2E_{1y}E_{2y}\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>이제 두 field의 공간 위상을 대입한다.</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{2y}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>따라서 두 field의 곱은</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>지수항을 합치면</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{ik_\omega[
+2\cos\gamma\,z
++
+\sin\gamma\,x
+-
+\sin\gamma\,x
+]}.
+\]</div>
+<p><span class="math notranslate nohighlight">\(x\)</span> 방향의 phase term은 서로 상쇄되므로,</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1y}E_{2y}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>따라서 cross-term vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>가 된다.</p>
+<hr class="docutils" />
+<p>BBO의 contracted nonlinear coefficient matrix를</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{split}\]</div>
+<p>라고 하자.</p>
+<p>SHG nonlinear polarization은</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}
+\]</div>
+<p>로 주어진다.</p>
+<p>따라서 cross term은</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}\,
+\mathbf{q}_{12}.
+\]</div>
+<p>앞에서 얻은 <span class="math notranslate nohighlight">\(\mathbf{q}_{12}\)</span>를 대입하면,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+2\varepsilon_0
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\left[
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+\right].
+\end{split}\]</div>
+<p>scalar term을 밖으로 빼면,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>오른쪽 vector에서 두 번째 성분만 1이므로, <span class="math notranslate nohighlight">\(d\)</span> matrix의 <strong>두 번째 column만 선택된다.</strong></p>
+<p>즉,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 최종적으로</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>을 얻는다.</p>
+<p>즉 각 Cartesian component는</p>
+<div class="math notranslate nohighlight">
+\[
+P_{12,x}^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,y}^{(2)}
+=
+4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_{12,z}^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>여기서 spatial phase factor</p>
+<div class="math notranslate nohighlight">
+\[
+e^{i2k_\omega\cos\gamma\,z}
+\]</div>
+<p>는 cross-term nonlinear polarization의 wave vector가</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+\begin{pmatrix}
+0\\
+0\\
+2k_\omega\cos\gamma
+\end{pmatrix}
+\end{split}\]</div>
+<p>임을 의미한다.</p>
+<p>즉 대칭적인 non-collinear geometry에서는 cross-term nonlinear polarization의 spatial phase가 두 fundamental beam의 angle bisector인 <span class="math notranslate nohighlight">\(z\)</span> 방향으로 진행한다.</p>
+</section>
+<section id="type-i-bbo-crystal-coordinate">
+<h3>6.2 실제 Type-I BBO의 crystal coordinate를 반영한 계산<a class="headerlink" href="#type-i-bbo-crystal-coordinate" title="Permalink to this heading">#</a></h3>
+<p>6.1절에서는 의도적으로 laboratory <span class="math notranslate nohighlight">\((x,y,z)\)</span> 축을 Eq. (15)의 <strong>crystal axis와 정확히 같은 축</strong>이라고 가정하였다.<br />
+따라서 6.1절의 계산은 그 잘못된 가정을 유지한 비교용 계산으로 그대로 둔다.</p>
+<p>실제 Type-I BBO에서는 laboratory coordinate와 crystal coordinate를 분리해야 한다.</p>
+<p>여기서는 Eq. (15)의 <span class="math notranslate nohighlight">\(d\)</span> matrix에 대응하는 표준 <span class="math notranslate nohighlight">\(3m\)</span> crystal-axis convention을 사용하여 다시 계산한다.</p>
+<hr class="docutils" />
+<section id="laboratory-coordinate">
+<h4>6.2.1 Laboratory coordinate<a class="headerlink" href="#laboratory-coordinate" title="Permalink to this heading">#</a></h4>
+<p>laboratory coordinate <span class="math notranslate nohighlight">\((x,y,z)\)</span>를 다음과 같이 정의한다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: 두 fundamental beam의 angle bisector이며 cross-term SH의 진행 방향</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>: 두 beam이 교차하는 plane 안의 transverse direction</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span>: beam-crossing plane에 수직인 방향이며 fundamental beam의 편광 방향</p></li>
+</ul>
+<p>따라서 두 fundamental beam의 wave vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix},
+\qquad
+\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+-\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix}.
+\end{split}\]</div>
+<p>두 beam의 cross-term nonlinear polarization이 가지는 spatial wave vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{K}_{\mathrm{NL}}
+=
+\mathbf{k}_1+\mathbf{k}_2
+=
+2k_\omega\cos\gamma
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 cross-term SH의 nominal propagation direction은 laboratory <span class="math notranslate nohighlight">\(z\)</span> 방향이다.</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-crystal-coordinate-x-y-z">
+<h4>6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span><a class="headerlink" href="#bbo-crystal-coordinate-x-y-z" title="Permalink to this heading">#</a></h4>
+<p>Eq. (15)의 <span class="math notranslate nohighlight">\(d\)</span> matrix에서 사용하는 crystal coordinate를 대문자 <span class="math notranslate nohighlight">\((X,Y,Z)\)</span>로 표시한다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z\)</span>: BBO의 crystallographic <span class="math notranslate nohighlight">\(c\)</span>-axis이며 <strong>optic axis</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(YZ\)</span> plane: <span class="math notranslate nohighlight">\(3m\)</span> point group의 한 <strong>crystal mirror plane</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span>: 그 mirror plane에 수직인 axis</p></li>
+</ul>
+<p>Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span> BBO에서 큰 <span class="math notranslate nohighlight">\(d_{22}\)</span>를 이용하는 표준적인 orientation에서는 propagation plane을 crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane에 둔다.<br />
+표준 spherical-angle convention으로는 최적 azimuth를</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-\frac{\pi}{2}
+\]</div>
+<p>로 둘 수 있다.</p>
+<p>현재 geometry에서는 laboratory <span class="math notranslate nohighlight">\(xz\)</span> plane이 바로 optical principal plane이므로,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+YZ_{\mathrm{crys}}
+=
+xz_{\mathrm{lab}}
+}
+\]</div>
+<p>로 둔다.</p>
+<p>따라서 crystal <span class="math notranslate nohighlight">\(X\)</span> axis는 laboratory <span class="math notranslate nohighlight">\(y\)</span> axis와 평행하다.<br />
+아래에서는 right-handed coordinate와 <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span> convention을 동시에 만족시키기 위해</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}
+}
+\]</div>
+<p>로 정의한다.</p>
+<p>이 부호 선택 자체는 물리적인 차이를 만들지 않지만, <span class="math notranslate nohighlight">\(d_{22}\)</span>의 부호와 <span class="math notranslate nohighlight">\(\phi\)</span> convention을 일관되게 유지하는 데 필요하다.</p>
+<p>generated SH wave vector <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span>가 laboratory <span class="math notranslate nohighlight">\(z\)</span> 방향이고, optic axis <span class="math notranslate nohighlight">\(Z\)</span>와 <span class="math notranslate nohighlight">\(z\)</span> 사이의 각을 <span class="math notranslate nohighlight">\(\theta\)</span>라고 하자.</p>
+<p>그러면 crystal basis vectors를 laboratory coordinate에서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{X}}
+=
+\begin{pmatrix}
+0\\
+-1\\
+0
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Y}}
+=
+\begin{pmatrix}
+\cos\theta\\
+0\\
+-\sin\theta
+\end{pmatrix},
+\qquad
+\hat{\mathbf{Z}}
+=
+\begin{pmatrix}
+\sin\theta\\
+0\\
+\cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>로 둘 수 있다.</p>
+<p>실제로</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf{X}}\times\hat{\mathbf{Y}}
+=
+\hat{\mathbf{Z}}
+\]</div>
+<p>이므로 right-handed coordinate이다.</p>
+<p>crystal-frame component를 laboratory frame으로 변환하는 rotation matrix는 각 crystal basis vector를 column으로 갖는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+R
+=
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>이다.</p>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\mathbf{v}_{\mathrm{lab}}
+=
+R\mathbf{v}_{\mathrm{crys}},
+\qquad
+\mathbf{v}_{\mathrm{crys}}
+=
+R^T\mathbf{v}_{\mathrm{lab}}.
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="wave-vector-crystal-frame">
+<h4>6.2.3 Wave vector를 crystal frame으로 변환<a class="headerlink" href="#wave-vector-crystal-frame" title="Permalink to this heading">#</a></h4>
+<p>먼저 generated SH의 방향을 변환하면,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>즉 crystal coordinate에서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\hat{\mathbf{k}}_{2\omega,\mathrm{crys}}
+=
+\begin{pmatrix}
+0\\
+-\sin\theta\\
+\cos\theta
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>이다.</p>
+<p>따라서 <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span>는 crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane 안에 있고, <span class="math notranslate nohighlight">\(Z\)</span> axis와 <span class="math notranslate nohighlight">\(\theta\)</span>의 각을 이룬다.<br />
+또한 <span class="math notranslate nohighlight">\(X\)</span> component가 0이고 <span class="math notranslate nohighlight">\(Y&lt;0\)</span>이므로 이 orientation은</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ
+\]</div>
+<p>에 해당한다.</p>
+<p>두 fundamental beam에 대해서도</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta-\gamma)\\
+\cos(\theta-\gamma)
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+0\\
+-\sin(\theta+\gamma)\\
+\cos(\theta+\gamma)
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 <span class="math notranslate nohighlight">\(\mathbf{k}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{k}_2\)</span>, <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span> 및 optic axis <span class="math notranslate nohighlight">\(Z\)</span>는 모두 crystal <span class="math notranslate nohighlight">\(YZ\)</span> mirror plane 안에 있다.</p>
+</section>
+<hr class="docutils" />
+<section id="fundamental-polarization-crystal-x-ordinary-polarization">
+<h4>6.2.4 Fundamental polarization은 crystal <span class="math notranslate nohighlight">\(X\)</span> 방향의 ordinary polarization<a class="headerlink" href="#fundamental-polarization-crystal-x-ordinary-polarization" title="Permalink to this heading">#</a></h4>
+<p>laboratory frame에서 두 fundamental field는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{1,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix},
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{E}_{2,\mathrm{lab}}
+=
+E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>crystal frame으로 변환하면</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E}_{m,\mathrm{crys}}
+=
+R^T\mathbf{E}_{m,\mathrm{lab}}.
+\]</div>
+<p>여기서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R^T
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{1,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>및</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{E}_{2,\mathrm{crys}}
+=
+-E_y
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>즉 laboratory에서는 <span class="math notranslate nohighlight">\(y\)</span>-polarized beam이지만, Eq. (15)의 crystal coordinate에서는 <strong><span class="math notranslate nohighlight">\(X\)</span>-polarized beam</strong>이다.</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+E_{X,\mathrm{crys}}=-E_y,
+\qquad
+E_{Y,\mathrm{crys}}=E_{Z,\mathrm{crys}}=0.
+}
+\]</div>
+<p>부호 <span class="math notranslate nohighlight">\(-\)</span>는 SHG의 <span class="math notranslate nohighlight">\(E_X^2\)</span>에서는 사라진다.</p>
+<p>또한 ordinary polarization은 <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>와 optic axis <span class="math notranslate nohighlight">\(Z\)</span>가 만드는 principal plane에 수직이다.<br />
+현재 principal plane이 crystal <span class="math notranslate nohighlight">\(YZ\)</span> plane이므로 ordinary polarization은 정확히 crystal <span class="math notranslate nohighlight">\(X\)</span> 방향이다.</p>
+<p>이것이 6.1절의 잘못된 coordinate identification과 가장 중요한 차이이다.</p>
+</section>
+<hr class="docutils" />
+<section id="crystal-frame-cross-term-contracted-vector">
+<h4>6.2.5 Crystal frame에서 cross-term contracted vector<a class="headerlink" href="#crystal-frame-cross-term-contracted-vector" title="Permalink to this heading">#</a></h4>
+<p>두 field의 <span class="math notranslate nohighlight">\(X\)</span> component 곱은</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+(-E_y)(-E_y)
+e^{ik_\omega(\cos\gamma\,z+\sin\gamma\,x)}
+e^{ik_\omega(\cos\gamma\,z-\sin\gamma\,x)}.
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+E_{1X}E_{2X}
+=
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+<p>전체 field의 제곱에서 cross term은</p>
+<div class="math notranslate nohighlight">
+\[
+(E_{1X}+E_{2X})^2
+\supset
+2E_{1X}E_{2X}
+\]</div>
+<p>이므로,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{q}_{12,\mathrm{crys}}
+=
+2E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>즉 실제 Type-I orientation에서는 <span class="math notranslate nohighlight">\(d\)</span> matrix의 <strong>두 번째 column이 아니라 첫 번째 column</strong>이 선택된다.</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-d-matrix">
+<h4>6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrix 적용<a class="headerlink" href="#bbo-d-matrix" title="Permalink to this heading">#</a></h4>
+<p>Eq. (15)의 BBO matrix는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{d}_{\mathrm{BBO}}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 cross-term nonlinear polarization은</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+2\varepsilon_0
+\mathbf{d}_{\mathrm{BBO}}
+\mathbf{q}_{12,\mathrm{crys}}.
+\]</div>
+<p>즉,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; d_{15} &amp; -d_{22}\\
+-d_{22} &amp; d_{22} &amp; 0 &amp; d_{15} &amp; 0 &amp; 0\\
+d_{31} &amp; d_{31} &amp; d_{33} &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>첫 번째 column만 남으므로,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>따라서 crystal coordinate에서</p>
+<div class="math notranslate nohighlight">
+\[
+P_X^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Y^{(2)}
+=
+-4\varepsilon_0 d_{22}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_Z^{(2)}
+=
+4\varepsilon_0 d_{31}
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="nonlinear-polarization-laboratory-frame">
+<h4>6.2.7 Nonlinear polarization을 laboratory frame으로 회전<a class="headerlink" href="#nonlinear-polarization-laboratory-frame" title="Permalink to this heading">#</a></h4>
+<p>laboratory frame에서는</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+R
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}.
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+0 &amp; \cos\theta &amp; \sin\theta\\
+-1 &amp; 0 &amp; 0\\
+0 &amp; -\sin\theta &amp; \cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>행렬곱을 수행하면,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{lab}}^{(2)}
+=
+4\varepsilon_0
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+\begin{pmatrix}
+-d_{22}\cos\theta+d_{31}\sin\theta\\
+0\\
+d_{22}\sin\theta+d_{31}\cos\theta
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>즉</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+P_x^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{31}\sin\theta-d_{22}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}
+}
+\]</div>
+<p>이고,</p>
+<div class="math notranslate nohighlight">
+\[
+P_y^{(2)}=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_z^{(2)}
+=
+4\varepsilon_0
+\left(
+d_{22}\sin\theta+d_{31}\cos\theta
+\right)
+E_y^2
+e^{i2k_\omega\cos\gamma\,z}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="extraordinary-sh-effective-nonlinear-coefficient">
+<h4>6.2.8 Extraordinary SH에 결합하는 effective nonlinear coefficient<a class="headerlink" href="#extraordinary-sh-effective-nonlinear-coefficient" title="Permalink to this heading">#</a></h4>
+<p>generated SH는 laboratory <span class="math notranslate nohighlight">\(z\)</span> 방향으로 진행하고, optic axis는 laboratory <span class="math notranslate nohighlight">\(xz\)</span> plane 안에 있다.</p>
+<p>따라서 Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span>의 extraordinary output polarization basis는 laboratory <span class="math notranslate nohighlight">\(x\)</span> 방향으로 둘 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>이를 crystal coordinate로 변환하면</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{crys}}
+=
+R^T
+\hat{\mathbf{e}}_{2\omega,e}^{\mathrm{lab}}
+=
+\begin{pmatrix}
+0\\
+\cos\theta\\
+\sin\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서 crystal-frame nonlinear polarization과의 projection은</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+d_{\mathrm{eff}}
+=
+\begin{pmatrix}
+0&amp;
+\cos\theta&amp;
+\sin\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>결과적으로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta.
+}
+\]</div>
+<p>이 식은 <span class="math notranslate nohighlight">\(3m\)</span> crystal의 일반적인 Type-I 식</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta\sin3\phi
+\]</div>
+<p>에</p>
+<div class="math notranslate nohighlight">
+\[
+\phi=-90^\circ
+\]</div>
+<p>를 적용한 표준 BBO convention과 일치한다.<br />
+단, 문헌마다 <span class="math notranslate nohighlight">\(X,Y\)</span> axis의 부호 및 <span class="math notranslate nohighlight">\(d_{22}\)</span>의 부호 convention이 다를 수 있으므로, 식의 전체 부호보다 <strong>동일한 axis convention을 끝까지 유지하는 것</strong>이 중요하다.</p>
+<p>또한 더 정밀한 계산에서 spatial walk-off angle <span class="math notranslate nohighlight">\(\rho\)</span>까지 포함하면 표준 표현은 대략</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin(\theta+\rho)
+-
+d_{22}\cos(\theta+\rho)
+\]</div>
+<p>형태가 된다.</p>
+</section>
+<hr class="docutils" />
+<section id="d-22-d-31">
+<h4>6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span>와 <span class="math notranslate nohighlight">\(d_{31}\)</span>의 수치를 사용할 때의 주의<a class="headerlink" href="#d-22-d-31" title="Permalink to this heading">#</a></h4>
+<p>제조사나 데이터시트에서</p>
+<div class="math notranslate nohighlight">
+\[
+|d_{22}|
+\simeq
+2.2\ \mathrm{pm/V},
+\qquad
+|d_{31}|
+\simeq
+0.08\ \mathrm{pm/V}
+\]</div>
+<p>처럼 주어지는 값은 흔히 <strong>magnitude</strong>로 해석해야 한다.</p>
+<p>표준 BBO axis convention에서는 <span class="math notranslate nohighlight">\(d_{22}\)</span>와 <span class="math notranslate nohighlight">\(d_{31}\)</span>의 상대 부호까지 일관되게 사용해야 한다.</p>
+<p>예를 들어</p>
+<div class="math notranslate nohighlight">
+\[
+d_{31}=+0.08\ \mathrm{pm/V},
+\qquad
+d_{22}=-2.2\ \mathrm{pm/V}
+\]</div>
+<p>라는 부호 convention을 선택하면,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}
+=
+0.08\sin\theta
++
+2.2\cos\theta.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\theta=29.2^\circ\)</span>이면</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}
+\simeq
+1.96\ \mathrm{pm/V}.
+}
+\]</div>
+<p>반대로 모든 crystal-axis sign convention을 뒤집으면 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 전체 부호가 바뀔 수 있지만, SHG conversion efficiency는</p>
+<div class="math notranslate nohighlight">
+\[
+I_{2\omega}\propto |d_{\mathrm{eff}}|^2
+\]</div>
+<p>에 의존하므로 observable intensity는 변하지 않는다.</p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h4>6.2.10 6.1절과의 차이<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<p>6.1절에서는 잘못된 가정</p>
+<div class="math notranslate nohighlight">
+\[
+y_{\mathrm{lab}}
+\equiv
+Y_{\mathrm{crys}}
+\]</div>
+<p>을 사용했기 때문에 <span class="math notranslate nohighlight">\(d\)</span> matrix의 두 번째 column을 선택하여</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+d_{22}\\
+d_{31}
+\end{pmatrix}
+\end{split}\]</div>
+<p>을 얻었다.</p>
+<p>그러나 실제 Type-I BBO의 표준 orientation에서는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+y_{\mathrm{lab}}
+\parallel
+X_{\mathrm{crys}}
+}
+\]</div>
+<p>이고, 현재의 right-handed <span class="math notranslate nohighlight">\(\phi=-90^\circ\)</span> convention에서는 구체적으로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\hat{\mathbf{X}}
+=
+-\hat{\mathbf{y}}.
+}
+\]</div>
+<p>따라서 실제 cross-term은 <span class="math notranslate nohighlight">\(d\)</span> matrix의 첫 번째 column을 사용하며,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\mathbf{P}_{12,\mathrm{crys}}^{(2)}
+\propto
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+}
+\end{split}\]</div>
+<p>이를 laboratory frame으로 회전하고 extraordinary output에 projection하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta
+}
+\]</div>
+<p>를 얻는다.</p>
+<p>즉 6.1절의 핵심 오류는 단순히 optic axis가 기울어져 있다는 사실을 무시한 것뿐 아니라,<br />
+<strong>laboratory <span class="math notranslate nohighlight">\(y\)</span>-polarization을 crystal <span class="math notranslate nohighlight">\(Y\)</span> component로 잘못 해석했다는 것</strong>이다.</p>
+<p>표준 Type-I BBO에서는 laboratory <span class="math notranslate nohighlight">\(y\)</span>-polarization이 crystal <span class="math notranslate nohighlight">\(X\)</span> ordinary polarization에 대응한다.</p>
+<hr class="docutils" />
+<p>참고: M. Bache, H. Guo, B. Zhou, and X. Zeng, <em>The anisotropic Kerr nonlinear refractive index of the beta-barium borate (BBO) nonlinear crystal</em>, arXiv:1209.3158. 이 문헌은 BBO의 crystal coordinate를 <span class="math notranslate nohighlight">\(XYZ\)</span>, beam coordinate를 <span class="math notranslate nohighlight">\(xyz\)</span>로 구분하고, Type-I <span class="math notranslate nohighlight">\(oo\rightarrow e\)</span>의 최적 cut을 <span class="math notranslate nohighlight">\(\phi=-\pi/2\)</span>로 기술한다.</p>
+</section>
+</section>
+<section id="non-collinear-crossing-angle-gamma-phase-matching-angle-theta-d-mathrm-eff-ooe">
+<h3>6.3 Non-collinear crossing angle <span class="math notranslate nohighlight">\(\gamma\)</span>, phase-matching angle <span class="math notranslate nohighlight">\(\theta\)</span>, 그리고 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 관계<a class="headerlink" href="#non-collinear-crossing-angle-gamma-phase-matching-angle-theta-d-mathrm-eff-ooe" title="Permalink to this heading">#</a></h3>
+<p>이 절부터 기호는 다음과 같이 정의한다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>: crystal <strong>내부</strong>에서 두 fundamental beam이 angle bisector와 이루는 half-crossing angle</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span>: generated <span class="math notranslate nohighlight">\(2\omega\)</span> wave vector <span class="math notranslate nohighlight">\(\mathbf{k}_{2\omega}\)</span>와 BBO optic axis 사이의 각</p></li>
+</ul>
+<p>즉,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\gamma
+=
+\text{internal half-crossing angle}
+}
+\]</div>
+<p>이고,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\theta
+=
+\angle(\mathbf{k}_{2\omega},\text{optic axis})
+}
+\]</div>
+<p>이다.</p>
+<p>현재 Type-I process는</p>
+<div class="math notranslate nohighlight">
+\[
+o(\omega)+o(\omega)\rightarrow e(2\omega)
+\]</div>
+<p>이다.</p>
+<hr class="docutils" />
+<section id="vector-phase-matching-gamma-n-e-mathrm-eff">
+<h4>6.3.1 Vector phase matching이 <span class="math notranslate nohighlight">\(\gamma\)</span>와 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>를 연결한다<a class="headerlink" href="#vector-phase-matching-gamma-n-e-mathrm-eff" title="Permalink to this heading">#</a></h4>
+<p>대칭적인 non-collinear geometry에서 두 fundamental wave vector는</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{k}_1
+=
+k_\omega
+\begin{pmatrix}
+\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix},
+\qquad
+\mathbf{k}_2
+=
+k_\omega
+\begin{pmatrix}
+-\sin\gamma\\
+0\\
+\cos\gamma
+\end{pmatrix}.
+\end{split}\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{k}_1+\mathbf{k}_2
+=
+2k_\omega\cos\gamma
+\begin{pmatrix}
+0\\
+0\\
+1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>vector phase matching은</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\mathbf{k}_{2\omega}
+=
+\mathbf{k}_1+\mathbf{k}_2
+}
+\]</div>
+<p>를 요구하므로,</p>
+<div class="math notranslate nohighlight">
+\[
+k_{2\omega}
+=
+2k_\omega\cos\gamma.
+\]</div>
+<p>ordinary fundamental과 extraordinary SH의 wave number는 각각</p>
+<div class="math notranslate nohighlight">
+\[
+k_\omega
+=
+\frac{2\pi}{\lambda_\omega}n_o(\omega)
+\]</div>
+<p>및</p>
+<div class="math notranslate nohighlight">
+\[
+k_{2\omega}
+=
+\frac{2\pi}{\lambda_\omega/2}
+n_{e,\mathrm{eff}}(2\omega,\theta)
+\]</div>
+<p>이다.</p>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{2\pi}{\lambda_\omega/2}
+n_{e,\mathrm{eff}}(2\omega,\theta)
+=
+\frac{4\pi}{\lambda_\omega}
+n_o(\omega)\cos\gamma.
+\]</div>
+<p>양변에서 <span class="math notranslate nohighlight">\(4\pi/\lambda_\omega\)</span>를 소거하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+n_{e,\mathrm{eff}}(2\omega,\theta)
+=
+n_o(\omega)\cos\gamma
+}
+\]</div>
+<p>를 얻는다.</p>
+<p>즉 crossing angle <span class="math notranslate nohighlight">\(\gamma\)</span>를 정하면 phase matching을 만족시키기 위해 필요한 extraordinary effective refractive index가 결정된다.</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-birefringence-n-e-mathrm-eff-theta">
+<h4>6.3.2 BBO birefringence가 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>와 <span class="math notranslate nohighlight">\(\theta\)</span>를 연결한다<a class="headerlink" href="#bbo-birefringence-n-e-mathrm-eff-theta" title="Permalink to this heading">#</a></h4>
+<p>BBO의 extraordinary wave가 optic axis와 <span class="math notranslate nohighlight">\(\theta\)</span>의 각을 이룰 때 effective extraordinary refractive index는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{1}{n_{e,\mathrm{eff}}^2(2\omega,\theta)}
+=
+\frac{\cos^2\theta}{n_o^2(2\omega)}
++
+\frac{\sin^2\theta}{n_e^2(2\omega)}
+}
+\]</div>
+<p>로 주어진다.</p>
+<p>앞에서 얻은</p>
+<div class="math notranslate nohighlight">
+\[
+n_{e,\mathrm{eff}}(2\omega,\theta)
+=
+n_o(\omega)\cos\gamma
+\]</div>
+<p>를 대입하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{1}{n_o^2(\omega)\cos^2\gamma}
+=
+\frac{\cos^2\theta}{n_o^2(2\omega)}
++
+\frac{\sin^2\theta}{n_e^2(2\omega)}
+}
+\]</div>
+<p>가 된다.</p>
+<p>이 식이 <span class="math notranslate nohighlight">\(\gamma\)</span>와 <span class="math notranslate nohighlight">\(\theta\)</span>를 직접 연결하는 phase-matching equation이다.</p>
+<p>이를 <span class="math notranslate nohighlight">\(\theta\)</span>에 대해 풀면,</p>
+<div class="math notranslate nohighlight">
+\[
+\sin^2\theta
+=
+\frac{
+\dfrac{1}{n_o^2(\omega)\cos^2\gamma}
+-
+\dfrac{1}{n_o^2(2\omega)}
+}{
+\dfrac{1}{n_e^2(2\omega)}
+-
+\dfrac{1}{n_o^2(2\omega)}
+}.
+\]</div>
+<p>따라서</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\theta(\gamma)
+=
+\sin^{-1}
+\sqrt{
+\frac{
+\dfrac{1}{n_o^2(\omega)\cos^2\gamma}
+-
+\dfrac{1}{n_o^2(2\omega)}
+}{
+\dfrac{1}{n_e^2(2\omega)}
+-
+\dfrac{1}{n_o^2(2\omega)}
+}
+}
+}
+\]</div>
+<p>이다.</p>
+<p>즉 물리적 흐름은</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\gamma
+\longrightarrow
+n_{e,\mathrm{eff}}
+\longrightarrow
+\theta
+}
+\]</div>
+<p>이다.</p>
+</section>
+<hr class="docutils" />
+<section id="theta-d-mathrm-eff-ooe">
+<h4>6.3.3 <span class="math notranslate nohighlight">\(\theta\)</span>가 결정되면 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>가 결정된다<a class="headerlink" href="#theta-d-mathrm-eff-ooe" title="Permalink to this heading">#</a></h4>
+<p>앞 절에서 얻은 Type-I BBO의 effective nonlinear coefficient는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta
+}
+\]</div>
+<p>이다.</p>
+<p>따라서 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>에는 <span class="math notranslate nohighlight">\(\gamma\)</span>가 직접 나타나지 않지만, 실제로는 phase matching을 통해</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=\theta(\gamma)
+\]</div>
+<p>가 되므로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{\mathrm{eff}}^{ooe}\bigl(\theta(\gamma)\bigr)
+}
+\]</div>
+<p>이다.</p>
+<p>즉 전체 관계는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\gamma
+\xrightarrow{\text{vector phase matching}}
+n_{e,\mathrm{eff}}
+\xrightarrow{\text{BBO birefringence}}
+\theta
+\xrightarrow{\text{tensor projection}}
+d_{\mathrm{eff}}^{ooe}
+}
+\]</div>
+<p>로 이해할 수 있다.</p>
+<p>특히 collinear case에서는</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma=0
+\]</div>
+<p>이므로</p>
+<div class="math notranslate nohighlight">
+\[
+n_{e,\mathrm{eff}}(2\omega,\theta)
+=
+n_o(\omega)
+\]</div>
+<p>가 된다.</p>
+<p>반면 <span class="math notranslate nohighlight">\(\gamma&gt;0\)</span>이면</p>
+<div class="math notranslate nohighlight">
+\[
+n_{e,\mathrm{eff}}(2\omega,\theta)
+=
+n_o(\omega)\cos\gamma
+&lt;
+n_o(\omega),
+\]</div>
+<p>이므로 BBO와 같은 negative-uniaxial crystal에서는 phase matching을 위해 필요한 <span class="math notranslate nohighlight">\(\theta\)</span>가 collinear case보다 이동한다.</p>
+<p>따라서 non-collinear crossing angle의 변화는 단순히 SH propagation direction만 바꾸는 것이 아니라,</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma
+\rightarrow
+\theta
+\rightarrow
+d_{\mathrm{eff}}^{ooe}
+\]</div>
+<p>를 통해 실제 nonlinear coupling strength에도 간접적으로 영향을 준다.</p>
+</section>
+</section>
+<section id="d-mathrm-eff-ooe">
+<h3>6.4 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 물리적 의미<a class="headerlink" href="#d-mathrm-eff-ooe" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>는 한마디로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{두 ordinary fundamental wave가 extraordinary SH mode를 실제로 구동하는 유효 비선형 결합계수}
+}
+\]</div>
+<p>이다.</p>
+<hr class="docutils" />
+<section id="d-ijk-d-mathrm-eff">
+<h4>6.4.1 <span class="math notranslate nohighlight">\(d_{ijk}\)</span>와 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 차이<a class="headerlink" href="#d-ijk-d-mathrm-eff" title="Permalink to this heading">#</a></h4>
+<p>결정의 second-order nonlinearity는 본래 하나의 scalar가 아니라 third-rank tensor이다.</p>
+<div class="math notranslate nohighlight">
+\[
+P_i^{(2)}
+=
+2\varepsilon_0
+\sum_{jk}
+d_{ijk}E_jE_k.
+\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(d_{ijk}\)</span>는 crystal coordinate에서 정의된 결정 고유의 nonlinear tensor component이다.</p>
+<p>그러나 실제 SHG 실험에서는 생성되는 모든 nonlinear polarization component가 관측하려는 <span class="math notranslate nohighlight">\(2\omega\)</span> mode를 동일하게 구동하는 것은 아니다.</p>
+<p>입력 fundamental polarization unit vector를</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf e}_{\omega,1},
+\qquad
+\hat{\mathbf e}_{\omega,2}
+\]</div>
+<p>라 하고, 생성되는 SH mode의 polarization unit vector를</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf e}_{2\omega}
+\]</div>
+<p>라 하면 effective nonlinear coefficient는 개념적으로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}
+=
+\sum_{ijk}
+e_{2\omega,i}
+d_{ijk}
+e_{\omega,1,j}
+e_{\omega,2,k}
+}
+\]</div>
+<p>로 쓸 수 있다.</p>
+<p>즉 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는 전체 <span class="math notranslate nohighlight">\(d\)</span> tensor를 실제 입력·출력 polarization 방향에 projection하여 얻은 scalar coupling coefficient이다.</p>
+</section>
+<hr class="docutils" />
+<section id="ooe">
+<h4>6.4.2 위첨자 <span class="math notranslate nohighlight">\(ooe\)</span>의 의미<a class="headerlink" href="#ooe" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+\]</div>
+<p>에서 <span class="math notranslate nohighlight">\(ooe\)</span>는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+o(\omega)+o(\omega)\rightarrow e(2\omega)
+}
+\]</div>
+<p>를 의미한다.</p>
+<p>즉 두 fundamental wave는 ordinary polarization이고, 생성되는 second harmonic은 extraordinary polarization이다.</p>
+<p>따라서 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>는 BBO의 전체 nonlinear tensor 중에서</p>
+<div class="math notranslate nohighlight">
+\[
+o+o\rightarrow e
+\]</div>
+<p>process에 실제로 기여하는 부분만 뽑아낸 scalar이다.</p>
+</section>
+<hr class="docutils" />
+<section id="bbo-geometry">
+<h4>6.4.3 현재 BBO geometry에서는 왜<a class="headerlink" href="#bbo-geometry" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta-d_{22}\cos\theta
+\]</div>
+<p>가 되는가?</p>
+<p>현재 crystal coordinate에서 두 ordinary fundamental beam은 <span class="math notranslate nohighlight">\(X\)</span>-polarized이고, 두 field가 만드는 nonlinear polarization은</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{P}_{\mathrm{NL}}^{\mathrm{crys}}
+\propto
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>한편 generated extraordinary SH의 polarization은 crystal <span class="math notranslate nohighlight">\(YZ\)</span> plane 안에 있으며,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf e}_{2\omega,e}
+=
+\begin{pmatrix}
+0\\
+\cos\theta\\
+\sin\theta
+\end{pmatrix}
+\end{split}\]</div>
+<p>로 쓸 수 있다.</p>
+<p>따라서 extraordinary SH를 실제로 구동하는 nonlinear polarization은 이 두 벡터의 projection이다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf e}_{2\omega,e}^{\,T}
+\mathbf{P}_{\mathrm{NL}}^{\mathrm{crys}}
+\propto
+\begin{pmatrix}
+0&amp;
+\cos\theta&amp;
+\sin\theta
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-d_{22}\\
+d_{31}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>그러므로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta
+-
+d_{22}\cos\theta
+}
+\]</div>
+<p>를 얻는다.</p>
+<p>즉 이 식은 본질적으로 <strong>tensor-generated nonlinear polarization을 extraordinary output polarization 방향으로 projection한 결과</strong>이다.</p>
+</section>
+<hr class="docutils" />
+<section id="d-22-d-31-d-mathrm-eff">
+<h4>6.4.4 <span class="math notranslate nohighlight">\(d_{22}\)</span>, <span class="math notranslate nohighlight">\(d_{31}\)</span>과 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는 다른 물리량이다<a class="headerlink" href="#d-22-d-31-d-mathrm-eff" title="Permalink to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(d_{22}\)</span>와 <span class="math notranslate nohighlight">\(d_{31}\)</span>은 crystal coordinate에서 정의된 <strong>결정 자체의 tensor coefficient</strong>이다.</p>
+<p>반면 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{crystal tensor}
++
+\text{input polarization}
++
+\text{output polarization}
++
+\text{crystal orientation}
+}
+\]</div>
+<p>을 모두 반영한 유효 coupling coefficient이다.</p>
+<p>따라서 동일한 BBO crystal이라도 crystal orientation이 바뀌면 <span class="math notranslate nohighlight">\(d_{22}\)</span>나 <span class="math notranslate nohighlight">\(d_{31}\)</span> 자체는 변하지 않지만,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}
+\]</div>
+<p>는 변할 수 있다.</p>
+</section>
+<hr class="docutils" />
+<section id="d-mathrm-eff-shg-efficiency">
+<h4>6.4.5 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>가 SHG efficiency에 미치는 영향<a class="headerlink" href="#d-mathrm-eff-shg-efficiency" title="Permalink to this heading">#</a></h4>
+<p>Maxwell equation에서 generated <span class="math notranslate nohighlight">\(2\omega\)</span> field를 구동하는 source는 nonlinear polarization이다.</p>
+<p>개략적으로</p>
+<div class="math notranslate nohighlight">
+\[
+E_{2\omega}
+\propto
+P_{\mathrm{NL}}
+\propto
+d_{\mathrm{eff}}E_\omega^2.
+\]</div>
+<p>따라서 SH field amplitude는</p>
+<div class="math notranslate nohighlight">
+\[
+|E_{2\omega}|
+\propto
+|d_{\mathrm{eff}}|
+\]</div>
+<p>이고, intensity는</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+I_{2\omega}
+\propto
+|d_{\mathrm{eff}}|^2
+}
+\]</div>
+<p>에 비례한다.</p>
+<p>finite crystal length <span class="math notranslate nohighlight">\(L\)</span>과 phase mismatch <span class="math notranslate nohighlight">\(\Delta k\)</span>까지 포함하면 대표적으로</p>
+<div class="math notranslate nohighlight">
+\[
+I_{2\omega}
+\propto
+|d_{\mathrm{eff}}|^2
+L^2
+\operatorname{sinc}^2
+\left(
+\frac{\Delta kL}{2}
+\right)
+I_\omega^2
+\]</div>
+<p>형태가 된다.</p>
+<p>따라서 phase matching과 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는 서로 다른 역할을 한다.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta k=0\)</span>: crystal의 서로 다른 위치에서 생성된 SH가 위상적으로 계속 누적될 수 있는지를 결정</p></li>
+<li><p><span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>: 단위 길이당 nonlinear polarization이 얼마나 강하게 desired SH mode를 구동하는지를 결정</p></li>
+</ul>
+<p>즉 높은 SHG efficiency를 얻으려면</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{large }|d_{\mathrm{eff}}|
+\quad\text{and}\quad
+|\Delta k|\simeq0
+}
+\]</div>
+<p>가 동시에 필요하다.</p>
+</section>
+<hr class="docutils" />
+<section id="gamma-theta-d-mathrm-eff">
+<h4>6.4.6 <span class="math notranslate nohighlight">\(\gamma\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 최종 물리적 연결<a class="headerlink" href="#gamma-theta-d-mathrm-eff" title="Permalink to this heading">#</a></h4>
+<p>앞 절의 결과와 결합하면,</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma
+\]</div>
+<p>는 beam-crossing geometry를 결정하고,</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma
+\rightarrow
+n_{e,\mathrm{eff}}
+\rightarrow
+\theta
+\]</div>
+<p>를 통해 phase-matching crystal orientation을 결정한다.</p>
+<p>이 <span class="math notranslate nohighlight">\(\theta\)</span>는 동시에 extraordinary output polarization의 방향을 결정하므로,</p>
+<div class="math notranslate nohighlight">
+\[
+d_{\mathrm{eff}}^{ooe}
+=
+d_{31}\sin\theta-d_{22}\cos\theta
+\]</div>
+<p>도 결정된다.</p>
+<p>따라서 최종적으로</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\gamma
+\rightarrow
+\text{phase matching}
+\rightarrow
+\theta
+\rightarrow
+\text{output polarization projection}
+\rightarrow
+d_{\mathrm{eff}}^{ooe}
+}
+\]</div>
+<p>라는 연결관계를 갖는다.</p>
+<p>즉 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>는 <strong>phase-matching coefficient 자체가 아니라, phase-matched extraordinary SH mode에 nonlinear polarization이 얼마나 강하게 결합하는지를 나타내는 coefficient</strong>이다.</p>
+<p>또한 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 부호는 nonlinear polarization의 상대적인 phase를 나타낸다. 단일 SH intensity만 측정하면 <span class="math notranslate nohighlight">\(|d_{\mathrm{eff}}|^2\)</span>에 의해 부호가 사라지지만, 서로 다른 nonlinear pathway 간의 interference를 고려할 때에는 그 부호가 중요할 수 있다.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "z-labo/optics",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./kr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 비선형 분극</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 합주파수 및 차주파수 발생</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">3. 2차 주파수 혼합의 tensor 표현</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#times3-matrix">3.1 하나의 출력 편광에 대한 유용한 <span class="math notranslate nohighlight">\(3\times3\)</span> matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sfg-intrinsic-permutation-symmetry">3.2 서로 다른 주파수의 SFG에서 intrinsic permutation symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shg-contracted-notation">4. SHG의 contracted notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherent-beam-cross-term">4.1 같은 주파수의 두 coherent beam 사이의 cross term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beta-bbo-d-matrix">5. <span class="math notranslate nohighlight">\(\beta\)</span>-BBO: 결정 대칭과 <span class="math notranslate nohighlight">\(d\)</span> matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-shg-geometry">6. 대칭적인 non-collinear SHG geometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y-cross-term-nonlinear-polarization">6.1 두 <span class="math notranslate nohighlight">\(y\)</span>-편광 빔의 cross-term nonlinear polarization 유도</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-bbo-crystal-coordinate">6.2 실제 Type-I BBO의 crystal coordinate를 반영한 계산</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-coordinate">6.2.1 Laboratory coordinate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-crystal-coordinate-x-y-z">6.2.2 BBO crystal coordinate <span class="math notranslate nohighlight">\((X,Y,Z)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vector-crystal-frame">6.2.3 Wave vector를 crystal frame으로 변환</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-polarization-crystal-x-ordinary-polarization">6.2.4 Fundamental polarization은 crystal <span class="math notranslate nohighlight">\(X\)</span> 방향의 ordinary polarization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#crystal-frame-cross-term-contracted-vector">6.2.5 Crystal frame에서 cross-term contracted vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-d-matrix">6.2.6 BBO <span class="math notranslate nohighlight">\(d\)</span> matrix 적용</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-polarization-laboratory-frame">6.2.7 Nonlinear polarization을 laboratory frame으로 회전</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extraordinary-sh-effective-nonlinear-coefficient">6.2.8 Extraordinary SH에 결합하는 effective nonlinear coefficient</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31">6.2.9 <span class="math notranslate nohighlight">\(d_{22}\)</span>와 <span class="math notranslate nohighlight">\(d_{31}\)</span>의 수치를 사용할 때의 주의</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.10 6.1절과의 차이</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-collinear-crossing-angle-gamma-phase-matching-angle-theta-d-mathrm-eff-ooe">6.3 Non-collinear crossing angle <span class="math notranslate nohighlight">\(\gamma\)</span>, phase-matching angle <span class="math notranslate nohighlight">\(\theta\)</span>, 그리고 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 관계</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-phase-matching-gamma-n-e-mathrm-eff">6.3.1 Vector phase matching이 <span class="math notranslate nohighlight">\(\gamma\)</span>와 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>를 연결한다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-birefringence-n-e-mathrm-eff-theta">6.3.2 BBO birefringence가 <span class="math notranslate nohighlight">\(n_{e,\mathrm{eff}}\)</span>와 <span class="math notranslate nohighlight">\(\theta\)</span>를 연결한다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-d-mathrm-eff-ooe">6.3.3 <span class="math notranslate nohighlight">\(\theta\)</span>가 결정되면 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>가 결정된다</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mathrm-eff-ooe">6.4 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}^{ooe}\)</span>의 물리적 의미</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ijk-d-mathrm-eff">6.4.1 <span class="math notranslate nohighlight">\(d_{ijk}\)</span>와 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 차이</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ooe">6.4.2 위첨자 <span class="math notranslate nohighlight">\(ooe\)</span>의 의미</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbo-geometry">6.4.3 현재 BBO geometry에서는 왜</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-22-d-31-d-mathrm-eff">6.4.4 <span class="math notranslate nohighlight">\(d_{22}\)</span>, <span class="math notranslate nohighlight">\(d_{31}\)</span>과 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>는 다른 물리량이다</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-mathrm-eff-shg-efficiency">6.4.5 <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>가 SHG efficiency에 미치는 영향</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-theta-d-mathrm-eff">6.4.6 <span class="math notranslate nohighlight">\(\gamma\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(d_{\mathrm{eff}}\)</span>의 최종 물리적 연결</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By z-lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
